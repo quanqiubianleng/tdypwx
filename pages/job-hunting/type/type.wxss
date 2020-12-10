@@ -1,0 +1,96 @@
+/* pages/job-hunting/type/type.wxss */
+page{
+  background: #F5F5F5;
+}
+.box{
+  height: 270rpx;
+}
+.box image{
+  height: 100%;
+  width: 100%;
+}
+.Hot{
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #333;
+  /* background: red; */
+}
+.card{
+  width: 100%;
+  height: 300rpx;
+  background:#fff ;
+  margin-top: 30rpx;
+}
+
+.card-box{
+ height: 200rpx;
+ border-bottom: 1rpx #ddd solid;
+ 
+}
+
+.card-box-img{
+  height: 100%;
+  padding:20rpx 0rpx;
+}
+.card-box-img image{
+  width: 100%;
+  height: 100%;
+}
+.card-box-con{
+  height: 100%;
+  padding:20rpx 0rpx;
+}
+.card-box-con-te{
+  font-size:28rpx ;
+  color: #666F83;
+  text-align: left;
+  white-space: nowrap;/*内容超宽后禁止换行显示*/
+  overflow: hidden;/*超出部分隐藏*/
+  text-overflow:ellipsis;
+  margin-bottom:15rpx ;
+}
+.card-box-con-te-l{
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #333;
+
+}
+
+.card-box-con-te-l image{
+  position: relative;
+  float: right;
+  margin-right: 20rpx;
+  left: 10rpx;
+  width: 35rpx;
+  height: 35rpx;
+}
+.card-box-money{
+  height: 250rpx;
+}
+.card-box-money-img{
+  position: relative;
+  top:-250rpx;
+  z-index: 9999;
+  width: 100%;
+  height: 210rpx;
+}
+.card-box-money-img image{
+  width: 100%;
+  height: 100%;
+}
+.card-box-money-num{
+  margin:20rpx 0rpx;
+  color: red;
+  font-size: 26rpx;
+  font-weight: 600;
+  height: 210rpx;
+}
+.tags-box{
+  margin-top:20rpx ;
+}
+.tags{
+  height: 50rpx;
+  margin-right: 10rpx;
+}

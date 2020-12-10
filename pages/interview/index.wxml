@@ -1,0 +1,278 @@
+<!--pages/interview/index.wxml-->
+<view class='wraper'>
+  <view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-opt="li" data-current="0" bindtap="swichNav">基本信息</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-opt="lin" data-current="1" bindtap="swichNav">求职信息</view>
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-opt="lins" data-current="2" bindtap="swichNav">工作经历</view>
+  </view>
+  <view class='main'>
+    <form bindsubmit='submit'>
+    <scroll-view class='main-scroll'  scroll-into-view="{{toView}}" scroll-with-animation="true"  scroll-x="false" scroll-y="true"  bindscroll="bindscroll" style="height: 100%">
+        <van-col span="24" custom-class="form">
+            <van-col span="22" offset="1" custom-class="inpt" id="li">
+              <van-col span="5" custom-class="name">姓<text decode="{{true}}"
+                  space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>名：</van-col>
+              <van-col span="18" offset="1" custom-class="inp">
+                <input placeholder="请输入姓名" placeholder-class="{{roll==1?'roll':''}}" adjust-position="false" value="{{userName}}" id="userName" bindinput="userName" bindblur="userName" name="userName" class="Inp {{roll==1?'roll':''}}" />
+              </van-col>
+            </van-col>
+            <van-col span="22" offset="1" custom-class="inpt">
+              <van-col span="5" custom-class="name">身份证号：</van-col>
+              <van-col span="18" offset="1" custom-class="inp">
+                <input placeholder="请输入" adjust-position="false" placeholder-class="{{roll==4?'roll':''}}" id="identity" type="idcard" bindinput="identity" bindblur="identity"  value="{{identity}}" name="identity" class="Inp {{roll==4?'roll':''}}" />
+              </van-col>
+            </van-col>
+            <van-col span="22" offset="1" custom-class="inpt">
+              <van-col span="5" custom-class="name">户籍地址：</van-col>
+              <van-col span="18" offset="1" custom-class="inp">
+                <input placeholder="请输入" placeholder-class="{{roll==5?'roll':''}}" adjust-position="false" id="Nationality" value="{{Nationality}}" bindblur="Nationality" bindinput="Nationality" name="Nationality" class="Inp {{roll==5?'roll':''}}" />
+              </van-col>
+            </van-col>
+            <van-col span="22" offset="1" custom-class="inpt">
+              <van-col span="5" custom-class="name">出生日期：</van-col>
+              <van-col span="18" offset="1" custom-class="inp">
+                <picker mode="date" value="{{dates}}" start="" end="" bindchange="bindDateChange">
+                  <input placeholder="请选择出生时期" placeholder-class="{{roll==2?'roll':''}}" disabled="disabled" id="date" value="{{date}}" class="Inp {{roll==2?'roll':''}}" />
+                </picker>
+                <mp-icon class="iconOpen" icon="arrow" color="#C2C4CA" size="{{12}}"></mp-icon>
+              </van-col>
+            </van-col>
+            <van-col span="22" offset="1" custom-class="inpt">
+              <van-col span="5" custom-class="name">民<text decode="{{true}}"
+                  space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>族：</van-col>
+              <van-col span="18" offset="1" custom-class="inp">
+                <picker bindchange="Mingzu" value="{{Mingzuindex}}" range="{{Mingzu}}">
+                  <input class="Inp {{roll==3?'roll':''}}" placeholder-class="{{roll==3?'roll':''}}" disabled="disabled" placeholder="请选择" id="Mingzu" value="{{Mingzuindex}}"></input>
+                </picker>
+                <mp-icon class="iconOpen" icon="arrow" color="#C2C4CA" size="{{12}}"></mp-icon>
+              </van-col>
+            </van-col>
+            <van-col span="22" offset="1" custom-class="inpt">
+              <van-col span="5" custom-class="name">户口性质：</van-col>
+              <van-col span="18" offset="1" custom-class="inp">
+                <van-radio-group value="{{ nature }}" bind:change="nature">
+                  <van-radio  custom-class="radio" icon-size="28rpx" name="1">城镇</van-radio>
+                  <van-radio custom-class="radio" icon-size="28rpx" name="2">农村</van-radio>
+                </van-radio-group>
+              </van-col>
+            </van-col>
+            <van-col span="22" offset="1" custom-class="inpt">
+              <van-col span="5" custom-class="name">性<text decode="{{true}}"
+                  space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>别：</van-col>
+              <van-col span="18" offset="1" custom-class="inp">
+                <van-radio-group value="{{ sex }}" bind:change="onChange">
+                  <van-radio  custom-class="radio" icon-size="28rpx" name="1">男</van-radio>
+                  <van-radio custom-class="radio" icon-size="28rpx" name="2">女</van-radio>
+                </van-radio-group>
+              </van-col>
+            </van-col>
+            <van-col span="22" offset="1" custom-class="inpt">
+              <van-col span="5" custom-class="name">婚姻状况：</van-col>
+              <van-col span="18" offset="1" custom-class="inp">
+                <van-radio-group value="{{ marriage }}" bind:change="marriage">
+                  <van-radio  custom-class="radio" icon-size="28rpx" name="1">已婚</van-radio>
+                  <van-radio custom-class="radio" icon-size="28rpx" name="2">未婚</van-radio>
+                </van-radio-group>
+              </van-col>
+            </van-col>
+            <van-col span="22" offset="1" custom-class="inpt inpton">
+              <van-col span="5" custom-class="name">学<text decode="{{true}}"
+                  space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>历：</van-col>
+              <van-col span="18" offset="1" custom-class="inp">
+                <van-radio-group value="{{ education }}" bind:change="education">
+                  <van-radio  custom-class="radio" icon-size="28rpx" name="1">初中及以下</van-radio>
+                  <van-radio custom-class="radio" icon-size="28rpx" name="2">高中</van-radio>
+                  <van-radio custom-class="radio" icon-size="28rpx" name="3">中专及以上</van-radio>
+                </van-radio-group>
+              </van-col>
+            </van-col>
+        </van-col>
+        <van-col span="24" id="lint" custom-class="lin"></van-col>
+        <van-col span="24" custom-class="form">
+          <van-col span="22" offset="1" custom-class="inpt">
+            <van-col span="6" custom-class="name" id="lin">面试邀请码：</van-col>
+            <van-col span="17" offset="1" custom-class="inp">
+              <input placeholder="请输入" placeholder-class="{{roll==6?'roll':''}}" type="number" adjust-position="false" id="code" bindblur="code" bindinput="code" value="{{code}}" name="code" class="Inp {{roll==6?'roll':''}}" />
+            </van-col>
+          </van-col>
+          <van-col span="22" offset="1" custom-class="inpt" >
+            <van-col span="5" custom-class="name"  >联系电话：</van-col>
+            <van-col span="18" offset="1" custom-class="inp">
+              <input placeholder="请输入" adjust-position="false" placeholder-class="{{roll==7?'roll':''}}" id="userPhone" type="number" bindinput="userPhone" bindblur="userPhone" value="{{userPhone}}" name="userPhone" class="Inp {{roll==7?'roll':''}}" />
+            </van-col>
+          </van-col>
+          <van-col span="22" offset="1" custom-class="inpt">
+            <van-col span="6" custom-class="name">紧急联系人：</van-col>
+            <van-col span="17" offset="1" custom-class="inp">
+              <input placeholder="请输入" placeholder-class="{{roll==8?'roll':''}}" adjust-position="false" value="{{urgentName}}" id="urgentName" bindinput="urgentName" bindblur="urgentName" name="urgentName" class="Inp {{roll==8?'roll':''}}" />
+            </van-col>
+          </van-col>
+          <van-col span="22" offset="1" custom-class="inpt">
+            <van-col span="8" custom-class="name">紧急联系人电话：</van-col>
+            <van-col span="14" offset="1" custom-class="inp">
+              <input placeholder="请输入" adjust-position="false" placeholder-class="{{roll==9?'roll':''}}" type="number" value="{{urgentPhone}}" id="urgentPhone"   bindinput="urgentPhone" bindblur="urgentPhone" name="urgentPhone" class="Inp {{roll==9?'roll':''}}" />
+            </van-col>
+          </van-col>
+          <van-col span="22" offset="1" custom-class="inpt">
+            <van-col span="9" custom-class="name">与紧急联系人关系：</van-col>
+            <van-col span="14" offset="1" custom-class="inp">
+              <picker bindchange="onemergencycontact" value="{{onemergencycontact}}" range="{{onemergencycontact}}">
+                <input class="Inp {{roll==10?'roll':''}}" placeholder-class="{{roll==10?'roll':''}}" disabled="disabled" id="relation" placeholder="请选择" value="{{onemergencycontact[onemergencycontactindex]}}"></input>
+              </picker>
+              <mp-icon class="iconOpen" icon="arrow" color="#C2C4CA" size="{{12}}"></mp-icon>
+            </van-col>
+          </van-col>
+          <van-col span="22" offset="1" custom-class="inpt">
+            <van-col span="5" custom-class="name">有何技能：</van-col>
+            <van-col span="18" offset="1" custom-class="inp">
+               <van-col span="22" custom-class="inp-sel" wx:if="{{Skill.length<=0}}" bindtap="seleshow">请选择</van-col>
+               <van-col span="22" custom-class="inp-sel" bindtap="seleshow">
+                 <text wx:for="{{Skill}}" wx:for-item="item" wx:key="key">{{item}}</text>
+               </van-col>
+               <mp-icon class="iconOpen" icon="arrow" color="#C2C4CA" size="{{12}}"></mp-icon>
+            </van-col>
+          </van-col>
+          <van-col span="22" offset="1" custom-class="inpt">
+            <van-col span="5" custom-class="name">有无纹身：</van-col>
+            <van-col span="18" offset="1" custom-class="inp">
+              <van-radio-group value="{{ tattoo }}" bind:change="tattoo">
+                  <van-radio  custom-class="radio" icon-size="28rpx" name="1">无</van-radio>
+                  <van-radio custom-class="radio" icon-size="28rpx" name="2">有</van-radio>
+              </van-radio-group>
+            </van-col>
+          </van-col>
+          <van-col span="22" offset="1" custom-class="inpt">
+            <van-col span="5" custom-class="name">有无案底：</van-col>
+            <van-col span="18" offset="1" custom-class="inp">
+              <van-radio-group value="{{ bottom }}" bind:change="bottom">
+                  <van-radio  custom-class="radio" icon-size="28rpx" name="1">无</van-radio>
+                  <van-radio custom-class="radio" icon-size="28rpx" name="2">有</van-radio>
+              </van-radio-group>
+            </van-col>
+          </van-col>
+          <van-col span="22" offset="1" custom-class="inpt">
+            <van-col span="5" custom-class="name">有无残疾：</van-col>
+            <van-col span="18" offset="1" custom-class="inp">
+              <van-radio-group value="{{ deformity }}" bind:change="deformity">
+                  <van-radio  custom-class="radio" icon-size="28rpx" name="1">无</van-radio>
+                  <van-radio custom-class="radio" icon-size="28rpx" name="2">有</van-radio>
+              </van-radio-group>
+            </van-col>
+          </van-col>
+          <van-col span="22" offset="1" custom-class="inpt">
+            <van-col span="5" custom-class="name">贵阳住宿：</van-col>
+            <van-col span="18" offset="1" custom-class="inp">
+              <van-radio-group value="{{ stay }}" bind:change="stay">
+                  <van-radio  custom-class="radio" icon-size="28rpx" name="1">无</van-radio>
+                  <van-radio custom-class="radio" icon-size="28rpx" name="2">有</van-radio>
+              </van-radio-group>
+            </van-col>
+          </van-col>
+          <van-col span="22" offset="1" custom-class="inpt">
+            <van-col span="5" custom-class="name">工厂经验：</van-col>
+            <van-col span="18" offset="1" custom-class="inp">
+              <van-radio-group value="{{ experience }}" bind:change="experience">
+                  <van-radio  custom-class="radio" icon-size="28rpx" name="1">无</van-radio>
+                  <van-radio custom-class="radio" icon-size="28rpx" name="2">有</van-radio>
+              </van-radio-group>
+            </van-col>
+          </van-col>
+          <van-col span="22" offset="1" custom-class="inpt">
+            <van-col span="5" custom-class="name">应聘渠道：</van-col>
+            <van-col span="18" offset="1" custom-class="inp">
+              <van-radio-group value="{{ channel }}" bind:change="channel">
+                  <van-radio  custom-class="radio" icon-size="28rpx" name="1">58</van-radio>
+                  <van-radio custom-class="radio" icon-size="28rpx" name="2">BOSS</van-radio>
+                  <van-radio custom-class="radio" icon-size="28rpx" name="3">其他</van-radio>
+              </van-radio-group>
+            </van-col>
+          </van-col>
+          <van-col span="22" offset="1" custom-class="inpt">
+            <van-col span="6" custom-class="name">可入职时间：</van-col>
+            <van-col span="17" offset="1" custom-class="inp">
+              <van-radio-group value="{{ Entry }}" bind:change="Entry">
+                  <van-radio  custom-class="radio" icon-size="28rpx" name="1">当天</van-radio>
+                  <van-radio custom-class="radio" icon-size="28rpx" name="2">第二天</van-radio>
+                  <van-radio custom-class="radio" icon-size="28rpx" name="3">第三天</van-radio>
+              </van-radio-group>
+            </van-col>
+          </van-col>
+          <van-col span="22" offset="1" custom-class="inpt inpton">
+            <van-col span="7" custom-class="name">接受工作区域：</van-col>
+            <van-col span="16" offset="1" custom-class="inp">
+              <van-radio-group value="{{ wordarea }}" bind:change="wordarea">
+                  <van-radio  custom-class="radio" icon-size="28rpx" name="1">省内</van-radio>
+                  <van-radio custom-class="radio" icon-size="28rpx" name="2">省外</van-radio>
+                  <van-radio custom-class="radio" icon-size="28rpx" name="3">都可以</van-radio>
+              </van-radio-group>
+            </van-col>
+          </van-col>
+         
+        </van-col>
+        <van-col span="24" custom-class="lin" style="margin-bottom: 20rpx;border-bottom: 2rpx solid #333;"></van-col>
+        <van-col span="24"  custom-class="form  forms" >
+          <van-col span="22" offset="1" custom-class="item-top" id="lins">
+            <van-col span="21" custom-class="item-top-te" id="lints">添加工作经历</van-col>
+            <van-col span="3" custom-class="item-top-icn" bindtap="add"><van-icon color="#215BA2" size="42rpx" name="add-o" bindtap="add" /></van-col>
+          </van-col>
+          <van-col span="22" offset="1" custom-class="item-list" wx:for="{{lists}}" wx:key='key'>
+            <van-col span="24" >
+              <van-col span="24"  custom-class="item-con">
+                <van-col span="5" custom-class="item-con-list">起止时间:</van-col>
+                <van-col span="18" offset="1" custom-class="item-con-list">
+                  <view class="item-con-list-qtime">
+                    <picker mode="date" value="{{date2}}" start="" end="" data-idx="{{index}}" bindchange="bindDateChange2">
+                      <input placeholder="开始时间" disabled="disabled" data-idx='{{index}}' value='{{date2[index]}}' />
+                    </picker>
+                  </view>
+                  <view class="item-con-list-qtime"> 
+                    <picker mode="date" value="" start="" end="">
+                      <input value="-"   disabled="disabled" class="item-con-list-qtime-inp"/>
+                    </picker>
+                  </view>
+                  <view class="item-con-list-qtime">
+                    <picker mode="date" value="{{date3}}" start="{{date2[index]}}" end="" data-idx="{{index}}" bindchange="bindDateChange3">
+                      <input placeholder="结束时间" disabled="disabled" data-idx='{{index}}' value='{{date3[index]}}' />
+                    </picker>
+                  </view>
+                </van-col>
+              </van-col>
+              <van-col span="24"  custom-class="item-con">
+                <van-col span="6" custom-class="item-con-list">工作单位名称:</van-col>
+                <van-col span="17" offset="1" custom-class="item-con-list-inp">
+                  <input placeholder="请输入" adjust-position="false" data-idx='{{index}}' value='{{unitNmae[index]}}' bindinput="unitNmae" bindblur="unitNmae" />
+                </van-col>
+              </van-col>
+              <van-col span="24"  custom-class="item-con">
+                <van-col span="6" custom-class="item-con-list">职务（工种）:</van-col>
+                <van-col span="17" offset="1" custom-class="item-con-list-inp">
+                  <input placeholder="请输入" adjust-position="false" data-idx='{{index}}' value='{{post[index]}}' bindinput="post" bindblur="post"/>
+                </van-col>
+              </van-col>
+              <van-col span="24" custom-class="btn"><view data-idx='{{index}}' data-position_id="{{position_id[index]}}" bindtap="reduce">取消</view></van-col>
+            </van-col>
+          </van-col>
+        </van-col> 
+    </scroll-view>
+    <button  class="submit" style='display:{{display1}}' formType="submit" value="">确定提交</button>
+  </form>
+  </view>
+</view>
+<van-popup show="{{seleshow}}" position="bottom" closeable="true" bind:close="onClose" custom-style="height: 600rpx">
+  <van-col span="24" custom-class="skill">选择技能</van-col>
+  <van-col span="24" custom-class="skill-sele">
+      <van-col span="5" wx:for="{{GetSkill}}" wx:for-item="item" wx:key="index" bindtap="checkboxChange" data-value="{{item.name}}" data-id="{{item.id}}" data-index="{{index}}" checked="{{item.  selected}}" custom-class="btns {{item.selected ? 'btn-selected' : ''}}" >
+      {{item.name}}
+      </van-col>
+  </van-col>
+</van-popup>
+<view class="bg" style='display:{{display}}'></view>
+<view class="show"  style='display:{{display}}'>
+  <view class="show-diy">
+     <image src="/icons/clock.png"   class="show-img" wx:if="{{show==1}}"></image>
+     <image src="/icons/clock-del.png"  class="show-imgs" wx:if="{{show==0}}"></image>
+     <view class="show-tex">{{title}}</view>
+     <navigator open-type="exit" target="miniProgram" bindtap='hideviews' class="show-btn" wx:if="{{show==1}}">确定</navigator>
+     <view class="show-btns"  bindtap='hideview' wx:if="{{show==0}}">去完善</view>
+  </view>
+</view>

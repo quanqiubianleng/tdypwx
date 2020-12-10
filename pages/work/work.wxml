@@ -1,0 +1,33 @@
+<view class='wraper'>
+  <view class='header'>
+      <view class="banner">
+        <swiper class="swiper" indicator-dots="{{swiper.indicatorDots}}" indicator-color="{{swiper.indicatorColor}}"
+          indicator-active-color="{{swiper.indicatorActiveColor}}" autoplay="{{swiper.autoplay}}" circular="true">
+          <swiper-item wx:for="{{banner}}"  data-item="item" wx:key="key">
+            <image src="{{item.image}}" />
+          </swiper-item>
+        </swiper>
+      </view>
+    	<!-- 公告部分 -->
+    <van-col span="22" offset="1" custom-class="notice" wx:if="{{notice}}">
+      <van-notice-bar left-icon="../../icons/mag.png" text="{{notice}}" backgroundColor="#D7ECF5" color="#666" speed="25" delay="2000" bind:click="toExchange" />
+    </van-col>
+    <van-col span="22" offset="1" custom-class="toppos">工作中心</van-col>
+
+  </view>
+  <view class='main'>
+      <van-col span="24" custom-class='main-list'>
+        <van-col span="22" offset="1" custom-class="menu">
+          <van-col span="24" custom-class="menu-type" wx:for="{{navlist}}" wx:for-item="item" key="index">
+            <van-col span="22" offset="1" custom-class="menu-type-tetl">{{item.title}}</van-col>
+            <van-col span="24" custom-class="menu_container">
+              <navigator  url="{{nav.path}}" class="menu_item" wx:for="{{item.array[index]}}" wx:for-item="nav" key="indexx" >
+                <image class="menu_icon" src="{{nav.menuimage}}" />
+                <text class="menu_name">{{nav.title}}</text>
+              </navigator >
+            </van-col>
+          </van-col>
+        </van-col>
+      </van-col>
+  </view>
+</view>

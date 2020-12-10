@@ -1,0 +1,5 @@
+<!--packageB/about/policy/policy.wxml-->
+<van-col span="22" offset="1" custom-class="box">
+  <import src="/utils/wxParse/wxParse.wxml" />
+  <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+</van-col>

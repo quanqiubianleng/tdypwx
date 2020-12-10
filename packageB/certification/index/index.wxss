@@ -1,0 +1,61 @@
+/* packageB/certification/index/index.wxss */
+page{
+  background: #F5F5F5;
+}
+.box{
+  margin-top: 20rpx;
+  background: #fff;
+  padding-bottom: 20rpx;
+  
+}
+.box-ul{
+  margin-top: 25rpx;
+  border: 1rpx solid #ddd;
+  height: 250rpx;
+  margin-left: 5%;
+  padding: 25rpx 45rpx;
+  text-align: center;
+
+}
+.box-ul .box-img{
+  height: 150rpx;
+  width: 100%;
+}
+.box-ul .box-imgs{
+  height: 200rpx;
+  width: 100%;
+}
+.box-ul view{
+  font-size: 26rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  color: #999999;
+}
+.box-tel{
+  margin-top: 30rpx;
+
+}
+.tel{
+  font-size: 36rpx;
+  font-weight: 600;
+
+}
+.box-inc{
+  margin-top: 25rpx;
+  height: 200rpx;
+}
+.box-inc image{
+  width: 100%;
+  height: 100%;
+}
+.btn{
+  position: fixed;
+  bottom: 20rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+  letter-spacing: 1rpx;
+  background: #3B66B0;
+ 
+}

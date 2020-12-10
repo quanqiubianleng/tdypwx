@@ -1,0 +1,43 @@
+<!--packageC/billing/index/index.wxml-->
+<van-col span="24" offset="0" custom-class="box" wx:if="{{list.length>=1}}" wx:for="{{list}}" wx:for-item="it" wx:key="key" data-id="{{it.id}}" bindtap="details">
+  <van-col span="22" offset="1" custom-class="">
+    <van-col span="6" custom-class="box-img">
+      <image src="{{it.headimg}}" mode="scaleToFill"></image>
+    </van-col>
+    <van-col span="17"offset="1"custom-class="box-bill">
+      <van-col span="24" custom-class="box-bill-name">
+        <van-col span="12" custom-class="name">{{it.title}}</van-col>
+        <van-col span='11' offset="1" custom-class="num" wx:if="{{it.averagewage&&it.emolumentr}}">{{it.averagewage}}-{{it.emolumentr}}元/月</van-col>
+      </van-col>
+      <van-col span="24"custom-class="box-bill-type">
+        <van-col span="19" custom-class="type">企业类型：{{it.shoptype}}</van-col>
+        <van-col span="4" offset="1" custom-class="details">
+          <text>详情</text>
+        </van-col>
+      </van-col>
+      <van-col span="24"custom-class="tags">
+        <van-col span="22" custom-class="tags-box">
+          <van-tag custom-class="tags-list"  wx:for="{{it.welfare}}" wx:key="key"  max-count="3" plain color="#3B67B1" 
+            text-color="#3B67B1">{{item}}</van-tag>
+        </van-col>
+        
+      </van-col>
+    </van-col>
+    <van-col span="24"custom-class="cost" wx:if="{{it.etext}}">
+      {{it.etext}}
+      <!-- <van-col span="24"custom-class="cost-desc" wx:if="{{it.type==1}}">
+        <text wx:if="{{it.wunit}}">费用：{{it.wunit}}元;</text><text wx:if="{{it.listday}}">出单:{{it.listday}}天;</text><text wx:if="{{it.closeday!=null}};">结算：{{it.closeday}}天;</text><text wx:if="{{it.require}}">付款条件:{{it.require}}天</text>
+      </van-col>
+      <van-col span="24"custom-class="cost-desc" wx:if="{{it.type==2||it.type==3}}">
+        <text wx:if="{{it.hunit}}">{{it.hunit}}元/小时;</text><text wx:if="{{it.monthno}}">返{{it.monthno}}月</text>
+      </van-col>
+      <van-col span="24"custom-class="cost-desc" wx:if="{{it.type==4}}">
+        <text wx:if="{{it.sunit}}">{{it.sunit}}元/月;</text><text wx:if="{{it.monthno}}">返{{it.monthno}}月</text>
+      </van-col> -->
+    </van-col>
+  </van-col>
+  
+</van-col>
+<van-col span="22" offset="1" custom-class="null" wx:if="{{list.length<=0}}">
+  <image src="../../../icons/null.png"></image>
+</van-col>

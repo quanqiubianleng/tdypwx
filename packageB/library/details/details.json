@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "van-row":"../../../../dist/row/index",
+    "van-col":"../../../../dist/col/index",
+    "van-icon":"../../../dist/icon/index",
+    "van-tag":"../../../dist/tag/index"
+  },
+  "navigationBarTitleText": "详细信息",  
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh":true  
+}

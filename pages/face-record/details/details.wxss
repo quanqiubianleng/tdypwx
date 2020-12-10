@@ -1,0 +1,240 @@
+/* pages/face-record/details/details.wxss */
+page{
+  /* height: 100%; */
+  width: 100%;
+  margin: 0;
+  background: #F5F5F5;
+}
+.tops{
+  /* height:3200rpx; */
+  width: 100%;
+}
+.name{
+  font-size: 32rpx;
+  font-weight: 600;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.card{
+  background: #fff;
+  height: auto;
+  border-radius: 20rpx;
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
+  padding: 25rpx 50rpx 0rpx 50rpx;
+}
+.card-liat{
+  height: 50rpx;
+}
+.card-v{
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 26rpx;
+  color: #666666;
+  margin-right: 10rpx;
+}
+.card-view{
+  display: inline-block;
+  max-width: 300rpx;
+  overflow: hidden;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 26rpx;
+  color: #333;
+  
+}
+.card .image{
+  position: relative;
+  left: 25rpx;
+  top: -4rpx;
+}
+.fill-tpp{
+  margin-top: 20rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.cards{
+  background: #fff;
+  border-radius: 20rpx;
+  padding-bottom: 50rpx;
+  margin-bottom: 180rpx;
+}
+.cards-list-tetel{
+  padding-left: 50rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 30rpx;
+  color: #666;
+}
+.cards-list-inp{
+  font-size: 26rpx;
+  color: #333;
+  text-align: center;
+  z-index: 555;
+}
+.picker{
+  background: #F3FBFE;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.bottom{
+  position: fixed;
+  z-index: 92000;
+  bottom: 0rpx;
+  left: 0rpx;
+  height: 120rpx;
+}
+.bottom-red{
+  float: left;
+  width: 50%;
+  line-height: 120rpx;
+  font-size: 36rpx;
+  text-align: center;
+  color: #fff;
+  border-radius: 0;
+  background: #FF4E50;
+}
+.bottom-blue{
+  float: right;
+  width: 50%;
+  border-radius: 0;
+  line-height: 120rpx;
+  font-size: 36rpx;
+  text-align: center;
+  color: #fff;
+  background: #30B9EF;
+}
+.text{
+  width: 85%;
+  border-radius: 15rpx;
+  padding: 10rpx;
+  font-size: 26rpx;
+  margin-left: 50rpx;
+  min-height: 200rpx;
+  border: 1rpx solid #ddd;
+  text-align: left;
+  background: #fff;
+  margin-top: 20rpx;
+  color: #333;
+}
+.drop-down{
+  text-align: center;
+}
+.drop-down-box{
+  /* position: absolute;
+  top:30%;
+  left: 0%;
+  z-index: 999999;
+  height: 80%;
+  margin-top: 20rpx; */
+  background: #fff;
+}
+/* 下拉选择 */
+.select_box {
+  background: #F3FBFE;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 10rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: left;
+  position: relative;
+}
+
+.select {
+  box-sizing: border-box;
+  width: 100%;
+  height: 50rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+}
+
+.select_text {
+  font-size: 28rpx;
+  flex: 1;
+  color: #333;
+  line-height: 50rpx;
+  text-align: center;
+  height: 50rpx;
+}
+
+
+
+.select_img_rotate {
+  transform: rotate(180deg);
+}
+
+.option_box {
+  position: absolute;
+  z-index: 999999;
+  top: 50rpx;
+  width: 100%;
+  height: 60rpx;
+  overflow-y: auto;
+  border-top: 0;
+  background: #fff;
+  transition: height 0.3s;
+}
+
+.option {
+  display: block;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  background: #F3FBFE;
+  padding: 10rpx;
+  color: rgb(102, 102, 102);
+  font-size: 28rpx;
+}
+/* 工作经历 */
+.career{
+  margin-top: 20rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  height: 80rpx;
+  line-height: 80rpx
+}
+
+.career-box{
+  background: #fff;
+  border-radius: 20rpx;
+  padding-bottom: 20rpx;
+}
+.career-box-liat{
+  margin-top:20rpx ;
+  border-bottom: 1rpx #ddd solid;
+}
+.career-box-liat-bo{
+  margin-top:20rpx ;
+  border: none;
+}
+/* .career-box-liat:last-child{
+  border: none;
+} */
+.career-box-liat-li{
+  height: 50rpx;
+  text-align: left;
+  font-size: 26rpx;
+}
+.career-box-liat-li-qi{
+  height: 50rpx;
+  line-height: 50rpx;
+  color: #666666;
+}
+.career-box-liat-li-qi-ti{
+  height: 50rpx;
+  line-height: 50rpx;
+  color: #333;
+  overflow: hidden;
+}
+.zamwu{
+  margin-top: 20rpx;
+  text-align: center;
+  font-size: 26rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #666666;
+}

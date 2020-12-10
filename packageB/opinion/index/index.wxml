@@ -1,0 +1,32 @@
+<!--packageB/opinion/index/index.wxml-->
+<van-col span="24" offset=""  custom-class="box">
+  <van-col span="24" custom-class="box-list">
+    <van-col span="5" offset="1" custom-class="box-la"><text style="color:red">*</text>您的称呼</van-col>
+    <van-col span="16" offset="1"custom-class="box-inp"><input placeholder="请输入" bindblur="name" value="{{name}}" /></van-col>
+  </van-col>
+  <van-col span="24" custom-class="box-list">
+    <van-col span="7" offset="1" custom-class="box-la"><text style="color:red">*</text>您的联系电话</van-col>
+    <van-col span="14" offset="1"custom-class="box-inp"><input placeholder="请输入" bindblur="tel" value="{{tel}}" /></van-col>
+  </van-col>
+</van-col>
+<van-col span="24"custom-class="text">
+  <van-col span="22" offset="1" custom-class="text-tel"><text style="color:red">*</text>反馈内容</van-col>
+  <van-col span="22" offset="1" custom-class="text-text"><textarea placeholder="请输入您的宝贵意见，您的意见对我们的品台的优化有着很大的帮助！" bindblur="feedback"></textarea></van-col>
+</van-col>
+<van-col span="24" custom-class="text-inc">
+  <van-col span="22" offset="1" custom-class="text-tel">图片 <text>(非必填)</text></van-col>
+  <view class="picture_list">
+     <view wx:for="{{upload_picture_list}}" class="picture_item" wx:key="{{index}}">
+        <image wx:if="{{item.upload_percent < 100}}" src="{{item.path}}" mode="aspectFill"></image>
+        <image wx:if="{{item.upload_percent == 100}}" src="{{item.path_server}}" mode="aspectFill"></image>
+        <view class="upload_progress" wx:if="{{item.upload_percent < 100}}" data-index="{{index}}" bindtap="previewImg"></view>
+        <text class='del' bindtap='deleteImg' data-src='{{image}}' style='display:{{isDel}}' data-index="{{index}}">×</text>
+      </view> 
+     <view class='picture_item'>
+       <view class="add-image" bindtap='uploadpic'>
+         <text>+</text>
+       </view>
+    </view>
+   </view>
+</van-col>
+<van-col span="22"offset="1"custom-class="btn" bindtap="Feedback">提交意见</van-col>

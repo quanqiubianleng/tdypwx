@@ -1,0 +1,162 @@
+<view class="iman">
+
+  <view style="height:26vh" wx:if='{{typeid==1}}' wx:for="{{list}}" wx:key="{{item.id}}" wx:for-index="idx" >
+  <view class="card"  >
+        <view>
+            <view class="unsename">业务专员:{{item.pidname}} 申请跟踪客户 {{item.nidname}}</view>
+            <view class="czbut">
+            <view class="switch-type">
+                <view wx:if="{{item.status==0}}" class="btn1"  bindtap="operation" data-id='{{item.id}}' data-index='{{idx}}'>
+                设为已读</view>
+                <view wx:if="{{item.status!=2}}" class="btns1" bindtap="abandon" data-id='{{item.id}}' data-index='{{idx}}'>
+                删除通知</view>
+            </view>
+            </view>                      
+        </view>
+  </view>
+  <view class="stdatetime">
+  <text>{{item.dateymd}}</text>
+  </view>  
+  </view>
+
+
+
+
+
+  <view style="height:26vh" wx:if='{{typeid==2}}' wx:for="{{list}}" wx:key="{{item.id}}" wx:for-index="idx" >
+  <view class="card"  >
+        <view>
+            <view class="unsename">您所维护的客户：{{item.pidname}} 已经出发前往 {{item.shopname}}</view>
+            <view class="czbut">
+            <view class="switch-type">
+                <view wx:if="{{item.status==0}}" class="btn1"  bindtap="operation" data-id='{{item.id}}' data-index='{{idx}}'>
+                设为已读</view>
+                <view wx:if="{{item.status!=2}}" class="btns1" bindtap="abandon" data-id='{{item.id}}' data-index='{{idx}}'>
+                删除通知</view>
+            </view>
+            </view>                      
+        </view> 
+  </view>
+  <view class="stdatetime">
+  <text>{{item.dateymd}}</text>
+  </view>  
+  </view>
+
+
+  <view style="height:26vh" wx:if='{{typeid==3}}' wx:for="{{list}}" wx:key="{{item.id}}" wx:for-index="idx" >
+  <view class="card"  >
+        <view>
+            <view class="unsename">您所维护的客户：{{item.pidname}} 已入职 {{item.shopname}}</view>
+            <view class="czbut">
+            <view class="switch-type">
+                 <view wx:if="{{item.status==0}}" class="btn1"  bindtap="operation" data-id='{{item.id}}' data-index='{{idx}}'>
+                设为已读</view>
+                <view wx:if="{{item.status!=2}}" class="btns1" bindtap="abandon" data-id='{{item.id}}' data-index='{{idx}}'>
+                删除通知</view>
+            </view>
+            </view>                      
+        </view> 
+  </view>
+  <view class="stdatetime">
+  <text>{{item.dateymd}}</text>
+  </view>  
+  </view>
+
+  <view style="height:26vh"  wx:if='{{typeid==4}}' wx:for="{{list}}" wx:key="{{item.id}}" wx:for-index="idx">
+  <view class="card"  >
+        <view>
+            <view class="unsename">您所维护的客户：{{item.pidname}} 已从 {{item.shopname}}离职</view>
+            <view class="czbut">
+            <view class="switch-type">
+                 <view wx:if="{{item.status==0}}" class="btn1"  bindtap="operation" data-id='{{item.id}}' data-index='{{idx}}'>
+                设为已读</view>
+                <view wx:if="{{item.status!=2}}" class="btns1" bindtap="abandon" data-id='{{item.id}}' data-index='{{idx}}'>
+                删除通知</view>
+            </view>
+            </view>                      
+        </view> 
+  </view>
+  <view class="stdatetime">
+  <text>{{item.dateymd}}</text>
+  </view>  
+  </view>
+
+  <view style="height:26vh"  wx:if='{{typeid==5}}' wx:for="{{list}}" wx:key="{{item.id}}" wx:for-index="idx">
+  <view class="card"  >
+        <view>
+            <view class="unsename">您所维护的客户：{{item.pidname}} 已从 {{item.shopname}}转厂到{{item.shopsname}}</view>
+            <view class="czbut">
+            <view class="switch-type">
+                <view wx:if="{{item.status==0}}" class="btn1"  bindtap="operation" data-id='{{item.id}}' data-index='{{idx}}'>
+                设为已读</view>
+                <view wx:if="{{item.status!=2}}" class="btns1" bindtap="abandon" data-id='{{item.id}}' data-index='{{idx}}'>
+                删除通知</view>
+            </view>
+            </view>                      
+        </view> 
+  </view>
+
+  <view class="stdatetime">
+  <text>{{item.dateymd}}</text>
+  </view>  
+  </view>
+
+
+
+
+
+<view class='toast-box' hidden='{{!ifName1}}'>
+        <view class='toastbg'></view>
+        <view class='showToast'>
+            <view class='toast-title'>
+                <text>信息</text>
+            </view>
+            <view class='toast-main'>
+                <text>确定删除本通知？</text>              
+            </view>
+            <view class='toast-button'>
+                <view class='button2'>
+                    <button catchtap='abandonyse' style=" width: 30vw;">
+                    <text class="textcss">确定</text>
+                    </button>
+                </view>            
+                <view class='button1'>
+                    <button catchtap='abandonon'  style=" width: 30vw;">
+                    <text class="textcss">取消</text>
+                    </button>
+                </view>
+            </view>
+        </view>
+  </view>
+
+<view class='toast-box' hidden='{{!ifName2}}'>
+        <view class='toastbg'></view>
+        <view class='showToast'>
+            <view class='toast-title'>
+                <text>信息</text>
+            </view>
+            <view class='toast-main'>
+                <text>确定设置为已读？</text>              
+            </view>
+            <view class='toast-button'>
+                <view class='button2'>
+                    <button catchtap='abandonyse2' style=" width: 30vw;">
+                    <text class="textcss">确定</text>
+                    </button>
+                </view>            
+                <view class='button1'>
+                    <button catchtap='abandonon2'  style=" width: 30vw;">
+                    <text class="textcss">取消</text>
+                    </button>
+                </view>
+            </view>
+        </view>
+  </view>
+
+  <view wx:if='{{!list}}' style="width:100vw;position:relative;text-align:center">
+    <image style="width:320px;height:240px;position:relative" src="../../icons/null.png" />
+
+    <text style="left:40vw;position:absolute;top:35vh;color:#999999">暂无消息!</text>
+  </view>
+
+</view>

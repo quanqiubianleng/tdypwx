@@ -1,0 +1,106 @@
+<!--pages/clock/personal/personal.wxml-->
+<van-row>
+  <van-col span="24" offset="0" custom-class="top-col">
+    <van-col span="11" offset="1" custom-class="top-col-lf">
+      <view class="top-col-lf-name">王小兵</view>
+      <view class="top-col-lf-show">重庆安波福有限责任公司</view>
+    </van-col>
+    <van-col span="10" offset="1" custom-class="top-col-rf">
+        <view class="top-col-rf-ruz">入职时长</view>
+        <view class="top-col-rf-tian">43天</view>
+    </van-col>
+  </van-col>
+  <van-col span="22" offset="1" custom-class="card">
+    <van-col span="24" custom-class="card-month">八月考勤记录</van-col>
+    <van-col span="22" offset="1" custom-class="card-p">
+      <van-col span="8" custom-class="card-type">
+        <van-col span="24" custom-class="card-type-inc">
+          <image src="/icons/clock-1.png"></image><text>1</text>
+        </van-col>
+        <van-col span="24" custom-class="card-type-inc-tel">出勤天数</van-col>
+      </van-col>
+      <van-col span="8" custom-class="card-type">
+        <van-col span="24" custom-class="card-type-inc">
+          <image src="/icons/clock-3.png"></image><text>1</text>
+        </van-col>
+        <van-col span="24" custom-class="card-type-inc-tel">请假天数</van-col>
+      </van-col>
+      <van-col span="8" custom-class="card-type">
+        <van-col span="24" custom-class="card-type-inc">
+          <image src="/icons/clock-2.png"></image><text>1</text>
+        </van-col>
+        <van-col span="24" custom-class="card-type-inc-tel">请假天数</van-col>
+      </van-col>
+    </van-col>
+    
+  </van-col>
+</van-row>
+<van-row>
+  <van-col span="22" offset="1" custom-class="bot-surface">
+    <van-col span="24" custom-class="bot-surface-inc">
+      <van-col span="3" custom-class="bot-surface-inc-l"><image src="/icons/surface-l.png"></image></van-col>
+      <van-col span="16" offset="1" custom-class="bot-surface-inc-c">2020年8月考勤表</van-col>
+      <van-col span="3" offset="1" custom-class="bot-surface-inc-r"><image src="/icons/surface-r.png"></image></van-col>
+    </van-col>
+    <van-col span="24" custom-class="bot-surface-quan">
+      <view class="bot-surface-q">
+        <view class="bot-surface-q-ao" >1</view>
+        <view class="bot-surface-q-inc"><van-icon color="#3AB3E1" size="32rpx" name="success" /></view>
+        <!-- <view class="bot-surface-q-le">请假</view> -->
+      </view>
+      <view class="bot-surface-q">
+        <view class="bot-surface-q-ao" >2</view>
+        <view class="bot-surface-q-le">请假</view>
+      </view>
+      <view class="bot-surface-q"></view>
+      <view class="bot-surface-q"></view>
+      <view class="bot-surface-q"></view>
+      <view class="bot-surface-q"></view>
+      <view class="bot-surface-q"></view>
+      <view class="bot-surface-q">
+        <view class="bot-surface-q-ao" >1</view>
+        <view class="bot-surface-q-inc"><van-icon color="#3AB3E1" size="32rpx" name="success" /></view>
+        <!-- <view class="bot-surface-q-le">请假</view> -->
+      </view>
+      <view class="bot-surface-q">
+        <view class="bot-surface-q-ao" >2</view>
+        <view class="bot-surface-q-le">请假</view>
+      </view>
+      <view class="bot-surface-q"></view>
+      <view class="bot-surface-q"></view>
+      <view class="bot-surface-q"></view>
+      <view class="bot-surface-q"></view>
+      <view class="bot-surface-q"></view>
+      <view class="bot-surface-q">
+        <view class="bot-surface-q-ao" >1</view>
+        <view class="bot-surface-q-inc"><van-icon color="#3AB3E1" size="32rpx" name="success" /></view>
+        <!-- <view class="bot-surface-q-le">请假</view> -->
+      </view>
+      <view class="bot-surface-q">
+        <view class="bot-surface-q-ao" >2</view>
+        <view class="bot-surface-q-le">请假</view>
+      </view>
+      <view class="bot-surface-q"></view>
+      <view class="bot-surface-q"></view>
+      <view class="bot-surface-q"></view>
+      <view class="bot-surface-q"></view>
+      <view class="bot-surface-q"></view>
+      <view class="bot-surface-q">
+        <view class="bot-surface-q-ao" >1</view>
+        <view class="bot-surface-q-inc"><van-icon color="#3AB3E1" size="32rpx" name="success" /></view>
+        <!-- <view class="bot-surface-q-le">请假</view> -->
+      </view>
+      <view class="bot-surface-q">
+        <view class="bot-surface-q-ao" >2</view>
+        <view class="bot-surface-q-le">请假</view>
+      </view>
+      <view class="bot-surface-q"></view>
+      <view class="bot-surface-q"></view>
+      <view class="bot-surface-q"></view>
+      <view class="bot-surface-q"></view>
+      <view class="bot-surface-q"></view>
+    </van-col>
+  </van-col>
+</van-row>
+
+

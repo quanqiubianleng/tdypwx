@@ -1,0 +1,50 @@
+<!--pages/modify/details/details.wxml-->
+<van-row>
+  <van-col span="22" offset="1" custom-class="list">
+    <van-col span="24" custom-class="basic basics">王江华</van-col>
+    <van-col span="24" custom-class="card">
+      <van-col span="24">
+        <view class="card-v">处状态</view>
+        <view class="card-view">考虑下</view>
+      </van-col>
+      <van-col span="24">
+        <view class="card-v">所属专员</view>
+        <view class="card-view">徐晓燕</view>
+      </van-col>
+      <van-col span="24">
+        <view class="card-v">到访时间</view>
+        <view class="card-view">2020-9-28</view>
+      </van-col>
+      <van-col span="24">
+        <view class="card-v">联系电话</view>
+        <view class="card-view">199999999</view>
+        <image src="/icons/tel.png"></image>
+      </van-col>
+    </van-col>
+  </van-col>
+</van-row>
+<van-col span="22" offset="1" custom-class="basic basics">基本信息</van-col>
+<van-row>
+  <van-col span="22" offset="1" custom-class="cards">
+    <van-col span="23" offset="1" custom-class="cards-tex">原信息</van-col>
+    <van-col span="23" offset="1" custom-class="cards-list">
+      <van-col span="12" custom-class="cards-list-inp">姓名: 王化江</van-col>
+      <van-col span="12" custom-class="cards-list-inp">电话: 18748859527</van-col>
+    </van-col>
+    <van-col span="23" offset="1" custom-class="cards-tex">修改为</van-col>
+    <van-col span="23" offset="1" custom-class="cards-list">
+      <van-col span="12" custom-class="cards-list-inps">
+        <van-col span="7"custom-class="label">姓名：</van-col>
+        <van-col span="14" custom-class="input"><input placeholder="输入姓名"/></van-col>
+      </van-col>
+      <van-col span="12" custom-class="cards-list-inps">
+        <van-col span="7"custom-class="label">电话：</van-col>
+        <van-col span="14" custom-class="input"><input placeholder="输入电话"/></van-col>
+      </van-col>
+    </van-col>
+  </van-col>
+</van-row>
+<van-col span="24"custom-class="bottom">
+      <view class="quxiao" bindtap="cancel">返回</view>
+      <view class="queding">确定</view>
+</van-col>

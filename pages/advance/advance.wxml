@@ -1,0 +1,50 @@
+<view class="iman">
+  <view class="card"  >
+    <view class="weui-flex">
+        <view class="weui-flex__item"><view class="texts"><text class="texts2">借支人</text></view></view>        
+    </view>
+    <view class="weui-flex">
+        <view class="weui-flex__item"><view class="placeholder">
+        <input class="weui-input inputtext"  bindinput="jsfnuuser" auto-focus placeholder="输入姓名" value="{{username}}" placeholder-class="placeholderstlse"	/>
+        </view></view>            
+    </view>    
+    <view class="weui-flex">
+        <view class="weui-flex__item"><view class="texts" ><text class="texts2">联系电话</text></view></view>         
+    </view>  
+    <view class="weui-flex">
+        <view class="weui-flex__item"><view class="placeholder">
+        <input class="weui-input inputtext" type="number" bindinput="jsfnutle" placeholder="输入手机号" value="{{usertle}}" placeholder-class="placeholderstlse"/>      
+        </view></view>           
+    </view>   
+    <view class="weui-flex">
+        <view class="weui-flex__item"><view class="texts"><text class="texts2">借支金额</text></view></view>         
+    </view>  
+    <view class="weui-flex">
+        <view class="weui-flex__item"><view class="placeholder">
+        <input class="weui-input inputtext" type="number" bindinput="jsfnumoney" placeholder="输入金额" value="{{money}}"  placeholder-class="placeholderstlse"/>      
+        </view></view>           
+    </view>    
+
+
+    <view class="weui-flex">
+        <view class="weui-flex__item"><view class="texts1"><text class="texts2">借支说明</text></view></view>        
+    </view>
+    <view class="weui-flex">
+        <view class="weui-flex__item"><view>
+        <view class="card1"  >
+            <textarea class="textareaster inputtext" placeholder="输入借支说明" bindinput="jsfnuinfo" placeholder-class="placeholderstlse" />
+        </view>
+        </view></view>        
+    </view>
+
+
+  </view>    
+
+<!-- 菜单开始 -->
+<van-col span="24" custom-class="bottom">
+    <button  class="bottom-red" bindtap="cancel" >返回</button>
+    <button formType="submit" class="bottom-blue">确认</button>
+</van-col>
+<!-- 菜单结束 -->
+
+</view>

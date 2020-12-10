@@ -1,0 +1,7 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "消息",
+  "backgroundColor": "#f8f9fa",
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh": true
+}

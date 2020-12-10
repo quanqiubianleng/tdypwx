@@ -1,0 +1,63 @@
+<!--pages/modify/index/index.wxml-->
+<view class='wraper'>
+  <view class='header'>
+    <van-row>
+      <van-col span="24" custom-class="search-box">
+        <van-col span="20" offset="2" custom-class="search">
+          <van-col span="19" custom-class="search-input"><input placeholder="输入姓名/模糊查找" /></van-col>
+          <van-col span="4" offset='1' custom-class="search-inc">
+            <image src="/icons/search.png"></image>
+          </van-col>
+        </van-col>
+      </van-col>
+    </van-row>
+  </view>
+  <view class='main'>
+    <scroll-view class='main-scroll' scroll-y style="height: 100%">
+        <van-row>
+          <van-col span="22" offset="1" custom-class="banner"><image src="/icons/entry.png"></image></van-col>
+        </van-row>
+        <van-col span="22" offset="1" custom-class="list-tel">客户资源</van-col>
+        <van-col span="22" offset="1" custom-class="list" bindtap="details" >
+          <van-col span="16" custom-class="list-usrename">
+            <view class="name">李仁杰</view>
+            <view class="tel">电话：15186107585</view>
+            <view class="add">电话：15186107585</view>
+          </van-col>
+          <van-col span="7" offset="1" custom-class="list-inp"><view class="list-bt" bindtap="details">修改信息</view></van-col>
+        </van-col>
+        <van-col span="22" offset="1" custom-class="list" >
+          <van-col span="16" custom-class="list-usrename">
+            <view class="name">李仁杰</view>
+            <view class="tel">电话：15186107585</view>
+            <view class="add">电话：15186107585</view>
+          </van-col>
+          <van-col span="7" offset="1" custom-class="list-inp"><view class="list-bt">修改信息</view></van-col>
+        </van-col>
+        <van-col span="22" offset="1" custom-class="list" >
+          <van-col span="16" custom-class="list-usrename">
+            <view class="name">李仁杰</view>
+            <view class="tel">电话：15186107585</view>
+            <view class="add">电话：15186107585</view>
+          </van-col>
+          <van-col span="7" offset="1" custom-class="list-inp"><view class="list-bt">修改信息</view></van-col>
+        </van-col>
+        <van-col span="22" offset="1" custom-class="list" >
+          <van-col span="16" custom-class="list-usrename">
+            <view class="name">李仁杰</view>
+            <view class="tel">电话：15186107585</view>
+            <view class="add">电话：15186107585</view>
+          </van-col>
+          <van-col span="7" offset="1" custom-class="list-inp"><view class="list-bt">修改信息</view></van-col>
+        </van-col>
+        <van-col span="22" offset="1" custom-class="list" >
+          <van-col span="16" custom-class="list-usrename">
+            <view class="name">李仁杰</view>
+            <view class="tel">电话：15186107585</view>
+            <view class="add">电话：15186107585</view>
+          </van-col>
+          <van-col span="7" offset="1" custom-class="list-inp"><view class="list-bt">修改信息</view></van-col>
+        </van-col>
+    </scroll-view>
+  </view>
+</view>

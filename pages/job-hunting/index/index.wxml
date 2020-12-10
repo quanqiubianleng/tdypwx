@@ -1,0 +1,158 @@
+<!--pages/job-hunting/index/index.wxml-->
+
+<view class='wraper'>
+  <view class='header'>
+    <van-row>
+      <van-col span="24" custom-class="search-box">
+        <van-col span="22" offset="1" custom-class="search">
+          <van-col span="4" custom-class="search-city">
+            <view class="city" bindtap='bindBeginCityView'>
+              <view class="city-text">{{province}}</view>
+              <van-icon custom-class="xiala" size="32rpx" color="#333" name="arrow-down" />
+            </view>
+          </van-col>
+          <van-col span="15" offset="1" custom-class="search-input"><view  bindtap="gosearch" >岗位/地区/公司名称</view></van-col>
+          <van-col span="2" offset='1' custom-class="search-inc" bindtap="gosearch">
+            <image src="/icons/search.png"></image>
+          </van-col>
+        </van-col>
+      </van-col>
+    </van-row>
+  </view>
+  <view class='main'>
+    <view class='footer' bindtap="tel">
+      <text>电话咨询</text>
+      <image src="../../../icons/tel.png"></image>
+    </view>
+    <view class='main-list'>
+      <van-row>
+        <view class="banner">
+          <image class="pic"  wx:for="{{banner}}" wx:for-index="index" wx:key="index" src="{{item.image}}" animation="{{num==index?showpic:hidepic}}"/>
+          <!-- <image class="pic" src="{{banner[1].image}}" animation="{{num==1?showpic:hidepic}}"/> -->
+        </view>
+        <!-- <view class="banner">
+          <swiper class="swiper" indicator-dots="true" 
+            autoplay="true" 
+            interval="3000" 
+            duration="1000" 
+            current="{{current}}" 
+            bindchange="swiperChange"
+            indicatorColor="rgba(255,255,255,.6)"
+            indicatorActiveColor="rgba(255,255,255)" indicator-dots circular>
+            <swiper-item wx:for="{{banner}}" data-item="item" wx:key="key">
+              <image src="{{item.image}}" mode="scaleToFill" />
+            </swiper-item>
+          </swiper>
+        </view> -->
+      </van-row>
+      <van-col span="24" offset="" wx:if="{{notice}}" custom-class="notice">
+        <van-icon name="volume" color="#30B9EF" size="40rpx"/>
+        <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
+          <block wx:for="{{msgList}}" wx:key="msgList">
+              <swiper-item>
+                <view class="swiper_item">{{item.text}}</view>
+              </swiper-item>
+          </block>
+        </swiper>
+      </van-col>
+      <van-col span="24" offset="0" custom-class="menu">
+        <van-col span="22" offset="1" custom-class="menu_container">
+          <navigator url="/packageB/friends/index/index" class="menu_item">
+            <image class="menu_icon" src="../../../icons/index-1.png" />
+            <text class="menu_name">推荐好友</text>
+          </navigator>
+          <navigator url="/packageB/library/index/index" class="menu_item">
+            <image class="menu_icon" src="../../../icons/index-2.png" />
+            <text class="menu_name">人才库</text>
+          </navigator>
+          <navigator url="/packageC/keep/index/index?type=2" class="menu_item">
+            <image class="menu_icon" src="../../../icons/index-3.png" />
+            <text class="menu_name">我的收藏</text>
+          </navigator>
+          <navigator url="/packageC/legal/index/index" class="menu_item">
+            <image class="menu_icon" src="../../../icons/index-4.png" />
+            <text class="menu_name">法律援助</text>
+          </navigator>
+        </van-col>
+      </van-col>
+      <van-row wx:if="{{location==0}}">
+        <van-col span="24" offset="" custom-class="Hot">
+          <scroll-view scroll-x="true" class="navs" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+            <block wx:for="{{navData}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
+              <view class="nav-item {{currentTab == idx ?'active':''}}" data-current="{{idx}}" data-id="{{navItem.id}}"
+                bindtap="switchNav">{{navItem.name}}</view>
+            </block>
+          </scroll-view>
+        </van-col>
+        <van-col span="24" custom-class="box-box">
+          <van-col span="22" offset="1" custom-class="box" wx:for="{{list}}" wx:for-item="it" wx:key="key"
+            data-id="{{it.id}}" bindtap="details">
+            <van-col span="6" custom-class="box-img">
+              <image src="{{it.headimg}}" mode="widthFix" ></image>
+            </van-col>
+            <van-col span="17" offset="1" custom-class="box-bill">
+              <van-col span="24" custom-class="box-bill-name">
+                <van-col span="12" custom-class="name">{{it.title}}</van-col>
+                <van-col span='11' offset="1" custom-class="num" wx:if="{{it.averagewage&&it.emolumentr}}">
+                  {{it.averagewage}}-{{it.emolumentr}}元/月</van-col>
+              </van-col>
+              <van-col span="24" custom-class="box-bill-type">
+                <van-col span="19" custom-class="type">企业类型：{{it.shoptype}}</van-col>
+                <van-col span="4" offset="1" custom-class="details">
+                  <text>详情</text>
+                </van-col>
+              </van-col>
+              <van-col span="24" custom-class="tags">
+                <van-col span="22" custom-class="tags-box">
+                  <van-tag custom-class="tags-list" wx:for="{{it.label_name}}" wx:key="key" max-count="3" plain
+                    color="#3B67B1" size="8rpx" text-color="#3B67B1">{{item.name}}</van-tag>
+                </van-col>
+              </van-col>
+            </van-col>
+          </van-col>
+        </van-col>
+      </van-row>
+      <van-row wx:if="{{location==1}}">
+        <van-col span="24" offset="" custom-class="Hot">
+          <scroll-view scroll-x="true" class="navs" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+            <block wx:for="{{navlist}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
+              <view class="nav-item {{currentTab == idx ?'active':''}}" data-current="{{idx}}" data-id="{{navItem.id}}"
+                bindtap="switchNav">{{navItem.name}}</view>
+            </block>
+          </scroll-view>
+        </van-col>
+          <van-col span="24" custom-class="box-box">
+            <van-col span="22" offset="1" custom-class="box" wx:if="{{locationlist.length>0}}" wx:for="{{locationlist}}" wx:for-item="it" wx:key="key"
+              data-id="{{it.id}}" bindtap="details">
+              <van-col span="6" custom-class="box-img">
+                <image src="{{it.headimg}}"  mode="widthFix" ></image>
+              </van-col>
+              <van-col span="17" offset="1" custom-class="box-bill">
+                <van-col span="24" custom-class="box-bill-name">
+                  <van-col span="12" custom-class="name">{{it.title}}</van-col>
+                  <van-col span='11' offset="1" custom-class="num" wx:if="{{it.averagewage&&it.emolumentr}}">
+                    {{it.averagewage}}-{{it.emolumentr}}元/月</van-col>
+                </van-col>
+                <van-col span="24" custom-class="box-bill-type">
+                  <van-col span="19" custom-class="type">企业类型：{{it.shoptype}}</van-col>
+                  <van-col span="4" offset="1" custom-class="details">
+                    <text>详情</text>
+                  </van-col>
+                </van-col>
+                <van-col span="24" custom-class="tags">
+                  <van-col span="22" custom-class="tags-box">
+                    <van-tag custom-class="tags-list" wx:for="{{it.label_name}}" wx:key="key" max-count="3" plain
+                      color="#3B67B1" size="8rpx" text-color="#3B67B1">{{item.name}}</van-tag>
+                  </van-col>
+                </van-col>
+              </van-col>
+            </van-col>
+        </van-col>
+        <van-col span="24" custom-class="null" wx:if="{{locationlist.length<=0}}">
+          <image src="/icons/null-3.png"></image>
+          <view>该地区暂无岗位~</view>
+        </van-col>
+      </van-row>
+    </view>
+  </view>
+</view>

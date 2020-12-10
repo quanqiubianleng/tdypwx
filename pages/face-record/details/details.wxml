@@ -1,0 +1,206 @@
+<!--pages/face-record/details/details.wxml-->
+<view class="tops">
+<van-row>
+  <van-col span="22" offset="1" custom-class="name">{{list.username}}</van-col>
+  <van-col span="22" offset="1" custom-class="card">
+    <van-col span="24" custom-class="card-liat">
+      <van-col span="5"  custom-class="card-v">联系电话</van-col>
+      <view class="card-view">{{list.mobile}}</view>
+      <van-icon custom-class="image" size="40rpx" color="#44B6E2" name="phone-o"  bindtap="mobile" data-mobile="{{list.mobile}}"/>
+    </van-col>
+    <van-col span="24" custom-class="card-liat">
+      <van-col span="5"  custom-class="card-v">出生日期</van-col>
+      <view class="card-view">{{list.birthday}}</view>
+    </van-col>
+    <van-col span="24" custom-class="card-liat">
+      <van-col span="5"  custom-class="card-v">性别</van-col>
+      <view class="card-view">{{list.sex}}</view>
+    </van-col>
+    
+    <van-col span="24" custom-class="drop-down" bindtap="showdown">
+      <van-icon name="arrow-down" wx:if="{{down==0}}" />
+    </van-col>
+    <van-col span="24"  custom-class="drop-down-box" wx:if="{{down==1}}">
+      <van-col span="24" custom-class="card-liat">
+        <van-col span="5"  custom-class="card-v">名族</van-col>
+        <view class="card-view">{{list.race}}</view>
+      </van-col>
+      <van-col span="24" custom-class="card-liat">
+        <van-col span="5"  custom-class="card-v">学历</van-col>
+        <view class="card-view">{{list.education}}</view>
+      </van-col>
+      <van-col span="24" custom-class="card-liat">
+        <van-col span="5"  custom-class="card-v">婚姻状态</van-col>
+        <view class="card-view">{{list.marriage}}</view>
+      </van-col>
+      <van-col span="24"  custom-class="card-liat">
+        <van-col span="5"  custom-class="card-v">身份证号</van-col>
+        <view class="card-view">{{list.uid}}</view>
+      </van-col>
+      <van-col span="24" custom-class="card-liat">
+        <van-col span="5"  custom-class="card-v">户籍地址</van-col>
+        <view class="card-view">{{list.censusaddress}}</view>
+      </van-col>
+      <van-col span="24" custom-class="card-liat">
+        <van-col span="5"  custom-class="card-v">户口性质</van-col>
+        <view class="card-view">{{list.registered}}</view>
+      </van-col>
+      <van-col span="24" custom-class="card-liat">
+        <van-col span="5"  custom-class="card-v">邀请码</van-col>
+        <view class="card-view">{{list.invitecode}}</view>
+      </van-col>
+      <van-col span="24" custom-class="card-liat">
+        <van-col span="5"  custom-class="card-v">有无纹身</van-col>
+        <view class="card-view">{{list.tattoo}}</view>
+      </van-col>
+      <van-col span="24" custom-class="card-liat">
+        <van-col span="5"  custom-class="card-v">有无案底</van-col>
+        <view class="card-view">{{list.criminal}}</view>
+      </van-col>
+      <van-col span="24" custom-class="card-liat">
+        <van-col span="5"  custom-class="card-v">贵阳住宿</van-col>
+        <view class="card-view">{{list.address}}</view>
+      </van-col>
+      <van-col span="24" custom-class="card-liat">
+        <van-col span="5"  custom-class="card-v">工厂经验</van-col>
+        <view class="card-view">{{list.plantundergo}}</view>
+      </van-col>
+      <van-col span="24" custom-class="card-liat">
+        <van-col span="6"  custom-class="card-v">紧急联系人</van-col>
+        <view class="card-view">{{list.emergencycontact}}</view>
+      </van-col>
+      <van-col span="24" custom-class="card-liat">
+        <van-col span="9"  custom-class="card-v">与紧急联系人关系</van-col>
+        <view class="card-view">{{list.onemergencycontact}}</view>
+      </van-col>
+      <van-col span="24" custom-class="card-liat">
+        <van-col span="8"  custom-class="card-v">紧急联系人电话</van-col>
+        <view class="card-view">{{list.nomobile}}</view>
+      </van-col>
+    </van-col>
+    <van-col span="24" custom-class="drop-down" bindtap="showdown">
+      <van-icon name="arrow-up" wx:if="{{down==1}}"/>
+    </van-col>
+  </van-col>
+</van-row>
+<row-row>
+  <van-col span="22" offset="1" custom-class="career">工作经历</van-col>
+  <van-col span="22" offset="1" custom-class="career-box">
+    <van-col span="20" offset="2" custom-class="career-box-liat  career-box-liat-bo" wx:if="{{w!=3&&down1==0}}">
+      <van-col span="24"  custom-class="career-box-liat-li">
+        <van-col span="5" custom-class="career-box-liat-li-qi">开始时间</van-col>
+        <van-col span="18" offset="1" custom-class="career-box-liat-li-qi-ti">{{work.stdate}}</van-col>
+      </van-col>
+      <van-col span="24"  custom-class="career-box-liat-li">
+        <van-col span="5" custom-class="career-box-liat-li-qi">结束时间</van-col>
+        <van-col span="18" offset="1" custom-class="career-box-liat-li-qi-ti">{{work.endate}}</van-col>
+      </van-col>
+      <van-col span="24"  custom-class="career-box-liat-li">
+        <van-col span="5" custom-class="career-box-liat-li-qi">工作单位</van-col>
+        <van-col span="18" offset="1" custom-class="career-box-liat-li-qi-ti">{{work.wordunit}}</van-col>
+      </van-col>
+      <van-col span="24"  custom-class="career-box-liat-li">
+        <van-col span="5" custom-class="career-box-liat-li-qi">工作职务</van-col>
+        <van-col span="18" offset="1" custom-class="career-box-liat-li-qi-ti">{{work.duty}}</van-col>
+      </van-col>
+    </van-col>
+    <van-col span="20" offset="2" custom-class="{{index==wolist.length-1?'career-box-liat-bo':'career-box-liat'}}" wx:if="{{w!=3&&down1==1}}"  wx:for="{{wolist}}" wx:for-item="item" wx:key="key" data-index="{{index}}">
+      <van-col span="24"  custom-class="career-box-liat-li">
+        <van-col span="5" custom-class="career-box-liat-li-qi">开始时间</van-col>
+        <van-col span="18" offset="1" custom-class="career-box-liat-li-qi-ti">{{item.stdate}}</van-col>
+      </van-col>
+      <van-col span="24"  custom-class="career-box-liat-li">
+        <van-col span="5" custom-class="career-box-liat-li-qi">结束时间</van-col>
+        <van-col span="18" offset="1" custom-class="career-box-liat-li-qi-ti">{{item.endate}}</van-col>
+      </van-col>
+      <van-col span="24"  custom-class="career-box-liat-li">
+        <van-col span="5" custom-class="career-box-liat-li-qi">工作单位</van-col>
+        <van-col span="18" offset="1" custom-class="career-box-liat-li-qi-ti">{{item.wordunit}}</van-col>
+      </van-col>
+      <van-col span="24"  custom-class="career-box-liat-li">
+        <van-col span="5" custom-class="career-box-liat-li-qi">工作职务</van-col>
+        <van-col span="18" offset="1" custom-class="career-box-liat-li-qi-ti">{{item.duty}}</van-col>
+      </van-col>
+    </van-col>
+    <van-col span="24" custom-class="drop-down" wx:if="{{w!=3&&down1==0}}" bindtap="showdowns" style="margin-top: 20rpx;">
+        <van-icon name="arrow-down" />
+    </van-col>
+    <van-col span="24" custom-class="drop-down" wx:if="{{w!=3&&down1==1}}" bindtap="showdowns">
+      <van-icon name="arrow-up" />
+    </van-col>
+    <van-col span="24" wx:if="{{w==3}}" custom-class="zamwu">暂无工作经历~</van-col>
+  </van-col>
+  
+</row-row>
+<van-row>
+  <form bindsubmit='determine'>
+    <van-col span="22" offset="1" custom-class="fill">
+      <van-col span="24" custom-class="fill-tpp">操作确认</van-col>
+      <van-col span="24" custom-class="cards">
+        <van-col span="24" custom-clas="cards-list">
+          <van-col span="24" custom-class="cards-list-tetel"><text style="color:red" >*</text>面试情况</van-col>
+          <van-col span="24" custom-class="cards-list-inp" style="background: #EEF9FD;">
+            <view class='select_box'>
+              <view class='select' catchtap='selectTap2'>
+                <input class='select_text' placeholder="选择面试情况" disabled="disabled" value="{{situation[ix]}}" />
+              </view>
+              <view class='option_box' style='height:{{show2?(situation.length>10?500:situation.length*80):0}}rpx;'>
+                <text class='option' style='{{ix==situation.length-1&&"border:0;"}}' wx:for='{{situation}}' wx:for-item="sit" wx:key='this'
+                  data-index='{{index}}' catchtap='optionTap2'>{{sit}}</text>
+              </view>
+            </view>
+          </van-col>
+        </van-col>
+        <van-col span="24" custom-clas="cards-list">
+          <van-col span="24" custom-class="cards-list-tetel">意向地区</van-col>
+          <van-col span="24" custom-class="cards-list-inp" style="background: #EEF9FD;">
+            <view class='select_box'>
+              <view class='select' catchtap='selectTap'>
+                <input class='select_text' placeholder="选择意向地区" disabled="disabled" value="{{selectData[index]}}" />
+              </view>
+              <view class='option_box' style='height:{{show?(selectData.length>10?500:selectData.length*80):0}}rpx;'>
+                <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:for-item="sele" wx:key='this'
+                  data-index='{{index}}' catchtap='optionTap'>{{sele}}</text>
+              </view>
+            </view>
+          </van-col>
+        </van-col>
+        <van-col span="24" custom-clas="cards-list">
+          <van-col span="24" custom-class="cards-list-tetel">意向企业</van-col>
+          <van-col span="24" custom-class="cards-list-inp" style="background: #EEF9FD;">
+            <view class='select_box'>
+              <view class='select' catchtap='selectTap1'>
+                <input class='select_text' placeholder="选择意向企业" disabled="disabled" value="{{idx}}" />
+              </view>
+              <view class='option_box' style='height:{{show1?(enterprise.length>5?500:enterprise.length*60):0}}rpx;'>
+                <text class='option' style='{{idx==enterprise.length-1&&"border:0;"}}' wx:for='{{enterprise}}' wx:for-item="ent" wx:key='this'
+                  data-index='{{index}}' data-id="{{ent.id}}" catchtap='optionTap1'>{{ent.username}}</text>
+              </view>
+            </view>
+          </van-col>
+        </van-col>
+        <van-col span="24" custom-clas="cards-list">
+          <van-col span="24" custom-class="cards-list-tetel">预入职时间</van-col>
+          <van-col span="24" custom-class="cards-list-inp" style="background: #EEF9FD;">
+            <picker mode="date" value="{{time}}" start="" end="" bindchange="bindDateChange">
+                <input class="picker" disabled="disabled" bindtap="bindDateChange" placeholder="请选择预入职时间" value="{{time}}">
+                </input>
+              </picker>
+          </van-col>
+        </van-col>
+        <van-col span="24" custom-clas="cards-list">
+          <van-col span="24" custom-class="cards-list-tetel"><text style="color:red" >*</text>备注</van-col>
+          <van-col span="24" custom-class="cards-list-inp" style="background: #fff;">
+            <textarea class="text" placeholder="请输入备注" value="{{description}}" name="description" placeholder-style="" auto-height="true">
+            </textarea>
+          </van-col>
+        </van-col>
+      </van-col>
+    </van-col>
+    <van-col span="24" custom-class="bottom">
+      <button  class="bottom-red" bindtap="cancel" >返回</button>
+      <button formType="submit" class="bottom-blue">确认</button>
+    </van-col>
+  </form>
+</van-row>
+</view> 

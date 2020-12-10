@@ -1,0 +1,85 @@
+<view class="content" >
+  <!-- 菜单 -->
+  <text class="hentext" wx:if='{{type==0}}'>邀约统计</text>
+  <text class="hentext" wx:if='{{type==1}}'>面试统计</text>
+  <text class="hentext" wx:if='{{type==2}}'>入职统计</text>
+  <text class="hentext" wx:if='{{type==3}}'>出发统计</text>
+  <text class="hentext" wx:if='{{type==4}}'>专员业绩统计</text>
+
+  <view class="{{scrollTop>40 ? 'mainMenus1' : 'mainMenu'}}">
+    <block>
+      <view bindtap="" data-id="{{item.id}}">
+        <image class="imagecss" src="../../icons/ic_user_m_01.png" />
+      </view>
+
+      <picker mode="date" value="{{startdate}}" start="1997-09-01" end="2030-09-01" bindchange="bindDateChanges">
+          <view bindtap="">
+            <view class="howtext1">{{startdate}}</view>
+          </view>
+      </picker>
+
+      <view bindtap="" data-id="{{item.id}}">
+        <view class="howtext">至</view>
+      </view>
+
+      <picker mode="date" value="{{enddate}}" start="1997-09-01" end="2030-09-01" bindchange="bindDateChangee">
+      <view bindtap="bindDateChangee" data-id="{{item.id}}">
+        <view class="howtext1">{{enddate}}</view>
+      </view>
+      </picker>
+
+      <view bindtap="" data-id="{{item.id}}">
+        <view wx:if='{{type!=4}}' class="howtext">{{lenlist}}</view>
+      </view>
+      
+    </block>
+  </view>
+
+  <!-- 列表菜单1 -->
+  <view wx:if='{{type!=4}}' class="listMenu">
+
+
+      <block wx:for="{{list}}" wx:key="{{item.id}}">
+        <view class="flexheight">
+        <view class="weui-flex">
+          <view class="weui-flex__item"><view class="placeholder texts">{{item.username}}</view></view>
+         <!-- <view class="weui-flex__item"><view class="placeholder text1">已入职</view></view>   -->     
+        </view>
+        <view class="weui-flex">
+          <view class="weui-flex__item"><view class="placeholder text2">{{item.mobile}}</view></view>
+          <view class="weui-flex__item">
+          <view class="placeholder">
+          <image class="mainIcon1" src="../../icons/ic_user_m_03.png" />
+          </view>
+          </view>        
+        </view>
+        <view class="weui-flex">
+          <view class="weui-flex__item"><view class="placeholder text3">{{item.shop_id}}</view></view>       
+        </view>
+        </view>  
+      </block>
+
+  </view>
+
+  <!-- 列表菜单1 -->
+  <view wx:else class="listMenu">
+      <block wx:for="{{list}}" wx:key="{{item.id}}">
+        <view class="weui-flex flexheight">
+          <view class="weui-flex__item"><view class="placeholder textn1">{{item.username}}</view></view>
+          <view class="weui-flex__item"><view class="placeholder textn2">入职</view></view>
+          <view class="weui-flex__item"><view class="placeholder textn3">{{item.entry}}人</view></view>
+          <view class="weui-flex__item"><view class="placeholder textn4">邀约</view></view>
+          <view class="weui-flex__item"><view class="placeholder textn5">{{item.invite}}人</view></view>          
+        </view>
+      </block>
+  </view>
+
+  <view wx:if='{{!lenlist}}' style="width:100vw;position:relative;text-align:center;left:-50rpx">
+    <image class="imagecss" src="../../icons/null.png" />
+    <text style="left:40vw;position:absolute;top:35vh;color:#999999">暂无数据!</text>
+  </view>
+  
+  <loading hidden="{{loadingHidden}}">
+      数据载中...
+  </loading>
+</view>

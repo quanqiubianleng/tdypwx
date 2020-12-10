@@ -1,0 +1,195 @@
+/* packageB/wallet/carry-show/carry-show.wxss */
+page{
+  background: #F5F5F5;
+}
+.balance{
+  border-top: 1rpx solid #ddd;
+  border-bottom: 1rpx solid #ddd;
+  
+  background: #fff;
+}
+.balance-tel{
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #000;
+  font-size: 38rpx;
+}
+.balance-inp{
+  height: 100rpx;
+  padding: 0 32rpx;
+  border-top: 1rpx solid #ddd;
+}
+.balance-inp .label{
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 48rpx;
+  font-weight: 600;
+  color: red;
+}
+.balance-inp input{
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #000;
+  font-size: 40rpx;
+}
+.quanbu{
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #999999;
+  font-size: 32rpx;
+  text-align: right;
+}
+.tishi{
+  line-height: 80rpx;
+  font-size: 26rpx;
+  color: #999999;
+}
+.balance-type{
+  background: #fff;
+  padding-bottom: 20rpx;
+}
+.type{
+  margin-top: 20rpx;
+  color: #000;
+  font-size: 32rpx;
+}
+.type-ul{
+  margin-top: 20rpx;
+}
+.type-il{
+  height: 80rpx;
+  border: 1rpx solid #ddd;
+  line-height: 80rpx;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  vertical-align: middle;
+  padding-left: 5.5%;
+}
+.on{
+  border: 1rpx solid red;
+}
+.type-il image{
+  width: 50rpx;
+  height: 50rpx;
+  
+}
+.type-il text{
+  margin-left: 5rpx;
+  font-size: 28rpx;
+}
+.type-icn{
+  position: absolute;
+  bottom: 0rpx;
+  right: 0rpx;
+}
+.name-name{
+  text-align: center;
+  line-height: 100rpx;
+  color: #999999;
+  font-size: 30rpx;
+}
+.name-name text{
+  color: red;
+}
+.name{
+  background: #fff;
+  margin-top: 20rpx;
+}
+.name-inp{
+  height: 100rpx;
+}
+.name-inp input{
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.btn{
+  position: fixed;
+  bottom: 20rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #3B66B0;
+  font-size: 32rpx;
+  letter-spacing: 1rpx;
+  color: #fff;
+  text-align: center;
+  z-index: 9999;
+}
+/* 弹框 */
+
+.bg {
+  display: none;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 1001;
+  -moz-opacity: 0.7;
+  opacity: 0.70;
+  filter: alpha(opacity=70);
+
+}
+ 
+.show {
+  display: none;
+  text-align: center;
+  position: absolute;
+  top: 30%;
+  left: 15%;
+  width: 70%;
+  height: 40%;
+  
+  z-index: 1002;
+  overflow: auto;
+}
+.show-diy{
+  border-radius: 5%;
+  margin-top: 80rpx;
+  background: #fff;
+  width: 80%;
+  height: 80%;
+  margin-left:10% ;
+}
+.show-img{
+  position: relative;
+  z-index: 1003;
+  top: -70rpx;
+  width: 70%;
+  height: 70%;
+}
+.show-imgs{
+  position: relative;
+  z-index: 1003;
+  top: -70rpx;
+  width: 70%;
+  height: 70%;
+}
+.show-tex{
+  margin-top:-20% ;
+  text-align: center;
+}
+.show-btn{
+  width: 70%;
+  margin-top: 50rpx;
+  height: 80rpx;
+  margin-left: 15%;
+  line-height: 80rpx;
+  background: #30B9EF;
+  letter-spacing: 1rpx;
+  color: #fff;
+  border-radius: 40rpx;
+}
+.show-btns{
+  width: 70%;
+  margin-top: 50rpx;
+  height: 100rpx;
+  margin-left: 15%;
+  line-height: 100rpx;
+  background: #E87751;
+  letter-spacing: 1rpx;
+  color: #fff;
+  border-radius: 40rpx;
+}

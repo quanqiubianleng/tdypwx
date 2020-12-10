@@ -1,0 +1,19 @@
+/* packageC/legal/details/details.wxss */
+page{
+  border-top:1rpx solid #ddd ;
+}
+.item-tel{
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.tel-tel{
+  padding: 2rpx 10rpx;
+  background: #2E54EB;
+  color: #fff;
+  font-size: 26rpx;
+  margin-right: 15rpx;
+}
+.tel{
+  font-size: 32rpx;
+  font-size: 600;
+}

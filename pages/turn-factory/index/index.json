@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-row":"../../../dist/row/index",
+    "van-col":"../../../dist/col/index"
+  },
+  "navigationBarTitleText": "流失名单",
+  "navigationBarTextStyle":"black",
+  "enablePullDownRefresh": true
+}

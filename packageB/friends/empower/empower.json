@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "van-row":"../../../../dist/row/index",
+    "van-col":"../../../../dist/col/index",
+    "van-icon":"../../../dist/icon/index"
+  },
+  "navigationBarTitleText": "授权",  
+  "navigationBarBackgroundColor":"#fff",
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh":true  
+}

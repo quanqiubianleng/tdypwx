@@ -1,0 +1,8 @@
+<view class="content">
+  <block wx:for="{{userAgreement}}" wx:key="{{index}}">
+    <view class="title">{{item.title}}</view>
+    <block wx:for="{{item.text}}" wx:key="{{index}}">
+      <text>{{item}}</text>
+    </block>
+  </block>
+</view>

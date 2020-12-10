@@ -1,0 +1,82 @@
+<!--packageB/library/index/index.wxml-->
+<van-col span="24" offset="" custom-class="notice">
+  <van-col span="22" offset="1" custom-class="notice-notice">
+    <van-notice-bar  left-icon="volume-o" text="公告：杭州智见科技高价来袭，综合月薪6500元,杭州智见科技高价来袭，综合月薪6500元" backgroundColor="#D7ECF5" color="#FF0000" speed="25" delay="2000" custom-class="notice-bar" />
+  </van-col>
+</van-col>
+<van-col span="22" offset="1" custom-class="card">
+  <van-col span="22" offset="1" custom-class="personal">
+    <van-col  span="4" custom-class="personal-head"><image src="{{userInfos.headimgurl}}"></image></van-col>
+    <van-col span="12" offset="1" custom-class="personal-name">
+      <view class="name-top">
+        <view class="user-name">{{userInfos.username?userInfos.username:userInfos.nickname}}</view>
+        <text class="user-sex" wx:if="{{userInfos.sex==1}}">男</text><text class="user-sex" wx:else>女</text>
+        <text class="user-type">{{userInfos.rolename}}</text></view>
+      <!-- <view class="name-bt"><text>{{is_entry}}</text></view> -->
+    </van-col >
+    <van-col span="6" offset="1" custom-class="personal-btn">
+      <van-col span="24" custom-class="tixian">一键提现</van-col>
+      <van-col span="24" custom-class="xiangqing" bindtap="details" data-id="{{userInfos.id}}" data-own="1">奖励详情</van-col>
+    </van-col>
+  </van-col>
+  <van-col span="22" offset="" custom-class="personal-tel">相互推荐好友入职，共享互帮基金。<text bindtap="explain">奖励说明？</text></van-col>
+  <van-col span="24"custom-class="fund">
+    <van-col span="8" custom-class="fund-ul">
+      <view class="fund-ul-num">0元</view>
+      <view class="fund-ul-tel">本月收益</view>
+    </van-col>
+    <van-col span="8" custom-class="fund-ul">
+      <view class="fund-ul-num">0元</view>
+      <view class="fund-ul-tel">累计收益</view>
+    </van-col>
+    <van-col span="8" custom-class="fund-ul fund-uls">
+      <view class="fund-ul-num">0元</view>
+      <view class="fund-ul-tel">可领取总金额</view>
+    </van-col>
+  </van-col>
+</van-col>
+<van-col span="24"custom-class="box">
+  <van-col span="22" offset="1" custom-class="box-card">
+    <van-col span="24"offset="0"custom-class="box-card-search">
+      <view class="box-card-tel">人才库汇总表</view>
+      <view class="box-card-search" data-id="{{id}}" bindtap="search">
+        <image src="../../../icons/search.png"></image>
+      </view>
+    </van-col>
+    <van-col span="24"offset=""custom-class="box-card-level">
+      <view class="level" >总数:{{count}}</view>
+      <view class="level" >一级:{{count1}}人</view>
+      <view class="level" >二级:{{count2}}人</view>
+      <view class="level" >三级:{{count3}}人</view>
+      <view class="level" style="color:#32AFE0" bindtap="detailed">明细</view>
+    </van-col>
+
+  </van-col>
+  <van-col span="22" offset="1" custom-class="box-list" wx:for="{{userlist}}" wx:key="key" bindtap="details" data-id="{{item.uid}}" data-own="2">
+    <van-col span="5" custom-class="box-list-img">
+      <image src="{{item.headimgurl}}"></image>
+    </van-col>
+    <van-col span="19"custom-class="box-desc">
+      <van-col span="24" custom-class="box-desc-top">
+        <text style="font-size: 32rpx;">{{item.username?item.username:item.nickname}}<text class="box-desc-top-ji">{{item.level}}</text></text>
+        <text style=" margin-left:12rpx ;color:#54BBE6">{{item.sex}}</text>
+        <text style=" margin-left:12rpx ;color:#54BBE6" wx:if="{{item.age}}">{{item.age}}岁</text>
+        <text style=" margin-left:12rpx ;color:#54BBE6">{{item.idtype}}</text>
+        <text style=" margin-left:12rpx ">{{item.status}}</text>
+        <text style=" margin-left:12rpx ">{{item.mobile}}</text>
+      </van-col>
+      <van-col span="24"custom-class="box-desc-bottom">
+        <van-col span="6"custom-class="box-desc-bottom-er">二级:{{item.count2}}人</van-col>
+        <van-col span="6"custom-class="box-desc-bottom-er">入职:0人</van-col>
+        <van-col span="6"custom-class="box-desc-bottom-er">待岗:0人</van-col>
+        <van-col span="6"custom-class="box-desc-bottom-er"><text>详情</text></van-col>
+      </van-col>
+      <van-col span="24"custom-class="box-desc-bottom">
+        <van-col span="6"custom-class="box-desc-bottom-er">三级:{{item.count3}}人</van-col>
+        <van-col span="6"custom-class="box-desc-bottom-er">入职:0人</van-col>
+        <van-col span="6"custom-class="box-desc-bottom-er">待岗:0人</van-col>
+        <van-col span="6"custom-class="box-desc-bottom-er" ><view style="font-size: 18rpx;text-align: right;margin-right: 15rpx;">{{item.indate}}</view></van-col>
+      </van-col>
+    </van-col>
+  </van-col>
+</van-col>

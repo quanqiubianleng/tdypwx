@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "van-row":"../../../dist/row/index",
+    "van-col":"../../../dist/col/index",
+    "van-popup":"../../../dist/popup/index" ,
+    "van-dialog":"../../../dist/dialog/index"
+  },
+  "navigationBarTitleText": "考勤记录",
+  "navigationBarBackgroundColor":"#FFFFFF",
+  "navigationBarTextStyle":"black"
+}

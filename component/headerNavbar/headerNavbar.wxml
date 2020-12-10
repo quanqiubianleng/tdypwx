@@ -1,0 +1,20 @@
+<!--components/headerNavbar.wxml-->
+<!-- 自定义导航栏 -->
+<view class='navbar-wrap' 
+  style='height:{{navbarHeight}}px;padding-top:{{statusBarHeight}}px;'>  
+  <view class="navbar-text"
+    style='line-height:{{navbarBtn.height + navbarBtn.top}}px;'>
+    {{navbarData.title ? navbarData.title : "默认标题"}}{{navbarHeight}}
+  </view>
+  <view class="navbar-icon"
+    wx:if='{{navbarData.showCapsule ? navbarData.showCapsule : true}}'
+    style="top:{{navbarBtn.top + statusBarHeight}}px;left:{{navbarBtn.right}}px;height:{{navbarBtn.height}}px;"> 
+      <image wx:if='{{haveBack}}' bindtap="_goBack" class="floatL" src="/img/navbar_back_white.png"></image>      
+      <view wx:if='{{haveBack}}' class="floatL"></view>
+      <image bindtap="_goHome" src="/img/navbar_home_white.png"></image>
+  </view>
+</view>
+<!-- 手写loading -->
+<view class="navbar-loading" style='height:{{navbarHeight}}px;line-height:{{navbarHeight}}px;'>
+  <text>...</text>
+</view>

@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "van-row":"../../../dist/row/index",
+    "van-popup":"../../../dist/popup/index" ,
+    "van-col":"../../../dist/col/index"
+  },
+  "navigationBarTitleText": "考勤打卡",
+  "navigationBarBackgroundColor":"#46A1EA",
+  "navigationBarTextStyle":"white",
+  "backgroundTextStyle":"dark",
+  "backgroundColor":"#3DAEE3"
+}

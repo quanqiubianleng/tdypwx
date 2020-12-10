@@ -1,0 +1,165 @@
+{
+  "pages": [
+    "pages/job-hunting/index/index",
+    "pages/advice/advice",
+    "pages/work/work",
+    "pages/approver/details/approve",
+    "pages/approver/add-Trial/add-Trial",
+    "pages/approver/index/index",
+    "pages/clock/personal/personal",
+    "pages/interview/index",
+    "pages/home/home",
+    "pages/loginByWechat/loginByWechat",
+    "pages/jurisdiction/index/index",
+    "pages/jurisdiction/choice/choice",
+    "pages/jurisdiction/add/add",
+    "pages/quit-handle/index/index",
+    "pages/quit-handle/details/details",
+    "pages/confirm-entry/index/index",
+    "pages/confirm-entry/details/details",
+    "pages/face-record/index/index",
+    "pages/face-record/details/details",
+    "pages/invitation/index/index",
+    "pages/invitation/details/details",
+    "pages/personal/personal",
+    "pages/modify/details/details",
+    "pages/modify/index/index",
+    "pages/clock/details/details",
+    "pages/clock/index/index",
+    "pages/additions/index/index",
+    "pages/additions/details/details",
+    "pages/turn-factory/index/index",
+    "pages/turn-factory/details/details",
+    "pages/entry/index/index",
+    "pages/entry/details/details",
+    "pages/client/index/index",
+    "pages/userinformation/userinformation",
+    "pages/advance/advance",
+    "pages/bossinfo/bossinfo",
+    "pages/bossboard/bossboard",
+    "pages/message/message",
+    "pages/infopage/infopage",
+    "pages/userBaseInfo/userBaseInfo",
+    "pages/userAgreement/userAgreement",
+    "component/bar/bar",
+    "pages/poster/poster",
+    "pages/job-hunting/city/city",
+    "pages/job-hunting/type/type",
+    "pages/job-hunting/details/details",
+    "pages/job-hunting/search/search"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+   
+  },
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "color": "#666666",
+    "selectedColor": "#396BFF",
+    "list": [
+      {
+        "pagePath": "pages/job-hunting/index/index",
+        "iconPath": "icons/ic_job_def.png",
+        "selectedIconPath": "icons/ic_job_act.png",
+        "text": "找工作"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "iconPath": "icons/ic_msg_def.png",
+        "selectedIconPath": "icons/ic_msg_act.png",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/work/work",
+        "iconPath": "icons/work-def.png",
+        "selectedIconPath": "icons/work-act.png",
+        "text": "工作台"
+      }, 
+      {
+        "pagePath": "pages/personal/personal",
+        "iconPath": "icons/ic_user_def.png",
+        "selectedIconPath": "icons/ic_user_act.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "subPackages": [
+    {
+      "root": "packageA",
+      "name": "datacenter",
+      "pages": [
+        "datacenter/index/index",
+        "payroll/index/index",
+        "payroll/details/details",
+        "approval/index/index",
+        "approval/details/details"
+      ]
+    }
+    ,{
+      "root": "packageB",
+      "name": "personal",
+      "pages": [
+        "wallet/index/index",
+        "wallet/record/record",
+        "wallet/carry-show/carry-show",
+        "about/index/index",
+        "about/policy/policy",
+        "about/agreement/agreement",
+        "certification/index/index",
+        "friends/index/index",
+        "friends/empower/empower",
+        "friends/explain/explain",
+        "library/index/index",
+        "library/label/label",
+        "library/search/search",
+        "library/detailed/detailed",
+        "library/explain/explain",
+        "library/details/details",
+        "IDdiscern/index/index",
+        "IDdiscern/details/details",
+        "opinion/index/index"
+      ]
+    },{
+      "root": "packageC",
+      "name": "packageC",
+      "pages": [
+      
+        "legal/index/index",
+        "legal/details/details",
+        "billing/index/index",
+        "billing/details/details",
+        "keep/index/index"
+      ]
+    },{
+      "root": "packageD",
+      "name": "packageD",
+      "pages": [
+        "message/message",
+        "message/type",
+        "msginfo/msginfo"
+      ]
+    }
+  ],
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "plugins": {
+    "ocr-plugin": {
+      "version": "3.0.6",
+      "provider": "wx4418e3e031e551be"
+    }
+  },
+  "debug": false,
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,75 @@
+/* packageB/library/detailed/detailed.wxss */
+
+.lin{
+  background: #F5F5F5;
+  height: 30rpx;
+}
+.card{
+  margin-bottom: 15rpx;
+}
+.tel{
+  margin-top: 20rpx;
+  text-align: center;
+  color: #333333;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.time{
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-top: 5rpx;
+  background: #32AFE0;
+  color: #fff;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content: center;
+  vertical-align: middle;
+}
+.time .time-img{
+  width: 45rpx;
+  height: 45rpx;
+}
+.time-tiem{
+  height: 45rpx;
+  line-height: 45rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  border-bottom: 1rpx solid #fff;
+  margin-left: 10rpx;
+  font-size: 28rpx;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content: center;
+  vertical-align: middle;
+}
+.jiantou{
+  height: 30rpx;
+  width: 30rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+.list{
+  margin-top: 10rpx;
+  padding: 0rpx 20rpx;
+}
+.list-tel{
+  height: 40rpx;
+  margin-top: 15rpx;
+  text-align: center;
+  color: #666666;
+  font-size: 26rpx;
+  
+}
+.list-tels{
+  border-bottom: 1rpx solid #ddd;
+}
+.cards{
+  margin-bottom: 30rpx;
+}
+.cards .list{
+  border-top:1rpx solid #ddd ;
+  border-bottom:1rpx solid #ddd ;
+  padding-bottom: 15rpx;
+}

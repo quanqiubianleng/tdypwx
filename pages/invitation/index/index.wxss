@@ -1,0 +1,134 @@
+/* pages/invitation/index/index.wxss */
+page{
+  width: 100%;
+  height:100%;
+  background: #F5F5F5;
+}
+.wraper{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height:100%;
+}
+.header{
+  color: #fff;
+}
+.search-box{
+  background: #fff;
+}
+.search{
+  height: 80rpx;
+  padding:15rpx 0rpx;
+}
+.search-input{
+  background: #E9E9E9;
+ 
+  border-radius: 15rpx;
+  height: 50rpx;
+}
+.search-input input{
+  height: 50rpx;
+  line-height: 50rpx ;
+  text-align: center;
+  font-size: 28rpx;
+}
+.search-inc{
+  display:inline-block;
+  margin-left: 50rpx;
+
+  height: 50rpx;
+  
+}
+.search-inc image{
+  padding: 5rpx;
+  background: #E9E9E9;
+  border-radius: 50%;
+  float: left;
+  width: 45rpx;
+  height: 45rpx;
+}
+.banner image{
+  margin-top: 10rpx;
+  width: 100%;
+  height: 250rpx;
+  border-radius: 25rpx;
+}
+.list-tel{
+  color: #333;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 34rpx;
+  font-weight: 600;
+}
+
+.main{
+  flex: 1;
+  margin-top: 20rpx;
+  position: relative;
+}
+.main-scroll{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.card{
+  width: 100%;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+.card-box{
+  width: 100%;
+  height: 200rpx;
+  border-radius: 6rpx;
+  background: #ccc;
+}
+.card-content{
+  color: blue;
+}
+.list{
+  background: #fff;
+  border-radius: 15rpx;
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
+  padding: 10rpx 50rpx;
+  margin-top: 20rpx;
+  margin-bottom: 10rpx;
+}
+.list-usrename{
+  height: 110rpx;
+}
+.list-usrename .name{
+  color: #333;
+  font-size: 24rpx;
+  font-weight: 600;
+  margin-bottom: 15rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap
+}
+.list-usrename .tel,.add{
+  color: #666;
+  font-size: 20rpx;
+}
+.list-inp{
+  height: 110rpx;
+  padding-top: 35rpx;
+}
+.list-bt{
+  height: 40rpx;
+  width: 150rpx;
+  letter-spacing: 1rpx;
+  background: #44B7E2;
+  color: #fff;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 40rpx;
+  border-radius: 25rpx;
+}
+.footer{
+  background: #fff;
+  color: #fff;
+  line-height: 100rpx;
+  flex: 0 0 100rpx; /* 不放大不缩小固定100rpx */
+}

@@ -1,0 +1,127 @@
+<!--packageB/library/details/details.wxml-->
+<van-col span="22" offset="1" custom-class="card">
+  <van-col span="4" custom-class="heom"><image src="{{user.headimgurl}}"></image></van-col>
+  <van-col span="12" offset="1" custom-class="xinxi">
+    <van-col span="24" custom-class="name">
+      <text class="name-name">{{user.username}}</text><text class="name-sex" wx:if="{{user.sex==1}}">男</text><text class="name-sex" wx:if="{{user.sex==2}}">女</text>
+    </van-col>
+    <van-col span="24"custom-class="user-tel">电话 {{user.mobile}}</van-col>
+  </van-col>
+  <van-col span="6" offset="1" custom-class="card-bt" wx:if="{{own==2}}" bindtap="label">添加备注</van-col>
+</van-col>
+<van-col span="24"custom-class="choice">
+  <text bindtap="choice" data-index="1" class="{{index==1?'on':''}}">动态</text>
+  <text bindtap="choice" data-index="2" class="{{index==2?'on':''}}">产生收益</text>
+</van-col>
+<van-col span="24" wx:if="{{index==1}}">
+  <van-col span="22" offset="1" custom-class="sign">
+    <van-col span="24"custom-class="sign-list">
+      <van-col span="11" custom-class=""><text class="jin">近</text><text>最近登录时间</text></van-col>
+      <van-col span="11" offset="1" custom-class="tiems">2020-09-10  13:50:12</van-col>
+    </van-col>
+    <van-col span="24"custom-class="sign-list">
+      <van-col span="11" custom-class=""><text style="background:#3B67B1;" class="jin">登</text><text>登录次数</text></van-col>
+      <van-col span="11" offset="1" custom-class="tiems">12次</van-col>
+    </van-col>
+    <van-col span="24"custom-class="sign-list">
+      <van-col span="11" custom-class=""><text style="background:#EA5525" class="jin">注</text><text>注册时间</text></van-col>
+      <van-col span="11" offset="1" custom-class="tiems">{{user.indate}}</van-col>
+    </van-col>
+  </van-col>
+  <van-col span="22" offset="1" custom-class="liuyan">
+    <van-col span="12" custom-class="liuyan-l">浏览记录</van-col>
+    <van-col span="12" custom-class="liuyan-r">共计{{strip}}条</van-col>
+  </van-col>
+  <van-col span="24" offset="0" custom-class="box" wx:if="{{BrowsHistory.length>=1}}" wx:for="{{BrowsHistory}}" wx:for-item="it" wx:key="key" data-id="{{it.id}}" bindtap="details">
+  <van-col span="6" custom-class="box-img">
+    <image src="{{it.headimg}}"></image>
+  </van-col>
+  <van-col span="17"offset="1"custom-class="box-bill">
+    <van-col span="24" custom-class="box-bill-name">
+      <van-col span="12" custom-class="name">{{it.title}}</van-col>
+      <van-col span='11' offset="1" custom-class="num">{{it.averagewage}}-{{it.emolumentr}}元/月</van-col>
+    </van-col>
+    <van-col span="24"custom-class="box-bill-type">
+      <van-col span="16" custom-class="type">企业类型：{{it.shoptype}}</van-col>
+      <!-- <van-col span="7" offset="1" custom-class="fei" wx:if="{{it.covercharge}}">
+          <view>
+            <text class="fei-tel">费用</text><text style="color: #F5A932;">{{it.covercharge}}元 </text>
+          </view>
+      </van-col> -->
+    </van-col>
+    <van-col span="24"custom-class="tags">
+      <van-col span="24" custom-class="tags-box">
+        <van-tag custom-class="tags-list"  wx:for="{{it.welfare_name}}" wx:key="key"  max-count="3" plain color="#3B67B1" size="8rpx"
+          text-color="#3B67B1">{{item.name}}</van-tag>
+      </van-col>
+      <!-- <van-col span="4" offset="1" custom-class="details">
+        <text>详情</text>
+      </van-col> -->
+    </van-col>
+  </van-col>
+</van-col>
+<van-col span="22" offset="1" custom-class="null" wx:if="{{BrowsHistory.length<=0}}">
+  <image src="../../../icons/null.png"></image>
+</van-col>
+</van-col>
+<van-col span="24" wx:if="{{index==2}}">
+  <van-col span="22"offset="1"custom-class="cards">
+    <van-col span="24" custom-class="cards-top">
+      <van-col span="14"offset="1"custom-class="money"><text class="money-num">49361</text><text class="money-des">总金额（元）</text></van-col>
+      <van-col span="7"offset="1"custom-class="tiem">2020-08
+        <van-icon custom-class="tiem-icn" size="36rpx" name="arrow-down" wx:if="{{down==1}}" data-down="1" bindtap="down"/>
+        <van-icon custom-class="tiem-icn" size="36rpx" wx:if="{{down==2}}" name="arrow-up" data-down="2" bindtap="down" />
+      </van-col>
+    </van-col>
+    <van-col span="24" custom-class="cards-list" wx:if="{{down==1}}">
+      <van-col span="14" offset="1" custom-class="cards-list-name">
+        <view>张小斌</view>
+        <view>2020-09-01</view>
+      </van-col>
+      <van-col span="7" offset="1" custom-class="cards-list-money">
+        <view style="color:#DC5251">100</view>
+        <view>或得金额</view>
+      </van-col>
+    </van-col>
+    <van-col span="24" custom-class="cards-list" wx:if="{{down==1}}">
+      <van-col span="14" offset="1" custom-class="cards-list-name">
+        <view>张小斌</view>
+        <view>2020-09-01</view>
+      </van-col>
+      <van-col span="7" offset="1" custom-class="cards-list-money">
+        <view style="color:#DC5251">100</view>
+        <view>或得金额</view>
+      </van-col>
+    </van-col>
+    <van-col span="24" custom-class="cards-list" wx:if="{{down==1}}">
+      <van-col span="14" offset="1" custom-class="cards-list-name">
+        <view>张小斌</view>
+        <view>2020-09-01</view>
+      </van-col>
+      <van-col span="7" offset="1" custom-class="cards-list-money">
+        <view style="color:#DC5251">100</view>
+        <view>或得金额</view>
+      </van-col>
+    </van-col>
+    <van-col span="24" custom-class="cards-list" wx:if="{{down==1}}">
+      <van-col span="14" offset="1" custom-class="cards-list-name">
+        <view>张小斌</view>
+        <view>2020-09-01</view>
+      </van-col>
+      <van-col span="7" offset="1" custom-class="cards-list-money">
+        <view style="color:#DC5251">100</view>
+        <view>或得金额</view>
+      </van-col>
+    </van-col>
+    <van-col span="24" custom-class="cards-list" wx:if="{{down==1}}">
+      <van-col span="14" offset="1" custom-class="cards-list-name">
+        <view>张小斌</view>
+        <view>2020-09-01</view>
+      </van-col>
+      <van-col span="7" offset="1" custom-class="cards-list-money">
+        <view style="color:#DC5251">100</view>
+        <view>或得金额</view>
+      </van-col>
+    </van-col>
+  </van-col>
+</van-col>

@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "van-row":"../../../../dist/row/index",
+    "van-col":"../../../../dist/col/index",
+    "van-popup":"../../../../dist/popup/index",
+    "van-icon": "../../../../dist/icon/index",
+    "ec-canvas": "../../ec-canvas/ec-canvas"
+  },
+  "navigationBarTitleText": "数据中心",
+  "navigationBarTextStyle":"black"
+}

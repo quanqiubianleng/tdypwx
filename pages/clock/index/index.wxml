@@ -1,0 +1,64 @@
+<!--pages/clock/index/index.wxml-->
+<van-row>
+  <van-col span="24" custom-class="top">
+    <van-col span="24" custom-class="number">29</van-col>
+     <van-col span="24" custom-class="year">2020-08</van-col>
+    <van-col span="22" offset="1" custom-class="menu">
+      <van-col span="24" custom-class="menu-type">
+        <view class="menu_container">
+          <view class="menu_item" bindtap="">
+            <view>30</view>
+            <text class="menu_name">员工人数</text>
+          </view >
+          <view class="menu_item" bindtap="additions">
+            <view>30</view>
+            <text class="menu_name">新增客户</text>
+          </view >
+          <view class="menu_item" bindtap="">
+            <view>30</view>
+            <text class="menu_name">信息修改</text>
+          </view >
+          <view class="menu_item"  bindtap="">
+            <view>30</view>
+            <text class="menu_name">邀约记录</text>
+          </view >
+        </view>
+      </van-col>
+    </van-col>
+  </van-col>
+</van-row>
+<van-row>
+  <van-col span="22" offset="1" custom-class="card">
+    <van-col span="24" custom-class="card-card">
+      <view class="card-card-1">
+        <view class="card-card-2">
+          <view class="card-card-3" bindtap="showview">打卡</view>
+        </view>
+      </view>
+    </van-col>
+    <van-col span="24" custom-class="card-bottom">
+      <van-col span="22" offset="1" custom-class="">
+        <view class="card-bottom-l">人员出勤状况调整</view>
+        <view class="card-bottom-r" bindtap="details">立即前往</view>
+      </van-col>
+    </van-col>
+  </van-col>
+</van-row>
+
+<view class="bg" style='display:{{display}}'></view>
+<view class="show"  style='display:{{display}}'>
+  <view class="show-diy" wx:if="{{show==1}}">
+     <image src="/icons/clock.png" class="show-img" ></image>
+     <view class="show-tex">今日全勤</view>
+     <view class="show-btn" bindtap='hideview'>确定</view>
+  </view>
+  <view class="show-diy-2" wx:if="{{show==2}}">
+    <view class="show-diy-2-text">提示</view>
+    <view class="show-diy-2-con">今日出勤记录已提交</view>
+    <view class="show-diy-2-con">是否要更新重新打卡</view>
+    <view class="show-diy-2-bt">
+      <view class="show-diy-2-bt-1" bindtap='hideview'>更新</view>
+      <view class="show-diy-2-bt-2" bindtap='hideview'>取消</view>
+    </view>
+  </view>
+</view>

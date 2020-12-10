@@ -1,0 +1,71 @@
+<!--pages/job-hunting/type/type.wxml-->
+<van-col span="24" offset="" custom-class="box">
+  <image src="../../../icons/pbank.png"></image>
+</van-col>
+<van-col span="16" offset="1" custom-class="Hot" wx:if="{{type==1}}">匹配职位 </van-col>
+<van-col span="16" offset="1" custom-class="Hot" wx:if="{{type==2}}">岗位列表</van-col>
+<van-col span="16" offset="1" custom-class="Hot" wx:if="{{type==3}}">岗位列表</van-col>
+<van-col span="24" custom-class='card'>
+  <van-col span="22" offset="1" custom-class="card-box">
+    <van-col span="7" custom-class="card-box-img">
+      <image src="/icons/pbank.png"></image>
+    </van-col>
+    <van-col span="10" offset="1" custom-class="card-box-con">
+      <van-col span="24" custom-class="card-box-con-te">
+        <van-col span="12" custom-class="card-box-con-te-l">招聘岗位</van-col>
+        <van-col span="11" offset="1" custom-class="card-box-con-te-l">操作工<image src="/icons/Hot.png"></image>
+        </van-col>
+      </van-col>
+      <van-col span="24" custom-class="card-box-con-te">
+        <van-col span="11" custom-class="card-box-con-te-c">工厂类型</van-col>
+        <van-col span="11" offset="1" custom-class="card-box-con-te-c">广州电子厂</van-col>
+      </van-col>
+      <van-col span="24" custom-class="card-box-con-te">
+        <van-col span="11" custom-class="card-box-con-te-c">工厂类型</van-col>
+        <van-col span="11" offset="1" custom-class="card-box-con-te-c">广州电子厂</van-col>
+      </van-col>
+    </van-col>
+    <van-col span="5" offset="1" custom-class="card-box-money">
+      <van-col span="24" custom-class="card-box-money-num">4000-5000元</van-col>
+      <van-col span="24" custom-class="card-box-money-img">
+        <!-- <image src="/icons/sign.png"></image> -->
+      </van-col>
+    </van-col>
+  </van-col>
+  <van-col span="22" offset="1" custom-class="tags-box">
+    <van-tag custom-class="tags" wx:for="{{tags}}" wx:key="key" plain color="#3B67B1" size="medium"
+      text-color="#3B67B1">{{item.tags}}</van-tag>
+  </van-col>
+</van-col>
+<van-col span="24" custom-class='card'>
+  <van-col span="22" offset="1" custom-class="card-box">
+    <van-col span="7" custom-class="card-box-img">
+      <image src="/icons/pbank.png"></image>
+    </van-col>
+    <van-col span="10" offset="1" custom-class="card-box-con">
+      <van-col span="24" custom-class="card-box-con-te">
+        <van-col span="12" custom-class="card-box-con-te-l">招聘岗位</van-col>
+        <van-col span="11" offset="1" custom-class="card-box-con-te-l">操作工<image src="/icons/Hot.png"></image>
+        </van-col>
+      </van-col>
+      <van-col span="24" custom-class="card-box-con-te">
+        <van-col span="11" custom-class="card-box-con-te-c">工厂类型</van-col>
+        <van-col span="11" offset="1" custom-class="card-box-con-te-c">广州电子厂</van-col>
+      </van-col>
+      <van-col span="24" custom-class="card-box-con-te">
+        <van-col span="11" custom-class="card-box-con-te-c">工厂类型</van-col>
+        <van-col span="11" offset="1" custom-class="card-box-con-te-c">广州电子厂</van-col>
+      </van-col>
+    </van-col>
+    <van-col span="5" offset="1" custom-class="card-box-money">
+      <van-col span="24" custom-class="card-box-money-num">4000-5000元</van-col>
+      <van-col span="24" custom-class="card-box-money-img">
+        <!-- <image src="/icons/sign.png"></image> -->
+      </van-col>
+    </van-col>
+  </van-col>
+  <van-col span="22" offset="1" custom-class="tags-box">
+    <van-tag custom-class="tags" wx:for="{{tags}}" wx:key="key" plain color="#3B67B1" size="medium"
+      text-color="#3B67B1">{{item.tags}}</van-tag>
+  </van-col>
+</van-col>

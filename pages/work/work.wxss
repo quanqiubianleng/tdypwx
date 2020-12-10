@@ -1,0 +1,116 @@
+.iman{
+  background-color: #F5F5F5;
+  height: 100vh;
+  padding-bottom: 50rpx;
+  overflow-x: hidden;
+}
+page{
+  background: #F8F9FA;
+  width: 100%;
+  height:100%;
+}
+ 
+.wraper{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height:100%;
+}
+ 
+.header{
+  color: #fff;
+  line-height: 100rpx;
+  flex: 0 0 100rpx; /* 不放大不缩小固定100rpx */
+}
+ /* banner */
+.banner{
+  width: 100%;
+  height: 20vh;
+  /* margin-top: 26rpx; */
+}
+.swiper{
+  width: inherit;
+  height: inherit;
+}
+.swiper swiper-item{
+  padding: 0 32rpx;
+  box-sizing: border-box;
+}
+.swiper image{
+  border-radius: 16rpx;
+  overflow: hidden;
+  width: inherit;
+  height: inherit;
+  background-color: #eee
+}
+/* banner结束 */
+
+/* 滚动公告开始*/
+.notice{
+  height: 60rpx;
+  margin-top: 15rpx;
+}
+/* 滚动公告结束*/
+/* 工作中心 */
+.toppos{
+  color: #333;
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-bottom: 3rpx;
+  margin-top: 30rpx;
+}
+.main{
+  flex: 1;
+  position: relative;
+}
+ 
+.main-scroll{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+ 
+/* .main-list{
+  
+} */
+ /*  导航组*/
+.menu{
+  background-color: #ffffff;
+  box-shadow: 0px 4px 4px 0px #cccccc;
+  height: auto;
+  border-radius: 15rpx;
+  margin-bottom: 20rpx;
+}
+.menu-type-tetl{
+  color: #666;
+  font-size: 32rpx;
+  margin-top: 15rpx;
+}
+.menu_container {
+  width: 100%;
+}
+
+.menu_item {
+  width: 25%;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  box-sizing: border-box;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.menu_icon {
+  width: 45px;
+  height: 45px;
+  padding-bottom: 5px;
+}
+.menu_name{
+  font-size: 24rpx;
+}
+
+ 

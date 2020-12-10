@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-row":"../../../../dist/row/index",
+    "van-col":"../../../../dist/col/index",
+    "van-calendar": "../../../dist/calendar/index"
+  },
+  "navigationBarTitleText": "合伙人申请列表",
+  "navigationBarTextStyle":"black",
+  "enablePullDownRefresh": true
+}

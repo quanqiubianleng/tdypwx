@@ -1,0 +1,97 @@
+<!--pages/clock/details/details.wxml-->
+<view class='wraper'>
+  <view class='header'>
+    <van-row>
+      <van-col span="24">
+        <van-col span="24"  custom-class="search">
+          <van-col span="18" offset="1" custom-class="search-input">
+            <image src="/icons/search.png" class="search-inc"></image>
+            <input placeholder="搜索员工" />
+          </van-col>
+          <van-col span="3" offset="1" custom-class="search-quxiao">取消</van-col>
+        </van-col>
+      </van-col>
+    </van-row>
+  </view>
+  <view class='main'>
+    <scroll-view class='main-scroll' scroll-y style="height: 100%">
+      <van-col span="24" custom-class="list-search">
+        <van-col span="22" offset="1" custom-class="list-card">
+          <van-col span="16" offset="1" custom-class="list-caed-l">
+            <van-col span="24" custom-class="list-caed-l-name">王小波</van-col>
+            <van-col span="24" custom-class="list-caed-l-adds">重庆安波福有限责任公司</van-col>
+          </van-col>
+          <van-col span="6" offset="1" custom-class="list-card-r" bindtap="show">
+              <view>出勤</view>
+          </van-col>
+        </van-col>
+      </van-col>
+      <van-col span="24"custom-class="list-list">
+        <van-col span="22" offset="1" custom-class="list-cards">
+          <van-col span="16" offset="1" custom-class="list-caed-l">
+            <van-col span="24" custom-class="list-caed-l-name">王小波</van-col>
+            <van-col span="24" custom-class="list-caed-l-adds">重庆安波福有限责任公司</van-col>
+          </van-col>
+          <van-col span="6" offset="1" custom-class="list-card-r">
+              <view>出勤</view>
+          </van-col>
+        </van-col>
+        <van-col span="22" offset="1" custom-class="list-cards" bindtap="personal">
+          <van-col span="16" offset="1" custom-class="list-caed-l">
+            <van-col span="24" custom-class="list-caed-l-name">王小波</van-col>
+            <van-col span="24" custom-class="list-caed-l-adds">重庆安波福有限责任公司</van-col>
+          </van-col>
+          <van-col span="6" offset="1" custom-class="list-card-r">
+              <view>出勤</view>
+          </van-col>
+        </van-col>
+        <van-col span="22" offset="1" custom-class="list-cards" >
+          <van-col span="16" offset="1" custom-class="list-caed-l">
+            <van-col span="24" custom-class="list-caed-l-name">王小波</van-col>
+            <van-col span="24" custom-class="list-caed-l-adds">重庆安波福有限责任公司</van-col>
+          </van-col>
+          <van-col span="6" offset="1" custom-class="list-card-r">
+              <view>出勤</view>
+          </van-col>
+        </van-col>
+        <van-col span="22" offset="1" custom-class="list-cards" >
+          <van-col span="16" offset="1" custom-class="list-caed-l">
+            <van-col span="24" custom-class="list-caed-l-name">王小波</van-col>
+            <van-col span="24" custom-class="list-caed-l-adds">重庆安波福有限责任公司</van-col>
+          </van-col>
+          <van-col span="6" offset="1" custom-class="list-card-r">
+              <view>出勤</view>
+          </van-col>
+        </van-col>
+        <van-col span="22" offset="1" custom-class="list-cards" >
+          <van-col span="16" offset="1" custom-class="list-caed-l">
+            <van-col span="24" custom-class="list-caed-l-name">王小波</van-col>
+            <van-col span="24" custom-class="list-caed-l-adds">重庆安波福有限责任公司</van-col>
+          </van-col>
+          <van-col span="6" offset="1" custom-class="list-card-r">
+              <view>出勤</view>
+          </van-col>
+        </van-col>
+      </van-col>
+    </scroll-view>
+  </view>
+</view>
+<van-popup show="{{show}}" round="false"  position="bottom"  overlay-class="popup" bind:close="onClose" round custom-style="height:55%;" catchtouchmove="false">
+    <van-col span="24" custom-class="show-diy">网小兵</van-col>
+    <van-col span="24" custom-class="show-list">
+      <van-col span="22" offset="1" custom-class="list-item " data-name="{{item}}" data-current="1" bindtap="xuanzhong">
+        <van-col span="24" custom-class="{{currentTab==1?'showbj':'list-item-con'}}"  bindtap="xuanzhong">出勤</van-col>
+      </van-col>
+      <van-col span="22" offset="1" custom-class="list-item " data-name="{{item}}" data-current="2"bindtap="xuanzhong">
+        <van-col span="24" custom-class="{{currentTab==2?'showbj':'list-item-con'}}"  bindtap="xuanzhong">请假</van-col>
+      </van-col>
+      <van-col span="22" offset="1" custom-class="list-item " data-name="{{item}}" data-current="3" bindtap="xuanzhong">
+        <van-col span="24" custom-class="{{currentTab==3?'showbj':'list-item-con'}}"  bindtap="xuanzhong">旷工</van-col>
+      </van-col>
+    </van-col>
+    <van-col span="24" custom-class="show-bt">
+      <view class="show-bt-quxiao" bindtap="cancel">取消</view>
+      <view class="show-bt-queding" bindtap="confirm">确定</view>
+    </van-col>
+ </van-popup>
+

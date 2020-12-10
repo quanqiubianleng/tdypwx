@@ -1,0 +1,82 @@
+<!--pages/face-record/index/index.wxml-->
+<view class='wraper'>
+  <view class='header'>
+    <van-row>
+      <van-col span="24" custom-class="search-box">
+        <van-col span="20" offset="2" custom-class="search">
+          <van-col span="19" custom-class="search-input"><input placeholder-style="color: #666666;font-size: 28rpx;" bindconfirm="searchfrom" confirm-type="search" bindblur="search" bindinput="search" placeholder="输入姓名/模糊查找" /></van-col>
+          <van-col span="4" offset='1' custom-class="search-inc" bindtap="searchlist">
+            <image src="/icons/search.png"></image>
+          </van-col>
+        </van-col>
+      </van-col>
+    </van-row>
+    <van-row>
+      <view class="banner">
+        <swiper class="swiper" indicator-dots="{{swiper.indicatorDots}}" indicator-color="{{swiper.indicatorColor}}"
+          indicator-active-color="{{swiper.indicatorActiveColor}}" autoplay="{{swiper.autoplay}}" circular="true">
+          <swiper-item wx:for="{{banner}}"  data-item="item" wx:key="key">
+            <image src="{{item.image}}" />
+          </swiper-item>
+        </swiper>
+      </view>
+    </van-row>
+    <van-col span="22" offset="1" custom-class="list-tel">
+      <van-col span="14" custom-class="list-tel-tel">面试名单</van-col>
+      <van-col span="10" custom-class="list-tel-ul">
+        <van-col span="7"custom-class="list-tel-ul-ui {{currentTab==0 ? 'on' : ''}}"  data-current="0" bindtap="swichNav">全部</van-col>
+        <van-col span="7"custom-class="list-tel-ul-ui {{currentTab==1 ? 'on' : ''}}"  data-current="1" bindtap="swichNav">待面试</van-col>
+        <van-col span="7"custom-class="list-tel-ul-ui {{currentTab==2 ? 'on' : ''}}"  data-current="2" bindtap="swichNav">已面试</van-col>
+      </van-col>
+    </van-col>
+  </view>
+  <view class='main'>
+        <van-col span="24" custom-class="" wx:if="{{searchlist.length<=0}}">
+          <van-col span="22" offset="1" custom-class="list" wx:if="{{currentTab==0}}" wx:for="{{list}}" wx:for-item="item" wx:for-index="key" wx:key="key" data-id="{{item.id}}" bindtap="details" >
+          <van-col span="16" custom-class="list-usrename">
+            <view class="name">{{item.username}}-{{item.invitecode}}</view>
+            <view class="tel" bindtap="mobile" data-mobile="{{item.mobile}}">电话：{{item.mobile}}</view>
+          </van-col>
+          <van-col span="7" offset="1" custom-class="list-inp"><view class="list-bt" data-id="{{key}}" data-list="0" data-sl="0" data-search="0" bindtap="show">详细信息</view></van-col>
+          </van-col>
+        </van-col>
+        <van-col span="24" custom-class="" wx:if="{{searchlist.length>=1}}">
+          <van-col span="22" offset="1" custom-class="list" wx:for="{{searchlist}}" wx:for-item="item" wx:for-index="key" wx:key="key" data-id="{{item.id}}" bindtap="details" >
+          <van-col span="16" custom-class="list-usrename">
+            <view class="name">{{item.username}}-{{item.invitecode}}</view>
+            <view class="tel" bindtap="mobile" data-mobile="{{item.mobile}}">电话：{{item.mobile}}</view>
+          </van-col>
+          <van-col span="7" offset="1" custom-class="list-inp"><view class="list-bt" data-list="3" data-sl="1" data-search="1" data-id="{{key}}" bindtap="show">详细信息</view></van-col>
+          </van-col>
+          <van-col span="22" wx:if="{{searchlist.length<=0}}" offset="1" custom-class="null"><image src="/icons/null-1.png"></image></van-col>
+        </van-col>
+        <van-col span="24" wx:el>
+          <van-col span="24" wx:if="{{currentTab==1}}">
+            <van-col span="22" offset="1" custom-class="list" wx:if="{{list1.length>=1}}" wx:for="{{list1}}" wx:for-item="item" wx:for-index="key" wx:key="key" data-id="{{item.id}}" bindtap="details" >
+              <van-col span="16" custom-class="list-usrename">
+                <view class="name">{{item.username}}-{{item.invitecode}}</view>
+                <view class="tel" bindtap="mobile" data-mobile="{{item.mobile}}">电话：{{item.mobile}}</view>
+              </van-col>
+              <van-col span="7" offset="1" custom-class="list-inp"><view class="list-bt" data-list="1" data-sl="0" data-id="{{key}}" data-search="0" bindtap="show">详细信息</view></van-col>
+            </van-col>
+            <van-col span="22" custom-class="null" wx:if="{{list1.length<=0}}">
+              <image src="/icons/null-1.png"></image>
+            </van-col>
+          </van-col>
+          <van-col span="24" wx:if="{{currentTab==2}}">
+            <van-col span="22" offset="1" custom-class="list" wx:if="{{list2.length>=1}}" wx:for="{{list2}}" wx:for-item="item" wx:for-index="key" wx:key="key" data-id="{{item.id}}" bindtap="details" >
+            <van-col span="16" custom-class="list-usrename">
+                <view class="name">{{item.username}}-{{item.invitecode}}</view>
+                <view class="tel" bindtap="mobile" data-mobile="{{item.mobile}}">电话：{{item.mobile}}</view>
+            </van-col>
+              <van-col span="7" offset="1" custom-class="list-inp"><view class="list-bt" data-list="2" data-sl="0" data-type="2" data-search="0" data-id="{{key}}" bindtap="show">详细信息 </view>
+              </van-col>
+            </van-col>
+            <van-col span="22" custom-class="null" wx:if="{{list2.length<=0}}">
+              <image src="/icons/null-1.png"></image>
+            </van-col>
+          </van-col>
+          
+        </van-col>
+  </view>
+</view>

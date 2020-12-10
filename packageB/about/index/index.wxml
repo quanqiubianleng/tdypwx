@@ -1,0 +1,17 @@
+<!--packageB/about/index/index.wxml-->
+<van-col span="24" offset="" custom-class="box">
+  <image src="../../../icons/ic_logo.png"></image>
+</van-col>
+<van-col span="22" offset="1" custom-class="box-list">
+  <van-col span="24" custom-class="list-ul">
+    <view class="banben">版本号</view><text class="hao">{{version}}</text>
+  </van-col>
+  <van-col span="24" custom-class="list-ul" bindtap="xieyi">
+    <view class="banben">用户协议</view><van-icon custom-class="icn" name="arrow" />
+  </van-col>
+  <van-col span="24" custom-class="list-ul" bindtap="zhengce">
+    <view class="banben">隐私政策</view><van-icon custom-class="icn" name="arrow" />
+  </van-col>
+</van-col>
+
+<van-col span="20"offset="2"custom-class="login" bindtap="login">重新登录</van-col>

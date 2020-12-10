@@ -1,0 +1,20 @@
+<view class="card">
+<text class="textstel2">邀约人数</text>
+    <view class="weui-flex">
+        <view class="weui-flex__item"><view class="placeholder">
+        <view class='container'>
+            <view class='progress_box'>
+            <!-- 绘制圆环背景 -->
+            <canvas class="progress_bg" canvas-id="abckkl5" />
+            <!-- 绘制加载中圆弧 -->
+            <canvas class="progress_canvas" canvas-id="abckkl5s" /> 
+            <!-- 绘制圆弧中心提示文字 -->
+            <view class="progress_text">
+                <text class='progress_info'> 10人</text>
+            </view>
+            </view>
+        </view>
+        <text class="textstel">邀约总数</text>
+        </view></view>
+    </view>
+</view>

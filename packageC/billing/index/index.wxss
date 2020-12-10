@@ -1,0 +1,116 @@
+/* packageC/billing/index/index.wxss */
+page{
+  padding-bottom: 20rpx;
+  background: #F5F5F5;
+}
+.box{
+  background: #fff;
+  padding-bottom: 20rpx;
+  padding-top: 20rpx;
+  margin-bottom: 30rpx;
+}
+.box-img{
+  height: 180rpx;
+}
+.box-img image{
+  width: 100%;
+  height: 100%;
+}
+.box-bill{
+  height: 180rpx;
+}
+.box-bill-name{
+  height: 60rpx;
+}
+.name{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: left;
+  font-size: 32rpx;
+  font-weight: 600;
+  height: 60rpx;
+}
+.num{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: right;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #F5A932;
+}
+.box-bill-type{
+  height: 60rpx;
+}
+.type{
+  text-align: left;
+  color: #666F83;
+  font-size: 26rpx;
+}
+.fei{
+  height: 60rpx;
+}
+.fei view{
+  float: right;  
+  border-radius: 5rpx;
+  padding: 0rpx;
+
+}
+.fei view text{
+  display: inline-block;
+  line-height: 38rpx;
+  height: 38rpx;
+  font-size: 22rpx;
+  padding-left: 5rpx;
+  padding-right: 5rpx;
+  border: 1rpx solid #F5A932;
+}
+.fei-tel{
+  background: #F5A932;
+  border: 1rpx solid #F5A932;
+  color: #fff;
+  height: 38rpx;
+  line-height: 38rpx;
+  padding-left: 5rpx;
+  padding-right: 5rpx;
+ border-radius: 5rpx 0 rpx 0 5rpx;
+}
+.tags-box{
+  height: 55rpx;
+  overflow:hidden;
+}
+.tags-list{
+  margin-right: 5rpx;
+  /* font-size: 20rpx !important; */
+}
+.details{
+  float: right;
+  background: #F5A932;
+  color: #fff;
+  padding: 3rpx 5rpx;
+  text-align: center;
+ font-size: 22rpx;
+ border-radius: 10rpx;
+ margin-top: 10rpx;
+}
+.cost{
+ padding-top: 10rpx;
+ padding-bottom: 10rpx;
+  margin-top: 10rpx;
+  background: #EBF0F7;
+ 
+  padding-left: 15rpx;
+  color: #3C67B1;
+  font-size: 26rpx;
+}
+.cost-desc text{
+  margin-right: 5rpx;
+}
+.null{
+  margin-top: 20rpx;
+}
+.null image{
+  height: 350rpx;
+  width: 100%;
+}

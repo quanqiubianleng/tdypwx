@@ -1,0 +1,32 @@
+<!--packageA/approval/index/index.wxml-->
+<van-col span="22" offset="1" custom-class="time">
+  <view class="time-img" bindtap="gotime">
+    <image src="../../images/time.png"></image>
+  </view>
+  <view class="time-time" bindtap="gotime">{{data}}</view>
+   <view class="time-num">共{{strip}}人</view>
+</van-col>
+<van-col span="22"offset="1" custom-class="box-list" wx:if="{{list.length>=1}}" wx:for="{{list}}" wx:key="key" data-id="{{item.id}}" bindtap="details">
+  <van-col span="10"custom-class="box-list-ul">
+    <view class="tel">姓名</view>
+    <view class="name">{{item.name}}</view>
+    <view class="desc">审批意见：{{item.admin_remark}}</view>
+  </van-col>
+  <van-col span="8"custom-class="box-list-co">
+    <view class="te">电话</view>
+    <view class="tes">{{item.mobile}}</view>
+    <view class="desc"></view>
+  </van-col>
+  <van-col span="6"custom-class="box-list-rl">
+    <view class="type">申请类型</view>
+    <view class="type-te">{{item.type_name}}</view>
+    <view class="type-img">
+      <image src="../../images/cl.png"></image><text>去处理</text>
+    </view>
+  </van-col>
+</van-col>
+<van-col span="24" custom-class="null" wx:if="{{list.length<=0}}">
+    <image src="../../../icons/null-1.png"></image>
+    <view>暂无数据~</view>
+  </van-col>
+<van-calendar show="{{ show }}" type="range" bind:close="onClose" bind:confirm="onConfirm" show-confirm="{{ false }}"/>

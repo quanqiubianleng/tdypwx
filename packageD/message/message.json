@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "mp-icon": "../../component/icon/icon"
+  },
+  "navigationBarTitleText": "工作消息",
+  "backgroundColor": "#f8f9fa",
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh": true
+}

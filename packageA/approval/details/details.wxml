@@ -1,0 +1,59 @@
+<!--packageA/approval/details/details.wxml-->
+<van-col span="22" offset="1" custom-class="tle">申请人信息</van-col>
+<van-col span="22" offset="1" custom-class="card">
+  <van-col span="24" custom-class="name">
+    <view class="id-name">
+      申<text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>请<text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>人 </view>
+    <view class="name-te">孙意东</view>
+  </van-col>
+  <van-col span="24" custom-class="name">
+    <view class="id-name">
+      联系电话</view>
+    <view class="name-te">15186107585</view>
+  </van-col>
+  <van-col span="24" custom-class="name">
+    <view class="id-name">申请类型</view>
+    
+    <view class="name-te">社会合伙人</view>
+  </van-col>
+  <van-col span="24" custom-class="name">
+    <view class="id-name id-names">
+      身<text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>份<text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>证
+    </view>
+   
+    <view class="name-te">
+      <view class="name-img">
+        <image src="../../../icons/meg2.png"></image>
+      </view>
+      <view class="name-img">
+        <image src="../../../icons/meg2.png"></image>
+      </view>
+    </view>
+  </van-col>
+</van-col>
+<van-col span="22" offset="1" custom-class="tle">审批处理</van-col>
+<van-col span="22" offset="1" custom-class="card">
+  <van-col span="24" custom-class="name">
+    <view class="id-name">
+      审<text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>批<text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>人 
+    </view>
+    <view class="name-te">黄总</view>
+  </van-col>
+  <van-col span="24" custom-class="name">
+    <view class="id-name">
+      审批意见 
+    </view>
+    <view class="name-te">
+      <text class="text {{index==1?'on':''}}" data-id="1" bindtap="xuanze">同意</text>
+      <text class="text {{index==2?'on':''}}" data-id="2" bindtap="xuanze">不同意</text>
+    </view>
+  </van-col>
+  <van-col span="24" custom-class="name">
+    <view class="id-name">审批说明</view>
+    <view class="name-tes">
+      <textarea placeholder="请输入审批说明" bindblur="remark"></textarea>
+    </view>
+  </van-col>
+ 
+</van-col>
+<van-col span="20" offset="1" custom-class="bottom" bindtap="determine">提交</van-col>

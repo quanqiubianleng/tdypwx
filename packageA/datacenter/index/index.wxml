@@ -1,0 +1,64 @@
+<!--pages/datacenter/index/index.wxml-->
+<view class='wraper'>
+  <view class='header'>
+    <van-row>
+      <van-col span="22" offset="1" custom-class="banner">
+        <swiper class="swiper" indicator-dots="{{swiper.indicatorDots}}" indicator-color="{{swiper.indicatorColor}}"
+          indicator-active-color="{{swiper.indicatorActiveColor}}" autoplay="{{swiper.autoplay}}" circular="true">
+          <swiper-item>
+            <image src="/icons/pbank.png" />
+          </swiper-item>
+        </swiper>
+      </van-col>
+    </van-row>
+    <van-col span="22" offset="1" custom-class='topTabSwiper'>
+        <view class='tab  {{currentData == 0 ? "tabBorer" : ""}}'  data-current = "0" bindtap='checkCurrent'>邀约</view>
+        <view class='tab  {{currentData == 1 ? "tabBorer" : ""}}'  data-current = "1" bindtap='checkCurrent'>面试</view>
+        <view class='tab  {{currentData == 2 ? "tabBorer" : ""}}'  data-current = "2" bindtap='checkCurrent'>出发</view>
+        <view class='tab  {{currentData == 3 ? "tabBorer" : ""}}'  data-current = "3" bindtap='checkCurrent'>入职</view>
+    </van-col>
+  </view>
+  <view class='main'>
+      <scroll-view scroll-y="true">
+        <van-col span="22"offset="1" custom-class="card">
+          <van-col span="24" custom-class="card-nian">2020年10月23日</van-col>
+          <van-col span="24" custom-class="card-lin"></van-col>
+          <van-col span="24">
+            <van-col span="24" custom-class="card-list">
+              <van-col span="5"  custom-class="card-list-ul">今日面试</van-col>
+              <van-col span="5"  custom-class="card-list-ul">今日面试</van-col>
+              <van-col span="5"  custom-class="card-list-ul">今日面试</van-col>
+              <van-col span="5"  custom-class="card-list-ul">今日面试</van-col>
+            </van-col>
+            <van-col span="24" custom-class="card-list">
+              <van-col span="5"  custom-class="card-list-li">16</van-col>
+              <van-col span="5"  custom-class="card-list-li">30</van-col>
+              <van-col span="5"  custom-class="card-list-li">28</van-col>
+              <van-col span="5"  custom-class="card-list-li">400</van-col>
+            </van-col>
+          </van-col>
+        </van-col>
+        <van-col span="22" offset="1" custom-class="data-type">
+          <view class="data-type-ul {{datatype == 0 ? 'data-type-li' : ''}}"  data-current = "0" bindtap='datatype' >月报</view>
+          <view class="data-type-ul {{datatype == 1 ? 'data-type-li' : ''}}"  data-current = "1" bindtap='datatype'>季报</view>
+          <view class="data-type-ul {{datatype == 2 ? 'data-type-li' : ''}}"  data-current = "2" bindtap='datatype'>年报</view>
+        </van-col>
+       <van-col span="22" offset="1" custom-class="surface">
+          <view class="containers">
+            <ec-canvas id="mychart-dom-bar" style="z-index: -1;" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+          </view>
+       </van-col>
+       <van-col span="22" offset="1" custom-class="surface">
+          <view class="containers">
+            <ec-canvas class="mychart-dom-line" canvas-id="mychart-line" ec="{{ ecs }}"></ec-canvas>
+          </view>
+       </van-col>
+       <van-col span="22" offset="1" custom-class="surface">
+          <view class="containers">
+            <ec-canvas class="mychart-dom-bar"  canvas-id="mychart-bar" ec="{{ ecss}}"></ec-canvas>
+          </view>
+       </van-col>
+       <!-- <van-col span="22"offset="1"custom-class="surface"></van-col> -->
+    </scroll-view>
+  </view>
+</view>

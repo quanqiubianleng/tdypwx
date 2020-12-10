@@ -1,0 +1,41 @@
+<!--packageC/keep/index/index.wxml-->
+<view class="product-container">
+  <view class="product-list">
+    <view class="product-item" wx:if="{{productList.length>=1}}" wx:for="{{productList}}" wx:for-index="index" wx:key="{{item.j_id}}">
+      <movable-area>
+        <movable-view out-of-bounds="true" direction="horizontal" x="{{item.xmove}}" inertia="true" data-productIndex="{{index}}" bindtouchstart="handleTouchStart" bindtouchend="handleTouchEnd" bindchange="handleMovableChange">
+          <van-col span="24" custom-class="box-box">
+            <van-col span="22" offset="1" custom-class="box">
+              <van-col span="6" custom-class="box-img">
+                <image src="{{item.headimg}}"></image>
+              </van-col>
+              <van-col span="17" offset="1" custom-class="box-bill">
+                <van-col span="24" custom-class="box-bill-name">
+                  <van-col span="12" custom-class="name">{{item.title}}</van-col>
+                  <van-col span='11' offset="1" custom-class="num" wx:if="{{item.averagewage&&item.emolumentr}}">
+                    {{item.averagewage}}-{{item.emolumentr}}元/月</van-col>
+                </van-col>
+                <van-col span="24" custom-class="box-bill-type">
+                  <van-col span="19" custom-class="type">企业类型：{{item.shoptype}}</van-col>
+                  <van-col span="4" offset="1" custom-class="details" data-id="{{item.j_id}}" bindtap="details">
+                    <text>详情</text>
+                  </van-col>
+                </van-col>
+                <van-col span="24" custom-class="tags">
+                  <van-col span="22" custom-class="tags-box">
+                    <van-tag custom-class="tags-list" wx:for="{{item.label_name}}" wx:key="key" max-count="3" plain
+                      color="#3B67B1" size="8rpx" text-color="#3B67B1">{{item}}</van-tag>
+                  </van-col>
+                </van-col>
+              </van-col>
+            </van-col>
+          </van-col>
+        </movable-view>
+      </movable-area>
+      <view class="delete-btn" data-id="{{item.j_id}}" data-index="{{index}}" bindtap="handleDeleteProduct">删除</view>
+    </view>
+    <view wx:if="{{productList.length<=0}}" class="null">
+        <image src="../../../icons/null.png"></image>
+    </view>
+  </view>
+</view>

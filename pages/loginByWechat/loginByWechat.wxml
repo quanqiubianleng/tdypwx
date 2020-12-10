@@ -1,0 +1,28 @@
+<view class="content">
+  <image class="logo" src="../../icons/ic_logo.png" />
+  <view class="formGroup">
+    <view class="checkBox">
+      <checkbox-group bindchange="handleCheckBox">
+      <label>
+        <checkbox color="#2A4DEF" value="checked" ></checkbox>登录即代表同意
+      </label>
+      </checkbox-group>
+      <navigator url="/pages/userAgreement/userAgreement">《用户协议》</navigator>  
+      <navigator url="/pages/privacyPolicy/privacyPolicy">《隐私政策》</navigator>  
+    </view>
+  </view>
+  <button class="loginBtn" open-type="getPhoneNumber" bindgetphonenumber="bindgetphonenumber" disabled="{{check == 0}}">登录</button>
+</view>
+
+
+<!-- <view class="bg" wx:if="{{userInfo==''}}"></view>
+<view class="show"  wx:if="{{userInfo==''}}">
+  <view class="show-diy" wx:if="{{userInfo==''}}">
+     <image src="../../../icons/clock.png"  wx:if="{{userInfo==''}}" class="show-img"></image>
+     <button open-type="getPhoneNumber" bindgetphonenumber="bindgetphonenumber"  style="background:#fff">
+      <van-col span="22" offset="1" custom-class="share">
+        <text>授权</text>
+      </van-col>
+    </button>
+  </view>
+</view> -->

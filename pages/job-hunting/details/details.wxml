@@ -1,0 +1,201 @@
+<!--packageC/job-hunting/details/details.wxml-->
+<view class="loading">
+  <van-loading size="30px" color="#0d0d0d">数据加载中</van-loading>
+</view>
+<view wx:if="{{list.emolumentinfo||list.meals||list.putup||list.description||list.nodescriptionlist.agel||list.ager||list.sex||list.education||list.astrict}}">
+	<!-- <scroll-view class='main-scroll' scroll-into-view="{{toView}}" scroll-with-animation="true" scroll-x="false"
+		scroll-y="true" bindscroll="bindscroll" style="height: 100%"> -->
+		<van-row>
+			<view class="banner">
+				<swiper class="swiper" indicator-dots="{{swiper.indicatorDots}}" indicator-color="{{swiper.indicatorColor}}"
+					indicator-active-color="{{swiper.indicatorActiveColor}}" autoplay="{{swiper.autoplay}}" circular="true">
+					<swiper-item data-item="item" wx:key="key">
+						<image src="{{list.headimg}}" />
+					</swiper-item>
+				</swiper>
+				<view class="num-tip" bindtap="keep">
+					<van-icon name="star-o" wx:if="{{keep==0}}" size="40rpx"/>
+					<van-icon name="star" wx:if="{{keep==1}}" color="#D04D4D" size="40rpx" />
+				</view>
+			</view>
+		</van-row>
+		<view class="card">
+			<view class="card-l">
+				<view class="shop-type">{{list.title}}</view>
+				<view class="shop-type shop-num">{{list.averagewage}}-{{list.emolumentr}}元</view>
+			</view>
+			<view class="shop-name">{{list.shopname}}</view>
+			<view class="tags-box">
+				<view class="tags" wx:if="{{list.welfare_name}}" wx:for="{{list.welfare_name}}" wx:key="key" plain color="#3B67B1"
+					size="20rpx" text-color="#3B67B1">{{item.name}}</view>
+			</view>
+
+		</view>
+		<van-col span="24" custom-class="nav {{scrollTop==1?'navs':''}}" id="nav">
+			<van-col span="5" custom-class="nav-ul {{currentTab==1?'on':''}}" data-opt="nav1" data-current="1" bindtap="nav">
+				职位详情</van-col>
+			<van-col span="5" custom-class="nav-ul {{currentTab==2?'on':''}}" data-opt="nav3" data-current="2" bindtap="nav">
+				录用条件</van-col>
+			<van-col span="5" custom-class="nav-ul {{currentTab==3?'on':''}}" data-opt="nav4" data-current="3" bindtap="nav">
+				企业介绍</van-col>
+			<van-col span="5" custom-class="nav-ul {{currentTab==4?'on':''}}" data-opt="nav7" data-current="4" bindtap="nav">
+				入职流程</van-col>
+		</van-col>
+		<van-col span="24" offset="" custom-class="details">
+			<view id="nav1">
+				<view class="details-list" wx:if="{{list.emolumentinfo}}">
+					<view class="details-tel">薪资待遇</view>
+					<view class="details-ul">
+						<view class="details-ul-tel">薪资说明</view>
+						<view class="details-ul-desc">
+							<import src="../../../utils/wxParse/wxParse.wxml" />
+							<template is="wxParse" data="{{wxParseData:emolumentinfo.nodes}}" />
+						</view>
+					</view>
+				</view>
+				<view class="details-list" id="nav2" wx:if="{{list.meals||list.putup||list.description||list.nodescription}}">
+					<view class="details-tel">福利待遇</view>
+					<view class="details-ul" wx:if="{{list.meals}}">
+						<view class="details-ul-tel">伙食情况</view>
+						<view class="details-ul-desc">
+							<import src="../../../utils/wxParse/wxParse.wxml" />
+							<template is="wxParse" data="{{wxParseData:meals.nodes}}" />
+						</view>
+					</view>
+					<view class="details-ul" wx:if="{{list.putup}}">
+						<view class="details-ul-tel">住宿情况</view>
+						<view class="details-ul-desc">
+							<import src="../../../utils/wxParse/wxParse.wxml" />
+							<template is="wxParse" data="{{wxParseData:putup.nodes}}" />
+						</view>
+					</view>
+					<view class="details-ul" wx:if="{{list.description}}">
+						<view class="details-ul-tel">社保福利</view>
+						<view class="details-ul-desc">
+							<import src="../../../utils/wxParse/wxParse.wxml" />
+							<template is="wxParse" data="{{wxParseData:description.nodes}}" />
+						</view>
+					</view>
+					<view class="details-ul" wx:if="{{list.nodescription}}">
+						<view class="details-ul-tel">其他福利</view>
+						<view class="details-ul-desc">
+							<import src="../../../utils/wxParse/wxParse.wxml" />
+							<template is="wxParse" data="{{wxParseData:nodescription.nodes}}" />
+						</view>
+					</view>
+				</view>
+			</view>
+			<view id="nav3">
+				<view class="details-list" wx:if="{{list.agel||list.ager||list.sex||list.education||list.astrict}}">
+					<view class="details-tel">录用条件</view>
+					<view class="details-ul" wx:if="{{list.agel&&list.ager}}">
+						<view class="details-ul-tel">年龄要求</view>
+						<view class="details-ul-desc">{{list.agel}}~{{list.ager}}</view>
+					</view>
+					<view class="details-ul" wx:if="{{list.sex}}">
+						<view class="details-ul-tel">性别要求</view>
+						<view class="details-ul-desc">{{list.sex}}</view>
+					</view>
+					<view class="details-ul" wx:if="{{list.education}}">
+						<view class="details-ul-tel">学历要求</view>
+						<view class="details-ul-desc">{{list.education}}</view>
+					</view>
+					<view class="details-ul" wx:if="{{list.astrict}}">
+						<view class="details-ul-tel">面试要求</view>
+						<view class="details-ul-desc">
+							<import src="../../../utils/wxParse/wxParse.wxml" />
+							<template is="wxParse" data="{{wxParseData:astrict.nodes}}" />
+						</view>
+					</view>
+				</view>
+				<view class="details-list" id="nav4" wx:if="{{list.waywork||list.workdate}}">
+					<view class="details-tel">工作内容</view>
+					<view class="details-ul" wx:if="{{list.waywork}}">
+						<view class="details-ul-tel">工作方式</view>
+						<view class="details-ul-desc">
+							<import src="../../../utils/wxParse/wxParse.wxml" />
+							<template is="wxParse" data="{{wxParseData:waywork.nodes}}" />
+						</view>
+					</view>
+					<view class="details-ul" wx:if="{{list.workdate}}">
+						<view class="details-ul-tel">作息时间</view>
+						<view class="details-ul-desc">
+							<import src="../../..//utils/wxParse/wxParse.wxml" />
+							<template is="wxParse" data="{{wxParseData:workdate.nodes}}" />
+						</view>
+					</view>
+				</view>
+			</view>
+			<view  id="nav5">
+				<view class="details-list" wx:if="{{list.aboutus}}">
+					<view class="details-tel">企业介绍</view>
+					<view class="details-ul">
+						<view class="details-ul-desc" style="width:100%">
+							<import src="../../../utils/wxParse/wxParse.wxml" />
+							<template is="wxParse" data="{{wxParseData:aboutus.nodes}}" />
+						</view>
+					</view>
+				</view>
+				<view class="details-list" id="nav6" wx:if="{{list.addr}}">
+					<view class="details-tel">工作地点</view>
+					<view class="details-ul">
+						<view class="details-ul-tel">工作地点</view>
+						<view class="details-ul-desc">
+							{{list.addr}}
+						</view>
+					</view>
+				</view>
+			</view>
+		
+			<view class="details-ul-img" id="nav7">
+				<view class="details-tel">入职流程</view>
+				<view class="details-ul-img">
+					<image src="/icons/lc.png"></image>
+				</view>
+			</view>
+		</van-col>
+	<!-- </scroll-view> -->
+	<van-row>
+		<van-col span="24" custom-class="shop-wrapper">
+			<van-col span="22" offset="1" custom-class="shop-box">
+				<van-col span="12" custom-class="shop-left">
+					<van-col span="8" custom-class="shopper" bindtap="tel">
+						<van-col span="12" offset="5" custom-class="shop-img-box">
+							<image src="/icons/wrok-1.png" class="shop-img"></image>
+						</van-col>
+						<van-col span="24" custom-class="shop-text">
+							电话咨询
+						</van-col>
+					</van-col>
+					<van-col span="8" custom-class="shop-kefu" bindtap="advice">
+						<van-col span="12" offset="5" custom-class="shop-img-box">
+							<image src="/icons/wrok-2.png" class="shop-img kefu-img"></image>
+						</van-col>
+						<van-col span="24" custom-class="shop-text">
+							在线咨询
+						</van-col>
+					</van-col>
+				</van-col>
+				<van-col span="12" custom-class="shop-buy" data-type="buynow" bindtap="showPopup">
+					立即报名
+				</van-col>
+			</van-col>
+		</van-col>
+	</van-row>
+	<van-dialog show="{{show}}" title="" show-confirm-button confirm-button-color="#3B67B1" cancel-button-color="#3B67B1"
+		show-cancel-button message="检测到你已报名了其他工厂，如确定报名，报名系统将自动为您取消上一家报名工厂！" customStyle="show" bind:confirm="confirm"
+		bind:cancel="cancel" custom-style="height:300rpx">
+	</van-dialog>
+	<van-popup show="{{show1}}" position="bottom" custom-class="shows" bind:close="onClose" custom-style="height:500rpx">
+		<van-col span="24" offset="" custom-class="show-desc">
+			<image src="/icons/wen.png"></image>
+		</van-col>
+		<van-col span="24" custom-class="show-q">请确认是否进行报名</van-col>
+		<van-col span="22" offset="1" custom-class="show-s"> 报名成功后，在工作时间内9：00-18：00，我们将会有就业顾问与您进行沟通，请保持电话通讯正常，谢谢！ </van-col>
+		<view class="quxiao" bindtap="bubao">再考虑下</view>
+		<!-- wx:if="{{passdata}}" -->
+		<view class="quding" bindtap="bao" >确认报名</view>
+		<!-- <button class="qudings" open-type="getPhoneNumber" bindgetphonenumber="bindgetphonenumber"
+			wx:if="{{passdata==''}}">确认报名</button> -->
+	</van-popup>
+</view>

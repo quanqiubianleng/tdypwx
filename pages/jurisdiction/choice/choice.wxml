@@ -1,0 +1,44 @@
+<!--pages/jurisdiction/choice/choice.wxml-->
+<van-row>
+  <van-col span="24" offset="0" custom-class="top">
+    <image src="{{userimg}}" class="head"></image>
+    <view class="user-name">{{username}}</view>
+  </van-col>
+  <van-col span="24" custom-class="tel">
+    <van-col span="12" custom-class="tel-lef">功能权限</van-col>
+    <van-col span="12" custom-class="tel-rel">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{branch}}">
+        <input class="Inp" disabled="disabled" placeholder="部门选择" placeholder-style="color: #333;" value="{{branch[index]}}"></input>
+        <van-icon name="arrow-down" custom-class="tel-rel-inc" />
+     </picker>
+    </van-col>
+  </van-col>
+  <van-col span="24" offset="0" custom-class="card">
+    <van-col span="22" offset="1" custom-class="menu">
+      <van-col span="24" custom-class="menu-type" wx:for="{{list}}" wx:for-item="item" key="key">
+        <van-col span="24" custom-class="menu-type-tetl">{{item.title}}</van-col>
+        <van-col span="24" custom-class="menu_container">
+          <van-col span="7" offset="1" custom-class="menu_item" wx:for="{{item.array[index]}}" wx:for-item="nav" wx:for-index="key" data-index="{{key}}" wx:key="key" data-id="{{nav.id}}" data-img="{{nav.nodeimage}}" data-tag="{{nav.tag}}" data-name="{{nav.title}}" data-idx="{{index}}" bindtap="Showdown" >
+          <view class="card-inc">
+            <van-icon wx:if="{{nav.tag==0}}" custom-class="" size="32rpx" name="passed" color="#999999" />
+            <van-icon wx:if="{{nav.tag==1}}" custom-class="" size="32rpx" name="passed" color="#2FAEDF" />
+          </view>
+          <image class="menu_icon" src="{{nav.nodeimage}}" />
+          <view class="menu_name">{{nav.title}}</view>
+         </van-col>
+        </van-col>
+      </van-col>
+    </van-col>
+  </van-col>
+</van-row>
+<van-popup show="{{show}}" position="center" custom-style="height:400rpx;width:400rpx" custom-class="popup">
+    <van-col span="24" custom-class="popup-diy">
+      <image class="popup-img" src="{{img}}"></image>
+      <view class="popup-nav" wx:if="{{tag==0}}">确定开放"{{name}}"功能</view>
+      <view class="popup-nav" wx:if="{{tag==1}}">确关闭"{{name}}"功能</view>
+    </van-col>
+    <van-col span="24" custom-class="popup-bottom">
+      <van-col span="8" offset="3" custom-class="popup-bottom-qd" bindtap="showPopup" data-idx="{{index}}">确定</van-col>
+      <van-col span="8" offset="3" custom-class="popup-bottom-qx" bindtap="onClose" >取消</van-col>
+    </van-col>
+</van-popup>

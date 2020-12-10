@@ -1,0 +1,50 @@
+/* pages/jurisdiction/add/add.wxss */
+.tel{
+  margin-top: 20rpx;
+  color: #666666;
+  text-align: left;
+  font-size: 32rpx;
+}
+.inp{
+  margin-top: 10rpx;
+  background: #EBF0F5;
+  height: 60rpx;
+}
+ .inp input{
+   height: 60rpx;
+   line-height: 60rpx;
+   padding-left: 20rpx;
+   font-size: 30rpx;
+ }
+ .inc{
+   margin-top: 20rpx;
+   height: 100rpx;
+
+ }
+ .inc-vie{
+   text-align: center;
+   height: 100rpx;
+   width: 100rpx;
+   border: 1rpx dashed #ddd;
+   text-align: center;
+ }
+ .inc-vie image{
+   width: 60rpx;
+   height: 60rpx;
+   margin: 20rpx 20rpx;
+ }
+ .inc-add{
+   width: 60rpx;
+   height: 60rpx;
+   margin: 20rpx 20rpx;
+   color: #999999;
+ }
+ .add{
+   position: fixed;
+   bottom: 20rpx;
+   height: 60rpx;
+   line-height: 60rpx;
+   background: #2FB9EF;
+   text-align: center;
+   color: #fff;
+ }

@@ -1,0 +1,51 @@
+/* packageB/IDdiscern/details/details.wxss */
+page{
+  background: #F5F5F5;
+}
+.ID{
+  font-size: 36rpx;
+  /* font-weight: 600; */
+  margin-top: 30rpx;
+}
+.card{
+  margin-top: 30rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  padding-bottom: 80rpx;
+}
+.card-top{
+  border-bottom: 1rpx solid #ddd;
+  padding: 20rpx;
+}
+.name{
+  font-size: 32rpx;
+  margin-top: 10rpx;
+
+}
+.upd-img{
+  height: 400rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  margin-top: 30rpx;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content: center;
+  vertical-align: middle;
+}
+.upd-img .upd-img-icn{
+  width: 155rpx;
+  height: 135rpx;
+  
+}
+.bt{
+  position: fixed;
+  bottom: 20rpx;
+  z-index: 99999;
+  margin-top: 50rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background: #3B66B0;
+  color: #fff;
+}

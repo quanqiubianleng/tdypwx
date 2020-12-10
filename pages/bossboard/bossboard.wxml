@@ -1,0 +1,161 @@
+<view class="iman">
+<view class="card">
+<text class="textstel2">邀约人数</text>
+    <view class="weui-flex">
+        <view class="weui-flex__item"><view class="placeholder">
+        <view class='container'>
+            <view class='progress_box'>
+            <!-- 绘制圆环背景 -->
+            <canvas class="progress_bg" canvas-id="canvasProgressbg" />
+            <!-- 绘制加载中圆弧 -->
+            <canvas class="progress_canvas" canvas-id="canvasProgress" /> 
+            <!-- 绘制圆弧中心提示文字 -->
+            <view class="progress_text">
+                <text class='progress_info'> {{list[0].sum}}人</text>
+            </view>
+            </view>
+        </view>
+        <text class="textstel">邀约总数</text>
+        </view></view>
+        <view class="weui-flex__item"><view class="placeholder">
+        <view class='container1'>
+            <view class='progress_box'>
+            <!-- 绘制圆环背景 -->
+            <canvas class="progress_bg" canvas-id="canvasProgressbg1" />
+            <!-- 绘制加载中圆弧 -->
+            <canvas class="progress_canvas" canvas-id="canvasProgress1" /> 
+            <!-- 绘制圆弧中心提示文字 -->
+            <view class="progress_text">
+                <text class='progress_info'>  {{list[0].datesum}}人</text>
+            </view>
+            </view>
+        </view>   
+        <text class="textstel1">今日新增</text>     
+        </view></view>
+    </view>
+</view>
+
+
+<view class="hisls"></view>
+<view class="card">
+<text class="textstel21">面试人数</text>
+    <view class="weui-flex">
+        <view class="weui-flex__item"><view class="placeholder">
+        <view class='container'>
+            <view class='progress_box'>
+            <!-- 绘制圆环背景 -->
+            <canvas class="progress_bg" canvas-id="canvasProgressbg2" />
+            <!-- 绘制加载中圆弧 -->
+            <canvas class="progress_canvas" canvas-id="canvasProgress2" /> 
+            <!-- 绘制圆弧中心提示文字 -->
+            <view class="progress_text">
+                <text class='progress_info1'>  {{list[1].sum}}人</text>
+            </view>
+            </view>
+        </view>
+        <text class="textstels">面试总数</text>
+        </view></view>
+        <view class="weui-flex__item"><view class="placeholder">
+        <view class='container1'>
+            <view class='progress_box'>
+            <!-- 绘制圆环背景 -->
+            <canvas class="progress_bg" canvas-id="canvasProgressbg3" />
+            <!-- 绘制加载中圆弧 -->
+            <canvas class="progress_canvas" canvas-id="canvasProgress3" /> 
+            <!-- 绘制圆弧中心提示文字 -->
+            <view class="progress_text">
+                <text class='progress_info1'> {{list[1].datesum}}人</text>
+            </view>
+            </view>
+        </view>   
+        <text class="textstel11">今日新增</text>     
+        </view></view>
+    </view>
+</view>
+
+<view class="hisls"></view>
+<view class="card">
+<text class="textstel3">出发人数</text>
+    <view class="weui-flex">
+        <view class="weui-flex__item"><view class="placeholder">
+        <view class='container'>
+            <view class='progress_box'>
+            <!-- 绘制圆环背景 -->
+            <canvas class="progress_bg" canvas-id="canvasProgressbg4" />
+            <!-- 绘制加载中圆弧 -->
+            <canvas class="progress_canvas" canvas-id="canvasProgress4" /> 
+            <!-- 绘制圆弧中心提示文字 -->
+            <view class="progress_text">
+                <text class='progress_info2'> {{list[2].sum}}人</text>
+            </view>
+            </view>
+        </view>
+        <text class="textstel1s">出发总数</text>
+        </view></view>
+        <view class="weui-flex__item"><view class="placeholder">
+        <view class='container1'>
+            <view class='progress_box'>
+            <!-- 绘制圆环背景 -->
+            <canvas class="progress_bg" canvas-id="canvasProgressbg5" />
+            <!-- 绘制加载中圆弧 -->
+            <canvas class="progress_canvas" canvas-id="canvasProgress5" /> 
+            <!-- 绘制圆弧中心提示文字 -->
+            <view class="progress_text">
+                <text class='progress_info2'> {{list[2].datesum}}人</text>
+            </view>
+            </view>
+        </view>   
+        <text class="textstel11s">今日新增</text>     
+        </view></view>
+    </view>
+</view>
+
+
+<!-- 菜单开始 
+	<view class="page__bd" style="height: 10vh;position:fixed;width:100vw;top:90vh;z-index:10">
+		<view class="weui-tab">
+			<view class="weui-tab__panel">
+			</view>
+			<view class="weui-tabbar">
+				<view class="weui-tabbar__item" bindtap='checkLogin' data-url='../{{role_name}}/{{role_name}}'>
+          <view wx:if="{{um1}}">
+                  <image class="weui-tabbar__icon" src="../../icons/ic_job_def.png" /> 
+          </view>
+          <view wx:else>
+                  <image class="weui-tabbar__icon" src="../../icons/ic_job_act.png" /> 
+          </view>          
+					<view class="weui-tabbar__label" style="color:#666666" wx:if="{{um1}}">工作</view>
+					<view class="weui-tabbar__label" style="color:#3E6EFF" wx:else>工作</view>          
+				</view>
+				<view class="weui-tabbar__item weui-bar__item_on" bindtap='checkLogin' data-url='../{{pagemessage}}/{{pagemessage}}'>
+					<view style="display: inline-block; position: relative;">
+          <view wx:if="{{um2}}">
+                  <image class="weui-tabbar__icon" src="../../icons/ic_msg_def.png" /> 
+          </view>
+          <view wx:else>
+                  <image class="weui-tabbar__icon" src="../../icons/ic_msg_act.png" /> 
+          </view>  
+
+						<text wx:if='{{counts}}' class="weui-badge" style="position: absolute; top: -2px; right: -13px;">{{counts}}</text>
+					</view>
+					<view class="weui-tabbar__label" style="color:#666666" wx:if="{{um2}}">消息</view>
+					<view class="weui-tabbar__label" style="color:#3E6EFF" wx:else>消息</view> 
+				</view>        
+				<view class="weui-tabbar__item" bindtap='checkLogin' data-url='../personal/personal'>
+          <view wx:if="{{um3}}">
+                  <image class="weui-tabbar__icon" src="../../icons/ic_user_def.png" /> 
+          </view>
+          <view wx:else>
+                  <image class="weui-tabbar__icon" src="../../icons/ic_user_act.png" /> 
+          </view>       
+					<view class="weui-tabbar__label" style="color:#666666" wx:if="{{um3}}">我的</view>
+					<view class="weui-tabbar__label" style="color:#3E6EFF" wx:else>我的</view> 
+				</view>
+			</view>
+		</view>
+	</view>
+菜单结束 -->
+<!--底部菜单组件-->  
+<com-tabbar ume='1'></com-tabbar>
+<!--底部菜单组件-->  
+</view>

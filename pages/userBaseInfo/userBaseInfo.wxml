@@ -1,0 +1,63 @@
+<view class="avatarBox">
+  <block wx:if="{{userInfo.baseInfo.wechat_img}}">
+    <image class="avatar" src="{{userInfo.baseInfo.wechat_img}}" />
+  </block>
+  <block wx:else>
+    <block wx:if="{{!sex}}">
+      <image class="avatar" src="../../icons/ic_def_avatar.png" />
+    </block>
+    <block wx:if="{{sex.id == '1'}}">
+      <image class="avatar" src="../../icons/ic_male_avatar.png" />
+    </block>
+    <block wx:if="{{sex.id == '2'}}">
+      <image class="avatar" src="../../icons/ic_female_avatar.png" />
+    </block>
+  </block>
+</view>
+<view class="nameBox">
+  <block wx:if="{{isEdit}}">
+    <input 
+      type="text"
+      maxlength="8"
+      focus="true"
+      bindchange="handlechange"
+      bindblur="handleBlur"
+      placeholder="请填写姓名"
+    />
+  </block>
+  <block wx:if="{{!isEdit}}">
+    <view class="nameInfo">{{uname}} <mp-icon bindtap="handleEdit" icon="pencil" color="#111A34" size="{{24}}"></mp-icon></view> 
+  </block>
+</view>
+<view class="pickerBox">
+  <picker 
+    mode="selector" 
+    range="{{sexArray}}"
+    range-key="name"
+    value="{{index}}" 
+    bindchange="handleSexChange"
+  >
+  {{sex != '' ? sex.name : '请选择性别'}}
+  </picker>
+  <picker 
+    mode="selector" 
+    range="{{eduArray}}" 
+    value="{{index}}" 
+    bindchange="handleEduChange"
+  >
+  {{edu != '' ? edu : '请选择学历'}}
+  </picker>
+</view>
+<view class="cells">
+  <!-- <view class="cell">
+    <view><image src="../../icons/ic_baseInfo_01.png" /> 地址</view>
+    <picker mode="region" value="{{region}}" bindchange="handleRegionChange">{{regionStr != '' ? regionStr : '请选择'}}</picker>
+  </view> -->
+  <view class="cell">
+    <view><image src="../../icons/ic_baseInfo_02.png" /> 出生日期</view>
+    <picker mode="date" end="{{endDate}}" value="{{birthDate}}" bindchange="handleDateChange">{{birthDate != '' ? birthDate : '请选择'}}</picker>
+  </view>
+</view>
+<view class="btnBox">
+  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">提交</button>
+</view>

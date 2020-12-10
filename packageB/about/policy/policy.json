@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-row":"../../../../dist/row/index",
+    "van-col":"../../../../dist/col/index",
+    "van-icon":"../../../dist/icon/index"
+  },
+  "navigationBarTitleText": "政策",  
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh":true  
+}

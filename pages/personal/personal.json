@@ -1,0 +1,10 @@
+{
+  "navigationStyle": "custom", 
+  "backgroundTextStyle": "light", 
+  "usingComponents": {
+    "mp-icon": "../../component/icon/icon",
+    "van-col":"../../../dist/col/index",
+    "headerNavbar": "../../component/headerNavbar/headerNavbar"
+  }
+ 
+}

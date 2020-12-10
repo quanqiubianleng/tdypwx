@@ -1,0 +1,135 @@
+/* packageB/opinion/index/index.wxss */
+page{
+  background: #F5F5F5;
+}
+.box{
+  margin-top: 20rpx;
+}
+.box-list{
+  height: 100rpx;
+  background: #fff;
+  margin-bottom: 15rpx;
+}
+.box-la{
+  line-height: 100rpx;
+  font-size: 36rpx;
+  color: #333;
+}
+.box-inp{
+  height: 100%;
+}
+.box-inp input{
+  height: 100rpx;
+  line-height: 100rpx;
+  width: 100%;
+  text-align: right;
+  color: #333;
+  font-size: 36rpx;
+}
+.text{
+  min-height: 300rpx;
+  background: #fff;
+  margin-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.text-tel{
+  font-size: 32rpx;
+  text-align: left;
+  color: #333333;
+  height: 50rpx;
+  margin-top: 20rpx;
+}
+.text-tel text{
+  color: #999999;
+}
+.text-text{
+  border: 1rpx solid #ddd;
+  min-height: 210rpx;
+  margin-top: 20rpx;
+}
+.text-text textarea{
+  padding: 10rpx;
+  width: 98%;
+  font-size: 28rpx;
+}
+.text-inc{
+  margin-top: 20rpx;
+  background: #fff;
+  margin-bottom: 50rpx;
+}
+.add-image, .up-pic image {
+  margin-top: 2%;
+  margin-left: 2%;
+  width: 150rpx;
+  height: 150rpx;
+  color: #ddd;
+  font-size: 144rpx;
+  line-height: 95%;
+  text-align: center;
+  background-color: #fff;
+  cursor: pointer;
+  border-radius: 10rpx;
+}
+
+.picture_list {
+  padding: 20rpx;
+  margin-left: 2.5%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.picture_item {
+  position: relative;
+  width: 160rpx;
+  height: 160rpx;
+  border: 1rpx dashed #ddd;
+}
+
+.picture_item .del {
+  position: absolute;
+  top: -11rpx;
+  right: -11rpx;
+  color: #fff;
+  border-radius: 50%;
+  width: 40rpx;
+  height: 40rpx;
+  z-index: 2;
+  line-height: 35rpx;
+  text-align: center;
+  background-color: #f00;
+}
+
+.upload_progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.7;
+  border-radius: 8rpx;
+  background-color: #000;
+  color: #fff;
+  width: 160rpx;
+  height: 160rpx;
+  text-align: center;
+  line-height: 160rpx;
+  font-size: 12px;
+}
+
+.picture_item image {
+  width: 160rpx;
+  height: 160rpx;
+}
+.btn{
+ 
+  background: #3B66B0;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+  letter-spacing: 1rpx;
+  z-index: 9999;
+  margin-bottom: 20rpx;
+}

@@ -1,0 +1,31 @@
+/* packageB/wallet/record/record.wxss */
+page{
+  background: #F5F5F5;
+}
+.record{
+  background: #fff;
+  margin-top: 20rpx;
+  border-radius: 20rpx 20rpx  0rpx 0rpx ;
+}
+.record-list{
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid #ddd;
+}
+.record-lists{
+  border-bottom: 0rpx solid #ddd;
+}
+.record-list text{
+  position: relative;
+  top:20rpx;
+  left:  20rpx;
+  color: #DC4F4E;
+  font-size: 24rpx;
+}
+.record-type{
+  font-size: 28rpx;
+  color:#929292;
+}
+.record-time{
+  font-size: 24rpx;
+  color: #929292;
+}

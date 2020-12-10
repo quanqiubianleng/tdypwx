@@ -1,0 +1,16 @@
+<!--packageB/wallet/record/record.wxml-->
+<van-col span="24" offset=""  custom-class="record">
+  <van-col span="24" custom-class="record-list {{idx==list.length-1?'record-lists':''}}" wx:if="{{list.length>=1}}" wx:for="{{list}}" wx:key="key" wx:for-index="idx">
+      <van-col span="21" custom-class="record-type" wx:if="{{item.type==1}}">提现-微信</van-col>
+      <van-col span="21" custom-class="record-type" wx:if="{{item.type==2}}">提现-支付宝</van-col>
+      <van-col span="21" custom-class="record-type" wx:if="{{item.type==3}}">提现-银行卡</van-col>
+      <van-col span="21" custom-class="record-time">{{item.add_time}}</van-col>
+      <text>-{{item.money}}</text>
+  </van-col>
+</van-col>
+<view wx:if='{{!list}}' style="width:100vw;position:relative;text-align:center">
+<image style="width:320px;height:240px;position:relative" src="../../../icons/null.png" />
+
+<text style="left:40vw;position:absolute;top:35vh;color:#999999">暂无记录!</text>
+</view>
+

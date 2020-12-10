@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "van-icon": "../../../dist/icon/index",
+    "van-row":"../../../dist/row/index",
+    "van-popup":"../../../dist/popup/index" ,
+    "van-col":"../../../dist/col/index",
+    "van-tag": "../../../dist/tag/index"
+
+  },
+  "navigationBarTitleText": "添加部门",
+  "backgroundColor": "#f8f9fa",
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh": true
+}

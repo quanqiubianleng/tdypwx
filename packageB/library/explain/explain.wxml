@@ -1,0 +1,81 @@
+<!--packageB/friends/explain/explain.wxml-->
+<headernavbar navbar-data="{{nvabarData}}"></headernavbar>
+<view class="home-page">
+  <van-icon name="arrow-left" custom-class="top-img" size="40rpx"  color="#fff" bindtap="revert"/>
+  <van-col span="24"custom-class="home-tel"> “人才库”</van-col>
+  <van-col span="24"custom-class="home-tels">一个属于自己的小金库</van-col>
+  <van-col span="14" offset="5"custom-class="bt">人才库介绍和定义</van-col>
+</view>
+<van-col span="22" offset="1"custom-class="Template">
+  <van-col span="24"custom-class="box">
+    <van-col span="24"custom-class="box-tel">
+      <van-col span="24">
+        <text class="num">1</text>
+        <text class="tel">什么是人才库？</text>
+      </van-col>
+     <van-col span="23" custom-class="con">“天大云聘”拥有海量的蓝领用工信息，凡是通过您的邀请码下载注册“天大云聘”APP的新用户，都将归属到您的“人才库”中。通过个人“人才库”，您可以实现好友动态可见、工作互荐等功能，以及查看好友为您带来的收益情况。本平台所给予的所有奖励指推荐的好友从事的是劳务派遣工、小时工、寒暑假工、实习生工作，推荐的好友为工厂正式职工的不享有奖励。
+    </van-col>
+    </van-col>
+  </van-col>
+  <van-col span="24"custom-class="box">
+    <van-col span="24"custom-class="box-tel">
+      <van-col span="24">
+        <text class="num">2</text>
+        <text class="tel">什么是平台补贴？</text>
+      </van-col>
+     <van-col span="23" custom-class="con">互助金是除了工资之外，“天大云聘”APP针对注册用户通过信息置换、岗位介绍等方式为其他好友推荐工作，额外奖励给就业者的奖金，需在推荐就职成功的好友入职满一个月后结算领取。               
+    </van-col>
+    </van-col>
+  </van-col>
+  <van-col span="24"custom-class="box">
+    <van-col span="24"custom-class="box-tel">
+      <van-col span="24">
+        <text class="num">3</text>
+        <text class="tel">什么是推荐奖？</text>
+      </van-col>
+     <van-col span="23" custom-class="con"> 通过“推荐有奖”分享微信链接，邀请好友下载注册“天大云聘”APP;好友完成注册,通过平台求职并面试成功，入职满一个月后，平台将在设立的互助金里，按照一定比例按月奖励给推荐者。</van-col>
+    </van-col>
+  </van-col>
+  <van-col span="24"custom-class="box">
+    <van-col span="24"custom-class="box-tel">
+      <van-col span="24">
+        <text class="num">4</text>
+        <text class="tel">什么是入职奖励？</text>
+      </van-col>
+     <van-col span="23" custom-class="con">推荐好友成功就职后，请在“天大云聘”APP首页一“人才库”中查看;好友入职满一个月后，审核通过的互助金会自动进入您的“人才库”账单;您可设置关联账户，提现转至个人银行卡。
+    </van-col>
+    </van-col>
+  </van-col>
+  <van-col span="24"custom-class="box">
+    <van-col span="24"custom-class="box-tel">
+      <van-col span="24">
+        <text class="num">5</text>
+        <text class="tel">怎样或得入职奖励？</text>
+      </van-col>
+     <van-col span="23" custom-class="con">推荐好友成功就职后，请在“天大云聘”APP首页一“人才库”中查看;好友入职满一个月后，审核通过的互助金会自动进入您的“人才库”账单;您可设置关联账户，提现转至个人银行卡。 
+    </van-col>
+    </van-col>
+  </van-col>
+  <van-col span="24"custom-class="box">
+    <van-col span="24"custom-class="box-tel">
+      <van-col span="24">
+        <text class="num">6</text>
+        <text class="tel">怎样领取入职奖励？</text>
+      </van-col>
+     <van-col span="23" custom-class="con">推荐好友成功就职后，请在“天大云聘”APP首页一“人才库”中查看;好友入职满一个月后，审核通过的互助金会自动进入您的“人才库”账单;您可设置关联账户，提现转至个人银行卡。
+    </van-col>
+    </van-col>
+  </van-col>
+  <van-col span="24"custom-class="box">
+    <van-col span="24"custom-class="box-tel">
+      <van-col span="24">
+        <text class="num">7</text>
+        <text class="tel">关于市场行情对奖励影响的说明？</text>
+      </van-col>
+     <van-col span="23" custom-class="con">推荐好友成功就职后，请在“天大云聘”APP首页一“人才库”中查看;好友入职满一个月后，审核通过的互助金会自动进入您的“人才库”账单;您可设置关联账户，提现转至个人银行卡。
+    </van-col>
+    </van-col>
+  </van-col>
+  <!-- <import src="/utils/wxParse/wxParse.wxml" />
+  <template is="wxParse" data="{{wxParseData:article.nodes}}" /> -->
+</van-col>

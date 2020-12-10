@@ -1,0 +1,120 @@
+.avatarBox{
+  width: 230rpx;
+  height: 230rpx;
+  margin: 96rpx auto 0;
+  position: relative
+}
+.avatarBox image{
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  background: #eee;
+  position: absolute
+}
+.avatarBox .avatar{
+  left: 0;
+  top: 0;
+  z-index: 9
+}
+.avatarBox .avatarBlur{
+  left: 0;
+  top: 30rpx;
+  opacity: .46;
+  filter:blur(24rpx);
+  z-index: 1;
+  border-radius: 50%;
+}
+.nameBox{
+  width: 60%;
+  margin: 32rpx auto;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center
+}
+.nameBox .nameInfo{
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #111A34
+}
+.nameBox input{
+  width: 100%;
+  height: inherit;
+  border-bottom: 2rpx solid #eee
+}
+.pickerBox{
+  padding: 0 92rpx;
+  box-sizing: border-box;
+  height: 100rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between
+}
+.pickerBox picker{
+  width: 260rpx;
+  height: 100rpx;
+  background:rgba(255,255,255,1);
+  box-shadow: 0 4rpx 8rpx 0 rgba(131,134,163,0.12);
+  border-radius: 50rpx;
+  border: 2rpx solid #E2E4EA;
+  text-align: center;
+  line-height: 100rpx
+}
+.cells{
+  padding: 0 32rpx;
+  box-sizing: border-box
+}
+.cells .cell{
+  width: 100%;
+  height: 100rpx;
+  background:rgba(255,255,255,1);
+  box-shadow: 0 4rpx 8rpx 0 rgba(131,134,163,0.12);
+  border-radius: 50rpx;
+  border: 2rpx solid rgba(226,228,234,1);
+  margin-top: 64rpx;
+  padding: 0 40rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  line-height: 100rpx;
+  box-sizing: border-box;
+  justify-content: space-between;
+  color: #182C57
+}
+.cell view{
+  width: 40%
+}
+.cell picker{
+  width: 50%;
+  text-align: right;
+  height: inherit;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+.cell image{
+  width: 48rpx;
+  height: 48rpx;
+  vertical-align: middle;
+  margin-right: 16rpx
+}
+.btnBox{
+  width: 100%;
+  padding: 0 32rpx;
+  height: 88rpx;
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 32rpx;
+  left: 0
+}
+.btnBox button{
+  background: #2E54EB;
+  border-radius: 4rpx;
+  color: white;
+  width: 100%;
+  height: inherit;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 36rpx
+}
+.btnBox button::after{
+  border: none
+}

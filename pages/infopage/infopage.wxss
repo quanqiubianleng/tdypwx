@@ -1,0 +1,350 @@
+page{
+  background: #F8F9FA
+}
+
+.content{
+  width: 100%;
+  padding:0vw 5vw;
+  box-sizing: border-box;
+  height: 100vh;
+  
+}
+.content .userCard{
+  width: inherit;
+  padding: 50rpx;
+  box-sizing: border-box;
+  position: relative;
+  background: white;
+  border-radius: 16rpx;
+  top: -15vh;
+}
+.userCard .loginBtn{
+  width: 60%;
+  height: 88rpx;
+  margin: 0 auto;
+  background: #2E54EB;
+  color: white;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 32rpx;
+  border-radius: 8rpx
+}
+.userCard .avatar{
+  position: absolute;
+  left: 50rpx;
+  top: 50rpx;
+  width: 176rpx;
+  height: 176rpx;
+  border-radius: 88rpx;
+  overflow: hidden;
+}
+.avatar image{
+  width: inherit;
+  height: inherit;
+}
+.avatar .editUserInfo{
+  position: absolute;
+  width: 100%;
+  height: 32rpx;
+  background: rgba(0, 0, 0, .5);
+  left: 0;
+  bottom: 0;
+  font-size: 20rpx;
+  color: white;
+  line-height: 32rpx;
+  text-align: center;
+  z-index: 99;
+}
+.userCard .userInfoBox{
+  width: inherit;
+  height: 176rpx;
+  padding-left: 212rpx;
+  box-sizing: border-box
+}
+.userInfoBox .userName{
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 30%;
+  box-sizing: border-box;
+}
+.userInfoBox .userInfo{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between
+}
+.userInfo .userInfoItem text{
+  display: block;
+  text-align: center
+}
+.userInfo .userInfoItem text:last-child{
+  font-size: 24rpx;
+  color: #666F83
+}
+.userCard .attestation{
+  position: absolute;
+  top: 68rpx;
+  right: 0;
+  width: 160rpx;
+  height: 54rpx;
+  background: #5676F2;
+  border-radius: 27rpx 0 0 27rpx;
+  text-align: center;
+  line-height: 54rpx
+}
+.userCard .attestation image{
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: middle;
+  margin-right: 8rpx
+}
+.userCard .attestation text{
+  color: white;
+}
+
+/* 主菜单 */
+.mainMenu{
+  width: 100vw;
+  background: white;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin-top: 32rpx;
+  position: relative;
+  left: -5vw;
+}
+/* 主菜单 */
+.mainMenus1{
+  width: 100vw;
+  background: white;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin-top: -50rpx;
+  left: 0vw;
+  position: fixed;
+  z-index: 11;
+}
+
+/* 主菜单 */
+.mainMenu1{
+  background: white;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin-top: 32rpx;
+  top: 30px;
+  position: relative;
+  height: 150rpx;
+
+}
+.mainMenu view{
+  padding: 10rpx 0;
+  flex: 1;
+  text-align: center;
+  top: -1rpx;
+}
+.mainMenus1 view{
+  padding: 10rpx 0;
+  flex: 1;
+  text-align: center;
+  top: -1rpx;
+}
+
+.mainMenu view image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.mainMenus1 view image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.mainMenu view text{
+  display: block;
+  font-size: 24rpx;
+  color: #41485D;
+  line-height: 36rpx;
+  margin-top: 14rpx;
+  top: -5px;
+  position: relative;
+}
+.mainMenus1 view text{
+  display: block;
+  font-size: 24rpx;
+  color: #41485D;
+  line-height: 36rpx;
+  margin-top: 14rpx;
+  top: -5px;
+  position: relative;
+}
+/* 列表菜单 */
+.listMenu{
+  width: 100%;
+  background: white;
+  border-radius: 16rpx;
+  margin-top: 32rpx;
+  position: relative;
+
+
+}
+.listMenu .navigator{
+  width: inherit;
+  height: 150rpx;
+  padding: 0 32rpx;
+  box-sizing: border-box;
+  line-height: 96rpx;
+  position: relative;
+  border-bottom: 1rpx solid #F5F5F5
+}
+.listMenu .navigator:last-child{
+  border: none
+}
+.listMenu .navigator .mainIcon{
+  width: 56rpx;
+  height: 56rpx;
+  position: absolute;
+  left: 80vw;
+  top: 50%;
+  transform: translateY(-28rpx)
+}
+.listMenu .navigator .iconOpen{
+  position: absolute;
+  right: 80vw;
+  top: 50%;
+  transform: translateY(-50%)
+}
+.texts{
+  font-size: 12px;
+  color: #333333;
+  position: relative;
+  left: 5vw;
+  top: 10rpx;
+
+}
+.text1{
+  font-size: 10px;
+  color: #666666;
+  background-color: #d8ebfb;
+  border-radius: 2px;
+  position: relative;
+  left: -28vw;
+  top: 12rpx;
+  width: 10vw;
+  text-align: center;
+}
+.text2{
+  font-size: 9px;
+  color: #666666;
+  position: relative;
+  left: 5vw;  
+  top: 16rpx;
+}
+.text3{
+  font-size: 9px;
+  color: #666666;
+  position: relative;
+  left: 5vw;
+  top: -10rpx;
+}
+.pbankcss{
+  width: 100vw;
+  left: -5vw;
+  position: relative;
+  height: 25vh;
+}
+.howtext{
+  position: relative;
+  height: 0px;
+  font-size: 20px;
+  color: #396BFF;
+}
+.howtext1{
+  position: relative;
+  color: #396BFF;
+  font-size: 10px;
+  top: 5px;
+  border-bottom: 1rpx solid #396BFF;
+  height: 20px;
+}
+.imagecss{
+  top: 2px;
+  position: relative;
+  left: 18rpx;
+}
+.hentext{
+  position: relative;
+  top: 10px;
+  color: #396BFF;
+  font-size: 14px;
+}
+.textn1{
+  font-size: 12px;
+  color: #333333;
+  position: relative;
+  top: 50rpx;
+  left: 5vw;
+
+}
+.textn2{
+  color: #999999;
+  font-size: 12px;
+  top: 50rpx;
+  left: 5vw;
+  position: relative;
+
+
+}
+.textn3{
+  color: #ffffff;
+  background-color: #3ABBF0;
+  border-radius: 2px;
+  width: 15vw;
+  height: 5vw;
+  text-align: center;
+  top: 50rpx;
+  left: -4vw;
+  position: relative;
+  font-size: 12px;
+}
+.textn4{
+  color: #999999;
+  font-size: 12px;
+  top: 50rpx;
+  left: 5vw;
+  position: relative;
+
+}
+.textn5{
+  font-size: 12px;
+  color: #ffffff;
+  background-color: #FE5F62;
+  border-radius: 2px;
+  width: 15vw;
+  height: 5vw;
+  text-align: center;  
+  top: 50rpx; 
+  position: relative;
+  left: -4vw;
+
+}
+.text01{
+  position: relative;
+  top: -16px;
+
+}
+.flexheight{
+  height: 150rpx;
+    border-bottom: 1rpx solid #F5F5F5
+}
+.mainIcon1{
+  width: 50rpx;
+  height: 50rpx;
+  left: 30vw;
+  position: relative;
+
+}
+

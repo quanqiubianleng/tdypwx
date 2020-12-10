@@ -1,0 +1,13 @@
+.content{
+  padding: 32rpx;
+}
+.content .title{
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-top: 32rpx;
+}
+.content text{
+  color: #666F83;
+  display: block;
+  padding: 16rpx 0;
+}

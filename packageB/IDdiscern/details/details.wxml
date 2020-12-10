@@ -1,0 +1,17 @@
+<!--packageB/IDdiscern/details/details.wxml-->
+<van-col span="22" offset="1" custom-class="ID">请填写以下信息</van-col>
+<van-col span="22" offset="1" custom-class="card">
+  <van-col span="24" custom-class="card-top">
+    <view class="name">实体名称</view>
+    <input  placeholder="请输入实体名称"/>
+  </van-col>
+  <van-col span="24" custom-class="card-top">
+    <view class="name">组织机构代码</view>
+    <input  placeholder="请输入组织机构代码"/>
+  </van-col>
+</van-col>
+<van-col span="22" offset="1" custom-class="ID">请上传营业执照</van-col>
+<van-col span="22" offset="1" custom-class="upd-img">
+  <image src="../../images/sc.png" class="upd-img-icn"></image>
+</van-col>
+<van-col span="22" offset="1" custom-class="bt">提交</van-col>

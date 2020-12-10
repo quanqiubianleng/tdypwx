@@ -1,0 +1,48 @@
+<!--packageC/legal/index/index.wxml-->
+<view class="banner">
+  <swiper class="swiper" indicator-dots="{{swiper.indicatorDots}}" indicator-color="{{swiper.indicatorColor}}"
+    indicator-active-color="{{swiper.indicatorActiveColor}}" autoplay="{{swiper.autoplay}}" circular="true">
+    <swiper-item wx:for="{{banner}}"  data-item="item" wx:key="key" class="swiper-item">
+      <image src="{{item.image}}" />
+    </swiper-item>
+  </swiper>
+</view>
+<scroll-view scroll-x class="scroll-x">
+  <view wx:for="{{lawyer}}" wx:key="{{index}}" class="view-parent">
+    <view class="view-item">
+      <van-col span="22" offset="1" custom-class="item-img">
+        <view class="item-img-img"> 
+          <image src="{{item.imageurl}}"></image>
+        </view>
+        <view class="item-name">
+          <view class="item-name-name">{{item.title}}</view>
+          <view class="item-name-zu">{{item.editor}}</view>
+        </view>
+      </van-col>
+      <van-col span="22"offset="1"custom-class="item-tel">
+        <text>{{item.article}}</text>
+      </van-col>
+    </view>
+  </view>
+</scroll-view>
+<van-col span="24" offset="" custom-class="Hot">
+  <scroll-view scroll-x="true" class="nav" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+    <block wx:for="{{type}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
+      <view class="nav-item {{currentTab == idx ?'active':''}}" data-index="{{idx}}" data-id="{{navItem.id}}" bindtap="nav">{{navItem.name}}</view>
+    </block>
+  </scroll-view>
+</van-col>
+ <van-col span="24"offset="" custom-class="swipers-list" >
+   <van-col span="22"offset="1" custom-class="list" wx:for="{{categorylist}}" key="key" data-id="{{item.id}}" bindtap="details">
+      <van-col span="22" custom-class="swipers-tel">{{item.title}}</van-col><view class="swipers-view"><van-icon name="arrow" custom-class="swipers-icn" /></view>
+      <van-col span="24" custom-class="huida" wx:if="{{item.description}}">[回答]:{{item.description}}</van-col>
+   </van-col>
+ </van-col>
+
+ <van-col span="24" offset="0" custom-class="share" bindtap="load">
+  <image src="../../images/shuaxin.png"></image><text>换一波问题</text>
+</van-col>
+<van-col span="24" offset="0" custom-class="shares" bindtap="tel">
+  <image src="../../images/lianxi.png"></image><text>如需帮助，请联系在线法律顾问</text>
+</van-col>
+ 

@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-col":"../../../../dist/col/index",
+    "ocr-navigator": "plugin://ocr-plugin/ocr-navigator"
+  },
+  "navigationBarTitleText": "实名认证",  
+  "navigationBarBackgroundColor":"#fff",
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh":true  
+}

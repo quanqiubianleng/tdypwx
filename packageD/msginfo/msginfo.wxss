@@ -1,0 +1,797 @@
+page{
+  background: #F5F5F5
+}
+.iman{
+  background-color: #F5F5F5;
+}
+.topBar{
+  width: 90%;
+  height: 88rpx;
+  padding: 10vw;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  background-color: #F5F5F5;  
+}
+.topBar .position{
+  width: 120rpx;
+  height: 100%;
+  text-align: center;
+  padding-right: 20rpx;
+  box-sizing: border-box;
+}
+.topBar .position text{
+  font-size: 20rpx;
+  width: 100%;
+  display: block;
+  height: 24rpx;
+  line-height: 24rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.topBar .searchBox{
+  display: block;
+  width: 100%;
+  height: 68rpx;
+  line-height: 68rpx;
+  background-color:#E9E9E9;
+  border-radius: 20rpx;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+  text-align: center;
+
+  left: 2vw;
+  position: relative;
+
+}
+.searchBox image{
+  display: inline-block;
+  width: 32rpx;
+  height: 32rpx;
+  vertical-align: middle;
+}
+.searchBox text{
+  color: #666F83;
+  font-size: 28rpx;
+  padding-left: 10rpx;
+}
+.topBar .userInfo{
+  width: 120rpx;
+  height: 100%;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+}
+.userInfo .avatarBox{
+  display: block;
+  margin: 0 auto;
+  width: 36rpx;
+  height: 36rpx;
+  margin: 0 auto 4rpx;
+  background-color: white;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+.userInfo text{
+  display: block;
+  text-align: center;
+  font-size: 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* banner */
+.banner{
+  width: 100%;
+  height: 320rpx;
+  margin-top: 26rpx;
+}
+.swiper{
+  width: inherit;
+  height: inherit;
+}
+.swiper swiper-item{
+  padding: 0 32rpx;
+  box-sizing: border-box;
+}
+.swiper image{
+  border-radius: 16rpx;
+  overflow: hidden;
+  width: inherit;
+  height: inherit;
+  background-color: #eee
+}
+
+/*菜单区*/
+.menu{
+  margin-top: 40rpx;
+  width: 100%;
+  height: 420rpx
+}
+.menu swiper-item{
+  padding: 0 32rpx;
+  box-sizing: border-box
+}
+.menuItem{
+  float: left;
+  width: 25%;
+  text-align: center;
+  padding-bottom: 22rpx
+}
+.menuItem image{
+  width: 126rpx;
+  height: 126rpx
+}
+.menuItem text{
+  display: block;
+  font-size: 24rpx;
+  text-align: center;
+  color: #111A34
+}
+.smMenu{
+  width: 100%;
+  height: 180rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  margin-top: 40rpx;
+}
+
+/* 推荐工作 */
+.recommendJob{
+  width: 100%;
+  box-sizing: border-box
+}
+.recommendJob .bigTitle{
+  display: block;
+  width: 100%;
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #111A34;
+  padding: 16rpx 32rpx;
+  box-sizing: border-box
+}
+.recommendJob .screenBar{
+  width: 100%;
+  padding: 0 32rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 999
+}
+.recommendJob .screenBar button{
+  width: 25%;
+  height: inherit;
+  line-height: 88rpx;
+  text-align: center;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+  background: white;
+  display: flex;
+  flex-flow: row nowrap
+}
+.recommendJob .screenBar button::after{
+  border: none
+}
+.recommendJob .screenBar .icon{
+  transform: rotate(90deg)
+}
+.recommendJob .screenBar button text{
+  display: inline-block;
+  width: 80%;
+  height: inherit;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.recommendJob .screenBar button[disabled] text{
+  color: #ccc
+}
+
+.recommendJob .screenItem text{
+  font-size: 28rpx;
+  color: #888888
+}
+
+.shadow{
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,.5);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999999
+}
+.shadow .popUp{
+  padding: 0 40rpx;
+  background: white;
+  border-radius: 0 0 16rpx 16rpx;
+  box-sizing: border-box;
+  max-height: 670rpx;
+  overflow-y: scroll
+}
+.popUp .fItem view{
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  color: #41485D;
+  border-bottom: 1rpx solid #E2E4EA
+}
+.popUp .fItem view:last-child{
+  border: none
+}
+.active{
+  color: #111A34 !important
+}
+.popUp .jobItem{
+  margin: 0 -20rpx
+}
+.popUp .jobItemList{
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  max-height: 480rpx;
+  overflow-y: scroll
+}
+.jobItemList .listItem{
+  display: inline-block;
+  width: 25%;
+  height: 64rpx;
+  padding: 0 16rpx;
+  box-sizing: border-box;
+  margin-bottom: 20rpx
+}
+.popUp .jobItemList text{
+  display: block;
+  width: 100%;
+  height: inherit;
+  line-height: 64rpx;
+  text-align: center;
+  background: #F8F9FA;
+  border-radius: 4rpx;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0 auto;
+  border:2rpx solid #F8F9FA
+}
+.jobItem .groupTitle{
+  color: #2E54EB;
+  padding: 32rpx 20rpx
+}
+.jobItem .btnGroup{
+  margin: 0 -40rpx;
+  height: 88rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  border-top: 1rpx solid #E2E4EA
+}
+.jobItem .btnGroup view{
+  flex: 1;
+  height: inherit;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 88rpx
+}
+.jobItem .btnGroup view:first-child{
+  background: white;
+  color: #41485D;
+}
+.jobItem .btnGroup view:last-child{
+  background: #2E54EB;
+  color: white;
+}
+.groupTitle{
+  color: #2E54EB;
+  padding: 32rpx 0
+}
+.sexItem text{
+  display: inline-block;
+  width: 136rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  background: #F8F9FA;
+  border-radius: 4rpx;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 32rpx;
+  margin-right: 32rpx;
+  border:2rpx solid #F8F9FA;
+}
+.sexActive{
+  background:rgba(240,245,255,1) !important;
+  border:2rpx solid rgba(57,107,255,1) !important;
+  color: #2E54EB !important
+}
+.itemSelect{
+  color: #2E54EB !important
+}
+
+.shadow .screenBar{
+  width: 100%;
+  padding: 0 32rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: white
+}
+.shadow .screenBar button{
+  width: 25%;
+  height: inherit;
+  line-height: 88rpx;
+  text-align: center;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+  background: white;
+  display: flex;
+  flex-flow: row nowrap
+}
+.shadow .screenBar button::after{
+  border: none
+}
+.shadow .screenBar .icon{
+  transform: rotate(90deg)
+}
+.shadow .screenBar button text{
+  display: inline-block;
+  width: 80%;
+  height: inherit;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.shadow .screenBar button[disabled] text{
+  color: #ccc
+}
+
+.shadow .screenItem text{
+  font-size: 28rpx;
+  color: #888888
+}
+.emptyBox{
+  width: 60%;
+  margin: 0 auto;
+  position: relative;
+}
+.emptyBox image{
+  width: 100%;
+}
+.emptyBox text{
+  position: absolute;
+  display: block;
+  width: 100%;
+  left: 0;
+  top: 360rpx;
+  text-align: center;
+  color: #888888;
+}
+
+.activity{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  background: rgba(37, 38, 45, 0.5);
+}
+.activity .swiperBox{
+  width: 100%;
+  height: 860rpx;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-55%);
+}
+.activity swiper{
+  height: 100%;
+}
+.activity swiper-item{
+  width: 100%;
+  height: 100%;
+  padding: 0 75rpx;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.activity .itemBox{
+  width: inherit;
+  height: 800rpx;
+  background: white;
+  border-radius: 30rpx;
+  overflow: hidden;
+  position: relative;
+}
+.itemBox image{
+  width: 100%;
+  height: 100%;
+}
+.itemBox .oprate{
+  width: 100%;
+  height: 220rpx;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.oprate .desc{
+  height: 48rpx;
+  line-height: 48rpx;
+  font-size: 32rpx;
+  color: #111A34;
+  text-align: center;
+}
+.desc text{
+  color: #396BFF;
+}
+.oprate .sign{
+  margin-top: 32rpx;
+  color: white;
+  width:100%;
+  height:88rpx;
+  line-height: 88rpx;
+  background:linear-gradient(180deg,rgba(107,164,255,1) 0%,rgba(57,107,255,1) 100%);
+  border-radius:44px;
+}
+.oprate .sign::after{
+  border: none;
+}
+.activity .close{
+  width: 64rpx;
+  height: 64rpx;
+  position: absolute;
+  left: 50%;
+  bottom: -80rpx;
+  transform: translateX(-50%);
+}
+.activity .close image{
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.card {
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    background-color: #ffffff;
+    margin: 4vw;
+    position: relative;
+    top: 2vh;
+    height: 100px;
+    padding: 0 1vw;
+}
+.unsename {
+    height: 200px;
+    color: #333333;
+    font-size: 14px;
+    position: absolute;
+    margin-top: 2vh;
+}
+.tel {
+    float: right;
+    margin-top: 6vh;
+    color: #999999;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    font-size: 9px;
+}
+.czbut {
+    float: right;
+    margin-top: 10vh;
+    color: #fff;
+    position: absolute;
+    right: 10vw;
+    top: 0;
+    z-index: 1;
+    font-size: 12px;
+}
+.switch-type {
+  display: flex;
+}
+.switch-type .btn:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.switch-type .btn:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.switch-type .btn1 {
+  background: #85D7F7;
+  padding: 10rpx 60rpx;
+  border-radius: 16px;
+  left: -130px;
+  position: absolute;
+
+}
+.switch-type .btns1 {
+  background-color: #fff;
+  padding: 10rpx 60rpx;
+  border-radius: 16px;
+  color: #000;
+  border: 1rpx solid #2FB9EF;
+}
+.switch-type .btns2 {
+  background: #FC7E80;
+  padding: 10rpx 40rpx;
+  border-radius: 5px;
+}
+.switch-type .btn {
+  background: #F5F5F5;
+  padding: 10rpx 40rpx;
+  border-radius: 20px 20px 20px 20px;
+  border: 2rpx solid #2FB9EF;
+}
+.switch-type .btn.active {
+  border: 2rpx solid #2FB9EF;
+  background: #2FB9EF;
+  border-radius: 0px 20px 20px 0px;  
+}
+.switch-type .btn.active1 {
+  border: 2rpx solid #2FB9EF;
+  background: #2FB9EF;
+  border-radius: 20px 0px 0px 20px;  
+}
+.padg {
+  padding: 0 4vw;
+  top: 2vh;
+  position: relative;
+}
+
+.searchBtn{
+  background-color: #E9E9E9;
+  border-radius: 34rpx;
+  width: 80rpx;
+  height: 68rpx;
+  left: 8vw;
+  position: relative;
+}
+
+.weuidd{
+  position: relative;
+  top: 10rpx;
+  left: 10rpx;
+}
+.mainicon{
+  position: relative;
+  width: 8vw;
+  height: 8vw;
+  left: 80vw;
+  top: -3vh;
+  border-radius: 4vw;
+}
+.imgagess{
+  width: 8vw;
+  height: 8vw;
+  display: inline-block;
+  overflow: hidden;
+
+}
+
+.bimldal{
+  position: relative;
+}
+.bimldalname{
+  position: absolute;
+}
+.bimldalinput{
+  position: absolute;
+  left: 10vw;
+}
+
+
+
+.toast-box {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 11;
+}
+ 
+.toastbg {
+    opacity: 0.2;
+    background-color: black;
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+}
+ 
+.showToast {
+    position: absolute;
+    opacity: 1;
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 40%;
+    z-index: 3;
+}
+.showToast1 {
+    position: absolute;
+    opacity: 1;
+    width: 96%;
+    margin-left: 2%;
+    margin-top: 2%;
+    z-index: 3;
+} 
+.toast-title {
+    padding-left: 5%;
+    background-color: #F0F0F0;
+    color: #333333;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    border-top-right-radius: 16rpx;
+    border-top-left-radius: 16rpx;
+}
+ 
+.toast-main {
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    background-color: white;
+    text-align: center;
+}
+ 
+.toast-input {
+    margin-left: 5%;
+    margin-right: 5%;
+    border: 1px solid #ddd;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    border-radius: 4px;
+
+}
+.toast-input1 {
+    border: 1px solid #ddd;
+    padding-right: 2vh;
+    padding-top: 1vh;
+    border-radius: 4px;
+    width: 80%;
+    height: 10vh;
+
+} 
+.toast-input1s {
+    border: 1px solid #ddd;
+    padding-right: 2vh;
+    padding-top: 1vh;
+    border-radius: 4px;
+    width: 80%;
+
+}
+.toast-input1s1 {
+    border: 1px solid #ddd;
+    padding-right: 2vh;
+    padding-top: 1vh;
+    border-radius: 4px;
+    width: 71%;
+
+}  
+.toast-button {
+    display: flex;
+    background-color: #fff;
+    border-radius: 0px 0px 5px 5px;
+    height: 8vh;
+}
+
+.toast-buttons {
+    display: flex;
+    background-color: #fff;
+    border-radius: 0px 0px 5px 5px;
+    height: 4vh;
+    margin: 4vw;
+}
+.toast-buttons1 {
+    display: flex;
+    background-color: #fff;
+    border-radius: 0px 0px 5px 5px;
+    height: 10vh;
+    margin: 4vw;
+}
+.button1 {
+    width: 50%;
+}
+.button2 {
+    width: 50%;
+}
+
+.buttons {
+    width: 20%;
+} 
+.button1 button {
+    width: 50%;
+    background-color: #E5E5E5;
+    color: #333333;
+    border-radius: 4px;
+    height: 5vh;
+}
+ 
+.button2 button{
+    width: 50%;
+    background-color: #85D7F7;
+    color: #fff;
+    border-radius: 4px;
+    height: 5vh;
+}
+ 
+.picker {
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+
+.textcss{
+  position: relative;
+  top: -1vh;
+}
+
+.textcss1{
+  position: relative;
+  top: -4vw;
+  font-size: 12px;
+}
+
+.textcolr{
+  color: #999999;
+  position: relative;
+  top: -1vh;
+  text-align: left;
+  text-align: center;
+  left: 2vw;
+}
+.btussd{
+  height: 3vh;
+}
+.btussds{
+  height: 3vh;
+  background-color: #FC7E80;
+}
+.slsd{
+  color: #2FB9EF;
+  font-size: 18px;
+}
+.textrarcss{
+  width: 100%;
+  text-align: left;
+  left: 2vw;
+}
+.stdatetime{
+  width: 30vw;
+  height: 26px;
+  background-color: #dcdcde;
+  left: 35vw;
+  position: absolute;
+  margin-top: 2vh;
+  border-radius: 5px;
+  font-size: 9px;
+}
+.stdatetime text{
+  top: 10rpx;
+  position: absolute;
+  left: 15rpx;
+  color: #fff;
+}
+
+

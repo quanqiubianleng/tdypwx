@@ -1,0 +1,47 @@
+<!--pages/job-hunting/search/search.wxml-->
+<view class='header'>
+  <van-row>
+    <van-col span="24" custom-class="search-box">
+      <van-col span="22" offset="1" custom-class="search">
+        <van-col span="19" offset="1" custom-class="search-input"><input placeholder="岗位/地区/公司名称" bindblur="search"
+            focus="true" bindconfirm="searchlist"  confirm-type="search"/></van-col>
+        <van-col span="2" offset='1' custom-class="search-inc" bindtap="gosearch">
+          <image src="/icons/search.png"></image>
+        </van-col>
+      </van-col>
+    </van-col>
+  </van-row>
+</view>
+<van-row>
+  <van-col span="24" custom-class="box-box">
+    <van-col span="22" offset="1" custom-class="box" wx:for="{{locationlist}}" wx:for-item="it" wx:key="key"
+      data-id="{{it.id}}" bindtap="details">
+      <van-col span="6" custom-class="box-img">
+        <image src="{{it.headimg}}"></image>
+      </van-col>
+      <van-col span="17" offset="1" custom-class="box-bill">
+        <van-col span="24" custom-class="box-bill-name">
+          <van-col span="12" custom-class="name">{{it.title}}</van-col>
+          <van-col span='11' offset="1" custom-class="num" wx:if="{{it.averagewage&&it.emolumentr}}">
+            {{it.averagewage}}-{{it.emolumentr}}元/月</van-col>
+        </van-col>
+        <van-col span="24" custom-class="box-bill-type">
+          <van-col span="19" custom-class="type">企业类型：{{it.shoptype}}</van-col>
+          <van-col span="4" offset="1" custom-class="details">
+            <text>详情</text>
+          </van-col>
+        </van-col>
+        <van-col span="24" custom-class="tags">
+          <van-col span="22" custom-class="tags-box">
+            <van-tag custom-class="tags-list" wx:for="{{it.label_name}}" wx:key="key" max-count="3" plain
+              color="#3B67B1" size="8rpx" text-color="#3B67B1">{{item.name}}</van-tag>
+          </van-col>
+        </van-col>
+      </van-col>
+    </van-col>
+  </van-col>
+  <van-col span="24" custom-class="null">
+    <image src="/icons/null-3.png"></image>
+    <view>暂无岗位~</view>
+  </van-col>
+</van-row>

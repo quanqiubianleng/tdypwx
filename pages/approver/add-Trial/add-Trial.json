@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "van-row":"../../../dist/row/index",
+    "van-col":"../../../dist/col/index",
+    "van-popup":"../../../dist/popup/index",
+    "van-icon": "../../../dist/icon/index",
+    "van-tag": "../../../dist/tag/index"
+  },
+  "navigationBarTitleText": "添加审批人",
+  "navigationBarTextStyle":"black",
+  "enablePullDownRefresh": true
+}

@@ -1,0 +1,85 @@
+<!--packageB/wallet/carry-show/carry-show.wxml-->
+<van-col span="24" offset=""  custom-class="balance">
+  <van-col span="22" offset="1" custom-class="balance-tel">账号剩余金额：{{money}}元</van-col>
+  <van-col span="24"  custom-class="balance-inp">
+    <van-col span="2"custom-class="label">¥</van-col>
+    <van-col span="18">
+      <input bindblur="number" type="digit" value="{{number}}" placeholder="请输入提现金额" />
+    </van-col>
+    <van-col span="4" custom-class="quanbu" bindtap="quanbu">全部</van-col>
+  </van-col>
+</van-col>
+<van-col span="22" offset="1" custom-class="tishi">提现金额不能小于1.00元</van-col>
+<van-col span="24" custom-class="balance-type">
+  <van-col span="22" offset="1" custom-class="type">提现方式</van-col>
+  <van-col span="23"  custom-class="type-ul">
+    <van-col span="7" offset="1" custom-class="type-il {{index==1?'on':''}}"  data-opt="1" bindtap="showtype">
+      <image src="/packageB/images/WeChat.png"></image><text>微信</text>
+      <!-- <van-icon wx:if="{{index==1}}" custom-class="type-icn" color="red" name="success" /> -->
+    </van-col>
+    <van-col span="7" offset="1" custom-class="type-il {{index==2?'on':''}}" data-opt="2" bindtap="showtype">
+      <image src="/packageB/images/Alipay.png"></image><text>支付宝</text>
+    </van-col>
+    <van-col span="7" offset="1" custom-class="type-il {{index==3?'on':''}}" data-opt="3" bindtap="showtype">
+      <image src="/packageB/images/bank.png"></image><text>银行卡</text>
+    </van-col>
+  </van-col>
+</van-col>
+<van-col span="24" wx:if="{{index==1}}">
+  <van-col span="24" custom-class="name">
+    <van-col span="4" custom-class="name-name"><text>*</text>姓名</van-col>
+    <van-col span="20"custom-class="name-inp"><input bindblur="name" type="text" value="{{name}}" placeholder="请输入姓名"/></van-col>
+  </van-col>
+  <!-- <van-col span="24" custom-class="name">
+    <van-col span="4" custom-class="name-name"><text>*</text>账号</van-col>
+    <van-col span="20"custom-class="name-inp"><input bindblur="account" value="{{account}}" placeholder="请输入正确的微信账号"/></van-col>
+  </van-col> -->
+  <van-col span="24" custom-class="name">
+    <van-col span="4" custom-class="name-name"><text>*</text>身份证</van-col>
+    <van-col span="20"custom-class="name-inp"><input bindblur="uid" type="idcard" value="{{uid}}" placeholder="请输入正确的身份证号"/></van-col>
+  </van-col>
+</van-col>
+<van-col span="24" wx:if="{{index==2}}">
+  <van-col span="24" custom-class="name">
+    <van-col span="4" custom-class="name-name"><text>*</text>姓名</van-col>
+    <van-col span="20"custom-class="name-inp"><input bindblur="name" type="text" value="{{name}}" placeholder="请输入姓名"/></van-col>
+  </van-col>
+  <van-col span="24" custom-class="name">
+    <van-col span="4" custom-class="name-name"><text>*</text>账号</van-col>
+    <van-col span="20"custom-class="name-inp"><input bindblur="account" type="number" value="{{account}}" placeholder="请输入正确的支付宝账号"/></van-col>
+  </van-col>
+  <van-col span="24" custom-class="name">
+    <van-col span="4" custom-class="name-name"><text>*</text>身份证</van-col>
+    <van-col span="20"custom-class="name-inp"><input bindblur="uid" type="idcard" value="{{uid}}" placeholder="请输入正确的身份证号"/></van-col>
+  </van-col>
+</van-col>
+<van-col span="24" wx:if="{{index==3}}">
+  <van-col span="24" custom-class="name">
+    <van-col span="4" custom-class="name-name"><text>*</text>开户人</van-col>
+    <van-col span="20"custom-class="name-inp"><input bindblur="name" type="text"  value="{{name}}" placeholder="请输入开户人姓名"/></van-col>
+  </van-col>
+  <van-col span="24" custom-class="name">
+    <van-col span="4" custom-class="name-name"><text>*</text>开户行</van-col>
+    <van-col span="20"custom-class="name-inp"><input bindblur="Nickname" type="text"  value="{{Nickname}}" placeholder="请输入开户银行名称"/></van-col>
+  </van-col>
+  <van-col span="24" custom-class="name">
+    <van-col span="4" custom-class="name-name"><text>*</text>账号</van-col>
+    <van-col span="20"custom-class="name-inp"><input bindblur="account" type="number" value="{{account}}" placeholder="请输入开户银行账号"/></van-col>
+  </van-col>
+  <van-col span="24" custom-class="name">
+    <van-col span="4" custom-class="name-name"><text>*</text>身份证</van-col>
+    <van-col span="20"custom-class="name-inp"><input bindblur="uid" type="idcard" value="{{uid}}" placeholder="请输入正确的身份证号"/></van-col>
+  </van-col>
+</van-col>
+<van-col span="22"offset="1"custom-class="btn" bindtap="Submit">提交</van-col>
+
+<view class="bg" style='display:{{display}}'></view>
+<view class="show"  style='display:{{display}}'>
+  <view class="show-diy">
+     <!-- <image src="/icons/clock.png"   class="show-img" wx:if="{{show==1}}"></image> -->
+     <image src="/icons/clock.png"  class="show-imgs"></image>
+     <view class="show-tex">申请成功</view>
+     <navigator open-type="exit" target="miniProgram" bindtap='hideviews' class="show-btn">确定</navigator>
+     <!-- <view class="show-btns"  bindtap='hideview' wx:if="{{show==0}}">去完善</view> -->
+  </view>
+</view>

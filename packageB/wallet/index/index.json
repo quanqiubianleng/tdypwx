@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "van-row":"../../../../dist/row/index",
+    "van-col":"../../../../dist/col/index"
+  },
+  "navigationBarTitleText": "我的钱包",  
+  "navigationBarBackgroundColor":"#2EB9EF",
+  "backgroundColor": "#2EB9EF",
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh":true  
+}

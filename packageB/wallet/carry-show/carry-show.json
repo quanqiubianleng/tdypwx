@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "van-row":"../../../../dist/row/index",
+    "van-col":"../../../../dist/col/index",
+    "van-icon":"../../../../dist/icon/index"
+  },
+  "navigationBarTitleText": "申请提现",  
+  "navigationBarBackgroundColor":"#fff",
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh":true  
+}

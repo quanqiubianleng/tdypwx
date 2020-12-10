@@ -1,0 +1,8 @@
+<!--packageC/legal/details/details.wxml-->
+<van-col span="22" offset="1" custom-class="item-tel">
+  <text class="tel-tel">问题</text><text class="tel">{{title}}</text>
+</van-col>
+<van-col span="22"offset="1"custom-class="">
+  <import src="../../utils/wxParse/wxParse.wxml" />
+  <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+</van-col>

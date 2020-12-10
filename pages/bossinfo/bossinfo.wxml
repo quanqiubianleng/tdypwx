@@ -1,0 +1,76 @@
+<view class="card">
+<text class="textstel2">邀约人数</text>
+    <view class="weui-flex">
+        <view class="weui-flex__item sdlksdlf"><view class="placeholder">
+            <canvas class="progress_bg" canvas-id="canvasProgressbg1" />
+            <canvas class="progress_bg" canvas-id="canvasProgressbg1s" />            
+                    <text class="textstel">1</text>
+        </view></view>
+        <view class="weui-flex__item sdlksdlf"><view class="placeholder">
+            <canvas class="progress_bg" canvas-id="canvasProgressbg2" />
+            <canvas class="progress_bg" canvas-id="canvasProgressbg2s" />            
+                    <text class="textstel">2</text>
+        </view></view>
+        <view class="weui-flex__item sdlksdlf"><view class="placeholder">
+            <canvas class="progress_bg" canvas-id="canvasProgressbg3" />
+            <canvas class="progress_bg" canvas-id="canvasProgressbg3s" />               
+                                <text class="textstel">3</text>
+        </view></view>
+        <view class="weui-flex__item sdlksdlf"><view class="placeholder">
+            <canvas class="progress_bg" canvas-id="canvasProgressbg4" />
+            <canvas class="progress_bg" canvas-id="canvasProgressbg4s" />               
+                                <text class="textstel">4</text>
+        </view></view>
+        <view class="weui-flex__item sdlksdlf"><view class="placeholder">
+            <canvas class="progress_bg" canvas-id="canvasProgressbg5" />
+            <canvas class="progress_bg" canvas-id="canvasProgressbg5s" />               
+                                <text class="textstel">5</text>
+        </view></view>
+        <view class="weui-flex__item sdlksdlf"><view class="placeholder">
+            <canvas class="progress_bg" canvas-id="canvasProgressbg6" />
+            <canvas class="progress_bg" canvas-id="canvasProgressbg6s" />               
+                                <text class="textstel">6</text>
+        </view></view>  
+        <view class="weui-flex__item sdlksdlf"><view class="placeholder">
+            <canvas class="progress_bg" canvas-id="canvasProgressbg7" />
+            <canvas class="progress_bg" canvas-id="canvasProgressbg7s" />               
+                                <text class="textstel">7</text>
+        </view></view>
+        <view class="weui-flex__item sdlksdlf"><view class="placeholder">
+            <canvas class="progress_bg" canvas-id="canvasProgressbg8" />
+            <canvas class="progress_bg" canvas-id="canvasProgressbg8s" />               
+                                <text class="textstel">8</text>
+        </view></view>
+        <view class="weui-flex__item sdlksdlf"><view class="placeholder">
+            <canvas class="progress_bg" canvas-id="canvasProgressbg9" />
+            <canvas class="progress_bg" canvas-id="canvasProgressbg9s" />               
+                                <text class="textstel">9</text>
+        </view></view>
+        <view class="weui-flex__item sdlksdlf"><view class="placeholder">
+            <canvas class="progress_bg" canvas-id="canvasProgressbg10" />
+            <canvas class="progress_bg" canvas-id="canvasProgressbg10s" />               
+                                <text class="textstel">10</text>
+        </view></view>
+        <view class="weui-flex__item sdlksdlf"><view class="placeholder">
+            <canvas class="progress_bg" canvas-id="canvasProgressbg11" />
+            <canvas class="progress_bg" canvas-id="canvasProgressbg11s" />               
+                                <text class="textstel">11</text>
+        </view></view>
+        <view class="weui-flex__item sdlksdlf"><view class="placeholder">
+            <canvas class="progress_bg" canvas-id="canvasProgressbg12" />
+            <canvas class="progress_bg" canvas-id="canvasProgressbg12s" />               
+                                <text class="textstel">12</text>
+        </view></view>  
+
+
+
+
+
+
+
+
+
+
+    </view>
+
+</view>

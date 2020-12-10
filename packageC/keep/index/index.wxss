@@ -1,0 +1,214 @@
+/* packageC/keep/index/index.wxss */
+page {
+  background-color: #F5F5F5;
+  }
+  .title {
+    margin: 60rpx 0 30rpx;
+    font-size: 40rpx;
+    text-align: center;
+    font-weight: bold;
+    color: #383A3D;
+  }
+  
+  .product-list .product-item {
+    position: relative;
+    width: 100vw;
+    box-sizing: border-box;
+    background: #fff;
+    z-index: 999;
+    margin-top: 20rpx;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+    margin-bottom: 10rpx;
+  }
+  
+  .slide-product-list .slide-product-item {
+    position: relative;
+    width: 100vw;
+    border-bottom: 2rpx solid #E9E9E9;
+    box-sizing: border-box;
+    background: #fff;
+    z-index: 999;
+  }
+  
+  .product-list .product-item movable-area {
+    height: 225rpx;
+    width: calc(100vw - 120rpx);
+  }
+  
+  .product-list .product-item movable-view {
+    height: 225rpx;
+    width: 100vw;
+    background: #fff;
+    z-index: 999;
+  }
+  
+  .product-list .product-item .delete-btn {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0; 
+    width: 120rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #FFFFFF;
+    line-height: 225rpx;
+    z-index: 1;
+    background: #E66671;
+    text-align: center;
+  }
+  
+  .product-list .product-item-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 8rpx 0 20rpx 20rpx;
+    box-sizing: border-box;
+  }
+  
+  .product-list .product-item-wrap .product-movable-item {
+    flex: 1;
+    overflow: hidden;
+  }
+  
+  .product-list .product-item-wrap .product-movable-item-name {
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #71747A;
+    line-height: 60rpx;
+    margin-right: 10rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  .product-list .product-item-wrap .product-movable-item-code {
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #969AA3;
+  }
+  
+  .product-list .product-item-wrap .product-movable-item-amount {
+    flex: 0 0 auto;
+    padding-right: 80rpx;
+    position: relative;
+  }
+  
+  .product-list .product-item-wrap .product-movable-item-amount .amount {
+    width: 120rpx;
+    font-size: 28rpx;
+    color: #383A3D;
+    line-height: 60rpx;
+  }
+  
+  .product-list .product-item-wrap .product-movable-item-amount .unit {
+    position: absolute;
+    top: 0;
+    right: 30rpx;
+    font-size: 28rpx;
+    color: #969AA3;
+    line-height: 60rpx;
+  }
+
+  .box-box{
+    background: #fff;
+    margin-top: 5rpx;
+  }
+  .box{
+    margin-top: 20rpx;
+    /* border-bottom: 1rpx solid #ddd; */
+    padding-bottom: 20rpx;
+  }
+  .box-img{
+    height: 180rpx;
+  }
+  .box-img image{
+    width: 100%;
+    height: 100%;
+  }
+  .box-bill{
+    height: 180rpx;
+  }
+  .box-bill-name{
+    height: 60rpx;
+  }
+  .name{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: left;
+    font-size: 32rpx;
+    font-weight: 600;
+    height: 60rpx;
+  }
+  .num{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: right;
+    font-size: 28rpx;
+    font-weight: 600;
+    color: #F5A932;
+  }
+  .box-bill-type{
+    height: 60rpx;
+  }
+  .type{
+    text-align: left;
+    color: #666F83;
+    font-size: 26rpx;
+  }
+  .fei{
+    height: 60rpx;
+  }
+  .fei view{
+    float: right;  
+    border-radius: 5rpx;
+    padding: 0rpx;
+  
+  }
+  .fei view text{
+    display: inline-block;
+    line-height: 38rpx;
+    height: 38rpx;
+    font-size: 22rpx;
+    padding-left: 5rpx;
+    padding-right: 5rpx;
+    border: 1rpx solid #F5A932;
+  }
+  .fei-tel{
+    background: #F5A932;
+    border: 1rpx solid #F5A932;
+    color: #fff;
+    height: 38rpx;
+    line-height: 38rpx;
+    padding-left: 5rpx;
+    padding-right: 5rpx;
+   border-radius: 5rpx 0 rpx 0 5rpx;
+  }
+  .details{
+    float: right;
+    background: #F5A932;
+    color: #fff;
+    padding: 3rpx 5rpx;
+    text-align: center;
+   font-size: 22rpx;
+   border-radius: 10rpx;
+   margin-top: 10rpx;
+  }
+  .tags-box{
+    height: 55rpx;
+    overflow:hidden;
+  }
+  .tags-list{
+    margin-right: 5rpx;
+  }
+ 
+   .null{
+     width: 100%;
+     height: 100%;
+     text-align: center;
+     margin-top: 20rpx;
+   }
+   .null image{
+     width: 100%;
+   }

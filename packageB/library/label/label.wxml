@@ -1,0 +1,14 @@
+<!--packageB/library/remarks/remarks.wxml-->
+<van-col  span="22" offset="1" custom-class="label">备注内容</van-col>
+<van-col span="22" offset="1" custom-class="inp">
+  <van-col span="17" custom-class="inp-in"><input placeholder="请输入备注信息" bindblur="name" value="{{name}}"/></van-col>
+  <van-col span="7" custom-class="inp-ti">最多输入8个字</van-col>
+</van-col>
+<van-col  span="22" offset="1" custom-class="label">标签颜色</van-col>
+<van-col span="22"offset="1"custom-class="label-box ">
+  <!--  -->
+  <view class="label-view" wx:for="{{background}}" wx:key="key"  style="background:{{item.background}}" wx:for-index="index" data-index="{{index}}" bindtap="choice">
+    <view class="active" wx:if="{{item.select==true}}">选中</view>
+  </view>
+</van-col>
+<van-col span="22" offset="1" custom-class="bt" bindtap="Submit">提交</van-col>

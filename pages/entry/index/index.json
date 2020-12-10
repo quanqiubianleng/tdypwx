@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-row":"../../../dist/row/index",
+    "van-col":"../../../dist/col/index"
+  },
+  "navigationBarTitleText": "到厂确认",
+  "navigationBarTextStyle":"black",
+  "enablePullDownRefresh": true
+}

@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-row":"../../../../dist/row/index",
+    "van-col":"../../../../dist/col/index",
+    "van-calendar": "../../../dist/calendar/index"
+  },
+  "navigationBarTitleText": "人才库明细",  
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh":true  
+}

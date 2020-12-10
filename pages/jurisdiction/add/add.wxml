@@ -1,0 +1,11 @@
+<!--pages/jurisdiction/add/add.wxml-->
+<van-col span="22" offset="1" custom-class="tel">输入部门名称</van-col>
+<van-col span="22" offset="1" custom-class="inp"><input value="{{name}}" placeholder="请输入" bindblur="name"/></van-col>
+<van-col span="22"offset="1"custom-class="tel">选择部门图标</van-col>
+<van-col span="22"offset="1"custom-class="inc">
+  <view class="inc-vie">
+    <image wx:if="{{img}}" src="{{img}}" bindtap="shangchuan"></image>
+    <van-icon wx:if="{{img==''}}" custom-class="inc-add" name="plus" bindtap="shangchuan" size="60rpx" />
+  </view>
+</van-col>
+<van-col span="22"offset="1"custom-class="add">确认添加</van-col>

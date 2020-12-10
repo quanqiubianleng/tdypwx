@@ -1,0 +1,29 @@
+<!--packageB/library/search/search.wxml-->
+<van-row>
+  <van-col span="24" custom-class="search-box">
+    <van-col span="22" offset="1" custom-class="search">
+      <van-col span="21" custom-class="search-input">
+        <input placeholder-style="color: #666666;font-size: 28rpx;" bindconfirm="searchlist" confirm-type="search" bindblur="search" bindinput="search" placeholder="请输入关键字" />
+      </van-col>
+      <van-col span="2" offset='1' custom-class="search-inc" bindtap="searchlist">
+        <image src="../../../icons/search.png"></image>
+      </van-col>
+    </van-col>
+  </van-col>
+</van-row>
+<van-col span="24"custom-class="library-list">
+  <van-col span="11"custom-class="library-list-ul" wx:for="{{userlist}}" wx:key="key">
+    <van-col span="22"offset="1" custom-class="renyuan">
+      <image src="{{item.headimgurl}}"  mode="aspectFill"></image>
+      <text>{{item.username}}</text>
+    </van-col>
+    <view class="tag" wx:if="{{item.tags&&item.remark}}">
+      <image src="../../images/{{item.tags}}.png"></image>
+      <text>{{item.remark}}</text>
+    </view>
+    <van-col span="22"offset="1"custom-class="state"><text>{{item.level}}级</text><text>待业</text></van-col>
+    <van-col span="22"offset="1"custom-class="describe">好友入职后你预计可或100.0元/月可领取金额0元</van-col>
+    <van-col span="20"offset="2"custom-class="del" data-id="{{item.id}}" data-own="2" bindtap="details">详情</van-col>
+    <van-col span="22"offset="1"custom-class="time">注册时间：{{item.indate}}</van-col>
+  </van-col>
+</van-col>

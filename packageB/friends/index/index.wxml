@@ -1,0 +1,53 @@
+<!--packageB/friends/index/index.wxml-->
+<van-col span="24" wx:if="{{userInfo}}">
+  <view class="loading">
+    <van-loading size="30px" color="#0d0d0d">图片加载中</van-loading>
+  </view>
+  <van-col span="24" wx:if="{{qrcode}}">
+    <van-col span="24" offset="" custom-class="box">
+      <van-col span="22" offset="1" custom-class="box-topimg">
+        <image src="./../../images/friends.png"></image>
+      </van-col>
+      <van-col span="22" offset="1" custom-class="box-qrcode">
+        <image src="{{qrcode}}" mode="scaleToFill"></image>
+      </van-col>
+      <van-col span="22" offset="1" custom-class="box-bttomimg">
+        <image src="../../images/friends-text.png"></image>
+        <view class="box-view"><text class="box-view-tex">我的邀请码</text><text
+            class="box-view-qrcode {{index==1?'box-view-qrcode-on':''}}">{{incode}}</text><text class="box-view-btn"
+            bindtap="copyText" data-text="{{000194}}">{{index==1?'取消':'复制'}}</text></view>
+      </van-col>
+    </van-col>
+    <button open-type="share">
+      <van-col span="22" offset="1" custom-class="share">
+        <image src="../../images/WeChat-f.png"></image><text>分享微信</text>
+      </van-col>
+    </button>
+    <van-col span="22" offset="1" custom-class="share-inc">
+      <text class="share-bu">分享好友</text>
+      <van-icon name="question-o" color="#1995F0" size="36rpx" bindtap="explain" /><text class="share-te"
+        bindtap="explain">说明</text>
+    </van-col>
+    <van-col span="22" offset="1" custom-class="share-zhu">注：邀请好友在平台找到工作获取就业互帮基金</van-col>
+    <van-col span="20"offset="2"custom-class="download" bindtap="clickMe">生成图片</van-col>
+  </van-col>
+</van-col>
+
+<view class="bg" wx:if="{{userInfo==''}}"></view>
+<view class="show"  wx:if="{{userInfo==''}}">
+  <view class="show-diy" wx:if="{{userInfo==''}}">
+     <image src="../../images/sq.png" mode="scaleToFill" wx:if="{{userInfo==''}}" class="show-img"></image>
+     <button bindgetuserinfo='btn_sub' open-type="getUserInfo" style="background:#fff">
+      <van-col span="22" offset="1" custom-class="share">
+        <text>点击授权</text>
+      </van-col>
+    </button>
+  </view>
+</view>
+<view wx:if="{{ show }}" class="canvas-box">
+
+<canvas style="width: {{ windowW }}px; height: {{ windowH }}px;" canvas-id="firstCanvas" bindlongpress="btnSave"></canvas>
+
+<view bindtap="daochu" class="btnSave">点击保存</view>
+
+</view>

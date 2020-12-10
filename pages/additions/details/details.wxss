@@ -1,0 +1,90 @@
+/* pages/additions/details/details.wxss */
+page{
+  background: #F5F5F5;
+}
+.list{
+
+  height: auto;
+}
+.lists{
+  height: auto;
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
+}
+.basic{
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 36rpx;
+  font-weight: 600;
+  background:#EAF7FF
+}
+.basics{
+  background:#F5F5F5
+}
+.card{
+  padding: 20rpx 50rpx;
+  background: #fff;
+  border-radius: 15rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
+}
+.card-v{
+  display: inline-block;
+  height: 35rpx;
+  font-size: 26rpx;
+  color: #666666;
+  margin-right: 50rpx;
+  margin-bottom: 20rpx;
+
+}
+.card-view{
+  display: inline-block;
+  max-width: 300rpx;
+  overflow: hidden;
+  height: 35rpx;
+  font-size: 26rpx;
+  color: #333;
+  
+}
+.card view image{
+  position: relative;
+  left: 25rpx;
+  top: 9rpx ;
+  width: 35rpx;
+  height: 35rpx;
+}
+.cards{
+  padding-top: 10rpx;
+  padding-bottom: 30rpx;
+  background: #fff;
+  border-radius: 15rpx;
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
+}
+.card-list{
+  height: 60rpx ;
+  line-height: 60rpx;
+  padding-left: 50rpx;
+  color: #333;
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-top: 20rpx;
+  text-align: left;
+  background: #EAF7FF;
+}
+.card-lists{
+  padding-left: 50rpx;
+  color: #333;
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-top: 20rpx;
+  padding-top:15rpx;
+  padding-bottom: 15rpx;
+  background: #EAF7FF;
+}
+.card-tel{
+  background: #fff;
+  color: #666666;
+  font-size: 28rpx;
+  text-align: center;
+  margin-top: 30rpx;
+}

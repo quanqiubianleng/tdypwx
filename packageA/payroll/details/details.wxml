@@ -1,0 +1,81 @@
+<!--pages/entry/details/details.wxml-->
+<view class='wraper' bindtap="close">
+<van-row>
+  <van-col span="22" offset="1" custom-class="name">{{list.username}}</van-col>
+  <van-col span="22" offset="1" custom-class="card">
+    <van-col span="24" custom-class="card-liat">
+      <van-col span="5"  custom-class="card-v">所在工厂</van-col>
+      <view class="card-view">{{list.shopname}}</view>
+    </van-col>
+    <van-col span="24" custom-class="card-liat">
+      <van-col span="5"  custom-class="card-v">身份证号</van-col>
+      <view class="card-view">{{list.uid}}</view>
+    </van-col>
+    <van-col span="24" custom-class="card-liat">
+      <van-col span="5"  custom-class="card-v">出发时间</van-col>
+      <view class="card-view">{{list.fstartdate}}</view>
+    </van-col>
+    <van-col span="24" custom-class="card-liat">
+      <van-col span="5"  custom-class="card-v">性别</van-col>
+      <view class="card-view">{{list.sex}}</view>
+    </van-col>
+    <van-col span="24" custom-class="card-liat">
+      <van-col span="5"  custom-class="card-v">联系电话</van-col>
+      <view class="card-view">{{list.mobile}}</view>
+      <van-icon custom-class="image" size="40rpx" color="#44B6E2" name="phone-o"  bindtap="mobile" data-mobile="{{list.mobile}}"/>
+    </van-col>
+    
+  </van-col>
+</van-row>
+<van-row>
+  <van-col span="22" offset="1" custom-class="fill">
+    <van-col span="24" custom-class="fill-tpp">在职确认</van-col>
+    <van-col span="24" custom-class="cards">
+      <van-col span="24" custom-clas="cards-list">
+        <van-col span="24" custom-class="cards-list-tetel"><text style="color:red">*</text>确认操作</van-col>
+        <van-col span="22" offset="1"  custom-class="cards-list-inp" style="background: #EEF9FD;">
+          <van-col span="4" custom-class="operation-nav {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="optionTap">需转厂</van-col>
+          <van-col span="4" custom-class="operation-nav {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="optionTap">流失</van-col>
+          <van-col span="4" custom-class="operation-nav {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="optionTap">离职</van-col>
+        </van-col>
+      </van-col>
+      <van-col span="24" custom-clas="cards-list" wx:if="{{currentTab==0}}">
+          <van-col span="24" custom-class="cards-list-tetel">意向企业</van-col>
+          <van-col span="24" custom-class="cards-list-inp" style="background: #EEF9FD;">
+            <view class='select_box'>
+              <view class='select' catchtap='selectTap1'>
+                <input class='select_text' placeholder="选择意向企业" disabled="disabled" value="{{idx}}" />
+              </view>
+              <view class='option_box' style='height:{{show1?(enterprise.length>5?500:enterprise.length*60):0}}rpx;'>
+                <text class='option' style='{{idx==enterprise.length-1&&"border:0;"}}' wx:for='{{enterprise}}' wx:for-item="ent" wx:key='this'
+                  data-index='{{index}}' data-id="{{ent.id}}" catchtap='optionTap1'>{{ent.username}}</text>
+              </view>
+            </view>
+          </van-col>
+        </van-col>
+      <van-col span="24" custom-clas="cards-list">
+        <van-col span="24" custom-class="cards-list-tetel" wx:if="{{currentTab!=0}}">操作时间</van-col>
+        <van-col span="24" custom-class="cards-list-tetel" wx:if="{{currentTab==0}}">转厂时间</van-col>
+        <van-col span="24" custom-class="cards-list-inp" style="background: #EEF9FD;">
+          <picker mode="date" value="{{date}}" start="" end="" bindchange="bindDateChange">
+              <input class="picker" disabled="disabled" placeholder="请选择任职时间" value="{{date}}">
+              </input>
+            </picker>
+        </van-col>
+      </van-col>
+      <van-col span="24" custom-clas="cards-list">
+        <van-col span="24" custom-class="cards-list-tetel">备注信息</van-col>
+        <van-col span="24" custom-class="cards-list-inp" style="background: #fff;">
+          <textarea class="text" placeholder="请输入备注信息" value="{{reason}}" bindinput="reason" placeholder-style="" auto-height="true">
+          
+          </textarea>
+        </van-col>
+      </van-col>
+    </van-col>
+  </van-col>
+  <van-col span="24" custom-class="bottom">
+    <van-col span="12" custom-class="bottom-red" bindtap="cancel">返回</van-col>
+    <van-col span="12" custom-class="bottom-blue" bindtap="determine">确认</van-col>
+  </van-col>
+</van-row>
+</view>

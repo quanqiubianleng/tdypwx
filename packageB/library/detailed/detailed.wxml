@@ -1,0 +1,104 @@
+<!--packageB/library/detailed/detailed.wxml-->
+<van-col span="24"custom-class="lin"></van-col>
+<van-col span="24" offset="0" custom-class="card">
+  <van-col span="24"custom-class="tel">数据统计表</van-col>
+  <van-col span="24"custom-class="time" bindtap="gotime">
+      <image src="../../images/time.png" class="time-img"></image>
+      <view class="time-tiem">
+        <view wx:if="{{youstart==null}}">请选择时间</view>
+        <view wx:if="{{youstart&&youend}}" class="">
+          <text>{{youstart}}</text>
+          <image src="../../images/jiantou.png" class="jiantou"></image>
+          <text>{{youend}}</text>
+        </view>
+      </view>
+  </van-col>
+  <van-col span="24" offset="0"custom-class="list">
+    <van-col span="24"custom-class="list-tel list-tels">
+      <van-col span="5"custom-class="list-tel-ul">类型</van-col>
+      <van-col span="4"custom-class="list-tel-ul">一级</van-col>
+      <van-col span="4"custom-class="list-tel-ul">二级</van-col>
+      <van-col span="4"custom-class="list-tel-ul">三级</van-col>
+      <van-col span="4"custom-class="list-tel-ul">合计</van-col>
+      <van-col span="3"custom-class="list-tel-ul">占比</van-col>
+    </van-col>
+    <van-col span="24"custom-class="list-tel {{idx==userlist.length-1?'list-tels':''}}" wx:for="{{userlist}}" wx:key="key" wx:for-index="idx">
+      <van-col span="5"custom-class="list-tel-ul">{{item.rolename}}</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">{{item.le1c}}</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">{{item.le2c}}</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">{{item.le3c}}</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">{{item.le4c}}</van-col>
+      <van-col span="3"custom-class="list-tel-ul">{{item.proportion}}</van-col>
+    </van-col>
+  </van-col>
+</van-col>
+<!-- <van-col span="24"custom-class="cards">
+  <van-col span="24"custom-class="tel">数据统计表</van-col>
+  <van-col span="24" offset="0"custom-class="list">
+    <van-col span="24"custom-class="list-tel">
+      <van-col span="5"custom-class="list-tel-ul">社会合伙人</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">1000</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">1000</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">1000</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">3000</van-col>
+      <van-col span="3"custom-class="list-tel-ul">100%</van-col>
+    </van-col>
+    <van-col span="24"custom-class="list-tel">
+      <van-col span="5"custom-class="list-tel-ul">在职推荐人</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">1000</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">1000</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">1000</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">3000</van-col>
+      <van-col span="3"custom-class="list-tel-ul">100%</van-col>
+    </van-col>
+    <van-col span="24"custom-class="list-tel">
+      <van-col span="5"custom-class="list-tel-ul">校园代理</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">1000</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">1000</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">1000</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">3000</van-col>
+      <van-col span="3"custom-class="list-tel-ul">100%</van-col>
+    </van-col>
+    <van-col span="24"custom-class="list-tel">
+      <van-col span="5"custom-class="list-tel-ul">网招合伙人</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">1000</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">1000</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">1000</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">3000</van-col>
+      <van-col span="3"custom-class="list-tel-ul">100%</van-col>
+    </van-col>
+    <van-col span="24"custom-class="list-tel">
+      <van-col span="5"custom-class="list-tel-ul">在岗人员</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">1000</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">1000</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">1000</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">3000</van-col>
+      <van-col span="3"custom-class="list-tel-ul">100%</van-col>
+    </van-col>
+    <van-col span="24"custom-class="list-tel">
+      <van-col span="5"custom-class="list-tel-ul">普通人员</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">1000</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">1000</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">1000</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">3000</van-col>
+      <van-col span="3"custom-class="list-tel-ul">100%</van-col>
+    </van-col>
+    <van-col span="24"custom-class="list-tel">
+      <van-col span="5"custom-class="list-tel-ul">下游企业</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">1000</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">1000</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">1000</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">3000</van-col>
+      <van-col span="3"custom-class="list-tel-ul">100%</van-col>
+    </van-col>
+    <van-col span="24"custom-class="list-tel">
+      <van-col span="5"custom-class="list-tel-ul">总人数</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">1000</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">1000</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">1000</van-col>
+      <van-col span="4"custom-class="list-tel-ul" style="color:#32AFE0">3000</van-col>
+      <van-col span="3"custom-class="list-tel-ul">100%</van-col>
+    </van-col>
+  </van-col>
+</van-col> -->
+<van-calendar show="{{ show }}" type="range" bind:close="onClose" bind:confirm="onConfirm" show-confirm="{{ false }}"/>

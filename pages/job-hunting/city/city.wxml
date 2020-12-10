@@ -1,0 +1,32 @@
+<!--pages/job-hunting/city/city.wxml-->
+<view class="containers">
+<!-- <view class="search-box">
+    <input placeholder="城市名" class='search-input' bindinput='bindSarchInput' placeholder-class='search-input-placeholder' />
+    <image src="../../../icons/search.png" class="search-img"></image>
+</view> -->
+<!-- 城市列表 -->
+<view class='list-city' hidden="{{!cityListShow}}">
+    <scroll-view scroll-y="true" style="height:100%;" scroll-into-view="{{scrollTopId}}" scroll-with-animation="true" enable-back-to-top="true">
+        <view class='item'>
+            <view class='fullname'>当前定位城市：{{city}}</view>
+        </view>
+        <!-- 热门城市 -->
+        <view class='item' style="padding-bottom:25rpx;" wx:if="{{cityData.length>0}}">
+            <view class='py' id="hot">★ 热门城市</view>
+            <view class="fullname hot-city" wx:for="{{hotCityData}}" wx:key="key" data-id="{{item.id}}" data-fullname="{{item.fullname}}" data-lat="{{item.location.lat}}" data-lng="{{item.location.lng}}" bindtap='selectCity'>{{item.fullname}}
+            </view>
+        </view>
+        <!-- 全部 -->
+        <view class='item' wx:for="{{cityData}}" wx:for-index="{{group.index}}" wx:for-item="group" wx:key="key">
+            <view class='py' id="{{group.index}}">{{group.index}}</view>
+            <view class="fullname" wx:for="{{group.list}}" wx:key="key" data-id="{{item.id}}" data-fullname="{{item.fullname}}"  bindtap='selectCity'>{{item.fullname}}
+            </view>
+        </view>
+    </scroll-view>
+    <!-- 首字母 -->
+    <view class='city-py' bindtouchstart="tStart" bindtouchend="tEnd" catchtouchmove="tMove">
+        <view wx:for="{{_py}}" wx:key="key" bindtouchstart="getPy" bindtouchend="setPy" id="{{item}}">{{item == 'hot' ? "★" : item}}
+        </view>
+    </view>
+</view>
+</view>

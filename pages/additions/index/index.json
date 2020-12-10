@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-row":"../../../dist/row/index",
+    "van-col":"../../../dist/col/index",
+    "van-popup":"../../../dist/popup/index" 
+  },
+  "navigationBarTitleText": "新增客户",
+  "navigationBarTextStyle":"black",
+  "enablePullDownRefresh": true
+}

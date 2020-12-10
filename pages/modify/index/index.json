@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-row":"../../../dist/row/index",
+    "van-col":"../../../dist/col/index"
+  },
+  "navigationBarTitleText": "我的客户",
+  "navigationBarTextStyle":"black",
+  "enablePullDownRefresh": true
+}

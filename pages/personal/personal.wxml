@@ -1,0 +1,78 @@
+<headernavbar navbar-data="{{nvabarData}}">
+  <van-col span="24" offset="0" custom-class="top">
+    <view>我的</view>
+  </van-col>
+</headernavbar>
+<van-col span="24" custom-class="contents">
+  <van-col span="22" offset="1" custom-class="userCard">
+    <van-col span="5" custom-class="avatar">
+      <block wx:if="{{userInfo.headimgurl}}">
+        <image src="{{userInfo.headimgurl}}"></image>
+      </block>
+      <block wx:else>
+        <image src="/icons/ic_def_avatar.png"></image>
+      </block>
+    </van-col>
+    <view class="userInfoBox">
+      <view class="login" wx:if="{{userInfo}}">
+        {{userInfo.username? userInfo.username : '暂无姓名'}}
+        <text>{{userInfo.status2}}</text>
+      </view>
+      <view class="login" bindtap="loginbyw" wx:if="{{userInfo==''}}">点击登录</view>
+      <view class="login-tel"> {{userInfo.mobile? userInfo.mobile : '登录享优质服务，信息及时掌握'}} </view>
+    </view>
+    <view class="attestation" wx:if="{{userInfo}}">
+      <image src="../../icons/ic_attestation.png" />
+      <text>{{userInfo.rolename}}</text>
+    </view>
+  </van-col>
+  <view class="listMenu" style=" margin-top: 210rpx;">
+    <view class="navigator" data-url="/packageB/certification/index/index" bindtap="click">
+      <image class="mainIcon" src="/icons/user-1.png" />
+      <mp-icon class="iconOpen" icon="arrow" color="#C2C4CA" size="{{14}}"></mp-icon>
+      <text>实名认证</text>
+    </view>
+    <view class="navigator" data-url="/packageB/wallet/index/index" bindtap="click">
+      <image class="mainIcon" src="/icons/user-2.png" />
+      <mp-icon class="iconOpen" icon="arrow" color="#C2C4CA" size="{{14}}"></mp-icon>
+      <text>我的钱包</text>
+    </view>
+    <view class="navigator" data-url="/packageB/friends/index/index" bindtap="click">
+      <image class="mainIcon" src="/icons/user-3.png" />
+      <mp-icon class="iconOpen" icon="arrow" color="#C2C4CA" size="{{14}}"></mp-icon>
+      <text>邀请好友</text>
+    </view>
+    <view class="navigator" data-url="/packageB/library/index/index" bindtap="click">
+      <image class="mainIcon" src="/icons/user-4.png" />
+      <mp-icon class="iconOpen" icon="arrow" color="#C2C4CA" size="{{14}}"></mp-icon>
+      <text>人才库</text>
+    </view>
+    <!-- <view class="navigator" bindtap="navigateToDetail">
+      <image class="mainIcon" src="/icons/user-5.png" />
+      <mp-icon class="iconOpen" icon="arrow" color="#C2C4CA" size="{{14}}"></mp-icon>
+      <text>报名申明</text>
+    </view> -->
+    <view class="navigator" data-url="/packageB/IDdiscern/index/index" bindtap="click">
+      <image class="mainIcon" src="/icons/user-6.png" />
+      <mp-icon class="iconOpen" icon="arrow" color="#C2C4CA" size="{{14}}"></mp-icon>
+      <text>合作伙伴</text>
+    </view>
+    <view class="navigator" data-url="/pages/jurisdiction/index/index" bindtap="click">
+      <image class="mainIcon" src="/icons/user-9.png" />
+      <mp-icon class="iconOpen" icon="arrow" color="#C2C4CA" size="{{14}}"></mp-icon>
+      <text>组织架构</text>
+    </view>
+  </view>
+  <view class="listMenus listMenu" style=" margin-top: 20rpx;">
+    <view class="navigator" data-url="/packageB/opinion/index/index" bindtap="click">
+      <image class="mainIcon" src="/icons/user-7.png" />
+      <mp-icon class="iconOpen" icon="arrow" color="#C2C4CA" size="{{14}}"></mp-icon>
+      <text>意见反馈</text>
+    </view>
+    <view class="navigator" data-url="/packageB/about/index/index" bindtap="click">
+      <image class="mainIcon" src="/icons/user-8.png" />
+      <mp-icon class="iconOpen" icon="arrow" color="#C2C4CA" size="{{14}}"></mp-icon>
+      <text>关于</text>
+    </view>
+  </view>
+</van-col>

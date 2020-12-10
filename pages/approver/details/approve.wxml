@@ -1,0 +1,118 @@
+<view class="iman">
+  <view class="weui-flex toppos">
+        <view class="weui-flex__item"><view class="placeholders">借支信息</view></view>
+  </view>
+  <view class="cards"  >
+    <view class="hiestls"></view>
+    <view class="weui-flex">
+        <view class="weui-flex__item"><view class="placeholder2">借<text decode="true">&ensp;</text>支<text decode="true">&ensp;</text>人</view></view>
+        <view class="weui-flex__item"><view class="placeholder1">石亮方</view></view>
+    </view>
+    <view class="hiestl"></view>
+    <view class="weui-flex">
+        <view class="weui-flex__item"><view class="placeholder2">所在工厂</view></view>
+        <view class="weui-flex__item"><view class="placeholder1">富士康成都工厂</view></view>
+    </view>      
+    <view class="hiestl"></view>
+    <view class="weui-flex">
+        <view class="weui-flex__item"><view class="placeholder2">借支金额</view></view>
+        <view class="weui-flex__item"><view class="placeholder1">400元</view></view>
+    </view>      
+    <view class="hiestl"></view>
+    <view class="weui-flex">
+        <view class="weui-flex__item"><view class="placeholder2">发起时间</view></view>
+        <view class="weui-flex__item"><view class="placeholder1">2020-08-24 15:30:25</view></view>
+    </view>     
+    <view class="hiestl"></view>  
+    <view class="weui-flex">
+        <view class="weui-flex__item"><view class="placeholder2">联系电话</view></view>
+        <view class="weui-flex__item"><view class="placeholder1">18786426048</view></view>
+    </view>      
+    <view class="hiestl"></view>
+    <view class="weui-flex">
+        <view class="weui-flex__item"><view class="placeholder2">借支说明</view></view>
+        <view class="weui-flex__item"><view class="placeholder1s">
+        <textarea class="textareaster inputtexts" disabled="true" value="输入借支说明输入借支说明输入借支说明输入借支说明输入借支说明输入借支说明输入借支说明" bindinput="jsfnuinfo" placeholder-class="placeholderstlse" auto-focus />
+        </view></view>
+    </view>                     
+  </view>  
+  <view class="weui-flex toppos">
+        <view class="weui-flex__item"><view class="placeholders">审批操作</view></view>
+  </view>
+  <view class="card"  >
+    <view class="weui-flex">
+        <view class="weui-flex__item"><view class="texts"><text class="texts2">审批人员</text></view></view>   
+        <view class="weui-flex__item"><view class="textsd">
+        <mp-icon class="imgagess1s" type="field" icon="add2" color="#72B8DB" size="{{25}}" bindtap="addTrial"></mp-icon>
+        </view></view>         
+    </view>
+    <view class="weui-flex">
+        <view class="weui-flex__item"><view class="ctlwts">
+        <image class="imgagess1" src="/icons/ic_male_avatar.png" /> 
+        <text class="textsl">\n张三</text>
+        </view></view>   
+        <view class="weui-flex__item"><view class="ctlwts">
+        <image class="imgagess1" src="/icons/ic_male_avatar.png" /> 
+        <text class="textsl">\n李四</text>
+        </view></view>    
+        <view class="weui-flex__item"><view class="ctlwts">
+        <image class="imgagess1" src="/icons/ic_male_avatar.png" /> 
+        <text class="textsl">\n王二</text>
+        </view></view>               
+    </view> 
+    <view class="weui-flex">
+        <view class="weui-flex__item"><view class="texts" ><text class="texts2">审批意见</text></view></view>         
+    </view>  
+    <view class="weui-flex">
+        <view class="weui-flex__item"><view class="placeholder">
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <view class="picker topstow">
+                {{array[index]}}
+            </view>
+        </picker>    
+        </view></view>           
+    </view>     
+    <view class="weui-flex">
+        <view class="weui-flex__item"><view class="texts1"><text class="texts2">审批说明</text></view></view>        
+    </view>
+    <view class="weui-flex">
+        <view class="weui-flex__item"><view>
+        <view class="card1"  >
+            <textarea class="textareaster inputtext" placeholder="输入审批说明" bindinput="jsfnuinfo" placeholder-class="placeholderstlse" auto-focus />
+        </view>
+        </view></view>        
+    </view>
+    <view class="weui-flex">
+        <view class="weui-flex__item"><view class="texts"><text class="texts2">审批进度</text></view></view>           
+    </view>
+    <view class="weui-flex">
+        <view class="weui-flex__item z-indaws"><view class="ctlwts">
+        <image class="imgagess1" src="/icons/ic_male_avatar.png" /> 
+        <text class="textsl">\n张三<text class="colst">(已批)</text></text>
+        </view></view>   
+        <view class="weui-flex__item z-indaws"><view class="ctlwts">
+        <image class="imgagess1" src="/icons/ic_male_avatar.png" /> 
+        <text class="textsl">\n李四</text>
+        </view></view>    
+        <view class="weui-flex__item z-indaws"><view class="ctlwts">
+        <image class="imgagess1" src="/icons/ic_male_avatar.png" /> 
+        <text class="textsl">\n王二</text>
+        </view></view>               
+    </view> 
+  </view>    
+<!-- 菜单开始 -->
+	<view class="page__bd" style="height: 10vh;position:fixed;width:100vw;top:90vh;left:-0vw;z-index:10">
+		<view class="weui-tab">
+			<view class="weui-tabbar">
+				<view class="weui-tabbar__item" bindtap='checkLogin' style="background-color:#ff4d4f;height:100%" data-url='../{{role_name}}/{{role_name}}'>      
+					<view class="weui-tabbar__label" style="color:#fff;font-size:26px;background-color:#ff4d4f;top:8px;position:relative">返回</view>       
+				</view>
+				<view class="weui-tabbar__item weui-bar__item_on" bindtap='advancefun' style="background-color:#2FB9EF;height:100%" data-url='../{{pagemessage}}/{{pagemessage}}'>
+					<view class="weui-tabbar__label" style="color:#fff;font-size:26px;background-color:#2FB9EF;top:8px;position:relative" >确认</view>
+				</view>        
+			</view>
+		</view>
+	</view>
+<!-- 菜单结束 -->
+<!-- <image src="/icons/adopt.png" class="adopt"></image> -->
+</view>

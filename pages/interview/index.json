@@ -1,0 +1,16 @@
+{
+  "usingComponents": {
+    "mp-icon": "../../component/icon/icon",
+    "van-icon":"../../dist/icon/index",
+    "van-row":"../../dist/row/index",
+    "van-col":"../../dist/col/index",
+    "van-popup":"../../../dist/popup/index",
+    "van-radio": "../../dist/radio/index",
+  "van-radio-group": "../../dist/radio-group/index"
+  },
+  "navigationBarTitleText": "面试登记",
+  "navigationBarBackgroundColor":"#4A9BED",
+ 
+  "navigationBarTextStyle":"white",
+  "enablePullDownRefresh": true
+}

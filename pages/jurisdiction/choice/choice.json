@@ -1,0 +1,13 @@
+{
+  "usingComponents": {
+    "van-icon": "../../../dist/icon/index",
+    "van-row":"../../../dist/row/index",
+    "van-col":"../../../dist/col/index",
+    "van-popup":"../../../dist/popup/index"
+  },
+  "navigationBarTitleText": "权限管理",
+  "navigationBarTextStyle":"black",
+  "enablePullDownRefresh": true,
+  "navigationBarBackgroundColor":"#0998F4",
+  "backgroundColor":"#0998F4"
+}

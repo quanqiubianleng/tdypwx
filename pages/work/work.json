@@ -1,0 +1,13 @@
+{
+  "usingComponents": {
+    "mp-icon": "../../component/icon/icon",
+    "van-row":"../../dist/row/index",
+    "van-col":"../../dist/col/index",
+    "van-notice-bar": "../../dist/notice-bar/index"
+  },
+  "navigationBarTitleText": "工作台",
+  "navigationBarBackgroundColor":"#F5F5F5",
+  "backgroundColor": "#F5F5F5",
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh": true
+}

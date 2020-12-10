@@ -1,0 +1,6 @@
+<!--packageB/friends/empower/empower.wxml-->
+<button  bindgetuserinfo='btn_sub' open-type="getUserInfo">
+  <van-col span="22" offset="1" custom-class="share">
+    <image src="../../images/sq.png"></image><text>点我授权</text>
+  </van-col>
+</button>

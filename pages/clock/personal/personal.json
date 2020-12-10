@@ -1,0 +1,13 @@
+{
+  "usingComponents": {
+    "van-row":"../../../dist/row/index",
+    "van-icon":"../../../dist/icon/index",
+    "van-col":"../../../dist/col/index",
+    "van-popup":"../../../dist/popup/index" ,
+    "van-dialog":"../../../dist/dialog/index"
+  },
+  "navigationBarTitleText": "考勤详情",
+  "navigationBarBackgroundColor":"#42A7E7",
+  "navigationBarTextStyle":"white",
+  "backgroundColor":"#3DAEE3"
+}

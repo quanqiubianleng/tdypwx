@@ -1,0 +1,30 @@
+/* packageB/friends/empower/empower.wxss */
+page{
+  background: #F5F5F5;
+}
+.share{
+  height:100rpx;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content: center;
+  vertical-align: middle;
+  background:#1CC04D;
+  text-align: center;
+  margin-top: 50rpx;
+  border-radius: 45rpx;
+}
+ button::after{
+  border: none;
+  }
+.share image{
+  height:60rpx;
+  width:60rpx;
+}
+.share text{
+  font-size: 32rpx;
+  color:#fff;
+  line-height: 100rpx;
+  margin-left: 15rpx;
+  
+}

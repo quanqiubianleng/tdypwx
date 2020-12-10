@@ -1,0 +1,35 @@
+/* pages/poster/poster.wxss */
+
+.container {
+  text-align: center;
+  padding-bottom: 150rpx;
+}
+image{
+  width: 95%;
+}
+.loading{
+  position: absolute;
+  top:300rpx;
+  width: 100%;
+  text-align: center;
+  z-index: -1;
+}
+.save {
+  text-align: center;
+  position: fixed;
+  bottom: 40rpx;
+  left: 5%;
+  width: 90%;
+  z-index: 9999;
+}
+
+.save .text {
+  height: 80rpx;
+  font-size: 30rpx;
+  color: #fff;
+  background: #4095d6;
+  border-radius: 40rpx;
+  line-height: 80rpx;
+  letter-spacing: 5rpx;
+  width: 100%;
+}

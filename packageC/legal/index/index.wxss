@@ -1,0 +1,208 @@
+/* packageC/legal/index/index.wxss */
+page{
+  background: #F5F5F5;
+}
+
+ /* banner */
+.banner{
+  width: 100%;
+  height: 20vh;
+}
+.swiper{
+  width: inherit;
+  height: inherit;
+}
+.swiper .swiper-item{
+  box-sizing: border-box;
+}
+.swiper image{
+  overflow: hidden;
+  width: inherit;
+  height: inherit;
+}
+/* banner结束 */
+.scroll-x{
+
+  white-space:nowrap;
+  display:flex;
+}
+/* 隐藏scrollbar */
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.view-parent{
+ 
+  display:inline-block;
+}
+.view-item{
+  width:300rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  height: 170rpx;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+  margin-top: 15rpx;
+  margin-left: 20rpx;
+  margin-right: 10rpx;
+}
+.item-img{
+  height: 90rpx;
+ margin-top: 10rpx;
+
+ 
+}
+.item-img-img{
+  float: left;
+}
+.item-img image{
+  height: 110rpx;
+  width: 110rpx;
+  border-radius: 50%;
+}
+.item-name{
+  display: inline-block;
+  height: 90rpx;
+  text-align: left;
+  margin-left: 10rpx;
+}
+.item-name-name{
+  margin-top: 5rpx;
+  font-size: 28rpx;
+}
+.item-name-zu{
+    background: #3965B0;
+    color: #fff;
+    font-size: 24rpx;
+    padding: 3rpx 10rpx;
+    border-radius: 5rpx;
+}
+.item-tel{
+ height: 70rpx;
+ margin-top: 20rpx;
+ font-size: 26rpx;
+ color: #666666;
+ overflow: hidden;
+ text-overflow:ellipsis;
+ white-space: nowrap
+}
+.item-tel text{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap
+}
+.Hot{
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #333;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px #F2F9FE;
+}
+.nav {
+  height: 80rpx;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 80rpx;
+  font-size: 36rpx;
+  white-space: nowrap;
+}
+.nav-item {
+  width:auto;
+  margin:0 45rpx ;
+  padding: 0 15rpx;
+  display: inline-block;
+  text-align: center;
+  color: #BFBFBF;
+}
+.nav-item.active{
+  border-bottom: solid 4rpx #3B67B1;
+  font-size: 36rpx;
+  line-height: 75rpx;
+  color: #3B67B1;
+}
+  .swipers-list{
+    padding-bottom: 20rpx;
+    background: #fff;
+    margin-top: 5rpx;
+  }
+  .list{
+    border-bottom: 1rpx solid #ddd;
+    padding-bottom: 15rpx;
+  }
+  .swipers-tel{
+    font-size: 28rpx;
+    margin-top: 15rpx;
+    margin-bottom: 10rpx;
+  }
+ .swipers-view{
+    position: absolute;
+    display: inline-block;
+    height: 80rpx;
+    line-height: 80rpx;
+    width: 80rpx;
+    right: 0rpx;
+    text-align: center;
+  }
+  .swipers-icn{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .huida{
+    font-size: 24rpx;
+    color: #999999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; 
+    padding-right: 50rpx;
+  }
+  .share{
+    position: fixed;
+    z-index: 99999;
+    bottom: 100rpx;
+    height:80rpx;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: center;
+    vertical-align: middle;
+    background:#fff;
+    /* background: red; */
+    text-align: center;
+    margin-top: 20rpx;
+  }
+  .share image{
+    height:35rpx;
+    width:35rpx;
+  }
+  .share text{
+    font-size: 28rpx;
+    color:#999999;
+    margin-left: 15rpx;
+  }
+  .shares{
+    position: fixed;
+    z-index: 99999;
+    bottom: 0rpx;
+    height:100rpx;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: center;
+    vertical-align: middle;
+    background:#3B67B1;
+    text-align: center;
+  }
+  .shares image{
+    height:35rpx;
+    width:35rpx;
+  }
+  .shares text{
+    font-size: 28rpx;
+    color:#fff;
+    margin-left: 15rpx;
+  }

@@ -1,0 +1,17 @@
+<!--pages/message/index/index.wxml-->
+<view class="msgGroup">
+  <navigator class="msgItem" url="/packageD/message/message">
+    <view class="inBox">
+      <image class="mainIcon" src="../../icons/message-1.png" />
+      <mp-icon class="iconOpen" icon="arrow" color="#C2C4CA" size="{{12}}"></mp-icon>
+      <text>工作通知</text>
+    </view>
+  </navigator>
+  <navigator class="msgItem" url="/pages/msginfo/msginfo?id=2">
+    <view class="inBox">
+      <image class="mainIcon" src="../../icons/message-2.png" />
+      <mp-icon class="iconOpen" icon="arrow" color="#C2C4CA" size="{{12}}"></mp-icon>
+      <text>部门消息</text>
+    </view>
+  </navigator> 
+</view>

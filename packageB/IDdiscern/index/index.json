@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "van-row":"../../../../dist/row/index",
+    "van-col":"../../../../dist/col/index",
+    "van-icon":"../../../dist/icon/index",
+    "van-popup":"../../../dist/popup/index" 
+  },
+  "navigationBarTitleText": "合作申请",  
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh":true  
+}

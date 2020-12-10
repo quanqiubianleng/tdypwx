@@ -1,0 +1,54 @@
+<!--packageB/IDdiscern/index/index.wxml-->
+<view wx:if="{{show==false}}">
+<van-col span="22" offset="1" custom-class="ID">合作申请</van-col>
+<van-col span="22" offset="1" custom-class="ID-desc">您需要选择以下任意条件可领取推荐奖励</van-col>
+<van-col span="22" offset="1" custom-class="card" wx:for="{{list}}" wx:key="key" wx:for-index="key">
+  <van-col span="22"offset="1"custom-class="card-top">
+    <text class="card-top-desc">{{item.name}}</text>
+    <text class="card-top-bt" wx:if="{{item.status==2||item.status==3}}" data-index="{{key}}" data-type="{{item.type}}" bindtap="addPartner">申请</text>
+    <text class="on" wx:if="{{item.status!=2&&item.status!=3}}" >申请</text>
+  </van-col>
+  <van-col span="22"offset="1"custom-class="card-bottom" wx:if="{{item.status==3}}">提交申请，待后台验证</van-col>
+  <van-col span="22"offset="1"custom-class="card-bottoms" wx:if="{{item.status==0}}">审核中</van-col>
+  <van-col span="22"offset="1"custom-class="card-bottomss" wx:if="{{item.status==1}}">审核已通过</van-col>
+  <van-col span="22"offset="1"custom-class="card-bottomsss" wx:if="{{item.status==2}}">未通过<text style="font-size: 20rpx;color:#666666">（可联系客服咨询详情，重新申请）</text></van-col>
+</van-col>
+<!-- <van-col span="22" offset="1" custom-class="card">
+  <van-col span="22"offset="1"custom-class="card-top">
+    <text class="card-top-desc">在职推荐人</text><text class="card-top-bt {{index==14?'on':''}}" data-type="14" bindtap="addPartner">申请</text>
+  </van-col>
+  <van-col span="22"offset="1"custom-class="card-bottoms" wx:if="{{index==14}}">审核中</van-col>
+  <van-col span="22"offset="1"custom-class="card-bottom" wx:else>提交申请，待后台验证</van-col>
+</van-col>
+<van-col span="22" offset="1" custom-class="card">
+  <van-col span="22"offset="1"custom-class="card-top">
+    <text class="card-top-desc">校园代理</text><text class="card-top-bt {{index==15?'on':''}}" data-type="15" bindtap="addPartner">申请</text>
+  </van-col>
+  <van-col span="22"offset="1"custom-class="card-bottoms" wx:if="{{index==15}}">审核中</van-col>
+  <van-col span="22"offset="1"custom-class="card-bottom" wx:else>提交申请，待后台验证</van-col>
+</van-col> -->
+</view>
+<van-popup show="{{show}}" position="center"  custom-style="height:550rpx;width:550rpx;" custom-class="{{status==1?'popup ':'popups'}}">
+  <block wx:if="{{status==1}}">
+    <van-col span="24" custom-class="popup-tel" wx:if="{{Valuable==12}}">社会合伙人申请通过</van-col>
+    <van-col span="24" custom-class="popup-tel" wx:if="{{Valuable==14}}">在职推荐人申请通过</van-col>
+    <van-col span="24" custom-class="popup-tel" wx:if="{{Valuable==15}}">校园代理申请通过</van-col>
+    <van-col span="24" custom-class="popup-del"  wx:if="{{Valuable==12}}">【恭喜，您已成为天大社会合伙人】</van-col>
+    <van-col span="24" custom-class="popup-del"  wx:if="{{Valuable==14}}">【恭喜，您已成为天大在职推荐人】</van-col>
+    <van-col span="24" custom-class="popup-del"  wx:if="{{Valuable==15}}">【恭喜，您已成为天大校园代理】</van-col>
+    <van-col span="24" custom-class="popup-go" style="color:#333">赶快去寻找属于你的合伙人吧~</van-col>
+    <van-col span="24" custom-class="popup-bt">
+      <van-col span="12"custom-class="ganbi" style="color:#999999" bindtap="close">关闭</van-col><van-col span="12"custom-class="ganbi" style="color:#30B9EF" bindtap="go">前往人才库</van-col>
+    </van-col>
+  </block>
+   <block wx:if="{{status==2}}">
+    <van-col span="24" custom-class="popup-shibai-tel" wx:if="{{Valuable==12}}">社会合伙人申请失败</van-col>
+    <van-col span="24" custom-class="popup-shibai-tel" wx:if="{{Valuable==14}}">在职推荐人申请失败</van-col>
+    <van-col span="24" custom-class="popup-shibai-tel" wx:if="{{Valuable==15}}">校园代理申请失败</van-col>
+    <van-col span="24" custom-class="popup-shibai-del">【很遗憾，您的申请未通过】</van-col>
+    <van-col span="24" custom-class="popup-shibai-go">可联系客服了解详情重新申请~</van-col>
+    <van-col span="24" custom-class="popup-bt">
+      <van-col span="12"custom-class="ganbi" style="color:#999999" bindtap="close">关闭</van-col><van-col span="12"custom-class="ganbi" style="color:#30B9EF" bindtap="tel">联系客服</van-col>
+    </van-col>
+   </block>
+</van-popup>
