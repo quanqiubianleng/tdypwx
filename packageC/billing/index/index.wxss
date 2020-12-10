@@ -3,24 +3,34 @@ page{
   padding-bottom: 20rpx;
   background: #F5F5F5;
 }
+.box-box{
+
+  margin-top: 5rpx;
+}
 .box{
+  margin-top: 20rpx;
+  padding-bottom: 10rpx;
+  height: auto;
   background: #fff;
-  padding-bottom: 20rpx;
-  padding-top: 20rpx;
-  margin-bottom: 30rpx;
 }
 .box-img{
-  height: 180rpx;
+  height: 140rpx;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content: center;
+  vertical-align: middle;
+  height: auto;
 }
 .box-img image{
-  width: 100%;
-  height: 100%;
+  width: 170rpx;
+  height: 140rpx;
 }
-.box-bill{
+/* .box-bill{
   height: 180rpx;
-}
+} */
 .box-bill-name{
-  height: 60rpx;
+  margin-bottom: 10rpx;
 }
 .name{
   overflow: hidden;
@@ -29,7 +39,6 @@ page{
   text-align: left;
   font-size: 32rpx;
   font-weight: 600;
-  height: 60rpx;
 }
 .num{
   overflow: hidden;
@@ -40,9 +49,9 @@ page{
   font-weight: 600;
   color: #F5A932;
 }
-.box-bill-type{
+/* .box-bill-type{
   height: 60rpx;
-}
+} */
 .type{
   text-align: left;
   color: #666F83;
@@ -82,7 +91,6 @@ page{
 }
 .tags-list{
   margin-right: 5rpx;
-  /* font-size: 20rpx !important; */
 }
 .details{
   float: right;

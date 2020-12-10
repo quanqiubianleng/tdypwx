@@ -4,17 +4,17 @@
   <van-col span="24" custom-class="name">
     <view class="id-name">
       申<text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>请<text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>人 </view>
-    <view class="name-te">孙意东</view>
+    <view class="name-te">{{userlist.name}}</view>
   </van-col>
   <van-col span="24" custom-class="name">
     <view class="id-name">
       联系电话</view>
-    <view class="name-te">15186107585</view>
+    <view class="name-te">{{userlist.mobile}}</view>
   </van-col>
   <van-col span="24" custom-class="name">
     <view class="id-name">申请类型</view>
     
-    <view class="name-te">社会合伙人</view>
+    <view class="name-te">{{userlist.type_name}}</view>
   </van-col>
   <van-col span="24" custom-class="name">
     <view class="id-name id-names">
@@ -23,10 +23,10 @@
    
     <view class="name-te">
       <view class="name-img">
-        <image src="../../../icons/meg2.png"></image>
+        <image src="{{userlist.positive_img}}"></image>
       </view>
       <view class="name-img">
-        <image src="../../../icons/meg2.png"></image>
+        <image src="{{userlist.side_img}}"></image>
       </view>
     </view>
   </van-col>
@@ -37,7 +37,7 @@
     <view class="id-name">
       审<text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>批<text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>人 
     </view>
-    <view class="name-te">黄总</view>
+    <view class="name-te">{{name}}</view>
   </van-col>
   <van-col span="24" custom-class="name">
     <view class="id-name">

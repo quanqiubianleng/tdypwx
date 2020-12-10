@@ -14,19 +14,21 @@ Page({
    */
   onLoad: function (options) {
     let id = options.id;
+    let index = options.index;
     let datad={
       id:id
     }
     let rendata = app.requestfun(datad, '/Api/UserAuto/partnerExamineDetail',true); 
     rendata.then((v)=>{
      console.log(v);
-    //  if(v.data.status==1&&v.data.data){
-    //    this.setData({
-    //      list:this.data.list.concat(v.data.data),
-    //      page:this.data.page+1,
-    //      strip:this.data.strip+v.data.data.length
-    //    })
-    //  }
+     if(v.data.status==1){
+       this.setData({
+          userlist:v.data.data,
+          id:id,
+          index:index,
+          name:v.data.data.admin_data.username
+       })
+     }
     })
   },
   xuanze:function(e){
@@ -42,21 +44,24 @@ Page({
   determine:function(){
     let remark = this.data.remark;
     let datad={
-      // id:this.data.id,
-      id:6,
+      id:this.data.id,
+      // id:6,
       remark:this.data.remark,
       status:this.data.index
     }
     let rendata = app.requestfun(datad, '/Api/UserAuto/partnerExamine',true); 
     rendata.then((v)=>{
      console.log(v);
-    //  if(v.data.status==1&&v.data.data){
-    //    this.setData({
-    //      list:this.data.list.concat(v.data.data),
-    //      page:this.data.page+1,
-    //      strip:this.data.strip+v.data.data.length
-    //    })
-    //  }
+     if(v.data.status==1){
+      let pages = getCurrentPages(); //获取当前页面js里面的pages里的所有信息。
+      let prevPage = pages[ pages.length - 2 ];  
+      prevPage.setData({  // 将我们想要传递的参数在这里直接setData。上个页面就会执行这里的操作。
+        id:this.data.index,
+      })
+      wx.navigateBack({
+        data:1
+      })
+     }
     })
   },
   /**
