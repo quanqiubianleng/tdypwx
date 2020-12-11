@@ -2,6 +2,7 @@
 <view class="msgGroup">
   <navigator class="msgItem" url="/packageD/message/message">
     <view class="inBox">
+      <view wx:if="{{jop}}" class="badge">{{jop < 100 ? jop : '99+'}}</view>
       <image class="mainIcon" src="../../icons/message-1.png" />
       <mp-icon class="iconOpen" icon="arrow" color="#C2C4CA" size="{{12}}"></mp-icon>
       <text>工作通知</text>
@@ -9,6 +10,7 @@
   </navigator>
   <navigator class="msgItem" url="/pages/msginfo/msginfo?id=2">
     <view class="inBox">
+      <view wx:if="{{section}}" class="badge">{{section < 100 ? section : '99+'}}</view>
       <image class="mainIcon" src="../../icons/message-2.png" />
       <mp-icon class="iconOpen" icon="arrow" color="#C2C4CA" size="{{12}}"></mp-icon>
       <text>部门消息</text>

@@ -54,3 +54,16 @@ page{
   padding-left: 96rpx;
   font-size: 32rpx
 }
+
+
+.msg-bage{
+  position: absolute;
+  right: 40rpx;
+  display: inline-block;
+  background: red;
+  padding: 4px;
+  color: #fff;
+  border-radius: 59%;
+  font-size: 28rpx;
+  top: 30rpx;
+}

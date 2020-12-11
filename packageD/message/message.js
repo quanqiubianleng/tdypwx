@@ -24,6 +24,7 @@ Page({
     sysNotice4:0, 
     sysNotice5:0, 
     start_timer:null,
+    notice: [],// 未读消息
   },  
   //事件处理函数
   // bindViewTap: function() {
@@ -46,10 +47,13 @@ Page({
 // },
 
   onLaunch: function () { 
- 
+    
   },  
     
   onLoad: function () {   
+    this.notice = app.globalData.jop_msg
+
+    console.log(this.notice.msg2)
     //console.log5461313);
     //console.logwx.getStorageSync('rolename'));  
     /*var rolenames = wx.getStorageSync('rolename');
@@ -69,6 +73,14 @@ Page({
     this.setData({
       start_timer:start_timer
     }); */
+    
+  },
+  onShow(){
+    this.setData({
+      notice: app.globalData.jop_msg
+    })
+    app.globalData.jop_notice = 14
+    console.log(this.notice)
   },
   /**
    * 生命周期函数--监听页面卸载

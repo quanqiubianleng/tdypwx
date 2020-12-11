@@ -1,18 +1,29 @@
 // pages/message/index/index.js
+let app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    jop: 0,
+    section: 0,
+  },
 
+  watch: {
+    jop: function (val) {
+      this.jop = app.globalData.jop_notice
+    },
+    section: function (val) {
+      this.section = app.globalData.section_notice
+    },
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**
@@ -26,7 +37,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      jop: parseInt(app.globalData.jop_notice),
+      section: parseInt(app.globalData.section_notice),
+    })
   },
 
   /**

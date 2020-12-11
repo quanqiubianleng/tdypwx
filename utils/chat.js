@@ -27,9 +27,45 @@ function updateGlobalVariable(field, data){
   app.globalData[field] = data;
 }
 
+// 修改导航消息角标
+function updateCategory(key, value){
+  let number = value < 100 ? value : '99+'
+  wx.setTabBarBadge({
+    index: key,
+    text: number
+  })
+}
+
+// 获取消息
+function getMsg(res,that){
+  console.log(res)
+  
+  let data = JSON.parse(res)
+  switch(data.type){
+    case 'init':
+       that.globalData.jop_msg = data.data.jop_msg
+       that.globalData.jop_notice = data.data.jop_notice
+       that.globalData.section_notice = data.data.section_notice
+       that.globalData.section_msg = data.data.section_msg
+       that.globalData.friend_msg = data.data.friend_msg
+       that.globalData.msg_count = data.data.msg_count
+      // 更改导航数字角标
+      if(data.data.msg_count > 0){
+        updateCategory(1, data.data.msg_count)
+      }
+      break;
+    case 'user':
+        
+      console.log(that.globalData.jopNotice)
+      break;
+  }
+}
+
 
 module.exports = {
   getStorages: getStorages,
   getTimer: getTimer,
   updateGlobalVariable: updateGlobalVariable,
+  getMsg: getMsg,
+  updateCategory: updateCategory,
 }

@@ -8,16 +8,7 @@ const showMsg = (data) => {
     icon: 'none'
   });
 }
-// const userinfo = (key) => {
-//   let userinfo = wx.getStorageSync('userinfo');
-//   if (!userinfo) {
-//     return "";
-//   }
-//   if (key) {
-//     return userinfo[key];
-//   } 
-//   return userinfo;
-// }
+
 App({
   d: {
     hostUrl: 'https://www.tdyp520.com/index.php',
@@ -34,16 +25,15 @@ App({
     kefuChatTimer: 0, // 客服和用户绑定聊天时间，绑定之后的最后一次发消息或收消息的时间戳
     UnsetChatTimer: 30,// 分钟，客服和用户接触绑定聊天，过多长时间解除绑定，之后用户再连接客服聊天就进入用户池，可以被任何客服接待
     kefuUid: null, // 客服UID
-    jopNotice: [], // 工作通知未读条数
-    jop_msg: [], // 部门消息
+    jop_msg: [], // 工作通知未读条数
+    jop_notice: 0, // 工作通知总未读条数
+    section_notice: 0, // 部门通知总未读条数
+    section_msg: [], // 部门消息
     friend_msg: [], // 好友消息
     msg_count: [],// 总未读消息
   },  
   //网络请求
   async requestfun(data, url,type=false){
-    //  var tokens= wx.getStorageSync('userinfo');//token
-    // console.log(tokens)
-      // var token = userinfo("token") ? userinfo("token") : '';
     
     if (!data) {
       datas = {};
@@ -181,6 +171,7 @@ App({
 
 
   onShow: function() {
+    
     if(chat.getStorages('isLogin')){
       this.globalData.isLogin = true;
       this.globalData.socketOpen = true;
@@ -209,7 +200,8 @@ App({
       } else {
         //that.globalData.callback(res)
         // 不同类型的消息
-
+        chat.getMsg(res.data,that)
+        
       }
     })
     wx.onSocketOpen(() => {

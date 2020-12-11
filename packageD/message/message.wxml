@@ -1,15 +1,15 @@
 <view class="msgGroup">
   <navigator class="msgItem" url="/packageD/message/type?id=1">
     <view class="inBox">
-      <view wx:if="{{sysNotice1}}" class="badge">{{sysNotice1 < 100 ? sysNotice : '99+'}}</view>
+      <view wx:if="{{notice.msg7}}" class="badge">{{notice.msg7 < 100 ? notice.msg7 : '99+'}}</view>
       <image class="mainIcon" src="../../icons/word.png" />
       <mp-icon class="iconOpen" icon="arrow" color="#C2C4CA" size="{{12}}"></mp-icon>
-      <text>工作消息</text>
+      <text>申请通知</text>
     </view>
   </navigator>
   <navigator class="msgItem" url="/packageD/message/type?id=2">
     <view class="inBox">
-      <view wx:if="{{sysNotice2}}" class="badge">{{sysNotice2 < 100 ? sysNotice2 : '99+'}}</view>
+      <view wx:if="{{notice.msg2}}" class="badge">{{notice.msg2 < 100 ? notice.msg2 : '99+'}}</view>
       <image class="mainIcon" src="../../icons/meg2.png" />
       <mp-icon class="iconOpen" icon="arrow" color="#C2C4CA" size="{{12}}"></mp-icon>
       <text>出发通知</text>
@@ -17,7 +17,7 @@
   </navigator>
   <navigator class="msgItem" url="/packageD/message/type?id=3">
     <view class="inBox">
-      <view wx:if="{{sysNotice3}}" class="badge">{{sysNotice3 < 100 ? sysNotice3 : '99+'}}</view>
+      <view wx:if="{{notice.msg3}}" class="badge">{{notice.msg3 < 100 ? notice.msg3 : '99+'}}</view>
       <image class="mainIcon" src="../../icons/meg3.png" />
       <mp-icon class="iconOpen" icon="arrow" color="#C2C4CA" size="{{12}}"></mp-icon>
       <text>入职通知</text>
@@ -25,7 +25,7 @@
   </navigator>
   <navigator class="msgItem" url="/packageD/message/type?id=4">
     <view class="inBox">
-      <view wx:if="{{sysNotice4}}" class="badge">{{sysNotice4 < 100 ? sysNotice4 : '99+'}}</view>
+      <view wx:if="{{notice.msg4}}" class="badge">{{notice.msg4 < 100 ? notice.msg4 : '99+'}}</view>
       <image class="mainIcon" src="../../icons/meg4.png" />
       <mp-icon class="iconOpen" icon="arrow" color="#C2C4CA" size="{{12}}"></mp-icon>
       <text>离职通知</text>
@@ -33,7 +33,7 @@
   </navigator>
   <navigator class="msgItem" url="/packageD/message/type?id=5">
     <view class="inBox">
-      <view wx:if="{{sysNotice5}}" class="badge">{{sysNotice5 < 100 ? sysNotice5 : '99+'}}</view>
+      <view wx:if="{{notice.msg5}}" class="badge">{{notice.msg5 < 100 ? notice.msg5 : '99+'}}</view>
       <image class="mainIcon" src="../../icons/meg5.png" />
       <mp-icon class="iconOpen" icon="arrow" color="#C2C4CA" size="{{12}}"></mp-icon>
       <text>转厂通知</text>
