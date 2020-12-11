@@ -18,6 +18,38 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let coordinates = wx.getStorageSync('coordinates');
+    if(!coordinates){
+      wx.getLocation({
+        type: 'wgs84',
+        success: function(tude) {
+          wx.setStorageSync('coordinates', tude);
+          let qqmapsdk = new QQMapWX({
+            key: mapkey
+          });
+          qqmapsdk.reverseGeocoder({
+            location: { ...tude
+            },
+            success: function(res) {
+              let province = res.result.address_component.province
+              let city = res.result.address_component.city;
+              let city_code =res.result.ad_info.adcode;
+              _this.setData({
+                province: province,
+                city: city,
+                // city_code:city_code
+              });
+            },
+            fail: function(res) {
+              showMsg("获取位置失败，请稍后再试");
+            },
+          });
+        },
+        fail: function() {
+          showMsg("获取位置失败，请稍后再试");
+        }
+      });
+    }
     let that = this;
     let userlevelid = 0;
      let levlid = options.levlid;

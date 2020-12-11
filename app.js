@@ -8,6 +8,16 @@ const showMsg = (data) => {
     icon: 'none'
   });
 }
+// const userinfo = (key) => {
+//   let userinfo = wx.getStorageSync('userinfo');
+//   if (!userinfo) {
+//     return "";
+//   }
+//   if (key) {
+//     return userinfo[key];
+//   } 
+//   return userinfo;
+// }
 App({
   d: {
     hostUrl: 'https://www.tdyp520.com/index.php',
@@ -22,7 +32,12 @@ App({
     ipw: 'wss://tdyp1.tiandainfo.com:9501',
     socketOpen: false,
     kefuChatTimer: 0, // 客服和用户绑定聊天时间，绑定之后的最后一次发消息或收消息的时间戳
-    UNsetChatTimer: 30,// 分钟，客服和用户接触绑定聊天，过多长时间解除绑定，之后用户再连接客服聊天就进入用户池，可以被任何客服接待
+    UnsetChatTimer: 30,// 分钟，客服和用户接触绑定聊天，过多长时间解除绑定，之后用户再连接客服聊天就进入用户池，可以被任何客服接待
+    kefuUid: null, // 客服UID
+    jopNotice: [], // 工作通知未读条数
+    jop_msg: [], // 部门消息
+    friend_msg: [], // 好友消息
+    msg_count: [],// 总未读消息
   },  
   //网络请求
   async requestfun(data, url,type=false){
@@ -193,6 +208,8 @@ App({
         that.start()
       } else {
         //that.globalData.callback(res)
+        // 不同类型的消息
+
       }
     })
     wx.onSocketOpen(() => {
@@ -233,7 +250,8 @@ App({
     var data = {
       type: 'bind',
       group: 'user', 
-      content: 'user_10001289',
+      m_type: 'user',
+      id: 'user_10001289',
     }
     that.sendSocketMessage(data);
     that.globalData.socketOpen = true;

@@ -60,7 +60,8 @@ Page({
       data: data,
       youstart:youstart,
       youend:youend,
-      list:[]
+      list:[],
+      strip:0
     });
     this.partnerExamineList(youstart,youend,page);
   }, 

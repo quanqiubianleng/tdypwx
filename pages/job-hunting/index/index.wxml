@@ -26,10 +26,23 @@
     </view>
     <view class='main-list'>
       <van-row>
-        <view class="banner">
-          <image class="pic"  wx:for="{{banner}}" wx:for-index="index" wx:key="index" src="{{item.image}}" animation="{{num==index?showpic:hidepic}}"/>
-          <!-- <image class="pic" src="{{banner[1].image}}" animation="{{num==1?showpic:hidepic}}"/> -->
+        <!-- 百万红包 -->
+        <view class="hongbei">
+          <view class="hongbei-num">
+              <text>1</text>
+              <text>0</text>
+              <text>0</text>
+              <text>0</text>
+              <text>0</text>
+              <text>0</text>
+              <text>0</text>
+          </view>
         </view>
+        <!-- 渐入轮播图 -->
+        <!-- <view class="banner">
+          <image class="pic"  wx:for="{{banner}}" wx:for-index="index" wx:key="index" src="{{item.image}}" animation="{{num==index?showpic:hidepic}}"/>
+        </view> -->
+        <!-- 最初轮播图 -->
         <!-- <view class="banner">
           <swiper class="swiper" indicator-dots="true" 
             autoplay="true" 
