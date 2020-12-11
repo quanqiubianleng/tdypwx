@@ -1,93 +1,85 @@
-//index.js
-//获取应用实例
+// pages/tes/tes.js
 const app = getApp()
-
 Page({
+
+  /**
+   * 页面的初始数据
+   */
+
   data: {
-    check: 0,
-    rdCode: null,
-    code:null,
-    //借支数据
-    username:null,
-    usertle:null,
-    money:null,
-    code:null,    
-    advanceinfo:null,
 
   },
- 
 
-  //输入姓名
-  jsfnuuser(e){
-    console.log(e);
-    var vare = e.detail.value;
-    this.setData({
-      username: vare
-    });
-    console.log(this.data.username);
-  },
-  //输入手机号
-  jsfnutle(e){
-    console.log(e);
-    var vare = e.detail.value;
-    this.setData({
-      usertle: vare
-    });
-    console.log(this.data.usertle);
-  },  
-  //输入金额
-  jsfnumoney(e){
-    console.log(e);
-    var vare = e.detail.value;
-    this.setData({
-      money: vare   
-    });
-    console.log(this.data.money);
-  },  
-  //输入借支说明
-  jsfnuinfo(e){
-    console.log(e);
-    var vare = e.detail.value;
-    this.setData({
-      advanceinfo: vare
-    });
-    console.log(this.data.advanceinfo);
-  },        
-  // 借支
-  async advancefun(e) {
-    let code = await new Promise((resolve) => {
-      wx.login({ success: (res) => { if (res.code) resolve(res.code) } })
-    });
-    console.log(code);
-    var datad = {
-      code:code,
-      money:this.data.money,
-      usernaem:this.data.username,
-      usertle:this.data.usertle,
-      advanceinfo:this.data.advanceinfo,
-    }; 
-    wx.showLoading({ title: "操作中！" })
-
-    let rendata = app.requestfun(datad, '/Api/Advance/PostAdvance'); 
-    rendata.then((v)=>{
-      if (v.data.token){             
-      }       
-      console.log(v.data);
-    }) 
-  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
     
-  onLoad: function () {
-    let code =  new Promise((resolve) => {
-      wx.login({ success: (res) => { if (res.code) resolve(res.code) } })
-    });
-    console.log(code);
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
+  Message:function(e){
+    var msg=e.detail.value;
     this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+      msg:msg
     })
+  },
+  sendMessage:function(e)
+  {
+    var arr = {
+      type: 'user',
+      f_id: 'user_10001289',
+      j_id: 'admin_283',
+      msg_type: '1',
+      content: this.data.msg,
+      mtype: 'user',
+    }
+    app.sendSocketMessage(arr)
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+    socketOpen=false;
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+    socketOpen=false;
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
   }
 })

@@ -46,8 +46,12 @@ Page({
                 // app.globalData.token = v.data.data.token;
                 wx.setStorageSync('token', v.data.data.token);
                 wx.setStorageSync('userinfo', v.data.data);
+                wx.setStorageSync('isLogin', true);
                 wx.showToast({ icon: "none", title: '成功' });
-               
+                app.globalData.isLogin = true
+                app.globalData.socketOpen = true
+                // 连接websocket
+                app.linkSocket()
                 if(type==1){
                   wx.switchTab({
                     url: '/pages/personal/personal',
