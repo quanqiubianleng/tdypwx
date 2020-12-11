@@ -34,7 +34,7 @@
 </van-col>
  <van-col span="24"offset="" custom-class="swipers-list" >
    <van-col span="22"offset="1" custom-class="list" wx:for="{{categorylist}}" key="key" data-id="{{item.id}}" bindtap="details">
-      <van-col span="22" custom-class="swipers-tel">{{item.title}}</van-col><view class="swipers-view"><van-icon name="arrow" custom-class="swipers-icn" /></view>
+      <van-col span="24" custom-class="swipers-tel">{{item.title}}</van-col><view class="swipers-view"><van-icon name="arrow" custom-class="swipers-icn" /></view>
       <van-col span="24" custom-class="huida" wx:if="{{item.description}}">[回答]:{{item.description}}</van-col>
    </van-col>
  </van-col>

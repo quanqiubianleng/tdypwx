@@ -127,22 +127,18 @@ Page({
 
   },
   showPopup:function(e){
-    let enroll = this.data.enroll;
-    if(enroll==1){
+    let passdata = wx.getStorageSync('userinfo');
+   console.log(passdata);
+    if(!passdata||typeof(passdata)=='undefined'||typeof(passdata)=='null'){
       this.setData({
-        show:true
+        show1:true,
+        passdata:''
       })
-    }else{
-      let passdata = wx.getStorageSync('userinfo');
-      console.log(passdata);
-      if(!passdata){
-        passdata='';
-      }else{
-        passdata=passdata;
-      }
+    }
+    if(passdata){
       this.setData({
-        passdata:passdata,
-        show1:true
+        show1:true,
+        passdata:passdata
       })
     }
   },
@@ -241,6 +237,7 @@ Page({
             })
           }else{
             app.msg("报名失败");
+            return;
           }
                 
         })
@@ -330,7 +327,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-   
+    this.setData({
+      show:false,
+      show1:false
+    })
   },
 
   /**

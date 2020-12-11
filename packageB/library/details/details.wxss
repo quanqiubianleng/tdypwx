@@ -170,18 +170,19 @@ page{
 .liuyan-r{
   text-align: right;
 }
+
 .box-box{
   background: #fff;
   margin-top: 5rpx;
 }
 .box{
   margin-top: 20rpx;
+  border-bottom: 1rpx solid #ddd;
   padding-bottom: 10rpx;
   height: auto;
-  background: #fff;
 }
 .box-img{
-  height: 140rpx;
+  height: 129rpx;
   display:flex;
   flex-direction:row;
   align-items:center;
@@ -190,8 +191,8 @@ page{
   height: auto;
 }
 .box-img image{
-  width: 170rpx;
-  height: 140rpx;
+  width: 172rpx;
+  height: 129rpx;
 }
 /* .box-bill{
   height: 180rpx;
@@ -204,7 +205,7 @@ page{
   white-space: nowrap;
   text-overflow: ellipsis;
   text-align: left;
-  font-size: 32rpx;
+  font-size: 28rpx;
   font-weight: 600;
 }
 .num{
@@ -216,27 +217,20 @@ page{
   font-weight: 600;
   color: #F5A932;
 }
-/* .box-bill-type{
-  height: 60rpx;
-} */
 .type{
   text-align: left;
   color: #666F83;
-  font-size: 26rpx;
+  font-size: 24rpx;
 }
-.fei{
-  height: 60rpx;
-}
+
 .fei view{
   float: right;  
   border-radius: 5rpx;
-  padding: 0rpx;
+  padding: 2rpx 15rpx;
 
 }
 .fei view text{
   display: inline-block;
-  line-height: 38rpx;
-  height: 38rpx;
   font-size: 22rpx;
   padding-left: 5rpx;
   padding-right: 5rpx;
@@ -253,7 +247,6 @@ page{
  border-radius: 5rpx 0 rpx 0 5rpx;
 }
 .tags-box{
-  height: 55rpx;
   overflow:hidden;
 }
 .tags-list{
@@ -267,7 +260,6 @@ page{
   text-align: center;
  font-size: 22rpx;
  border-radius: 10rpx;
- margin-top: 10rpx;
 }
 .null{
   margin-top: 20rpx;

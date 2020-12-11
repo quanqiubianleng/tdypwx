@@ -131,9 +131,13 @@ page{
     padding-bottom: 15rpx;
   }
   .swipers-tel{
+    padding-right: 15rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     font-size: 28rpx;
-    margin-top: 15rpx;
-    margin-bottom: 10rpx;
+    margin-top: 18rpx;
+    margin-bottom: 15rpx;
   }
  .swipers-view{
     position: absolute;
@@ -158,6 +162,7 @@ page{
     word-break: break-all;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2; 
+    line-height: 35rpx;
     padding-right: 50rpx;
   }
   .share{
