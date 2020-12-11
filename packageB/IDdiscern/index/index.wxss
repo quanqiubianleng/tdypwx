@@ -12,7 +12,7 @@ page{
   font-size: 26rpx;
 }
 .card{
-  height: 300rpx;
+  height: 250rpx;
   margin-top: 30rpx;
   margin-bottom: 20rpx;
   background: #fff;
@@ -20,11 +20,11 @@ page{
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
 }
 .card-top{
-  height: 150rpx;
+  height: 80rpx;
 }
 .card-top-desc{
   float: left;
-  line-height: 150rpx;
+  line-height: 120rpx;
   font-size: 34rpx;
   font-weight: 600;
   
@@ -46,6 +46,11 @@ page{
   color: #fff;
   margin-top: 45rpx;
   border-radius: 10rpx;
+}
+.desc{
+  font-size: 26rpx;
+  line-height: 60rpx;
+  color: #999999;
 }
 .card-bottom{
   height: 80rpx;

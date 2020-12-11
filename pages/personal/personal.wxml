@@ -14,7 +14,7 @@
       </block>
     </van-col>
     <view class="userInfoBox">
-      <view class="login" wx:if="{{userInfo}}">
+      <view class="login" wx:if="{{userInfo}}" bindtap="loginbyw">
         {{userInfo.username? userInfo.username : '暂无姓名'}}
         <text>{{userInfo.status2}}</text>
       </view>

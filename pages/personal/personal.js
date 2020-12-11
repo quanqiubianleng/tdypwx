@@ -67,6 +67,24 @@ Page({
       }
     })
     }
+    if(url=='/packageB/friends/index/index'){
+      let coordinates = wx.getStorageSync('coordinates');
+      if(!coordinates){
+        wx.getLocation({
+          type: 'wgs84',
+          success: function(tude) {
+            wx.setStorageSync('coordinates', tude);
+          },
+          fail: function() {
+            showMsg("获取位置失败，请稍后再试");
+          }
+        });
+      }else{
+        wx.navigateTo({
+          url:'/packageB/friends/index/index'
+        })
+      }
+    }
     else{
       wx.navigateTo({
         url: url,

@@ -6,8 +6,9 @@
   <van-col span="22"offset="1"custom-class="card-top">
     <text class="card-top-desc">{{item.name}}</text>
     <text class="card-top-bt" wx:if="{{item.status==2||item.status==3}}" data-index="{{key}}" data-type="{{item.type}}" bindtap="addPartner">申请</text>
-    <text class="on" wx:if="{{item.status!=2&&item.status!=3}}" >申请</text>
+    <text class="on" wx:if="{{item.status!=2&&item.status!=3}}">申请</text>
   </van-col>
+  <van-col span="22"offset="1"custom-class="desc">这里是社会合伙人简单说明。</van-col>
   <van-col span="22"offset="1"custom-class="card-bottom" wx:if="{{item.status==3}}">提交申请，待后台验证</van-col>
   <van-col span="22"offset="1"custom-class="card-bottoms" wx:if="{{item.status==0}}">审核中</van-col>
   <van-col span="22"offset="1"custom-class="card-bottomss" wx:if="{{item.status==1}}">审核已通过</van-col>

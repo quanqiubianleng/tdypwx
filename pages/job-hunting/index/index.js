@@ -48,7 +48,26 @@ Page({
     this.openCoordinates();
     this.label();
     this.getDynamicData();
+    this.Redpacket();
   },
+  Redpacket:function(){
+   // 轮询红包金额数量
+    // setInterval(()=>{
+    //   var datad = {};
+    //   let rendata = app.requestfun(datad, '/Api/Redpacket/index',false);    
+    //   rendata.then((v) => {
+    //     console.log(v);
+    //     if(v.data.status==1&&v.data.res){
+    //       this.setData({
+    //         money:v.data.res[0].money_surplus,
+    //         start_time: v.data.res[0].start_time,
+    //         end_time: v.data.res[0].end_time
+    //       })
+    //     }
+    //   }) 
+    // },6000)
+  },
+
   index:function(e){
       var datad = {
         page:this.data.page,

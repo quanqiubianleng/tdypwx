@@ -114,24 +114,23 @@ page{
   border-right: 0rpx solid #ddd;
 }
 .fund-ul-num{
-  margin-top: 25rpx;
+  margin-top: 10rpx;
   text-align: center;
   font-size: 26rpx;
   color: #DC5150;
   font-weight: 600;
 }
 .fund-ul-tel{
-  margin-top: 20rpx;
+  margin-top: 10rpx;
   font-size: 24rpx;
   font-weight: 600;
   text-align: center;
   color: #999999;
-  margin-bottom: 20rpx;
+  margin-bottom: 10rpx;
 }
 
 .box{
   background: #fff;
-  height: 800rpx;
   margin-top: 40rpx;
   padding-bottom: 10rpx;
 }
