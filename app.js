@@ -175,6 +175,7 @@ App({
     if(chat.getStorages('isLogin')){
       this.globalData.isLogin = true;
       this.globalData.socketOpen = true;
+      this.globalData.userInfo = chat.getStorages('userinfo');
       this.linkSocket()
     }
  	},
