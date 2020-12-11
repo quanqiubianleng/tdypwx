@@ -11,6 +11,7 @@
     "pages/home/home",
     "pages/loginByWechat/loginByWechat",
     "pages/jurisdiction/index/index",
+    "pages/jurisdiction/setion/index",
     "pages/jurisdiction/choice/choice",
     "pages/jurisdiction/add/add",
     "pages/quit-handle/index/index",
