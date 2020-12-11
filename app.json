@@ -64,7 +64,7 @@
         "pagePath": "pages/job-hunting/index/index",
         "iconPath": "icons/ic_job_def.png",
         "selectedIconPath": "icons/ic_job_act.png",
-        "text": "找工作"
+        "text": "首页"
       },
       {
         "pagePath": "pages/message/message",
