@@ -8,16 +8,6 @@ const showMsg = (data) => {
     icon: 'none'
   });
 }
-// const userinfo = (key) => {
-//   let userinfo = wx.getStorageSync('userinfo');
-//   if (!userinfo) {
-//     return "";
-//   }
-//   if (key) {
-//     return userinfo[key];
-//   } 
-//   return userinfo;
-// }
 App({
   d: {
     hostUrl: 'https://www.tdyp520.com/index.php',

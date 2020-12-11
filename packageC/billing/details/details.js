@@ -127,7 +127,7 @@ Page({
 
   },
   showPopup:function(e){
-    let passdata = wx.getStorageSync('userinfo');
+    let passdata = wx.getStorageSync('passdata');
    console.log(passdata);
     if(!passdata||typeof(passdata)=='undefined'||typeof(passdata)=='null'){
       this.setData({
@@ -153,7 +153,6 @@ Page({
     })
   },
   bubao:function(e){
-    
     this.setData({
       show1:false
     })
@@ -178,13 +177,14 @@ Page({
       let rendata = app.requestfun(datad, '/Api/login/GetPhoneNumber'); 
       rendata.then((v)=>{
         if(v.data.passdata!=''){
-          wx.setStorageSync('userinfo',v.data.passdata);
+          wx.setStorageSync('passdata',v.data.passdata);
           wx.login({
             success (res) {
               let data ={
                 code:res.code,
                 passdata:v.data.passdata,
-                billid:that.data.id
+                billid:that.data.id,
+                type:1
               }
               let rendata = app.requestfun(data, '/Api/Apply/index'); 
               rendata.then((v)=>{
@@ -218,7 +218,8 @@ Page({
         let data ={
           code:res.code,
           passdata:that.data.passdata,
-          billid:that.data.id
+          billid:that.data.id,
+          type:1
         }
         let rendata = app.requestfun(data, '/Api/Apply/index'); 
         rendata.then((v)=>{

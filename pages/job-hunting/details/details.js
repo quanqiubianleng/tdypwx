@@ -25,6 +25,7 @@ Page({
    */
   onLoad: function (options) {
     let id = options.id;
+    console.log(id);
     this.setData({
       id:id
     })
@@ -127,14 +128,18 @@ Page({
     }
   },
   showPopup:function(e){
-    let enroll = this.data.enroll;
-    if(enroll==1){
+    let passdata = wx.getStorageSync('passdata');
+   console.log(passdata);
+    if(!passdata||typeof(passdata)=='undefined'||typeof(passdata)=='null'){
       this.setData({
-        show:true
+        show1:true,
+        passdata:''
       })
-    }else{
+    }
+    if(passdata){
       this.setData({
-        show1:true
+        show1:true,
+        passdata:passdata
       })
     }
   },
@@ -153,9 +158,88 @@ Page({
       show1:false
     })
   },
+  async bindgetphonenumber (e){
+    let that =this;
+    let code = await new Promise((resolve) => {
+      wx.login({success: (res) => { if (res.code) resolve(res.code) } })});
+      code = await new Promise((resolve) => {
+      wx.login({ success: (res) => { if (res.code) resolve(res.code) } })
+    });
+    if(e.detail.errMsg=='getPhoneNumber:fail user deny'){
+      app.msg('获取手机号失败');
+      return;
+    }
+    if(e.detail.errMsg!='getPhoneNumber:fail user deny'){
+      var datad = {
+        iv: e.detail.iv,
+        encryptedData:e.detail. encryptedData,
+        code: code
+      };
+      let rendata = app.requestfun(datad, '/Api/login/GetPhoneNumber'); 
+      rendata.then((v)=>{
+        if(v.data.passdata!=''){
+          wx.setStorageSync('passdata',v.data.passdata);
+          wx.login({
+            success (res) {
+              let data ={
+                code:res.code,
+                passdata:v.data.passdata,
+                billid:that.data.id,
+                type:2
+              }
+              let rendata = app.requestfun(data, '/Api/Apply/index'); 
+              rendata.then((v)=>{
+                if(v.data.status==1){
+                  wx.showToast({
+                    title: '报名成功',
+                    duration:2000,//显示时长
+                    icon:'none',
+                    success:function(){ 
+                      setTimeout(function() {
+                       wx.navigateBack();
+                      }, 1000);
+                    },
+                  })
+                }else{
+                  app.msg("报名失败");
+                }     
+              })
+            }
+          })
+        }     
+      })
+    }
+  },
   bao:function(e){
-    this.setData({
-      show1:false
+  let that = this;
+    wx.login({
+      success (res) {
+        let data ={
+          code:res.code,
+          passdata:that.data.passdata,
+          billid:that.data.id,
+          type:2
+        }
+        let rendata = app.requestfun(data, '/Api/Apply/index'); 
+        rendata.then((v)=>{
+          if(v.data.status==1){
+            wx.showToast({
+              title: '报名成功',
+              duration:2000,//显示时长
+              icon:'none',
+              success:function(){ 
+                setTimeout(function() {
+                 wx.navigateBack();
+                }, 1000);
+              },
+            })
+          }else{
+            app.msg("报名失败");
+            return;
+          }
+                
+        })
+      }
     })
   },
   nobillinfo:function(id,nopenid){

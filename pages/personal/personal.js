@@ -14,7 +14,8 @@ Page({
     wx.navigateTo({ url: `/pages/infopage/infopage?id=${id}`})
   },  
  
-  loginbyw(){
+  loginbyw:function(){
+    console.log(1111);
     wx.navigateTo({ url: '/pages/loginByWechat/loginByWechat' });
   },
   click:utils.default.throttle(function(res){
@@ -75,6 +76,7 @@ Page({
   },3000),
   onShow:function(){
     var  userInfos= wx.getStorageSync('userinfo');
+    console.log(userInfos)
     this.setData({
       userInfo: userInfos,
     }) 

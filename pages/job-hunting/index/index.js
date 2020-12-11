@@ -305,8 +305,13 @@ switchTab(event){
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];
     if(currPage.__data__.cityNameTemp){
+      let province = currPage.__data__.cityNameTemp.fullname;
+      if(currPage.__data__.cityNameTemp.fullname.length>3){
+        province= province.slice(0,2)
+      }
+      console.log(province);
       this.setData({
-        province:currPage.__data__.cityNameTemp.fullname,
+        province:province,
         city_code:currPage.__data__.cityNameTemp.id
       })
       this.locationlabel(currPage.__data__.cityNameTemp.id);

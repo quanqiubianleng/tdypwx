@@ -176,7 +176,7 @@
 						</van-col>
 					</van-col>
 				</van-col>
-				<van-col span="12" custom-class="shop-buy" data-type="buynow" bindtap="showPopup">
+				<van-col span="12" custom-class="shop-buy"data-type="buynow" bindtap="showPopup">
 					立即报名
 				</van-col>
 			</van-col>
@@ -186,16 +186,12 @@
 		show-cancel-button message="检测到你已报名了其他工厂，如确定报名，报名系统将自动为您取消上一家报名工厂！" customStyle="show" bind:confirm="confirm"
 		bind:cancel="cancel" custom-style="height:300rpx">
 	</van-dialog>
-	<van-popup show="{{show1}}" position="bottom" custom-class="shows" bind:close="onClose" custom-style="height:500rpx">
-		<van-col span="24" offset="" custom-class="show-desc">
-			<image src="/icons/wen.png"></image>
-		</van-col>
-		<van-col span="24" custom-class="show-q">请确认是否进行报名</van-col>
-		<van-col span="22" offset="1" custom-class="show-s"> 报名成功后，在工作时间内9：00-18：00，我们将会有就业顾问与您进行沟通，请保持电话通讯正常，谢谢！ </van-col>
-		<view class="quxiao" bindtap="bubao">再考虑下</view>
-		<!-- wx:if="{{passdata}}" -->
-		<view class="quding" bindtap="bao" >确认报名</view>
-		<!-- <button class="qudings" open-type="getPhoneNumber" bindgetphonenumber="bindgetphonenumber"
-			wx:if="{{passdata==''}}">确认报名</button> -->
-	</van-popup>
+	<van-popup show="{{show1}}" position="bottom" custom-class="shows" bind:close="onClose"  custom-style="height:500rpx">
+  <van-col span="24" offset="" custom-class="show-desc"><image src="../../../icons/wen.png"></image></van-col>
+  <van-col span="24" custom-class="show-q">请确认是否进行报名</van-col>
+  <van-col span="22" offset="1" custom-class="show-s"> 报名成功后，在工作时间内9：00-18：00，我们将会有就业顾问与您进行沟通，请保持电话通讯正常，谢谢！ </van-col>
+  <view class="quxiao" bindtap="bubao">再考虑下</view>
+  <view class="quding" bindtap="bao" wx:if="{{passdata}}">确认报名</view>
+  <button class="qudings" open-type="getPhoneNumber"  bindgetphonenumber="bindgetphonenumber" wx:if="{{passdata==''}}">确认报名</button>
+</van-popup>
 </view>

@@ -2,7 +2,13 @@
 page {
   height: 100%;
 }
-
+.loading{
+  position: absolute;
+  top:300rpx;
+  width: 100%;
+  text-align: center;
+  z-index: -1;
+}
 .containers {
   box-sizing: border-box;
   height: 100%;

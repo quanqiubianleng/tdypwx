@@ -1,10 +1,8 @@
 <!--pages/job-hunting/city/city.wxml-->
-<view class="containers">
-<!-- <view class="search-box">
-    <input placeholder="城市名" class='search-input' bindinput='bindSarchInput' placeholder-class='search-input-placeholder' />
-    <image src="../../../icons/search.png" class="search-img"></image>
-</view> -->
-<!-- 城市列表 -->
+<view class="loading">
+  <van-loading size="30px" color="#0d0d0d">数据加载中</van-loading>
+</view>
+<view class="containers" wx:if="{{cityData.length>1}}">
 <view class='list-city' hidden="{{!cityListShow}}">
     <scroll-view scroll-y="true" style="height:100%;" scroll-into-view="{{scrollTopId}}" scroll-with-animation="true" enable-back-to-top="true">
         <view class='item'>
