@@ -184,6 +184,9 @@ Page({
     wx.navigateTo({
       url: '/pages/job-hunting/city/city?currentCity=' + this.data.province,
     })
+    this.setData({
+      
+    })
   },
   details:function(e){
     let id = e.currentTarget.dataset.id;
@@ -200,15 +203,16 @@ Page({
     this.setData({
         id:id,
         navScrollLeft: (cur - 2) * singleNavWidth
-    })      
-    if (this.data.currentTab == cur) {
+    })
+    console.log(id)  
+    if (this.data.currentTab == id) {
         return false;
     } else {
-      let id = this.data.navData[cur].id;
+      //let id = this.data.navData[cur].id;
         this.setData({
             list:[],
             page:0,
-            currentTab: cur
+            currentTab: event.currentTarget.dataset.id
         })
         if(this.data.location==0){
           this.index(id);
@@ -217,6 +221,7 @@ Page({
         this.location(id,this.data.city_code)
        }
     }
+    console.log(this.data.currentTab)
    
 },
 switchTab(event){
@@ -239,7 +244,7 @@ switchTab(event){
     let rendata = app.requestfun(datad, '/Api/job/label',false);    
     rendata.then((v) => {
       if(v.data.status==1&&v.data.data){
-        let id = v.data.data[0].id;
+        let id = 0;
         this.setData({
           navlist:v.data.data
         })
