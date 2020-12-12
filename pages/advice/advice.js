@@ -26,12 +26,12 @@ Page({
   sendMessage:function()
   {
     var f_msg = {
-      type: 'user',
+      type: 'kefu',
       f_id: this.data.uid,
       j_id: 0,
       msg_type: '1',
       content: this.data.msg,
-      mtype: 'user',
+      mtype: 'kefu',
     }
     if(this.data.type == 'text'){
       f_msg.msg_type = '1'
