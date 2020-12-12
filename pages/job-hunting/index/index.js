@@ -194,6 +194,19 @@ Page({
       url: '/pages/job-hunting/details/details?id='+id,
     })
   },
+  library:function(){
+    let isLogin = app.globalData.isLogin;
+    console.log(isLogin);
+    if(!isLogin){
+      wx.navigateTo({
+        url: '/pages/loginByWechat/loginByWechat',
+      })
+    }else{
+      wx.navigateTo({
+        url: '/packageB/library/index/index',
+      })
+    }
+  },
   switchNav(event){
     let id = event.currentTarget.dataset.id;
     var cur = event.currentTarget.dataset.current; 

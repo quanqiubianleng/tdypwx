@@ -27,7 +27,7 @@
     <view class='main-list'>
       <van-row>
         <!-- 百万红包 -->
-        <view class="hongbei" style="background-image:url('../../../icons/hbbj.jpg') ;">
+        <view class="hongbei">
           <view class="hongbei-num">
               <text wx:for="{{money}}" wx:key="key">{{item}}</text>
           </view>
@@ -73,10 +73,10 @@
             <image class="menu_icon" src="../../../icons/index-1.png" />
             <text class="menu_name">推荐好友</text>
           </navigator>
-          <navigator url="/packageB/library/index/index" class="menu_item">
+          <view  bindtap="library" class="menu_item">
             <image class="menu_icon" src="../../../icons/index-2.png" />
             <text class="menu_name">人才库</text>
-          </navigator>
+          </view>
           <navigator url="/packageC/keep/index/index?type=2" class="menu_item">
             <image class="menu_icon" src="../../../icons/index-3.png" />
             <text class="menu_name">我的收藏</text>
@@ -103,6 +103,7 @@
             data-id="{{it.id}}" bindtap="details">
             <van-col span="6" custom-class="box-img">
               <image src="{{it.headimg}}" mode="scaleToFill" ></image>
+              <image src="../../../icons/hot.png" class="hot" mode="scaleToFill"></image>
             </van-col>
             <van-col span="17" offset="1" custom-class="box-bill">
               <van-col span="24" custom-class="box-bill-name">
@@ -147,6 +148,7 @@
               data-id="{{it.id}}" bindtap="details">
               <van-col span="6" custom-class="box-img">
                 <image src="{{it.headimg}}"  mode="widthFix" ></image>
+                <image src="../../../icons/hot.png" class="hot" mode="scaleToFill"></image>
               </van-col>
               <van-col span="17" offset="1" custom-class="box-bill">
                 <van-col span="24" custom-class="box-bill-name">
