@@ -106,6 +106,11 @@ Page({
       url: '/packageB/library/detailed/detailed',
     })
   },
+  tixian:function(){
+    wx.navigateTo({
+      url: '/packageB/wallet/index/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

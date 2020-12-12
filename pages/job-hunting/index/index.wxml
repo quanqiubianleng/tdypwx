@@ -27,9 +27,9 @@
     <view class='main-list'>
       <van-row>
         <!-- 百万红包 -->
-        <view class="hongbei" style="background-image:url('../../../icons/hbbj.png') ;">
+        <view class="hongbei" style="background-image:url('../../../icons/hbbj.jpg') ;">
           <view class="hongbei-num">
-              <text wx:for="{{money}}">{{item}}</text>
+              <text wx:for="{{money}}" wx:key="key">{{item}}</text>
           </view>
           <view class="hongbt">
               <text style="color:#5677FB">邀请学友共享</text>

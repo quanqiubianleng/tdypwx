@@ -107,7 +107,7 @@ page{
   float: left;
   width: 100%;
   margin-top: 138rpx;
-  margin-bottom: 10rpx;
+  margin-bottom: 20rpx;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -303,7 +303,6 @@ color: #666666;
 .name{
   overflow: hidden;
   white-space: nowrap;
-  text-overflow: ellipsis;
   text-align: left;
   font-size: 28rpx;
   font-weight: 600;

@@ -20,7 +20,7 @@
       <!-- <view class="name-bt"><text>{{is_entry}}</text></view> -->
     </van-col >
     <van-col span="6" offset="1" custom-class="personal-btn">
-      <van-col span="24" custom-class="tixian">一键提现</van-col>
+      <van-col span="24" custom-class="tixian" bindtap="tixian">一键提现</van-col>
       <van-col span="24" custom-class="xiangqing" bindtap="details" data-id="{{userInfos.id}}" data-own="1">奖励详情</van-col>
     </van-col>
   </van-col>
