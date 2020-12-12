@@ -25,29 +25,31 @@ Page({
     let rendata = app.requestfun(datad, '/Api/UserAuto/authenticationFind',true); 
     rendata.then((v)=>{
       if(v.data.status==1){
+        console.log(111111)
         let datad={}
-      let rendata = app.requestfun(datad, '/Api/UserAuto/partnerStatus',true); 
-      rendata.then((v)=>{
-        if(v.data.status==1){
-          let type = v.data.data.type;
-          let status = v.data.data.status;
-          wx.navigateTo({
-            url: '/packageB/IDdiscern/index/index?Valuable='+type +'&status='+ status ,
-          })
-        }else{
-          let type = '';
-          let status = '';
-          wx.navigateTo({
-            url: '/packageB/IDdiscern/index/index?Valuable='+type +'&status='+ status ,
-          })
-        }
-      })
+        let rendata = app.requestfun(datad, '/Api/UserAuto/partnerStatus',true); 
+        rendata.then((v)=>{
+          if(v.data.status==1){
+            let type = v.data.data.type;
+            let status = v.data.data.status;
+            wx.navigateTo({
+              url: '/packageB/IDdiscern/index/index?Valuable='+type +'&status='+ status ,
+            })
+          }else{
+            let type = '';
+            let status = '';
+            wx.navigateTo({
+              url: '/packageB/IDdiscern/index/index?Valuable='+type +'&status='+ status ,
+            })
+          }
+        })
       }
       else{
         app.msg("请先通过实名认证");
         return;
       }
     })
+    return;
     }
     if(url=='/packageB/certification/index/index'){
       let datad={}
@@ -66,6 +68,7 @@ Page({
         })
       }
     })
+    return;
     }
     if(url=='/packageB/friends/index/index'){
       let coordinates = wx.getStorageSync('coordinates');
@@ -84,8 +87,10 @@ Page({
           url:'/packageB/friends/index/index'
         })
       }
+      return;
     }
     else{
+      console.log(22222)
       wx.navigateTo({
         url: url,
       })

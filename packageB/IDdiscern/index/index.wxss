@@ -12,7 +12,6 @@ page{
   font-size: 26rpx;
 }
 .card{
-  height: 250rpx;
   margin-top: 30rpx;
   margin-bottom: 20rpx;
   background: #fff;
@@ -23,23 +22,23 @@ page{
   height: 80rpx;
 }
 .card-top-desc{
-  float: left;
+  display: inline-block;
+  margin-right: 30rpx;
   line-height: 120rpx;
   font-size: 34rpx;
   font-weight: 600;
   
 }
 .card-top-bt{
-  float: right;
+  display: inline-block;
   padding: 5rpx 15rpx;
   background: #2E54EB;
   font-size: 30rpx;
   color: #fff;
-  margin-top: 45rpx;
   border-radius: 10rpx;
 }
 .on{
-  float: right;
+ display: inline-block;
   padding: 5rpx 15rpx;
   background: #999999;
   font-size: 30rpx;
@@ -47,14 +46,20 @@ page{
   margin-top: 45rpx;
   border-radius: 10rpx;
 }
+.zhuangtai{
+  display: inline-block;
+  padding: 5rpx 15rpx;
+  color: #666F83;
+}
 .desc{
   font-size: 26rpx;
-  line-height: 60rpx;
+  margin-top: 20rpx;
+  margin-bottom: 10rpx;
   color: #999999;
 }
 .card-bottom{
-  height: 80rpx;
-  line-height: 80rpx;
+  height: 60rpx;
+  line-height: 60rpx;
   padding-left: 20rpx;
   text-align: left;
   color: #666F83;
@@ -122,6 +127,7 @@ page{
   height: 100rpx;
   line-height: 100rpx;
   text-align: center;
+  margin-top: 30rpx;
 }
 .popup-shibai-tel{
   margin-top: 30rpx;

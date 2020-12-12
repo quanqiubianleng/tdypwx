@@ -26,6 +26,9 @@ Page({
     imageHeight:0 ,
     msgList: [{id:1,text:"通知：天大平台正式开通了，找工作就来天大"},{id:2,text:"公告：今日邀约20人，到场面试16人，出发23人，入职10人"}],
     Time:'',        num:0,        showpic:null,        hidepic:null,
+    money:'1000000',
+    start_time: '2020-12-12',
+    end_time: '2020-12-30'
   },
   swiperChange:function(res){
     this.setData({
@@ -51,12 +54,11 @@ Page({
     this.Redpacket();
   },
   Redpacket:function(){
-   // 轮询红包金额数量
+   //轮询红包金额数量
     // setInterval(()=>{
     //   var datad = {};
     //   let rendata = app.requestfun(datad, '/Api/Redpacket/index',false);    
     //   rendata.then((v) => {
-    //     console.log(v);
     //     if(v.data.status==1&&v.data.res){
     //       this.setData({
     //         money:v.data.res[0].money_surplus,

@@ -159,7 +159,7 @@
 		<van-col span="24" custom-class="shop-wrapper">
 			<van-col span="22" offset="1" custom-class="shop-box">
 				<van-col span="12" custom-class="shop-left">
-					<van-col span="8" custom-class="shopper" bindtap="tel">
+					<van-col span="12" custom-class="shopper" bindtap="tel">
 						<van-col span="12" offset="5" custom-class="shop-img-box">
 							<image src="/icons/wrok-1.png" class="shop-img"></image>
 						</van-col>
@@ -167,7 +167,7 @@
 							电话咨询
 						</van-col>
 					</van-col>
-					<van-col span="8" custom-class="shop-kefu" bindtap="advice">
+					<van-col span="12" custom-class="shop-kefu" bindtap="advice">
 						<van-col span="12" offset="5" custom-class="shop-img-box">
 							<image src="/icons/wrok-2.png" class="shop-img kefu-img"></image>
 						</van-col>

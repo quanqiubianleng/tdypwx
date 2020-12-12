@@ -19,7 +19,7 @@
         <text>{{userInfo.status2}}</text>
       </view>
       <view class="login" bindtap="loginbyw" wx:if="{{userInfo==''}}">点击登录</view>
-      <view class="login-tel"> {{userInfo.mobile? userInfo.mobile : '登录享优质服务，信息及时掌握'}} </view>
+      <view class="login-tel"  bindtap="loginbyw"> {{userInfo.mobile? userInfo.mobile : '登录享优质服务，信息及时掌握'}} </view>
     </view>
     <view class="attestation" wx:if="{{userInfo}}">
       <image src="../../icons/ic_attestation.png" />

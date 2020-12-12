@@ -27,19 +27,15 @@
     <view class='main-list'>
       <van-row>
         <!-- 百万红包 -->
-        <view class="hongbei">
+        <view class="hongbei" style="background-image:url('../../../icons/hbbj.png') ;">
           <view class="hongbei-num">
-              <text>1</text>
-              <text>0</text>
-              <text>0</text>
-              <text>0</text>
-              <text>0</text>
-              <text>0</text>
-              <text>0</text>
+              <text wx:for="{{money}}">{{item}}</text>
           </view>
           <view class="hongbt">
-            
+              <text style="color:#5677FB">邀请学友共享</text>
+              <text style="color:#F2210B">百万红包</text>
           </view>
+          <view class="hongtime">活动时间：{{start_time}}-{{end_time}}</view>
         </view>
         <!-- 渐入轮播图 -->
         <!-- <view class="banner">
