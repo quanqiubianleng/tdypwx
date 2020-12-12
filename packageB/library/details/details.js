@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    index:1,
+    index:2,
     down:2,
     strip:0,
     page:0

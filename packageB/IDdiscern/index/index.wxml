@@ -7,7 +7,7 @@
     <text class="card-top-desc">{{item.name}}</text>
     <text class="card-top-bt" wx:if="{{item.status==2||item.status==3}}" data-index="{{key}}" data-type="{{item.type}}" bindtap="addPartner">申请</text>
     <text class="on" wx:if="{{item.status!=2&&item.status!=3}}">申请</text>
-    <text class="card-bottom" wx:if="{{item.status==3}}">状态栏</text>
+    <text class="card-bottom" wx:if="{{item.status==3}}">提交申请，待后台验证</text>
     <text class="card-bottoms" wx:if="{{item.status==0}}">审核中</text>
     <text class="card-bottomss" wx:if="{{item.status==1}}">审核已通过</text>
     <text class="card-bottomsss" wx:if="{{item.status==2}}">未通过<text style="font-size: 20rpx;color:#666666">（可联系客服咨询详情，重新申请）</text></text>
@@ -35,9 +35,13 @@
     <van-col span="24" custom-class="popup-tel" wx:if="{{Valuable==12}}">社会合伙人申请通过</van-col>
     <van-col span="24" custom-class="popup-tel" wx:if="{{Valuable==14}}">在职推荐人申请通过</van-col>
     <van-col span="24" custom-class="popup-tel" wx:if="{{Valuable==15}}">校园代理申请通过</van-col>
+    <van-col span="24" custom-class="popup-tel" wx:if="{{Valuable==16}}">渠道运营商申请通过</van-col>
+    <van-col span="24" custom-class="popup-tel" wx:if="{{Valuable==16}}">站长合伙人申请通过</van-col>
     <van-col span="24" custom-class="popup-del"  wx:if="{{Valuable==12}}">【恭喜，您已成为天大社会合伙人】</van-col>
     <van-col span="24" custom-class="popup-del"  wx:if="{{Valuable==14}}">【恭喜，您已成为天大在职推荐人】</van-col>
     <van-col span="24" custom-class="popup-del"  wx:if="{{Valuable==15}}">【恭喜，您已成为天大校园代理】</van-col>
+    <van-col span="24" custom-class="popup-del"  wx:if="{{Valuable==16}}">【恭喜，您已成为天大渠道运营商】</van-col>
+    <van-col span="24" custom-class="popup-del"  wx:if="{{Valuable==17}}">【恭喜，您已成为天大站长合伙人】</van-col>
     <van-col span="24" custom-class="popup-go" style="color:#333">赶快去寻找属于你的合伙人吧~</van-col>
     <van-col span="24" custom-class="popup-bt">
       <van-col span="12"custom-class="ganbi" style="color:#999999" bindtap="close">关闭</van-col><van-col span="12"custom-class="ganbi" style="color:#30B9EF" bindtap="go">前往人才库</van-col>
@@ -47,6 +51,8 @@
     <van-col span="24" custom-class="popup-shibai-tel" wx:if="{{Valuable==12}}">社会合伙人申请失败</van-col>
     <van-col span="24" custom-class="popup-shibai-tel" wx:if="{{Valuable==14}}">在职推荐人申请失败</van-col>
     <van-col span="24" custom-class="popup-shibai-tel" wx:if="{{Valuable==15}}">校园代理申请失败</van-col>
+    <van-col span="24" custom-class="popup-shibai-tel" wx:if="{{Valuable==16}}">渠道运营商申请失败</van-col>
+    <van-col span="24" custom-class="popup-shibai-tel" wx:if="{{Valuable==17}}">站长合伙人申请失败</van-col>
     <van-col span="24" custom-class="popup-shibai-del">【很遗憾，您的申请未通过】</van-col>
     <van-col span="24" custom-class="popup-shibai-go">可联系客服了解详情重新申请~</van-col>
     <van-col span="24" custom-class="popup-bt">

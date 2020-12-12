@@ -32,16 +32,16 @@
       <mp-icon class="iconOpen" icon="arrow" color="#C2C4CA" size="{{14}}"></mp-icon>
       <text>实名认证</text>
     </view>
-    <view class="navigator" data-url="/packageB/wallet/index/index" bindtap="click">
+    <!-- <view class="navigator" data-url="/packageB/wallet/index/index" bindtap="click">
       <image class="mainIcon" src="/icons/user-2.png" />
       <mp-icon class="iconOpen" icon="arrow" color="#C2C4CA" size="{{14}}"></mp-icon>
       <text>我的钱包</text>
-    </view>
-    <view class="navigator" data-url="/packageB/friends/index/index" bindtap="click">
+    </view> -->
+    <!-- <view class="navigator" data-url="/packageB/friends/index/index" bindtap="click">
       <image class="mainIcon" src="/icons/user-3.png" />
       <mp-icon class="iconOpen" icon="arrow" color="#C2C4CA" size="{{14}}"></mp-icon>
       <text>邀请好友</text>
-    </view>
+    </view> -->
     <view class="navigator" data-url="/packageB/library/index/index" bindtap="click">
       <image class="mainIcon" src="/icons/user-4.png" />
       <mp-icon class="iconOpen" icon="arrow" color="#C2C4CA" size="{{14}}"></mp-icon>

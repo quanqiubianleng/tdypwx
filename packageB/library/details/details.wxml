@@ -10,10 +10,11 @@
   <van-col span="6" offset="1" custom-class="card-bt" wx:if="{{own==2}}" bindtap="label">添加备注</van-col>
 </van-col>
 <van-col span="24"custom-class="choice">
-  <text bindtap="choice" data-index="1" class="{{index==1?'on':''}}">动态</text>
-  <text bindtap="choice" data-index="2" class="{{index==2?'on':''}}">产生收益</text>
+  <text bindtap="choice" data-index="1" wx:if="{{own==2}}" class="{{index==1?'on':''}}">发展下线</text>
+  <text bindtap="choice" data-index="2" class="{{index==2?'on':''}}">动态</text>
+  <text bindtap="choice" data-index="3" class="{{index==3?'on':''}}">产生收益</text>
 </van-col>
-<van-col span="24" wx:if="{{index==1}}">
+<van-col span="24" wx:if="{{index==2}}">
   <van-col span="22" offset="1" custom-class="sign">
     <van-col span="24"custom-class="sign-list">
       <van-col span="11" custom-class=""><text class="jin">近</text><text>最近登录时间</text></van-col>
@@ -64,7 +65,7 @@
   <image src="../../../icons/null.png"></image>
 </van-col>
 </van-col>
-<van-col span="24" wx:if="{{index==2}}">
+<van-col span="24" wx:if="{{index==3}}">
   <van-col span="22"offset="1"custom-class="cards">
     <van-col span="24" custom-class="cards-top">
       <van-col span="14"offset="1"custom-class="money"><text class="money-num">49361</text><text class="money-des">总金额（元）</text></van-col>

@@ -13,7 +13,8 @@ Page({
     count2:0,
     count3:0,
     currentTab:0,
-    userInfos:wx.getStorageSync('userinfo')
+    userInfos:wx.getStorageSync('userinfo'),
+    isLogin:app.globalData.isLogin
   },
 
   /**

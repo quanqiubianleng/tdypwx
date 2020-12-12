@@ -22,34 +22,47 @@ Page({
     let url = res[0].currentTarget.dataset.url;
     if(url=='/packageB/IDdiscern/index/index'){
       let datad={}
-    let rendata = app.requestfun(datad, '/Api/UserAuto/authenticationFind',true); 
-    rendata.then((v)=>{
-      if(v.data.status==1){
-        console.log(111111)
-        let datad={}
-        let rendata = app.requestfun(datad, '/Api/UserAuto/partnerStatus',true); 
-        rendata.then((v)=>{
-          if(v.data.status==1){
-            let type = v.data.data.type;
-            let status = v.data.data.status;
-            wx.navigateTo({
-              url: '/packageB/IDdiscern/index/index?Valuable='+type +'&status='+ status ,
+      let rendata = app.requestfun(datad, '/Api/UserAuto/authenticationFind',true); 
+      rendata.then((v)=>{
+        if(v.data.status==1){
+          console.log(111111)
+          let datad={}
+          let rendata = app.requestfun(datad, '/Api/UserAuto/partnerStatus',true); 
+          rendata.then((v)=>{
+            if(v.data.status==1){
+              let type = v.data.data.type;
+              let status = v.data.data.status;
+              wx.navigateTo({
+                url: '/packageB/IDdiscern/index/index?Valuable='+type +'&status='+ status ,
+              })
+            }else{
+              let type = '';
+              let status = '';
+              wx.navigateTo({
+                url: '/packageB/IDdiscern/index/index?Valuable='+type +'&status='+ status ,
+              })
+            }
+          })
+        }
+        else{
+          wx.showModal({
+            title: '提示',
+            content: '请先通过实名认证',
+            success: function (sm) {
+              if (sm.confirm) {
+                wx.navigateTo({
+                  url: '/packageB/certification/index/index',
+                })
+              } else if (sm.cancel) {
+                console.log('用户点击取消')
+              }
+              }
             })
-          }else{
-            let type = '';
-            let status = '';
-            wx.navigateTo({
-              url: '/packageB/IDdiscern/index/index?Valuable='+type +'&status='+ status ,
-            })
-          }
-        })
-      }
-      else{
-        app.msg("请先通过实名认证");
-        return;
-      }
-    })
-    return;
+         
+          return;
+        }
+      })
+      return;
     }
     if(url=='/packageB/certification/index/index'){
       let datad={}
@@ -88,6 +101,19 @@ Page({
         })
       }
       return;
+    }
+    if(url=='/packageB/library/index/index'){
+        let isLogin = wx.getStorageSync('userinfo');
+        if(!isLogin){
+          wx.navigateTo({
+            url: '/pages/loginByWechat/loginByWechat',
+          })
+        }else{
+          wx.navigateTo({
+            url: '/packageB/library/index/index',
+          })
+        }
+        return;
     }
     else{
       console.log(22222)
