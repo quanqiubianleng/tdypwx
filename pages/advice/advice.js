@@ -1,6 +1,5 @@
 // pages/tes/tes.js
-var wsApi = "wss://tdyp1.tiandainfo.com:9501";
-var socketOpen=false;
+const app = getApp()
 Page({
 
   /**
@@ -8,31 +7,15 @@ Page({
    */
 
   data: {
-
+    uid: null,
+    type: 'text',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-//建立连接
-wx.connectSocket({
-  url: wsApi,
-  header: {
-   'content-type': 'application/json'
-  },
-  // //method:"GET",
-  // protocols: ['protocol1'],
-  success: function () {
-   console.log("客户端连接成功！");
-   wx.onSocketOpen(function(){
-    console.log('webSocket已打开！');
-    socketOpen=true;
-    wx.onSocketMessage(function(msg){
-    })
-   })
-  }
- })
+    console.log(app.globalData.userInfo)
   },
   Message:function(e){
     var msg=e.detail.value;
@@ -40,19 +23,24 @@ wx.connectSocket({
       msg:msg
     })
   },
-  sendMessage:function(e)
+  sendMessage:function()
   {
-   var msg=this.data.msg;
-    if (socketOpen) {
-     //向服务器发送消息
-     wx.sendSocketMessage({
-      data: msg,
-     })
-     
-     this.setData({
-       msg:''
-     })
-   }
+    var f_msg = {
+      type: 'user',
+      f_id: this.data.uid,
+      j_id: 0,
+      msg_type: '1',
+      content: this.data.msg,
+      mtype: 'user',
+    }
+    if(this.data.type == 'text'){
+      f_msg.msg_type = '1'
+    }else if(this.data.type == 'img'){
+      f_msg.msg_type = '2'
+    }else{
+      f_msg.msg_type = '3'
+    }
+    app.sendSocketMessage(f_msg)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -65,7 +53,9 @@ wx.connectSocket({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      uid: 'user_' + app.globalData.userInfo.id,
+    })
   },
 
   /**

@@ -8,7 +8,7 @@
       <text>工作通知</text>
     </view>
   </navigator>
-  <navigator class="msgItem" url="/pages/msginfo/msginfo?id=2">
+  <navigator class="msgItem" url="/pages/jurisdiction/setion/index">
     <view class="inBox">
       <view wx:if="{{section}}" class="badge">{{section < 100 ? section : '99+'}}</view>
       <image class="mainIcon" src="../../icons/message-2.png" />
