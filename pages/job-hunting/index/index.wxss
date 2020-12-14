@@ -287,12 +287,11 @@ color: #666666;
 .box-img{
   position: relative;
   height: 129rpx;
-  /* display:flex;
+  display:flex;
   flex-direction:row;
   align-items:center;
   justify-content: center;
-  vertical-align: middle; */
-  height: auto;
+  vertical-align: middle;
 }
 .box-img image{
   width: 172rpx;

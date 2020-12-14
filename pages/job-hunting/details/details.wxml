@@ -141,7 +141,7 @@
 					<view class="details-ul">
 						<view class="details-ul-tel">工作地点</view>
 						<view class="details-ul-desc">
-							{{list.addr}}
+							{{list.province_name}}{{list.city_name}}{{list.area_name}}{{list.addr}}
 						</view>
 					</view>
 				</view>

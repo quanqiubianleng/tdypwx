@@ -99,7 +99,7 @@
           </scroll-view>
         </van-col>
         <van-col span="24" custom-class="box-box">
-          <van-col span="22" offset="1" custom-class="box" wx:for="{{list}}" wx:for-item="it" wx:key="key"
+          <van-col span="22" offset="1" custom-class="box {{key==list.length-1?'box-key':''}}"  wx:for="{{list}}" wx:for-item="it" wx:for-index="key" wx:key="key"
             data-id="{{it.id}}" bindtap="details">
             <van-col span="6" custom-class="box-img">
               <image src="{{it.headimg}}" mode="scaleToFill" ></image>
@@ -144,10 +144,9 @@
           </scroll-view>
         </van-col>
           <van-col span="24" custom-class="box-box">
-            <van-col span="22" offset="1" custom-class="box" wx:if="{{locationlist.length>0}}" wx:for="{{locationlist}}" wx:for-item="it" wx:key="key"
-              data-id="{{it.id}}" bindtap="details">
+            <van-col span="22" offset="1" custom-class="box {{key==locationlist.length-1?'box-key':''}}" wx:if="{{locationlist.length>0}}" wx:for="{{locationlist}}" wx:for-item="it" wx:for-index="key" wx:key="key" data-id="{{it.id}}" bindtap="details">
               <van-col span="6" custom-class="box-img">
-                <image src="{{it.headimg}}"  mode="widthFix" ></image>
+                <image src="{{it.headimg}}"  mode="scaleToFill" ></image> 
                 <image src="../../../icons/hot.png" class="hot" mode="scaleToFill"></image>
               </van-col>
               <van-col span="17" offset="1" custom-class="box-bill">

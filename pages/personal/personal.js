@@ -115,6 +115,19 @@ Page({
         }
         return;
     }
+    if(url=='/pages/jurisdiction/index/index'){
+      let isLogin = wx.getStorageSync('userinfo');
+      if(!isLogin){
+        wx.navigateTo({
+          url: '/pages/loginByWechat/loginByWechat',
+        })
+      }else{
+        wx.navigateTo({
+          url: '/pages/jurisdiction/index/index',
+        })
+      }
+      return;
+  }
     else{
       console.log(22222)
       wx.navigateTo({
