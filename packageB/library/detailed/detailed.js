@@ -8,7 +8,9 @@ Page({
   data: {
     youstart:null,
     youend:null,
-    userlist:[]
+    userlist:[],
+    minDate: new Date(2020, 10, 1).getTime(),
+    maxDate: new Date(2099, 12, 31).getTime(),
   },
 
   /**

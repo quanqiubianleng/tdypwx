@@ -104,7 +104,7 @@ Page({
     let rendata = app.requestfun(datad, '/Api/job/label',false);    
     rendata.then((v) => {
       if(v.data.status==1&&v.data.data){
-        let id = v.data.data[0].id;
+        let id = 0;
         let city_code = '';
         this.setData({
           navData:v.data.data
@@ -185,7 +185,8 @@ Page({
       url: '/pages/job-hunting/city/city?currentCity=' + this.data.province,
     })
     this.setData({
-      
+      locationlist:[],
+      pages:1,
     })
   },
   details:function(e){
@@ -221,16 +222,20 @@ Page({
     if (this.data.currentTab == id) {
         return false;
     } else {
-      //let id = this.data.navData[cur].id;
-        this.setData({
-            list:[],
-            page:0,
-            currentTab: event.currentTarget.dataset.id
-        })
         if(this.data.location==0){
+          this.setData({
+            list:[],
+            page:1,
+            currentTab: event.currentTarget.dataset.id
+          })
           this.index(id);
         }
        if(this.data.location==1){
+        this.setData({
+          locationlist:[],
+          pages:1,
+          currentTab: event.currentTarget.dataset.id
+        })
         this.location(id,this.data.city_code)
        }
     }

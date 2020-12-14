@@ -17,7 +17,7 @@ page{
   color: #fff;
   position: fixed;
   flex-direction: row;
-  z-index: 9999;
+  z-index: 9999999;
   width: 100%;
   top: 0rpx;
   left: 0rpx;
@@ -272,7 +272,6 @@ color: #666666;
   width: 100%;
 }
 .box-box{
-  position: absolute;
   background: #fff;
   margin-top: 5rpx;
 }

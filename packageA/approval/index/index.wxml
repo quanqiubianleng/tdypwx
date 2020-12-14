@@ -29,4 +29,5 @@
     <image src="../../../icons/null-1.png"></image>
     <view>暂无数据~</view>
   </van-col>
-<van-calendar show="{{ show }}" type="range" bind:close="onClose" bind:confirm="onConfirm" show-confirm="{{ false }}"/>
+<van-calendar show="{{ show }}" type="range" bind:close="onClose" bind:confirm="onConfirm" show-confirm="{{ false }}" min-date="{{ minDate }}"
+  max-date="{{ maxDate }}"/>

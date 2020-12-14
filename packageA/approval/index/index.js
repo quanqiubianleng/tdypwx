@@ -12,7 +12,9 @@ Page({
     youend:'',
     list:[],
     page:1,
-    strip:0
+    strip:0,
+    minDate: new Date(2020, 10, 1).getTime(),
+    maxDate: new Date(2099, 12, 31).getTime(),
   },
 
   /**
