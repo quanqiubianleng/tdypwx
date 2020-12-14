@@ -3,7 +3,7 @@
   <van-col span="4" custom-class="heom"><image src="{{user.headimgurl}}"></image></van-col>
   <van-col span="12" offset="1" custom-class="xinxi">
     <van-col span="24" custom-class="name">
-      <text class="name-name">{{user.username}}</text><text class="name-sex" wx:if="{{user.sex==1}}">男</text><text class="name-sex" wx:if="{{user.sex==2}}">女</text>
+      <text class="name-name">{{user.username?user.username:user.nickname}}</text><text class="name-sex" wx:if="{{user.sex==1}}">男</text><text class="name-sex" wx:if="{{user.sex==2}}">女</text>
     </van-col>
     <van-col span="24"custom-class="user-tel">电话 {{user.mobile}}</van-col>
   </van-col>

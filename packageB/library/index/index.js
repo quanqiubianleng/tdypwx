@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    page:1,
+    page:0,
     userlist:[],
     count:0,
     count1:0,
@@ -21,7 +21,43 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.Talentpoo();
   },
+  // getSubordinate:function(e){
+  //   let id = e.currentTarget.dataset.leavl;
+  //   this.setData({
+
+  //   })
+  //   // var datad = {
+  //   //   openid:this.data.userInfos.openid,
+  //   // };
+  //   // let rendata = app.requestfun(datad, '/Api/Talentpool/index'); 
+  //   // rendata.then((v)=>{
+  //   //   console.log(v);
+  //   //   if(v.data.status==1){
+  //   //     if(typeof(v.data.linkuser)=='null'){
+  //   //       that.setData({
+  //   //         count:v.data.count,
+  //   //         count1:v.data.count1,
+  //   //         count2:v.data.count2,
+  //   //         count3:v.data.count3
+  //   //       })
+  //   //     }else{
+  //   //       that.setData({
+  //   //         userlist:v.data.linkuser,
+  //   //         count:v.data.count,
+  //   //         count1:v.data.count1,
+  //   //         count2:v.data.count2,
+  //   //         count3:v.data.count3
+  //   //       })
+  //   //     }
+       
+  //   //   }else{
+  //   //     app.msg("已经到底了");
+  //   //     return;
+  //   //   }
+  //   // })
+  // },
   Talentpoo:function(){
     let that = this;
     var datad = {};
