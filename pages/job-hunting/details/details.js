@@ -190,18 +190,31 @@ Page({
               let rendata = app.requestfun(data, '/Api/Apply/index'); 
               rendata.then((v)=>{
                 if(v.data.status==1){
-                  wx.showToast({
-                    title: '报名成功',
-                    duration:2000,//显示时长
-                    icon:'none',
-                    success:function(){ 
-                      setTimeout(function() {
-                       wx.navigateBack();
-                      }, 1000);
-                    },
-                  })
+                  wx.showModal({
+                    title: '提示',
+                    content: '报名成功',
+                    showCancel: false, 
+                    success: function (sm) {
+                      if (sm.confirm) {
+                        setTimeout(function() {
+                          wx.navigateBack();
+                         }, 1000);
+                      }
+                      }
+                    })
                 }else{
-                  app.msg("报名失败");
+                  wx.showModal({
+                    title: '提示',
+                    content: '报名失败',
+                    showCancel: false, 
+                    success: function (sm) {
+                      if (sm.confirm) {
+                        setTimeout(function() {
+                          wx.navigateBack();
+                         }, 1000);
+                      }
+                      }
+                    })
                 }     
               })
             }
@@ -223,19 +236,31 @@ Page({
         let rendata = app.requestfun(data, '/Api/Apply/index'); 
         rendata.then((v)=>{
           if(v.data.status==1){
-            wx.showToast({
-              title: '报名成功',
-              duration:2000,//显示时长
-              icon:'none',
-              success:function(){ 
-                setTimeout(function() {
-                 wx.navigateBack();
-                }, 1000);
-              },
-            })
+            wx.showModal({
+              title: '提示',
+              content: '报名成功',
+              showCancel: false, 
+              success: function (sm) {
+                if (sm.confirm) {
+                  setTimeout(function() {
+                    wx.navigateBack();
+                   }, 1000);
+                }
+                }
+              })
           }else{
-            app.msg("报名失败");
-            return;
+            wx.showModal({
+              title: '提示',
+              content: '报名失败',
+              showCancel: false, 
+              success: function (sm) {
+                if (sm.confirm) {
+                  setTimeout(function() {
+                    wx.navigateBack();
+                   }, 1000);
+                }
+                }
+              })
           }
                 
         })
@@ -287,6 +312,7 @@ Page({
       url: '/pages/advice/advice',
     })
   },
+ 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
