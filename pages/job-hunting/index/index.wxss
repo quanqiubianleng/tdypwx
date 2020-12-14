@@ -272,6 +272,7 @@ color: #666666;
   width: 100%;
 }
 .box-box{
+  position: absolute;
   background: #fff;
   margin-top: 5rpx;
 }
@@ -304,7 +305,9 @@ color: #666666;
   width: 75rpx;
   height: 75rpx;
 }
-
+.box-bill{
+  position: relative;
+}
 .box-bill-name{
   margin-bottom: 10rpx;
 }
@@ -368,12 +371,21 @@ color: #666666;
  font-size: 22rpx;
  border-radius: 10rpx;
 }
+.sign{
+  position: absolute;
+  right: -1rpx;
+  top: 0rpx;
+  width: 129rpx;
+  height: 129rpx;
+  z-index: 55555;
+}
 .footer{
   float: right;
   width: 160rpx;
   height: 50rpx;
   background: #C4D1E7;
   position: fixed;
+  z-index: 888888;
   top:65%;
   right: 0rpx;
   border-radius: 50rpx 0 0 50rpx;

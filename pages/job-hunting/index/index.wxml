@@ -123,7 +123,9 @@
                     color="#3B67B1" size="8rpx" text-color="#3B67B1">{{item.name}}</van-tag>
                 </van-col>
               </van-col>
+              <image src="../../../icons/sign.png" mode="scaleToFill" class="sign"></image>
             </van-col>
+            
           </van-col>
         </van-col>
       </van-row>
@@ -168,6 +170,7 @@
                   </van-col>
                 </van-col>
               </van-col>
+            
             </van-col>
         </van-col>
         <van-col span="24" custom-class="null" wx:if="{{locationlist.length<=0}}">
