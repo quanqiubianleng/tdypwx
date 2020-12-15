@@ -71,7 +71,7 @@
     <van-col span="20"custom-class="name-inp"><input bindblur="uid" type="idcard" value="{{uid}}" placeholder="请输入正确的身份证号"/></van-col>
   </van-col>
 </van-col>
-<van-col span="22"offset="1"custom-class="btn" bindtap="Submit">提交</van-col>
+<van-col span="22"offset="1"custom-class="btn" bindtap="Submit" style='display:{{display1}}'>提交</van-col>
 
 <view class="bg" style='display:{{display}}'></view>
 <view class="show"  style='display:{{display}}'>

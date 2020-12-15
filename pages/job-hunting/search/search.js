@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    page:1,
+    locationlist:[]
   },
 
   /**
@@ -33,6 +34,42 @@ Page({
       app.msg("请输入岗位/地区/公司名称");
       return;
     }
+    var datad = {
+      page:this.data.page,
+      keyworld:search
+    };
+    let rendata = app.requestfun(datad, '/Api/job/index',false);    
+    rendata.then((v) => {
+      if(v.data.status==1&&v.data.data){
+        this.setData({
+          page:this.data.page+1,
+          locationlist:this.data.locationlist.concat(v.data.data),
+          Yes:1
+        })
+      }else{
+        this.setData({
+          Yes:0
+        })
+        app.msg("已经到底了");
+        return;
+      }
+    }) 
+  },
+  details:function(e){
+    let id = e.currentTarget.dataset.id;
+    let stop = e.currentTarget.dataset.stop;
+    console.log(id,stop);
+    if(stop==0){
+      wx.showModal({
+        title: '提示',
+        content: '该岗位已停招',
+        showCancel: false, 
+        })
+        return;
+    }
+    wx.navigateTo({
+      url: '/pages/job-hunting/details/details?id='+id,
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

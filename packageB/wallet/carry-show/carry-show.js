@@ -10,6 +10,7 @@ Page({
     index:1,
     money:100,
     display:'none',
+    display1:'block',
   },
 
   /**
@@ -106,7 +107,8 @@ Page({
               rendata.then((v) => {
                 if(v.data.status==1){
                   that.setData({
-                    display:'block'
+                    display:'block',
+                    display1:'none',
                   })
                 }
               }) 
@@ -151,7 +153,8 @@ Page({
               rendata.then((v) => {
                 if(v.data.status==1){
                   that.setData({
-                    display:'block'
+                    display:'block',
+                    display1:'none',
                   })
                 }
               }) 
@@ -201,7 +204,8 @@ Page({
               rendata.then((v) => {
                  if(v.data.status==1){
                   that.setData({
-                    display:'block'
+                    display:'block',
+                    display1:'none',
                   })
                  }
               }) 

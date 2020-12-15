@@ -7,16 +7,15 @@ Page({
    */
   data: {
     page:0,
+    userInfos:wx.getStorageSync('userinfo'),
+    userlist:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let id = options.id;
-    this.setData({
-      id:id
-    })
+   
   },
 
   /**
@@ -51,40 +50,38 @@ Page({
       app.msg("请输入关键字");
       return;
     }
-    wx.login({
-      success (res) {
-        if (res.code) {
-          var datad = {
-            page:that.data.page,
-            keyworld:keyworld,
-            uid:that.data.id,
-          };
-          let rendata = app.requestfun(datad, '/Api/Talentpool/userSearch'); 
-          rendata.then((v)=>{
-            console.log(v);
-            if(v.data.status==1&&v.data.data){
-              that.setData({
-                userlist:v.data.data,
-                page:that.data.page+1
-              })
-            }else{
-              app.msg("暂无该人员");
-              return;
-            }
-          })
-        } else {
-          app.msg("网络连接失败，请稍后再试");
-          return;
-        }
+    var datad = {
+      page:that.data.page,
+      openid:that.data.userInfos.openid,
+      uid:that.data.userInfos.id,
+      namekey:keyworld,
+    };
+    let rendata = app.requestfun(datad, '/Api/Talentpool/getSubordinateName'); 
+    rendata.then((v)=>{
+      console.log(v);
+      if(v.data.status==1&&v.data.linkuser){
+        that.setData({
+          userlist:that.data.userlist.concat(v.data.linkuser[0][2]),
+          page:that.data.page+1,
+          Yes:1
+        })
+      }else{
+        that.setData({
+          Yes:0,
+          userlist:[]
+        })
+        app.msg("暂无该人员");
+        return;
       }
     })
   },
   details:function(e){
     let id = e.currentTarget.dataset.id;
     let own= e.currentTarget.dataset.own;
-    console.log(id);
+    let openid = e.currentTarget.dataset.openid;
+    let level = e.currentTarget.dataset.level;
     wx.navigateTo({
-      url: '/packageB/library/details/details?id='+id +'&own='+own,
+      url: '/packageB/library/details/details?id='+id +'&own='+own + '&openid='+openid +'&level=' +level,
     })
   },
   /**

@@ -373,22 +373,23 @@ color: #666666;
 .tags-list{
   margin-right: 5rpx;
 }
+.yibaoming text{
+  float: right;
+  padding: 2rpx 15rpx;
+  color: #fff;
+  font-size: 22rpx;
+  background: #666666;
+  margin-top: 5rpx;
+  border-radius: 10rpx;
+}
 .details{
   float: right;
   background: #F5A932;
   color: #fff;
-  padding: 3rpx 5rpx;
+  padding: 2rpx 15rpx;
   text-align: center;
  font-size: 22rpx;
  border-radius: 10rpx;
-}
-.sign{
-  position: absolute;
-  right: -1rpx;
-  top: 0rpx;
-  width: 129rpx;
-  height: 129rpx;
-  z-index: 55555;
 }
 .footer{
   float: right;

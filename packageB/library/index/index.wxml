@@ -65,7 +65,7 @@
       <van-col span="24" custom-class="box-desc-top">
         <text style="font-size: 32rpx;max-width:100rpx;overflow:hidden;white-space:nowrap; float: left; ">{{item.username?item.username:item.nickname}}</text>
         <text class="box-desc-top-ji">{{item.level}}</text>
-        <text style=" margin-left:12rpx ;color:#54BBE6">{{item.sex}}</text>
+        <text style=" margin-left:12rpx ;color:#54BBE6;max-width:50rpx;overflow:hidden;white-space:nowrap;">{{item.sex}}</text>
         <text style=" margin-left:12rpx ;color:#54BBE6" wx:if="{{item.age}}">{{item.age}}岁</text>
         <text style=" margin-left:12rpx ;color:#54BBE6">{{item.idtype}}</text>
         <text style=" margin-left:12rpx ">{{item.status}}</text>

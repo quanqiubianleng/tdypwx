@@ -35,14 +35,12 @@
 
 <view class="bg" wx:if="{{userInfo==''}}"></view>
 <view class="show"  wx:if="{{userInfo==''}}">
-  <view class="show-diy" wx:if="{{userInfo==''}}">
+    <view class="sqtx">授权消息提醒</view>
      <image src="../../images/sq.png" mode="scaleToFill" wx:if="{{userInfo==''}}" class="show-img"></image>
-     <button bindgetuserinfo='btn_sub' open-type="getUserInfo" style="background:#fff">
-      <van-col span="22" offset="1" custom-class="share">
-        <text>点击授权</text>
-      </van-col>
+     <view class="sqsm">授权后即可邀请好友一起进名企，领高薪</view>
+     <button bindgetuserinfo='btn_sub' class="btn_sub" open-type="getUserInfo">点击授权
+     
     </button>
-  </view>
 </view>
 <view wx:if="{{ show }}" class="canvas-box">
 

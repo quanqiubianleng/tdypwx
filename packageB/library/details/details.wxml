@@ -66,7 +66,7 @@
     <van-col span="12" custom-class="liuyan-l">浏览记录</van-col>
     <van-col span="12" custom-class="liuyan-r">共计{{strip}}条</van-col>
   </van-col>
-  <van-col span="24" offset="0" custom-class="box" wx:if="{{BrowsHistory.length>=1}}" wx:for="{{BrowsHistory}}" wx:for-item="it" wx:key="key" data-id="{{it.id}}" bindtap="details">
+  <van-col span="22" offset="1" custom-class="box" wx:if="{{BrowsHistory.length>=1}}" wx:for="{{BrowsHistory}}" wx:for-item="it" wx:key="key" data-id="{{it.id}}" bindtap="details">
   <van-col span="6" custom-class="box-img">
     <image src="{{it.headimg}}"></image>
   </van-col>

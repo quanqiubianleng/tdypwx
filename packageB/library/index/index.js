@@ -45,6 +45,7 @@ Page({
       if(v.data.status==1&&v.data.linkuser.length>=1){
         this.setData({
           userlist:v.data.linkuser,
+          page:this.data.page+1
         })
       }else{
         app.msg("已经到底了");
@@ -72,7 +73,8 @@ Page({
             count:v.data.count,
             count1:v.data.count1,
             count2:v.data.count2,
-            count3:v.data.count3
+            count3:v.data.count3,
+            page:this.data.page+1
           })
         }
        
@@ -93,6 +95,7 @@ Page({
       if(v.data.status==1&&v.data.linkuser){
         that.setData({
           userlist:that.data.userlist.concat(v.data.linkuser),
+          page:this.data.page+1
         })
       }else{
         app.msg("已经到底了");

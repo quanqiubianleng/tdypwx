@@ -4,17 +4,20 @@ page{
 }
 
 .search-box {
-  margin-top: 20rpx;
+  background: #fff;
+  position: fixed;
+  top: 0rpx;
+  left: 0rpx;
+  z-index: 9999999;
 }
 
 .search {
-
   height: 80rpx;
   padding: 15rpx 0rpx;
 }
 
 .search-input {
-  background: #fff;
+  background: #E9E9E9;
   border-radius: 15rpx;
   height: 50rpx;
 }
@@ -37,109 +40,78 @@ page{
 
 .search-inc image {
   padding: 5rpx;
-  background: #fff;
+  background: #E9E9E9;
   border-radius: 50%;
   float: left;
   width: 45rpx;
   height: 45rpx;
 }
-
-.library-list{
-  margin-top: 5rpx;
+.list{
+  margin-top: 80rpx;
 }
-.library-list-ul{
+.box-list{
+  height: 180rpx;
   background: #fff;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 10rpx;
-  margin-left: 3%;
-  margin-bottom: 25rpx;
+  margin-top: 30rpx;
+  /* box-shadow:5px 2px 6px #000; */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
-.library-list-uls{
-  background-size: 100% 100%;
-  background: #fff;
+.box-list-img{
+  height: 180rpx;
+  padding: 30rpx 15rpx;
 }
-.library-list-ul-yao{
-  height: 100%;
-  display:flex;
-  flex-direction:row;
-  align-items:center;
-  justify-content: center;
-  vertical-align: middle;
+.box-list-img image{
+  width: 120rpx;
+  height: 120rpx;
 }
-.library-list-ul-yao image{
-  width: 100%;
-  height: 100rpx;
+.box-desc{
+  height: 180rpx;
+  padding-left: 10rpx;
 }
-.renyuan{
-  margin-top: 10rpx;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: left;
-}
-.renyuan image{
-  width: 100rpx;
-  height: 100rpx;
-  border-radius: 50%;
-}
-.renyuan text{
-  margin-left: 20rpx;
-  font-size: 32rpx;
-}
-.tag{
+.box-desc-top{
   height: 80rpx;
-  width: 65%;
-  float: right;
-  margin-top: 10rpx;
+  line-height: 80rpx;
+  font-size: 20rpx;
+ 
 }
-.tag image{
-  width: 100%;
-  height: 100%;
-}
-.tag text{
+.box-desc-top-ji{
   position: relative;
-  top: -92rpx;
-  left: 25%;
-  height: 80rpx;
-  width: 100%;
-  line-height: 65rpx;
-  font-size: 26rpx;
-  color: #fff;
-}  
-.state{
-  height: 40rpx;
-}
-.state text{
-  display: inline-block;
-  width: 80rpx;
-  text-align: center;
-  height: 40rpx;
-  line-height: 40rpx;
-  margin-right: 15rpx;
-  border-radius: 25rpx;
+  top:-15rpx;
   border: 1rpx solid #32AFE0;
   color: #32AFE0;
-  font-size: 26rpx;
-}
-.describe{
-  font-size: 24rpx;
+  display: inline-block;
+  width: 28rpx;
+  height: 28rpx;
+  line-height: 26rpx;
   text-align: center;
-  color: #333333;
-  margin-top: 10rpx;
+  border-radius: 50%;
+  margin-left: 5rpx;
+  font-size: 18rpx;
+ 
 }
-.del{
-  margin-top: 20rpx;
-  border:1rpx solid #32AFE0;
-  height: 50rpx;
-  line-height: 50rpx;
-  text-align: center;
-  font-size: 26rpx;
+.box-desc-bottom{
+ margin-bottom: 10rpx;
+}
+.box-desc-bottom-er{
+  text-align: left;
+  font-size: 20rpx;
+  color: #999999;
+}
+.box-desc-bottom-er text{
+  padding: 4rpx 20rpx;
+  float: right;
+  border: 1rpx solid #32AFE0;
   color: #32AFE0;
   border-radius: 25rpx;
+  margin-right: 15rpx;
 }
-.time{
-  margin-top: 20rpx;
+.null{
+  margin-top: 250rpx;
+  text-align: center;
   color: #999999;
-  font-size: 20rpx;
-
+  padding-bottom: 50rpx;
+}
+.null image{
+  width: 100%;
+  height: 380rpx;
 }

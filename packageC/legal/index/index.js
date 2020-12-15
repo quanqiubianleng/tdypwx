@@ -38,7 +38,7 @@ Page({
     } else {
         this.setData({
           categorylist:[],
-          page:0,
+          page:1,
           currentTab: cur
         })
         this.categorylist(id);

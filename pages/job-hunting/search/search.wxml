@@ -13,34 +13,40 @@
   </van-row>
 </view>
 <van-row>
-  <van-col span="24" custom-class="box-box">
-    <van-col span="22" offset="1" custom-class="box" wx:for="{{locationlist}}" wx:for-item="it" wx:key="key"
-      data-id="{{it.id}}" bindtap="details">
-      <van-col span="6" custom-class="box-img">
-        <image src="{{it.headimg}}"></image>
-      </van-col>
-      <van-col span="17" offset="1" custom-class="box-bill">
-        <van-col span="24" custom-class="box-bill-name">
-          <van-col span="12" custom-class="name">{{it.title}}</van-col>
-          <van-col span='11' offset="1" custom-class="num" wx:if="{{it.averagewage&&it.emolumentr}}">
-            {{it.averagewage}}-{{it.emolumentr}}元/月</van-col>
-        </van-col>
-        <van-col span="24" custom-class="box-bill-type">
-          <van-col span="19" custom-class="type">企业类型：{{it.shoptype}}</van-col>
-          <van-col span="4" offset="1" custom-class="details">
-            <text>详情</text>
+  <van-col span="24"custom-class="list">
+    <van-col span="24" custom-class="box-box">
+          <van-col span="22" offset="1" custom-class="box {{key==locationlist.length-1?'box-key':''}}" data-stop="{{it.stop}}" wx:for="{{locationlist}}" wx:for-item="it" wx:for-index="key" wx:key="key" data-id="{{it.id}}" bindtap="details">
+            <van-col span="6" custom-class="box-img">
+              <image src="{{it.headimg}}" mode="scaleToFill" class="image" ></image>
+              <image src="../../../icons/hot.png" class="hot" mode="scaleToFill" wx:if="{{it.is_recommend==10}}"></image>
+              <image src="../../../icons/stop.png" class="stop"  wx:if="{{it.stop==0}}"></image>
+            </van-col>
+            <van-col span="17" offset="1" custom-class="box-bill">
+              <van-col span="24" custom-class="box-bill-name">
+                <van-col span="12" custom-class="name">{{it.title}}</van-col>
+                <van-col span='11' offset="1" custom-class="num" wx:if="{{it.averagewage&&it.emolumentr}}">
+                  {{it.emolumentl}}-{{it.emolumentr}}元/月</van-col>
+              </van-col>
+              <van-col span="24" custom-class="box-bill-type">
+                <van-col span="19" custom-class="type">企业类型：{{it.shoptype}}</van-col>
+                <van-col span="4" offset="1" custom-class="details">
+                  <text>详情</text>
+                </van-col>
+              </van-col>
+              <van-col span="24" custom-class="tags">
+                <van-col span="20" custom-class="tags-box">
+                  <van-tag custom-class="tags-list" wx:for="{{it.label_name}}" wx:key="key" max-count="3" plain
+                    color="#3B67B1" size="8rpx" text-color="#3B67B1">{{item.name}}</van-tag>
+                </van-col>
+              </van-col>
+              <image src="../../../icons/sign.png" mode="scaleToFill" class="sign"></image>
+            </van-col>
+            
           </van-col>
         </van-col>
-        <van-col span="24" custom-class="tags">
-          <van-col span="22" custom-class="tags-box">
-            <van-tag custom-class="tags-list" wx:for="{{it.label_name}}" wx:key="key" max-count="3" plain
-              color="#3B67B1" size="8rpx" text-color="#3B67B1">{{item.name}}</van-tag>
-          </van-col>
-        </van-col>
-      </van-col>
-    </van-col>
   </van-col>
-  <van-col span="24" custom-class="null">
+  
+  <van-col span="24" custom-class="null" wx:if="{{Yes==0}}">
     <image src="/icons/null-3.png"></image>
     <view>暂无岗位~</view>
   </van-col>
