@@ -10,9 +10,42 @@
   <van-col span="6" offset="1" custom-class="card-bt" wx:if="{{own==2}}" bindtap="label">添加备注</van-col>
 </van-col>
 <van-col span="24"custom-class="choice">
-  <text bindtap="choice" data-index="1" wx:if="{{own==2}}" class="{{index==1?'on':''}}">发展下线</text>
+  <text bindtap="choice" data-index="1" wx:if="{{own==2}}" class="{{index==1?'on':''}}">二级好友</text>
   <text bindtap="choice" data-index="2" class="{{index==2?'on':''}}">动态</text>
   <text bindtap="choice" data-index="3" class="{{index==3?'on':''}}">产生收益</text>
+</van-col>
+<van-col span="24" wx:if="{{index==1}}">
+  <van-col span="22" offset="1" custom-class="box-list" wx:if="{{userlist.length>=1}}" wx:for="{{userlist}}" wx:key="key"  data-level="{{item.level}}" data-openid="{{item.openid}}" data-id="{{item.uid}}" data-own="2">
+    <van-col span="5" custom-class="box-list-img">
+      <image src="{{item.headimgurl}}"></image>
+    </van-col>
+    <van-col span="19"custom-class="box-desc">
+      <van-col span="24" custom-class="box-desc-top">
+        <text style="font-size: 32rpx;max-width:100rpx;overflow:hidden;white-space:nowrap; float: left; ">{{item.username?item.username:item.nickname}}</text>
+        <text class="box-desc-top-ji">{{item.level}}</text>
+        <text style=" margin-left:12rpx ;color:#54BBE6">{{item.sex}}</text>
+        <text style=" margin-left:12rpx ;color:#54BBE6" wx:if="{{item.age}}">{{item.age}}岁</text>
+        <text style=" margin-left:12rpx ;color:#54BBE6">{{item.idtype}}</text>
+        <text style=" margin-left:12rpx ">{{item.status}}</text>
+        <text style=" margin-left:12rpx ">{{item.mobile}}</text>
+      </van-col>
+      <van-col span="24"custom-class="box-desc-bottom">
+        <van-col span="6"custom-class="box-desc-bottom-er">二级:{{item.count2}}人</van-col>
+        <van-col span="6"custom-class="box-desc-bottom-er">入职:0人</van-col>
+        <van-col span="6"custom-class="box-desc-bottom-er">待岗:0人</van-col>
+        <van-col span="6"custom-class="box-desc-bottom-er"><text>详情</text></van-col>
+      </van-col>
+      <van-col span="24"custom-class="box-desc-bottom">
+        <van-col span="6"custom-class="box-desc-bottom-er">三级:{{item.count3}}人</van-col>
+        <van-col span="6"custom-class="box-desc-bottom-er">入职:0人</van-col>
+        <van-col span="6"custom-class="box-desc-bottom-er">待岗:0人</van-col>
+        <van-col span="6"custom-class="box-desc-bottom-er" ><view style="font-size: 18rpx;text-align: right;margin-right: 15rpx;">{{item.indate}}</view></van-col>
+      </van-col>
+    </van-col>
+  </van-col>
+  <van-col span="22" offset="1" custom-class="null" wx:if="{{userlist.length<1}}">
+  <image src="../../../icons/null.png"></image>
+</van-col>
 </van-col>
 <van-col span="24" wx:if="{{index==2}}">
   <van-col span="22" offset="1" custom-class="sign">
@@ -44,26 +77,18 @@
     </van-col>
     <van-col span="24"custom-class="box-bill-type">
       <van-col span="16" custom-class="type">企业类型：{{it.shoptype}}</van-col>
-      <!-- <van-col span="7" offset="1" custom-class="fei" wx:if="{{it.covercharge}}">
-          <view>
-            <text class="fei-tel">费用</text><text style="color: #F5A932;">{{it.covercharge}}元 </text>
-          </view>
-      </van-col> -->
     </van-col>
     <van-col span="24"custom-class="tags">
       <van-col span="24" custom-class="tags-box">
         <van-tag custom-class="tags-list"  wx:for="{{it.welfare_name}}" wx:key="key"  max-count="3" plain color="#3B67B1" size="8rpx"
           text-color="#3B67B1">{{item.name}}</van-tag>
       </van-col>
-      <!-- <van-col span="4" offset="1" custom-class="details">
-        <text>详情</text>
-      </van-col> -->
     </van-col>
   </van-col>
-</van-col>
-<van-col span="22" offset="1" custom-class="null" wx:if="{{BrowsHistory.length<=0}}">
-  <image src="../../../icons/null.png"></image>
-</van-col>
+  </van-col>
+  <van-col span="22" offset="1" custom-class="null" wx:if="{{BrowsHistory.length<1}}">
+    <image src="../../../icons/null.png"></image>
+  </van-col>
 </van-col>
 <van-col span="24" wx:if="{{index==3}}">
   <van-col span="22"offset="1"custom-class="cards">

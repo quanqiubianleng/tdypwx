@@ -14,7 +14,8 @@ Page({
     count3:0,
     currentTab:0,
     userInfos:wx.getStorageSync('userinfo'),
-    isLogin:app.globalData.isLogin
+    isLogin:app.globalData.isLogin,
+    id:''
   },
 
   /**
@@ -23,41 +24,34 @@ Page({
   onLoad: function (options) {
     this.Talentpoo();
   },
-  // getSubordinate:function(e){
-  //   let id = e.currentTarget.dataset.leavl;
-  //   this.setData({
+  getSubordinate:function(e){
+   let id = e.currentTarget.dataset.leavl;
+    this.setData({
+        page:0,
+        id:id
+     })
+     this.getSubordinatelist();
 
-  //   })
-  //   // var datad = {
-  //   //   openid:this.data.userInfos.openid,
-  //   // };
-  //   // let rendata = app.requestfun(datad, '/Api/Talentpool/index'); 
-  //   // rendata.then((v)=>{
-  //   //   console.log(v);
-  //   //   if(v.data.status==1){
-  //   //     if(typeof(v.data.linkuser)=='null'){
-  //   //       that.setData({
-  //   //         count:v.data.count,
-  //   //         count1:v.data.count1,
-  //   //         count2:v.data.count2,
-  //   //         count3:v.data.count3
-  //   //       })
-  //   //     }else{
-  //   //       that.setData({
-  //   //         userlist:v.data.linkuser,
-  //   //         count:v.data.count,
-  //   //         count1:v.data.count1,
-  //   //         count2:v.data.count2,
-  //   //         count3:v.data.count3
-  //   //       })
-  //   //     }
-       
-  //   //   }else{
-  //   //     app.msg("已经到底了");
-  //   //     return;
-  //   //   }
-  //   // })
-  // },
+   },
+   getSubordinatelist:function(){
+    var datad = {
+      openid:this.data.userInfos.openid,
+      leavl:this.data.id,
+      uid:this.data.userInfos.id,
+      page:this.data.page
+    };
+    let rendata = app.requestfun(datad, '/Api/Talentpool/getSubordinate'); 
+    rendata.then((v)=>{
+      if(v.data.status==1&&v.data.linkuser.length>=1){
+        this.setData({
+          userlist:v.data.linkuser,
+        })
+      }else{
+        app.msg("已经到底了");
+        return;
+      }
+    })
+   },
   Talentpoo:function(){
     let that = this;
     var datad = {};
@@ -109,9 +103,10 @@ Page({
   details:function(e){
     let id = e.currentTarget.dataset.id;
     let own= e.currentTarget.dataset.own;
-    console.log(id);
+    let openid = e.currentTarget.dataset.openid;
+    let level = e.currentTarget.dataset.level;
     wx.navigateTo({
-      url: '/packageB/library/details/details?id='+id +'&own='+own,
+      url: '/packageB/library/details/details?id='+id +'&own='+own + '&openid='+openid +'&level=' +level,
     })
   },
   explain:function(e){
@@ -183,7 +178,13 @@ Page({
       title: '玩命加载中',
       duration: 1000
     })
-    this.getuserlinkpage();
+    let id = this.data.id;
+    if(!id){
+      this.getuserlinkpage();
+    }
+   if(id){
+     this.getSubordinatelist();
+   }
   },
 
   /**

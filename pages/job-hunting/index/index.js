@@ -191,6 +191,15 @@ Page({
   },
   details:function(e){
     let id = e.currentTarget.dataset.id;
+    let stop = e.currentTarget.dataset.stop;
+    if(stop==0){
+      wx.showModal({
+        title: '提示',
+        content: '该岗位已停招',
+        showCancel: false, 
+        })
+        return;
+    }
     wx.navigateTo({
       url: '/pages/job-hunting/details/details?id='+id,
     })
@@ -242,14 +251,6 @@ Page({
     console.log(this.data.currentTab)
    
 },
-switchTab(event){
-    var cur = event.detail.current;
-    var singleNavWidth = this.data.windowWidth / 5;
-    this.setData({
-        currentTab: cur,
-        navScrollLeft: (cur - 2) * singleNavWidth
-    });
-},
   tel:function(e){
     let mobile ='400-899-8877' ;
     wx.makePhoneCall({
@@ -284,6 +285,7 @@ switchTab(event){
       console.log(v.data.data);
       if(v.data.status&&v.data.data){
         if(this.data.location.length>1){
+
           this.setData({
             locationlist:this.data.location.concat(v.data.data),
             pages:this.data.pages+1,
@@ -356,10 +358,6 @@ switchTab(event){
     var currPage = pages[pages.length - 1];
     if(currPage.__data__.cityNameTemp){
       let province = currPage.__data__.cityNameTemp.fullname;
-      if(currPage.__data__.cityNameTemp.fullname.length>3){
-        province= province.slice(0,2)
-      }
-      console.log(province);
       this.setData({
         province:province,
         city_code:currPage.__data__.cityNameTemp.id
@@ -400,13 +398,13 @@ switchTab(event){
       duration: 1000
     })
     let currentTab = this.data.currentTab;
-    let id = this.data.navData[currentTab].id;
+   
     let city_code = this.data.city_code;
     
     if(city_code){
-      this.location(id,city_code);
+      this.location(currentTab,city_code);
     }else{
-      this.index(id);
+      this.index(currentTab);
     }
    
   },

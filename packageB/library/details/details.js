@@ -9,7 +9,10 @@ Page({
     index:2,
     down:2,
     strip:0,
-    page:0
+    page:0,
+    pages:0,
+    userlist:[],
+    BrowsHistory:[]
   },
 
   /**
@@ -18,12 +21,35 @@ Page({
   onLoad: function (options) {
     let id = options.id;
     let own = options.own;
+    let openid = options.openid;
+    let level = options.level;
     this.setData({
       own:own,
-      id:id
+      id:id,
+      openid:openid,
+      level:level
     })
     this.detail(id);
     this.BrowsHistory(id);
+  },
+  getSubordinate:function(id,openid,level){
+    var datad = {
+      openid:openid,
+      leavl:level,
+      uid:id,
+      page:this.data.pages
+    };
+    let rendata = app.requestfun(datad, '/Api/Talentpool/getSubordinate'); 
+    rendata.then((v)=>{
+      if(v.data.status==1&&v.data.linkuser){
+        this.setData({
+          userlist:v.data.linkuser,
+        })
+      }else{
+        app.msg("暂无下级");
+        return;
+      }
+    })
   },
   detail:function(e){
     let id = e;
@@ -72,7 +98,7 @@ Page({
                   page:that.data.page+1
                 })
             }else{
-              app.msg("已经到底了");
+              app.msg("暂无浏览记录");
               return;
             }
            
@@ -89,6 +115,9 @@ Page({
     this.setData({
       index:index
     })
+    if(index==1){
+      this.getSubordinate(this.data.id,this.data.openid,this.data.level)
+    }
   },
   down:function(e){
     let index = e.currentTarget.dataset.down;
@@ -155,7 +184,14 @@ Page({
       title: '玩命加载中',
       duration: 1000
     })
-    this.BrowsHistory();
+    let index = this.data.index;
+    if(index==1){
+     this.getSubordinate(this.data.id,this.data.openid,this.data.level)
+    }
+    if(index==2){
+      this.BrowsHistory();
+    }
+   
   },
 
   /**

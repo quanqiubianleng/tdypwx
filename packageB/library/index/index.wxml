@@ -21,7 +21,7 @@
     </van-col >
     <van-col span="6" offset="1" custom-class="personal-btn">
       <van-col span="24" custom-class="tixian" bindtap="tixian">一键提现</van-col>
-      <van-col span="24" custom-class="xiangqing" bindtap="details" data-id="{{userInfos.id}}" data-own="1">奖励详情</van-col>
+      <van-col span="24" custom-class="xiangqing" bindtap="details"  data-level="0" data-openid="{{userInfos.openid}}" data-id="{{userInfos.id}}" data-own="1">奖励详情</van-col>
     </van-col>
   </van-col>
   <van-col span="22" offset="" custom-class="personal-tel">相互推荐好友入职，共享互帮基金。<text bindtap="explain">奖励说明？</text></van-col>
@@ -57,13 +57,14 @@
     </van-col>
 
   </van-col>
-  <van-col span="22" offset="1" custom-class="box-list" wx:for="{{userlist}}" wx:key="key" bindtap="details" data-id="{{item.uid}}" data-own="2">
+  <van-col span="22" offset="1" custom-class="box-list" wx:for="{{userlist}}" wx:key="key" bindtap="details" data-level="{{item.level}}" data-openid="{{item.openid}}" data-id="{{item.uid}}" data-own="2">
     <van-col span="5" custom-class="box-list-img">
       <image src="{{item.headimgurl}}"></image>
     </van-col>
     <van-col span="19"custom-class="box-desc">
       <van-col span="24" custom-class="box-desc-top">
-        <text style="font-size: 32rpx;">{{item.username?item.username:item.nickname}}<text class="box-desc-top-ji">{{item.level}}</text></text>
+        <text style="font-size: 32rpx;max-width:100rpx;overflow:hidden;white-space:nowrap; float: left; ">{{item.username?item.username:item.nickname}}</text>
+        <text class="box-desc-top-ji">{{item.level}}</text>
         <text style=" margin-left:12rpx ;color:#54BBE6">{{item.sex}}</text>
         <text style=" margin-left:12rpx ;color:#54BBE6" wx:if="{{item.age}}">{{item.age}}岁</text>
         <text style=" margin-left:12rpx ;color:#54BBE6">{{item.idtype}}</text>

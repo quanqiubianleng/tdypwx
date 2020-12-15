@@ -37,7 +37,10 @@ page{
   text-align: center;
 }
 .city-text{
+  max-width: 100rpx;
   color: #333;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .xiala {
   position: absolute;
@@ -293,7 +296,7 @@ color: #666666;
   justify-content: center;
   vertical-align: middle;
 }
-.box-img image{
+.box-img .image{
   width: 172rpx;
   height: 129rpx;
 }
@@ -303,6 +306,13 @@ color: #666666;
   left: 0rpx;
   width: 75rpx;
   height: 75rpx;
+}
+.box-img .stop{
+  position: absolute;
+  top:10rpx;
+  left: 10rpx;
+  width: 160rpx;
+  height: 120rpx;
 }
 .box-bill{
   position: relative;
@@ -356,6 +366,8 @@ color: #666666;
   border-radius: 5rpx 0 rpx 0 5rpx;
 }
 .tags-box{
+  overflow:hidden;
+  white-space: nowrap;
   overflow:hidden;
 }
 .tags-list{
