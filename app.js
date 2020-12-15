@@ -14,6 +14,7 @@ App({
     hostUrl: 'https://www.tdyp520.com/index.php',
   },  
   globalData:{
+    imgUrl: 'https://www.tdyp520.com',
     userInfo:null,
     isLogin: false,
     menu: null,
@@ -31,6 +32,7 @@ App({
     section_msg: [], // 部门消息
     friend_msg: [], // 好友消息
     msg_count: [],// 总未读消息
+    user_kefu_msg: [],// 用户与客服聊天记录
   },  
   //网络请求
   async requestfun(data, url,type=false){
@@ -106,7 +108,12 @@ App({
             url: this.d.hostUrl + '/api/Upload/images',
             filePath: data,
             name: 'file',
+            header: {
+              'content-type': 'multipart/form-data'
+            },
         success: (res) => {
+          console.log(res.data)
+          
           if(res.data){
             resolve(res);
           }
@@ -202,7 +209,7 @@ App({
         //that.globalData.callback(res)
         // 不同类型的消息
         chat.getMsg(res.data,that)
-        
+        console.log(res)
       }
     })
     wx.onSocketOpen(() => {
@@ -244,7 +251,7 @@ App({
       type: 'bind',
       group: 'user', 
       m_type: 'user',
-      id: 'user_10001289',
+      id: 'user_' + that.globalData.userInfo.id,
     }
     that.sendSocketMessage(data);
     that.globalData.socketOpen = true;
@@ -259,6 +266,7 @@ App({
         data: JSON.stringify(data),
         success: function(ult){
           console.log(ult)
+          return 1;
         }
       });
     }else{
