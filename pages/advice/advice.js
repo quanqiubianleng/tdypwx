@@ -12,6 +12,7 @@ Page({
     uid: null,
     type: 'text',
     msgList: [],// 消息记录
+    f_id: 0,// 接收id
     msg: '',
   },
 
@@ -19,12 +20,45 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
+    var data = JSON.parse(options.data)
     var self = this
     console.log(app.globalData.userInfo)
     this.setData({
       msgList: self.forData(),
       uid: 'user_' + app.globalData.userInfo.id,
       user_info: app.globalData.userInfo,
+      f_id: data.f_id,
+    })
+    // 改变页面标题
+    wx.setNavigationBarTitle({
+      title: data.title 
+    })
+
+    this.receiveMsg();
+  },
+
+  // 接收消息
+  receiveMsg: function(){
+    var self = this
+    wx.onSocketMessage((res) => {
+      let data = JSON.parse(res.data);
+      if (data.type == "kefu") {
+
+        // 赋值给全局消息变量
+        var arr = app.globalData.user_kefu_msg
+        arr.unshift(data)
+        app.globalData.user_kefu_msg = arr
+        // 赋值给页面变量
+        let arr2 = self.data.msgList
+        console.log(self.data.msgList)
+        data.create_time = chat.showTime(data.create_time)
+        arr2.push(data)
+        self.setData({
+          msgList: arr2
+        })
+        self.scrollPage()
+      }
     })
   },
   // 转换时间
@@ -82,7 +116,6 @@ Page({
         rendata.then((v) => {
           var imgurl = v.data
           imgurl = imgurl.split("\\").join("");
-          console.log(imgurl)
           var index = imgurl.lastIndexOf('"data":"');
           var index2 = imgurl.lastIndexOf('"}');
           var img_url = imgurl.substring(index+8,index2);
@@ -91,8 +124,33 @@ Page({
             type: 'img',
           })
           self.sendMessage()
+          self.onLoad()
         });
       }
+    })
+  },
+
+  // 页面滚动
+  scrollPage: function (){
+    setTimeout(function() {
+      wx.createSelectorQuery().select('.cu-chat').boundingClientRect(function (rect) {
+        // 使页面滚动到底部
+        wx.pageScrollTo({
+            scrollTop: rect.bottom  + 5000
+        })
+      }).exec()
+    }, 1000);
+    
+  },
+
+  // 预览图片
+  previewImg(e){
+    console.log(e)
+
+    var str = [];
+    str.push(e.currentTarget.dataset.img)
+    wx.previewImage({
+      urls: str // 需要预览的图片http链接列表
     })
   },
   /**
@@ -106,12 +164,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.createSelectorQuery().select('.cu-chat').boundingClientRect(function (rect) {
-      // 使页面滚动到底部
-      wx.pageScrollTo({
-          scrollTop: rect.bottom
-      })
-    }).exec()
+    this.scrollPage()
   },
 
   /**

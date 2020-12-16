@@ -202,15 +202,8 @@ App({
   initEventHandle() {
     var that = this
     wx.onSocketMessage((res) => {
-      if (res.data == "pong") {
-        that.reset()
-        that.start()
-      } else {
-        //that.globalData.callback(res)
-        // 不同类型的消息
-        chat.getMsg(res.data,that)
-        console.log(res)
-      }
+      // 不同类型的消息
+      chat.getMsg(res.data,that)
     })
     wx.onSocketOpen(() => {
       console.log('WebSocket连接打开')

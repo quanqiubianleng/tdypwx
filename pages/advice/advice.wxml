@@ -5,7 +5,7 @@
       <view wx:if="{{item.f_id == uid}}" class="cu-item self">
         <view class="main">
           <view wx:if="{{item.msg_type == 1}}" class="content bg-green shadow"><text>{{item.content}}</text></view>
-          <image wx:elif="{{item.msg_type == 2}}" class="radius" src="{{item.content}}" mode="widthFix">
+          <image wx:elif="{{item.msg_type == 2}}" class="radius" src="{{item.content}}" mode="widthFix" data-img="{{item.content}}" bindtap="previewImg">
         </image>
         </view>
         <view class="cu-avatar radius"
@@ -17,8 +17,8 @@
         <view class="cu-avatar radius"
           style="background-image:url({{item.kefu_img}});"></view>
         <view class="main">
-          <view wx:if="{{item.msg_type == 1}}" class="content shadow"><text>{{item.content}}</text></view>
-          <image wx:elif="{{item.msg_type == 2}}" class="radius" src="{{item.content}}" mode="widthFix"></image>
+          <view wx:if="{{item.msg_type == 1}}" class="content shadow"><rich-text nodes="{{item.content}}"></rich-text></view>
+          <image wx:elif="{{item.msg_type == 2}}" class="radius" src="{{item.content}}" mode="widthFix" data-img="{{item.content}}" bindtap="previewImg"></image>
         </view>
         <view class="date ">{{ item.create_time }}</view>
       </view>

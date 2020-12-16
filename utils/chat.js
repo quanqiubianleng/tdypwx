@@ -60,11 +60,10 @@ function getMsg(res,that){
       break;
     // 与客服的聊天记录
     case 'kefu':
-      console.log(that.globalData.user_kefu_msg)
+      console.log('公共方法，与客服的聊天记录')
       var arr = that.globalData.user_kefu_msg
       arr.unshift(data)
       that.globalData.user_kefu_msg = arr
-      console.log(that.globalData.user_kefu_msg)
       break;
   }
 }

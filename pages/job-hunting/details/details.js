@@ -308,8 +308,13 @@ Page({
     })
   },
   advice:function(e){
+    let arr = {
+      type: 'kefu',
+      f_id: 0,
+      title: '咨询',
+    }
     wx.navigateTo({
-      url: '/pages/advice/advice',
+      url: '/pages/advice/advice?data='+ JSON.stringify(arr),
     })
   },
  
