@@ -9,7 +9,7 @@ Page({
     index:0,
     userlevelid:0,
     show:false,
-    bgpic:'../../images/bj.png',
+    bgpic:'../../images/bj.jpg',
     bgtop:'../../images/top.png',
     kuang:'../../images/kuang.png'
   },
@@ -199,20 +199,7 @@ Page({
       context.setFontSize(14)
       context.fillText(that.data.incode[5], (windowW +200) / 2, (windowH -255) / 2 )
       // 小程序码
-      context.drawImage(that.data.qrcode, (windowW -110) / 2, (windowH -40) / 2, 110,110)
-      // 底部文字
-      context.setFillStyle("#fff")
-      
-      context.setFontSize(12)
-      
-      context.fillText('1. 点击保存图片发送好友，朋友扫码加入', (windowW - 240) / 2, (windowH + 385) / 2 )
-      
-      context.setFillStyle("#fff")
-      
-      context.setFontSize(12)
-      
-      context.fillText('2. 点击转发按钮邀请朋友进入界面，输入邀请码', (windowW - 240) / 2, (windowH + 430) / 2 )
-      
+      context.drawImage(that.data.qrcode, (windowW -250) / 2, (windowH -120) / 2, 260,260)   
       context.draw()
       
       },

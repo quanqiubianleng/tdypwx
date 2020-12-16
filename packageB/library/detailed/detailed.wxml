@@ -2,9 +2,9 @@
 <van-col span="24"custom-class="lin"></van-col>
 <van-col span="24" offset="0" custom-class="card">
   <van-col span="24"custom-class="tel">数据统计表</van-col>
-  <van-col span="24"custom-class="time" bindtap="gotime">
+  <van-col span="24"custom-class="time" bindtap="pickerShow">
       <image src="../../images/time.png" class="time-img"></image>
-      <view class="time-tiem" bindtap="gotime">
+      <view class="time-tiem" bindtap="pickerShow">
         <view wx:if="{{youstart==null}}">请选择时间</view>
         <view wx:if="{{youstart&&youend}}" class="">
           <text>{{youstart}}</text>
@@ -101,5 +101,5 @@
     </van-col>
   </van-col>
 </van-col> -->
-<van-calendar show="{{ show }}" type="range" bind:close="onClose" bind:confirm="onConfirm" show-confirm="{{ false }}" min-date="{{ minDate }}"
-  max-date="{{ maxDate }}"/>
+<time-picker pickerShow="{{isPickerShow}}" id="picker" wx:if="{{isPickerRender}}" bind:hidePicker="pickerHide" bind:setPickerTime="setPickerTime"
+  config="{{pickerConfig}}"></time-picker>

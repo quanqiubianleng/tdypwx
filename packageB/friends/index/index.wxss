@@ -202,6 +202,10 @@ button::after{
   height: 80rpx;
   line-height: 80rpx;
 }
+.btn_sub::after {
+  border: none;
+  height: 0rpx;
+}
 .show-imgs{
   position: relative;
   z-index: 1003;

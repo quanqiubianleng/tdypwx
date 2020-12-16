@@ -13,8 +13,19 @@ Page({
     list:[],
     page:1,
     strip:0,
-    minDate: new Date(2020, 10, 1).getTime(),
-    maxDate: new Date(2099, 12, 31).getTime(),
+    isPickerRender: false,
+    isPickerShow: false,
+    startTime: "2019-01-01",
+    endTime: "2019-12-01",
+    pickerConfig: {
+      endDate: true,
+      column: "second",
+      dateLimit: false,
+      initStartTime: "",
+      initEndTime: "",
+      limitStartTime: "",
+      limitEndTime: ""
+    }
   },
 
   /**
@@ -43,30 +54,42 @@ Page({
      }
     })
   },
-  gotime:function(e){
+  pickerShow: function() {
     this.setData({
-      show:true
-    })
-  },
-  onClose() {
-    this.setData({ show: false });
-  },
-  onConfirm(event) {
-    const [start, end] = event.detail;
-    let youstart=start.getFullYear() + '-' + (start.getMonth() + 1) + '-' + start.getDate();
-    let youend = end.getFullYear() + '-' + (end.getMonth() + 1) + '-' + end.getDate()
-    let data = youstart+'至'+youend;
-    let page=0;
-    this.setData({
-      show: false,
-      data: data,
-      youstart:youstart,
-      youend:youend,
       list:[],
-      strip:0
+      page:0,
+      strip:0,
+      isPickerShow: true,
+      isPickerRender: true,
+      chartHide: true
     });
+  },
+  pickerHide: function() {
+    this.setData({
+      isPickerShow: false,
+      chartHide: false
+    });
+  },
+
+  bindPickerChange: function(e) {
+    console.log("picker发送选择改变，携带值为", e.detail.startTime);
+  },
+  setPickerTime: function(val) {
+    console.log(val)
+    let youstart = val.detail.startTime;
+       youstart= youstart.replace(/\s[\x00-\xff]*/g,'');
+    let youend = val.detail.endTime;
+        youend = youend.replace(/\s[\x00-\xff]*/g,'')
+    let data = youstart + '至' + youend
+    let page= 0
+    this.setData({
+      data:data,
+      youstart:youstart,
+       youend:youend,
+    })
     this.partnerExamineList(youstart,youend,page);
-  }, 
+  } ,
+   
   details:function(e){
     console.log(e);
     let id = e.currentTarget.dataset.id;

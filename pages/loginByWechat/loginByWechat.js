@@ -36,6 +36,7 @@ Page({
     
         wx.login({
           success (res) {
+            wx.setStorageSync('passdata',v.data.passdata);
             let data ={
               code:res.code,
               passdata:v.data.passdata
@@ -47,6 +48,7 @@ Page({
                 wx.setStorageSync('token', v.data.data.token);
                 wx.setStorageSync('userinfo', v.data.data);
                 wx.setStorageSync('isLogin', true);
+              
                 wx.showToast({ icon: "none", title: '成功' });
                 app.globalData.isLogin = true
                 app.globalData.socketOpen = true
@@ -55,6 +57,11 @@ Page({
                 if(type==1){
                   wx.switchTab({
                     url: '/pages/personal/personal',
+                  })
+                }
+                if(type==2){
+                  wx.switchTab({
+                    url: '/pages/job-hunting/index/index',
                   })
                 }else{
                   wx.navigateBack({

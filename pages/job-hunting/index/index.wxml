@@ -99,7 +99,7 @@
           </scroll-view>
         </van-col>
         <van-col span="24" custom-class="box-box">
-          <van-col span="22" offset="1" custom-class="box {{key==list.length-1?'box-key':''}}" data-stop="{{it.stop}}" wx:for="{{list}}" wx:for-item="it" wx:for-index="key" wx:key="key"
+          <van-col span="22" offset="1" custom-class="box {{key==list.length-1?'box-key':''}}" data-status="{{it.apply_status}}" data-stop="{{it.stop}}" wx:for="{{list}}" wx:for-item="it" wx:for-index="key" wx:key="key"
             data-id="{{it.id}}" bindtap="details">
             <van-col span="6" custom-class="box-img">
               <image src="{{it.headimg}}" mode="scaleToFill" class="image" ></image>
@@ -123,9 +123,9 @@
                   <van-tag custom-class="tags-list" wx:for="{{it.label_name}}" wx:key="key" wx:if="{{index<4}}" max-count="3" plain
                     color="#3B67B1" size="8rpx" text-color="#3B67B1">{{item.name}}</van-tag>
                 </van-col>
-                <!-- <van-col span="6"custom-class="yibaoming">
+                <van-col span="6"custom-class="yibaoming" wx:if="{{it.apply_status==1}}">
                   <text>已报名</text>
-                </van-col> -->
+                </van-col>
               </van-col>
              
             </van-col>
@@ -150,7 +150,7 @@
           </scroll-view>
         </van-col>
         <van-col span="24" custom-class="box-box">
-            <van-col span="22" offset="1" custom-class="box {{key==locationlist.length-1?'box-key':''}}" wx:if="{{locationlist.length>0}}" wx:for="{{locationlist}}" wx:for-item="it" wx:for-index="key" wx:key="key" data-id="{{it.id}}" bindtap="details">
+            <van-col span="22" offset="1" custom-class="box {{key==locationlist.length-1?'box-key':''}}" wx:if="{{locationlist.length>0}}" wx:for="{{locationlist}}" wx:for-item="it" data-status="{{it.apply_status}}" wx:for-index="key" wx:key="key" data-id="{{it.id}}" bindtap="details">
               <van-col span="6" custom-class="box-img">
                 <image src="{{it.headimg}}"  mode="scaleToFill" class="image" ></image>
               <image src="../../../icons/hot.png" class="hot" mode="scaleToFill" wx:if="{{it.is_recommend==10}}"></image>
@@ -173,9 +173,9 @@
                     <van-tag custom-class="tags-list" wx:for="{{it.label_name}}" wx:key="key" wx:if="{{index<3}}" max-count="3" plain
                       color="#3B67B1" size="8rpx" text-color="#3B67B1">{{item.name}}</van-tag>
                   </van-col>
-                  <!-- <van-col span="6"custom-class="yibaoming">
+                  <van-col span="6"custom-class="yibaoming" wx:if="{{it.apply_status==1}}">
                   <text>已报名</text>
-                  </van-col> -->
+                  </van-col>
                 </van-col>
               </van-col>
             

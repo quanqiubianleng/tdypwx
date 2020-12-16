@@ -42,7 +42,7 @@ Page({
     };
     let rendata = app.requestfun(datad, '/Api/Talentpool/getSubordinate'); 
     rendata.then((v)=>{
-      if(v.data.status==1&&v.data.linkuser.length>=1){
+      if(v.data.status==1&&v.data.linkuser){
         this.setData({
           userlist:v.data.linkuser,
           page:this.data.page+1
@@ -149,7 +149,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      userInfos:wx.getStorageSync('userinfo'),
+    })
   },
 
   /**

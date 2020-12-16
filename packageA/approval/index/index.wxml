@@ -1,9 +1,9 @@
 <!--packageA/approval/index/index.wxml-->
 <van-col span="22" offset="1" custom-class="time">
-  <view class="time-img" bindtap="gotime">
+  <view class="time-img" bindtap="pickerShow">
     <image src="../../images/time.png"></image>
   </view>
-  <view class="time-time" bindtap="gotime">{{data}}</view>
+  <view class="time-time" bindtap="pickerShow">{{data}}</view>
    <view class="time-num">共{{strip}}人</view>
 </van-col>
 <van-col span="22"offset="1" custom-class="box-list" wx:if="{{list.length>=1}}" wx:for="{{list}}" wx:for-index="key" wx:key="key" data-index="{{key}}" data-id="{{item.id}}" bindtap="details">
@@ -29,5 +29,5 @@
     <image src="../../../icons/null-1.png"></image>
     <view>暂无数据~</view>
   </van-col>
-<van-calendar show="{{ show }}" type="range" bind:close="onClose" bind:confirm="onConfirm" show-confirm="{{ false }}" min-date="{{ minDate }}"
-  max-date="{{ maxDate }}"/>
+  <time-picker pickerShow="{{isPickerShow}}" id="picker" wx:if="{{isPickerRender}}" bind:hidePicker="pickerHide" bind:setPickerTime="setPickerTime"
+  config="{{pickerConfig}}"></time-picker>

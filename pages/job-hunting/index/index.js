@@ -49,7 +49,6 @@ Page({
       },
   }) 
     this.openCoordinates();
-    this.label();
     this.getDynamicData();
     this.Redpacket();
   },
@@ -192,6 +191,7 @@ Page({
   details:function(e){
     let id = e.currentTarget.dataset.id;
     let stop = e.currentTarget.dataset.stop;
+    let status = e.currentTarget.dataset.status
     if(stop==0){
       wx.showModal({
         title: '提示',
@@ -201,7 +201,7 @@ Page({
         return;
     }
     wx.navigateTo({
-      url: '/pages/job-hunting/details/details?id='+id,
+      url: '/pages/job-hunting/details/details?id='+id + '&status=' + status,
     })
   },
   library:function(){
@@ -364,6 +364,7 @@ Page({
       })
       this.locationlabel(currPage.__data__.cityNameTemp.id);
     }
+    this.label();
   },
 
   /**

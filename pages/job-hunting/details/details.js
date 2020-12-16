@@ -25,9 +25,11 @@ Page({
    */
   onLoad: function (options) {
     let id = options.id;
+    let status = options.status;
     console.log(id);
     this.setData({
-      id:id
+      id:id,
+      status:status
     })
     this.nobillinfo(id);
   },
@@ -131,22 +133,32 @@ Page({
     let passdata = wx.getStorageSync('passdata');
    console.log(passdata);
     if(!passdata||typeof(passdata)=='undefined'||typeof(passdata)=='null'){
-      this.setData({
-        show1:true,
-        passdata:''
-      })
+      console.log(1111)
+        wx.navigateTo({
+          url: '/pages/loginByWechat/loginByWechat?type=2',
+        })
     }
     if(passdata){
-      this.setData({
-        show1:true,
-        passdata:passdata
-      })
+      let status = this.data.status;
+      if(status==1){
+        this.setData({
+          show:true,
+          passdata:passdata
+        })
+      }else{
+        this.setData({
+          show1:true,
+          passdata:passdata
+        })
+      }
+      
     }
   },
   confirm:function(){
     this.setData({
       show:false
     })
+    this.bao();
   },
   cancel:function(e){
     this.setData({
@@ -158,71 +170,79 @@ Page({
       show1:false
     })
   },
-  async bindgetphonenumber (e){
-    let that =this;
-    let code = await new Promise((resolve) => {
-      wx.login({success: (res) => { if (res.code) resolve(res.code) } })});
-      code = await new Promise((resolve) => {
-      wx.login({ success: (res) => { if (res.code) resolve(res.code) } })
-    });
-    if(e.detail.errMsg=='getPhoneNumber:fail user deny'){
-      app.msg('获取手机号失败');
-      return;
-    }
-    if(e.detail.errMsg!='getPhoneNumber:fail user deny'){
-      var datad = {
-        iv: e.detail.iv,
-        encryptedData:e.detail. encryptedData,
-        code: code
-      };
-      let rendata = app.requestfun(datad, '/Api/login/GetPhoneNumber'); 
-      rendata.then((v)=>{
-        if(v.data.passdata!=''){
-          wx.setStorageSync('passdata',v.data.passdata);
-          wx.login({
-            success (res) {
-              let data ={
-                code:res.code,
-                passdata:v.data.passdata,
-                billid:that.data.id,
-                type:2
-              }
-              let rendata = app.requestfun(data, '/Api/Apply/index'); 
-              rendata.then((v)=>{
-                if(v.data.status==1){
-                  wx.showModal({
-                    title: '提示',
-                    content: '报名成功',
-                    showCancel: false, 
-                    success: function (sm) {
-                      if (sm.confirm) {
-                        setTimeout(function() {
-                          wx.navigateBack();
-                         }, 1000);
-                      }
-                      }
-                    })
-                }else{
-                  wx.showModal({
-                    title: '提示',
-                    content: '报名失败',
-                    showCancel: false, 
-                    success: function (sm) {
-                      if (sm.confirm) {
-                        setTimeout(function() {
-                          wx.navigateBack();
-                         }, 1000);
-                      }
-                      }
-                    })
-                }     
-              })
-            }
-          })
-        }     
-      })
-    }
-  },
+  // async bindgetphonenumber (e){
+  //   let that =this;
+  //   let status = that.data.status;
+  //   if(status==1){
+  //     that.setData({
+  //       show:true
+  //     })
+  //     return;
+  //   }else{
+  //     let code = await new Promise((resolve) => {
+  //       wx.login({success: (res) => { if (res.code) resolve(res.code) } })});
+  //       code = await new Promise((resolve) => {
+  //       wx.login({ success: (res) => { if (res.code) resolve(res.code) } })
+  //     });
+  //     if(e.detail.errMsg=='getPhoneNumber:fail user deny'){
+  //       app.msg('获取手机号失败');
+  //       return;
+  //     }else{
+  //       var datad = {
+  //         iv: e.detail.iv,
+  //         encryptedData:e.detail. encryptedData,
+  //         code: code
+  //       };
+  //       let rendata = app.requestfun(datad, '/Api/login/GetPhoneNumber'); 
+  //       rendata.then((v)=>{
+  //         if(v.data.passdata!=''){
+  //           wx.setStorageSync('passdata',v.data.passdata);
+  //           wx.login({
+  //             success (res) {
+  //               let data ={
+  //                 code:res.code,
+  //                 passdata:v.data.passdata,
+  //                 billid:that.data.id,
+  //                 type:2
+  //               }
+  //               let rendata = app.requestfun(data, '/Api/Apply/index'); 
+  //               rendata.then((v)=>{
+  //                 if(v.data.status==1){
+  //                   wx.showModal({
+  //                     title: '提示',
+  //                     content: '报名成功',
+  //                     showCancel: false, 
+  //                     success: function (sm) {
+  //                       if (sm.confirm) {
+  //                         setTimeout(function() {
+  //                           wx.navigateBack();
+  //                          }, 1000);
+  //                       }
+  //                       }
+  //                     })
+  //                 }else{
+  //                   wx.showModal({
+  //                     title: '提示',
+  //                     content: '报名失败',
+  //                     showCancel: false, 
+  //                     success: function (sm) {
+  //                       if (sm.confirm) {
+  //                         setTimeout(function() {
+  //                           wx.navigateBack();
+  //                          }, 1000);
+  //                       }
+  //                       }
+  //                     })
+  //                 }     
+  //               })
+  //             }
+  //           })
+  //         }     
+  //       })
+  //     }
+  //   }
+   
+  // },
   bao:function(e){
   let that = this;
     wx.login({

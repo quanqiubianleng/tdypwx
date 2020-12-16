@@ -9,8 +9,20 @@ Page({
     youstart:null,
     youend:null,
     userlist:[],
-    minDate: new Date(2020, 10, 1).getTime(),
-    maxDate: new Date(2099, 12, 31).getTime(),
+    isPickerRender: false,
+    isPickerShow: false,
+    startTime: "2019-01-01",
+    endTime: "2019-12-01",
+    pickerConfig: {
+      endDate: true,
+      column: "second",
+      dateLimit: false,
+      initStartTime: "",
+      initEndTime: "",
+      limitStartTime: "",
+      limitEndTime: ""
+    }
+    
   },
 
   /**
@@ -42,21 +54,43 @@ Page({
       show:true
     })
   },
-  onClose() {
-    this.setData({ show: false });
-  },
-  onConfirm(event) {
-    const [start, end] = event.detail;
-    let youstart=start.getFullYear() + '-' + (start.getMonth() + 1) + '-' + start.getDate();
-    let youend = end.getFullYear() + '-' + (end.getMonth() + 1) + '-' + end.getDate()
-    let data = youstart+'至'+youend;
+  pickerShow: function() {
     this.setData({
-      show: false,
-      youstart:youstart,
-      youend:youend
+      isPickerShow: true,
+      isPickerRender: true,
+      chartHide: true
     });
-    this.TalentsStatistics();
-  }, 
+  },
+  pickerHide: function() {
+    this.setData({
+      isPickerShow: false,
+      chartHide: false
+    });
+  },
+
+  bindPickerChange: function(e) {
+    console.log("picker发送选择改变，携带值为", e.detail.startTime);
+    //  let youstart= date.replace(/\s[\x00-\xff]*/g,'')
+    // this.setData({
+    //   youstart:null,
+    // youend:null,
+    // })
+    // this.getData(this.data.sensorList[e.detail.value].id);
+   
+   
+  },
+  setPickerTime: function(val) {
+    console.log(val)
+    let youstart = val.detail.startTime;
+       youstart= youstart.replace(/\s[\x00-\xff]*/g,'');
+    let youend = val.detail.endTime;
+        youend = youend.replace(/\s[\x00-\xff]*/g,'')
+    this.setData({
+      youstart:youstart,
+       youend:youend,
+    })
+    
+  } ,
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

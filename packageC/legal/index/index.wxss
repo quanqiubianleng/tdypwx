@@ -82,12 +82,12 @@ page{
  width: 100%;
  font-size: 26rpx;
  color: #666666;
- overflow: hidden;
+ /* overflow: hidden;
  text-overflow: ellipsis;
  display: -webkit-box;
  word-break: break-all;
  -webkit-box-orient: vertical;
- -webkit-line-clamp: 2;
+ -webkit-line-clamp: 2; */
  margin-bottom: 20rpx;
 }
 .item-tel text{

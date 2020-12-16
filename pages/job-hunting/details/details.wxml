@@ -22,9 +22,9 @@
 		<view class="card">
 			<view class="card-l">
 				<view class="shop-type">{{list.title}}</view>
-				<view class="shop-type shop-num">{{list.averagewage}}-{{list.emolumentr}}元</view>
+				<view class="shop-type shop-num">{{list.emolumentl}}-{{list.emolumentr}}元</view>
 			</view>
-			<view class="shop-name">{{list.shopname}}</view>
+			<view class="shop-name">{{list.shop_name}}</view>
 			<view class="tags-box">
 				<view class="tags" wx:if="{{list.welfare_name}}" wx:for="{{list.welfare_name}}" wx:key="key" plain color="#3B67B1"
 					size="20rpx" text-color="#3B67B1">{{item.name}}</view>
@@ -159,7 +159,7 @@
 		<van-col span="24" custom-class="shop-wrapper">
 			<van-col span="22" offset="1" custom-class="shop-box">
 				<van-col span="12" custom-class="shop-left">
-					<van-col span="12" custom-class="shopper" bindtap="tel">
+					<van-col span="8" custom-class="shopper" bindtap="tel">
 						<van-col span="12" offset="5" custom-class="shop-img-box">
 							<image src="/icons/wrok-1.png" class="shop-img"></image>
 						</van-col>
@@ -167,7 +167,7 @@
 							电话咨询
 						</van-col>
 					</van-col>
-					<van-col span="12" custom-class="shop-kefu" bindtap="advice">
+					<van-col span="8" custom-class="shop-kefu" bindtap="advice">
 						<van-col span="12" offset="5" custom-class="shop-img-box">
 							<image src="/icons/wrok-2.png" class="shop-img kefu-img"></image>
 						</van-col>
@@ -175,6 +175,18 @@
 							在线咨询
 						</van-col>
 					</van-col>
+					<!-- <van-col span="8" custom-class="shop-kefu" bindtap="advice">
+						<button style="width: 100%;height: 100rpx;line-height: 0;display:flex;flex-direction:column;align-items:center;justify-content: center;vertical-align: middle;">
+							<van-col span="24"  custom-class="shop-img-box">
+								<image src="/icons/fenxing.png" class="shop-img kefu-img"></image>
+							
+								分享好友
+						
+							</van-col>
+						
+						</button>
+						
+					</van-col> -->
 				</van-col>
 				<van-col span="12" custom-class="shop-buy"data-type="buynow" bindtap="showPopup">
 					立即报名
@@ -191,7 +203,6 @@
   <van-col span="24" custom-class="show-q">请确认是否进行报名</van-col>
   <van-col span="22" offset="1" custom-class="show-s"> 报名成功后，在工作时间内9：00-18：00，我们将会有就业顾问与您进行沟通，请保持电话通讯正常，谢谢！ </van-col>
   <view class="quxiao" bindtap="bubao">再考虑下</view>
-  <view class="quding" bindtap="bao" wx:if="{{passdata}}">确认报名</view>
-  <button class="qudings" open-type="getPhoneNumber"  bindgetphonenumber="bindgetphonenumber" wx:if="{{passdata==''}}">确认报名</button>
+  <view class="quding" bindtap="bao">确认报名</view>
 </van-popup>
 </view>

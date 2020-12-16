@@ -37,6 +37,7 @@ Page({
         desc:"满足平台方从业要求，熟练操作平台功能，在平台方管理和指导下，进行线下平台的宣传和推广工作。"
       }
     ],
+    status:'',
     show:false
   },
 
@@ -47,6 +48,7 @@ Page({
     let status = options.status;
     console.log(status)
     let Valuable = options.Valuable;
+    console.log(Valuable);
     if(status&&Valuable){
      let list=this.data.list;
      for (let index = 0; index < list.length; index++) {
@@ -96,33 +98,49 @@ Page({
     let type = e.currentTarget.dataset.type;
     let index = e.currentTarget.dataset.index;
     let status = this.data.status;
-    if(status==0||status==1){
+    let Valuable = this.data.Valuable;
+    let Tips1 = "你已申请";
+    let Tips2 = this.data.list[index].name;
+    let Tips3 = ",是否确认更换";
+    let Tips = Tips1+Tips2+Tips3;
+    console.log(Tips);
+    if(type==Valuable){
       app.msg("你已申请，无需重复申请！");
-      return;
-    } else{
-      var datad = {
-              type:type
-            };
-            let rendata = app.requestfun(datad, '/Api/UserAuto/addPartner',true);    
-            rendata.then((v) => {
-              console.log(v)
-              if(v.data.status==1){
-                app.msg("已提交申请");
-                  let lists = this.data.list;
-                      lists[index].status=0;
-                this.setData({
-                  index:type,
-                  list:lists
-                })
-              }
-            }) 
-       }
-    //  let status = this.data.list[index].status;
-    // if(status!=0){
-     
-    // }else{
-    //     
-    // }
+       return;
+    }
+    if(status&&Valuable){
+      wx.showModal({
+        title: '提示',
+        content: Tips,
+        success: function (sm) {
+          if (sm.confirm) {
+            
+          }
+          }
+        })
+    }
+    // if(status==0||status==1){
+    //   app.msg("你已申请，无需重复申请！");
+    //   return;
+    // } else{
+    //   var datad = {
+    //           type:type
+    //         };
+    //         let rendata = app.requestfun(datad, '/Api/UserAuto/addPartner',true);    
+    //         rendata.then((v) => {
+    //           console.log(v)
+    //           if(v.data.status==1){
+    //             app.msg("已提交申请");
+    //               let lists = this.data.list;
+    //                   lists[index].status=0;
+    //             this.setData({
+    //               index:type,
+    //               list:lists
+    //             })
+    //           }
+    //         }) 
+    //    }
+  
     
     
   },

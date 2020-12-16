@@ -8,6 +8,24 @@
  padding-bottom: 200rpx;
   box-sizing: border-box;
 }
-
+button{
+  height: 100rpx;
+  line-height: 0;
+}
+button::after{
+  border: none;
+  
+  border: 0px solid rgba(0,0,0,.2);
+  -webkit-transform: scale(.5);
+  transform: scale(.5);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+button-hover {
+  height: auto;
+  background: #fff;
+}
 
  
