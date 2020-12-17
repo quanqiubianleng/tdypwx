@@ -262,8 +262,11 @@ swiper-item image {
 .shop-img-box {
   text-align: center;
   margin-top: 10rpx;
+  margin-bottom: 26rpx;
 }
-
+.aa{
+  margin-top: -26rpx;
+}
 .dianpu{
   margin-left:5rpx;
 }

@@ -201,7 +201,7 @@ Page({
         return;
     }
     wx.navigateTo({
-      url: '/pages/job-hunting/details/details?id='+id + '&status=' + status,
+      url: '/pages/job-hunting/details/details?id='+id ,
     })
   },
   library:function(){

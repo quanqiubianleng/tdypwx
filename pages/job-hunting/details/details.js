@@ -18,6 +18,8 @@ Page({
     show1:false,
     enroll:2,
     currentTab:1,
+    apply_status:0,
+    all_status:0
   },
 
   /**
@@ -25,11 +27,9 @@ Page({
    */
   onLoad: function (options) {
     let id = options.id;
-    let status = options.status;
     console.log(id);
     this.setData({
       id:id,
-      status:status
     })
     this.nobillinfo(id);
   },
@@ -140,18 +140,28 @@ Page({
     }
     if(passdata){
       let status = this.data.status;
-      if(status==1){
+      let apply_status = this.data.apply_status;
+      let all_status = this.data.all_status;
+      if(apply_status==1&&all_status==1){
+        wx.showModal({
+          title: '提示',
+          content: '你已报名该工厂',
+          showCancel: false, 
+          })
+          return;
+      }
+      if(apply_status==0&&all_status==1){
         this.setData({
           show:true,
           passdata:passdata
         })
-      }else{
-        this.setData({
-          show1:true,
-          passdata:passdata
-        })
       }
-      
+     if(apply_status==0&&all_status==0){
+      this.setData({
+        show1:true,
+        passdata:passdata
+      })
+     }
     }
   },
   confirm:function(){
@@ -315,7 +325,9 @@ Page({
             that.setData({
               list:v.data.data,
               nopenid:v.data.openid,
-              keep:keep
+              keep:keep,
+              apply_status: v.data.data.apply_status,
+              all_status: v.data.data.all_status
             })
           }
          

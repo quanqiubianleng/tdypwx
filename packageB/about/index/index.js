@@ -22,7 +22,7 @@ Page({
   },
   xieyi:function(e){
     wx.navigateTo({
-      url: '/packageB/about/agreement/agreement',
+      url: '/pages/userAgreement/userAgreement',
     })
   },
   zhengce:function(e){

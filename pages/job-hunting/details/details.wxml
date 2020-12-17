@@ -159,34 +159,36 @@
 		<van-col span="24" custom-class="shop-wrapper">
 			<van-col span="22" offset="1" custom-class="shop-box">
 				<van-col span="12" custom-class="shop-left">
-					<van-col span="8" custom-class="shopper" bindtap="tel">
-						<van-col span="12" offset="5" custom-class="shop-img-box">
-							<image src="/icons/wrok-1.png" class="shop-img"></image>
-						</van-col>
-						<van-col span="24" custom-class="shop-text">
-							电话咨询
-						</van-col>
+					<van-col span="8" custom-class="shop-kefu" bindtap="tel">
+						<button style="padding-left: 0px;padding-right: 0px;">
+							<van-col span="12" offset="5" custom-class="shop-img-box" >
+								<image src="/icons/wrok-1.png" class="shop-img kefu-img" style="margin-bottom:26rpx；"></image>
+							</van-col>
+							<van-col span="24" custom-class="shop-text" >
+									电话咨询
+							</van-col>
+						</button>
 					</van-col>
 					<van-col span="8" custom-class="shop-kefu" bindtap="advice">
-						<van-col span="12" offset="5" custom-class="shop-img-box">
-							<image src="/icons/wrok-2.png" class="shop-img kefu-img"></image>
-						</van-col>
-						<van-col span="24" custom-class="shop-text">
-							在线咨询
-						</van-col>
-					</van-col>
-					<!-- <van-col span="8" custom-class="shop-kefu" bindtap="advice">
-						<button style="width: 100%;height: 100rpx;line-height: 0;display:flex;flex-direction:column;align-items:center;justify-content: center;vertical-align: middle;">
-							<van-col span="24"  custom-class="shop-img-box">
-								<image src="/icons/fenxing.png" class="shop-img kefu-img"></image>
-							
-								分享好友
-						
+						<button style="padding-left: 0px;padding-right: 0px;">
+							<van-col span="12" offset="5" custom-class="shop-img-box" >
+								<image src="/icons/wrok-2.png" class="shop-img kefu-img" style="margin-bottom:26rpx；"></image>
 							</van-col>
-						
+							<van-col span="24" custom-class="shop-text" >
+									在线咨询
+							</van-col>
 						</button>
-						
-					</van-col> -->
+					</van-col>
+					<van-col span="8" custom-class="shop-kefu" bindtap="">
+						<button open-type="share"  style="padding-left: 0px;padding-right: 0px;">
+							<van-col span="12" offset="5" custom-class="shop-img-box" >
+								<image src="/icons/fenxing.png" class="shop-img kefu-img" style="margin-bottom:26rpx；"></image>
+							</van-col>
+							<van-col span="24" custom-class="shop-text" >
+									分享好友
+							</van-col>
+						</button>
+					</van-col>
 				</van-col>
 				<van-col span="12" custom-class="shop-buy"data-type="buynow" bindtap="showPopup">
 					立即报名
