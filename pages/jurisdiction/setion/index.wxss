@@ -63,7 +63,7 @@ page{
   font-size: 28rpx;
   right: 10rpx;
   color: #999999;
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
 }
 .msgItem .inBox text{
@@ -83,6 +83,9 @@ page{
   padding-left: 94rpx;
   font-size: 24rpx;
   color: #999999;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .add{
   margin-top: 40rpx;

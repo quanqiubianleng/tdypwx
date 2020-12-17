@@ -7,7 +7,7 @@
       <van-icon wx:if="{{list.down==1}}" custom-class="iconOpen" name="arrow-down" />
       <text>{{list.name}}</text>
     </view>
-    <view class="msgItems" wx:if="{{list.down==1}}" wx:for="{{list.array}}" wx:for-item="lists" wx:key="indexx">
+    <view class="msgItems" wx:if="{{list.down==1}}" wx:for="{{list.array}}" wx:for-item="lists" wx:key="indexx" data-item="{{lists}}" bindtap="advice">
       <view class="inBoxs">
         <image class="mainIcons" src="{{lists.headimgurl}}" />
         <view class="iconOpens">12-07</view>

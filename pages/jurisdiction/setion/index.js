@@ -64,6 +64,18 @@ Page({
      }
     
   },
+  // 聊天详情
+  advice:function(e){
+    let admin_info = e.currentTarget.dataset.item
+    let arr = {
+      type: 'setion',
+      j_id: 0,
+      title: admin_info.username,
+    }
+    wx.navigateTo({
+      url: '/pages/advice/advice?data='+ JSON.stringify(arr),
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

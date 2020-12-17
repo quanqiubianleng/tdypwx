@@ -11,8 +11,9 @@ Page({
     user_info: {},// 会员信息
     uid: null,
     type: 'text',
+    new_type: 'kefu',
     msgList: [],// 消息记录
-    f_id: 0,// 接收id
+    j_id: 0,// 接收id
     msg: '',
   },
 
@@ -20,6 +21,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
     
     var data = JSON.parse(options.data)
     var self = this
@@ -28,7 +30,8 @@ Page({
       msgList: self.forData(),
       uid: 'user_' + app.globalData.userInfo.id,
       user_info: app.globalData.userInfo,
-      f_id: data.f_id,
+      j_id: data.j_id,
+      new_type: data.type,
     })
     // 改变页面标题
     wx.setNavigationBarTitle({
@@ -81,12 +84,12 @@ Page({
   sendMessage:function()
   {
     var f_msg = {
-      type: 'kefu',
+      type: this.data.new_type,
       f_id: 'user_' + app.globalData.userInfo.id,
-      j_id: 0,
+      j_id: this.data.j_id,
       msg_type: '1',
       content: this.data.msg,
-      mtype: 'kefu',
+      mtype: this.data.new_type,
     }
     if(this.data.type == 'text'){
       f_msg.msg_type = '1'
@@ -139,7 +142,7 @@ Page({
             scrollTop: rect.bottom  + 5000
         })
       }).exec()
-    }, 1000);
+    }, 500);
     
   },
 

@@ -349,7 +349,7 @@ Page({
   advice:function(e){
     let arr = {
       type: 'kefu',
-      f_id: 0,
+      j_id: 0,
       title: '咨询',
     }
     wx.navigateTo({
