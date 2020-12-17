@@ -8,11 +8,13 @@
     <van-col span="24"custom-class="user-tel">电话 {{user.mobile}}</van-col>
   </van-col>
   <van-col span="6" offset="1" custom-class="card-bt" wx:if="{{own==2}}" bindtap="label">添加备注</van-col>
+  <!-- <van-col span="24"offset="0" custom-class="card-desc" >该好友入职后,您预计可获得<text style="color:red">800-1500元</text>推荐奖励。</van-col>
+  <van-col span="24"offset="0" custom-class="card-desc" >他的好友入职后,您预计还可获得<text style="color:red">150-280元</text>推荐奖励。</van-col> -->
 </van-col>
 <van-col span="24"custom-class="choice">
-  <text bindtap="choice" data-index="1" wx:if="{{own==2&&level!=3}}" class="{{index==1?'on':''}}">{{level==1?'二级好友':'三级好友'}} </text>
   <text bindtap="choice" data-index="2" class="{{index==2?'on':''}}">动态</text>
   <text bindtap="choice" data-index="3" class="{{index==3?'on':''}}">产生收益</text>
+  <text bindtap="choice" data-index="1" wx:if="{{own==2&&level!=3}}" class="{{index==1?'on':''}}">{{level==1?'二级好友':'三级好友'}} </text>
 </van-col>
 <van-col span="24" wx:if="{{index==1}}">
   <van-col span="22" offset="1" custom-class="box-list" wx:if="{{userlist.length>=1}}" wx:for="{{userlist}}" wx:key="key"  data-level="{{item.level}}" data-openid="{{item.openid}}" data-id="{{item.uid}}" data-own="2">

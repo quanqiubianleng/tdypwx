@@ -7,7 +7,7 @@ page{
   background: #fff;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
   border-radius: 15rpx;
-  padding: 25rpx 15rpx;
+  padding: 35rpx 15rpx;
 }
 .heom{
   text-align: center;
@@ -45,6 +45,10 @@ page{
   color: #42B9F2;
   line-height: 100rpx;
   text-align: right;
+}
+.card-desc{
+  margin-top: 10rpx;
+  font-size: 20rpx;
 }
 .choice{
   height: 80rpx;

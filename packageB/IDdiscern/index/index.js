@@ -11,34 +11,35 @@ Page({
         name:'社会合伙人',
         type:12,
         status:3,
-        desc:"满足平台方从业要求，熟练操作平台功能，在平台方管理和指导下，进行线下平台的宣传和推广工作。"
+        desc:"定义：指不在平台上找工作就业的人员，愿意在平台的管理和指导下，开展就业平台推广工作的个人。"
       },
       {
         name:'在职推荐人',
         type:14,
         status:3,
-        desc:"满足平台方从业要求，熟练操作平台功能，在平台方管理和指导下，进行线下平台的宣传和推广工作。"
+        desc:"定义：指在平台上找到工作的就业者，愿意在平台的管理和指导下，开展就业平台推广工作的个人。"
       },
       {
         name:'校园代理',
         type:15,
         status:3,
-        desc:"满足平台方从业要求，熟练操作平台功能，在平台方管理和指导下，进行线下平台的宣传和推广工作。"
+        desc:"定义：指在校学生，愿意在平台的管理和指导下，开展就业平台推广工作的个人。"
       },
       {
         name:'渠道运营商',
         type:16,
         status:3,
-        desc:"满足平台方从业要求，熟练操作平台功能，在平台方管理和指导下，进行线下平台的宣传和推广工作。"
+        desc:"定义：指配备有一定数量从业人员，愿意在平台的管理和指导下，负责指定区/县地区就业平台推广工作的独立法人机构或自然团体。"
       },{
         name:'站长合伙人',
         type:17,
         status:3,
-        desc:"满足平台方从业要求，熟练操作平台功能，在平台方管理和指导下，进行线下平台的宣传和推广工作。"
+        desc:"定义：指具有门店、固定场地、区域人脉，愿意在平台的管理和指导下，开展就业平台推广工作的个人。"
       }
     ],
     status:'',
-    show:false
+    show:false,
+    frame:false
   },
 
   /**
@@ -95,12 +96,13 @@ Page({
     })
   },
   addPartner:function(e){
+    let that = this;
     let type = e.currentTarget.dataset.type;
     let index = e.currentTarget.dataset.index;
-    let status = this.data.status;
-    let Valuable = this.data.Valuable;
+    let status = that.data.status;
+    let Valuable = that.data.Valuable;
     let Tips1 = "你已申请";
-    let Tips2 = this.data.list[index].name;
+    let Tips2 = that.data.list[index].name;
     let Tips3 = ",是否确认更换";
     let Tips = Tips1+Tips2+Tips3;
     console.log(Tips);
@@ -114,7 +116,9 @@ Page({
         content: Tips,
         success: function (sm) {
           if (sm.confirm) {
-            
+            that.setData({
+              frame:true
+            })
           }
           }
         })
@@ -123,26 +127,74 @@ Page({
     //   app.msg("你已申请，无需重复申请！");
     //   return;
     // } else{
-    //   var datad = {
-    //           type:type
-    //         };
-    //         let rendata = app.requestfun(datad, '/Api/UserAuto/addPartner',true);    
-    //         rendata.then((v) => {
-    //           console.log(v)
-    //           if(v.data.status==1){
-    //             app.msg("已提交申请");
-    //               let lists = this.data.list;
-    //                   lists[index].status=0;
-    //             this.setData({
-    //               index:type,
-    //               list:lists
-    //             })
-    //           }
-    //         }) 
+    //   
     //    }
   
     
     
+  },
+  name:function(e){
+    this.setData({
+      name:e.detail.value
+    })
+  },
+  ID:function(e){
+    this.setData({
+      ID:e.detail.value
+    })
+  },
+  tel:function(e){
+    this.setData({
+      tel:e.detail.value
+    })
+  },
+  quxiao:function(){
+    this.setData({
+      frame:false
+    })
+  },
+  queren:function(){
+    let name= this.data.name;
+    if(!name){
+      this.setData({
+        roll:'1',
+      })
+      return;
+    }
+    let ID= this.data.ID;
+    if(!ID){
+      this.setData({
+        roll:'2',
+      })
+      return;
+    }
+    let tel= this.data.tel;
+    if(!ID){
+      this.setData({
+        roll:'3',
+      })
+      return;
+    }
+    var datad = {
+        type:type,
+        name:name,
+        ID:ID,
+        tel:tel
+      };
+      let rendata = app.requestfun(datad, '/Api/UserAuto/addPartner',true);    
+      rendata.then((v) => {
+        if(v.data.status==1){
+          app.msg("已提交申请");
+            let lists = this.data.list;
+            lists[index].status=0;
+          this.setData({
+            index:type,
+            list:lists,
+            frame:false
+          })
+        }
+      }) 
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

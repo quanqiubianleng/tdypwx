@@ -189,20 +189,30 @@ Page({
     })
   },
   details:function(e){
-    let id = e.currentTarget.dataset.id;
-    let stop = e.currentTarget.dataset.stop;
-    let status = e.currentTarget.dataset.status
-    if(stop==0){
-      wx.showModal({
-        title: '提示',
-        content: '该岗位已停招',
-        showCancel: false, 
-        })
-        return;
+    let isLogin = app.globalData.isLogin; 
+    let userInfos= wx.getStorageSync('userinfo').openid
+    if(!isLogin||!userInfos){
+      wx.navigateTo({
+        url: '/pages/loginByWechat/loginByWechat',
+      })
+      return;
+    }else{
+      let id = e.currentTarget.dataset.id;
+      let stop = e.currentTarget.dataset.stop;
+      let status = e.currentTarget.dataset.status;
+      if(stop==0){
+        wx.showModal({
+          title: '提示',
+          content: '该岗位已停招',
+          showCancel: false, 
+          })
+          return;
+      }
+      wx.navigateTo({
+        url: '/pages/job-hunting/details/details?id='+id +'&nopenid='+userInfos ,
+      })
     }
-    wx.navigateTo({
-      url: '/pages/job-hunting/details/details?id='+id ,
-    })
+   
   },
   library:function(){
     let isLogin = app.globalData.isLogin;
@@ -360,10 +370,14 @@ Page({
       let province = currPage.__data__.cityNameTemp.fullname;
       this.setData({
         province:province,
-        city_code:currPage.__data__.cityNameTemp.id
+        city_code:currPage.__data__.cityNameTemp.id,
+        pages:1
       })
       this.locationlabel(currPage.__data__.cityNameTemp.id);
     }
+    this.setData({
+      page:1
+    })
     this.label();
   },
 

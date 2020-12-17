@@ -15,20 +15,6 @@
   <van-col span="22"offset="1"custom-class="desc">{{item.desc}}</van-col>
   
 </van-col>
-<!-- <van-col span="22" offset="1" custom-class="card">
-  <van-col span="22"offset="1"custom-class="card-top">
-    <text class="card-top-desc">在职推荐人</text><text class="card-top-bt {{index==14?'on':''}}" data-type="14" bindtap="addPartner">申请</text>
-  </van-col>
-  <van-col span="22"offset="1"custom-class="card-bottoms" wx:if="{{index==14}}">审核中</van-col>
-  <van-col span="22"offset="1"custom-class="card-bottom" wx:else>提交申请，待后台验证</van-col>
-</van-col>
-<van-col span="22" offset="1" custom-class="card">
-  <van-col span="22"offset="1"custom-class="card-top">
-    <text class="card-top-desc">校园代理</text><text class="card-top-bt {{index==15?'on':''}}" data-type="15" bindtap="addPartner">申请</text>
-  </van-col>
-  <van-col span="22"offset="1"custom-class="card-bottoms" wx:if="{{index==15}}">审核中</van-col>
-  <van-col span="22"offset="1"custom-class="card-bottom" wx:else>提交申请，待后台验证</van-col>
-</van-col> -->
 </view>
 <van-popup show="{{show}}" position="center"  custom-style="height:550rpx;width:550rpx;" custom-class="{{status==1?'popup ':'popups'}}">
   <block wx:if="{{status==1}}">
@@ -59,4 +45,23 @@
       <van-col span="12"custom-class="ganbi" style="color:#999999" bindtap="close">关闭</van-col><van-col span="12"custom-class="ganbi" style="color:#30B9EF" bindtap="tel">联系客服</van-col>
     </van-col>
    </block>
+</van-popup>
+<van-popup show="{{frame}}" position="center"  custom-style="height:650rpx;width:550rpx;" custom-class="frame">
+  <van-col span="24"custom-class="frame-name">申请社会合伙人需完善以下资料</van-col>
+  <van-col span="24"custom-class="frame-list">
+    <van-col span="6"custom-class="frame-list-l">姓<text decode="{{true}}"space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>名</van-col>
+    <van-col span="18"custom-class="frame-list-r"><input class="{{roll==1?'roll':'input'}}" placeholder="请输入" placeholder-style="{{roll==1?'roll':''}}" value="{{name}}" bindblur="name"/></van-col>
+  </van-col>
+  <van-col span="24"custom-class="frame-list">
+    <van-col span="6"custom-class="frame-list-l">身<text decode="{{true}}"space="{{true}}">&nbsp;&nbsp;</text>份<text decode="{{true}}"space="{{true}}">&nbsp;&nbsp;</text>证</van-col>
+    <van-col span="18"custom-class="frame-list-r"><input class="{{roll==2?'roll':'input'}}" placeholder="请输入" placeholder-style="{{roll==2?'roll':''}}" value="{{ID}}" bindblur="ID"/></van-col>
+  </van-col>
+  <van-col span="24"custom-class="frame-list">
+    <van-col span="6"custom-class="frame-list-l">联系电话</van-col>
+    <van-col span="18"custom-class="frame-list-r"><input class="{{roll==3?'roll':'input'}}" placeholder="请输入" placeholder-style="{{roll==3?'roll':''}}" value="{{tel}}" bindblur="tel"/></van-col>
+  </van-col>
+  <van-col span="24"custom-class="frame-bt">
+    <van-col span="12"custom-class="frame-bt-bt"><text style="float: right;border: 1rpx solid #999999;height: 50rpx;line-height: 50rpx;width: 100rpx;font-size: 28rpx;color: #999999;margin-right: 50rpx;border-radius: 8rpx;text-align: center;" bindtap="quxiao">取消</text></van-col>
+    <van-col span="12"custom-class="frame-bt-bt"><text style="float: left;background: #3B66B0;height: 50rpx;line-height: 50rpx;width: 100rpx;font-size: 28rpx;color:#fff;margin-left: 50rpx;border-radius: 8rpx;text-align: center;" bindtap="queren">确认</text></van-col>
+  </van-col>
 </van-popup>

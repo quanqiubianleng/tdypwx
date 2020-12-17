@@ -26,10 +26,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let isLogin = app.globalData.isLogin;
+    if(!isLogin){
+      wx.navigateTo({
+        url: '/pages/loginByWechat/loginByWechat',
+      })
+    }
     let id = options.id;
-    console.log(id);
+    let nopenid = options.nopenid;
     this.setData({
       id:id,
+      nopenid:nopenid
     })
     this.nobillinfo(id);
   },
@@ -422,6 +429,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    let id = this.data.id;
+    let nopenid =  this.data.nopenid
+    return{
+      title: '天大云聘',
+      path: '/pages/job-hunting/details?id=' + id + '&nopenid=' +nopenid,
+    }
   }
 })
