@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:[]
+    list:[],
+    msg_list: [],
   },
 
   /**
@@ -37,11 +38,12 @@ Page({
             }else{
               app.msg("暂无数据");
             }
-               
           })
-
         }
       }
+    })
+    that.setData({
+      msg_list: app.globalData.section_msg,
     })
   },
   Showdown:function(e){
