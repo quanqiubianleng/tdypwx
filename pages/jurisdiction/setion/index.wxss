@@ -97,3 +97,35 @@ page{
   color: #fff;
   text-align: center;
 }
+
+
+
+.badge {
+  position: absolute;
+  left: 46rpx;
+  top: 25%;
+  transform: translateY(-50%);
+  padding: 0 10rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  font-size: 20rpx;
+  background: red;
+  color: white;
+  z-index: 99;
+  border-radius: 24rpx;
+}
+
+.f-badge {
+  position: absolute;
+  left: 80rpx;
+  top: 25%;
+  transform: translateY(-50%);
+  padding: 0 10rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  font-size: 20rpx;
+  background: red;
+  color: white;
+  z-index: 99;
+  border-radius: 24rpx;
+}

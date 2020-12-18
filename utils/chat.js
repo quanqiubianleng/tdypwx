@@ -51,7 +51,7 @@ function getMsg(res,that){
        that.globalData.user_kefu_msg = data.data.user_kefu_msg.data
       // 更改导航数字角标
       if(data.data.msg_count > 0){
-        updateCategory(1, data.data.msg_count)
+        updateCategory(1, data.data.msg_count+'')
       }
       break;
     case 'user':
