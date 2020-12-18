@@ -17,6 +17,7 @@
       <view class="login" wx:if="{{userInfo}}" bindtap="loginbyw">
         {{userInfo.username? userInfo.username : '暂无姓名'}}
         <text>{{userInfo.status2}}</text>
+        <text>已认证</text>
       </view>
       <view class="login" bindtap="loginbyw" wx:if="{{userInfo==''}}">点击登录</view>
       <view class="login-tel"  bindtap="loginbyw"> {{userInfo.mobile? userInfo.mobile : '登录享优质服务，信息及时掌握'}} </view>

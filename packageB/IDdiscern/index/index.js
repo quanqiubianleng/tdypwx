@@ -98,6 +98,7 @@ Page({
   addPartner:function(e){
     let that = this;
     let type = e.currentTarget.dataset.type;
+  
     let index = e.currentTarget.dataset.index;
     let status = that.data.status;
     let Valuable = that.data.Valuable;
@@ -105,7 +106,6 @@ Page({
     let Tips2 = that.data.list[index].name;
     let Tips3 = ",是否确认更换";
     let Tips = Tips1+Tips2+Tips3;
-    console.log(Tips);
     if(type==Valuable){
       app.msg("你已申请，无需重复申请！");
        return;
@@ -117,11 +117,13 @@ Page({
         success: function (sm) {
           if (sm.confirm) {
             that.setData({
-              frame:true
+              frame:true,
+              type:type,
+              inx:index
             })
           }
           }
-        })
+      })
     }
     // if(status==0||status==1){
     //   app.msg("你已申请，无需重复申请！");
@@ -154,8 +156,10 @@ Page({
     })
   },
   queren:function(){
+  
     let name= this.data.name;
     if(!name){
+      app.msg("请输入姓名");
       this.setData({
         roll:'1',
       })
@@ -163,34 +167,75 @@ Page({
     }
     let ID= this.data.ID;
     if(!ID){
+      app.msg("请输入身份证");
       this.setData({
         roll:'2',
       })
       return;
     }
+    var pattsss = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+    if (!pattsss.test(ID)) {
+      this.setData({
+        roll:'2',
+      })
+      app.msg("身份证号不正确");
+      return;
+    }
     let tel= this.data.tel;
-    if(!ID){
+    if(!tel){
+      app.msg("请输入联系电话");
       this.setData({
         roll:'3',
       })
       return;
     }
+    var patts = /^\d{11}$/g;
+    if (!patts.test(tel)) {
+      this.setData({
+        roll:'3',
+      })
+      app.msg("联系电话方式不正确");
+      return;
+    }
+    let type = this.data.type;
+    let index = this.data.inx;
     var datad = {
         type:type,
         name:name,
-        ID:ID,
-        tel:tel
+        idcard:ID,
+        mobile:tel
       };
       let rendata = app.requestfun(datad, '/Api/UserAuto/addPartner',true);    
       rendata.then((v) => {
         if(v.data.status==1){
           app.msg("已提交申请");
             let lists = this.data.list;
-            lists[index].status=0;
+            for (let i = 0; i < lists.length; i++) {
+              console.log(i)
+              if(index==i){
+                lists[index].status=0;
+              }
+              else{
+                lists[i].status=3;
+              }
+            }
           this.setData({
             index:type,
             list:lists,
             frame:false
+          })
+        }else{
+          wx.showModal({
+            title: '提示',
+            content: '您输入的信息与实名认证的信息不一致!',
+            showCancel: false, 
+            success: function (sm) {
+              if (sm.confirm) {
+                this.setData({
+                  frame:false
+                })
+              }
+              }
           })
         }
       }) 

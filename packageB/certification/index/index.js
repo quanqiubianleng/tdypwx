@@ -72,6 +72,17 @@ Page({
       app.msg("请拍摄身份证人像面");
       return;
     }
+    let  idcard = this.data.idcard;
+      var pattsss = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+      if (!pattsss.test(idcard)) {
+        wx.showModal({
+          title: '提示',
+          content: '请使用正确的身份证',
+          showCancel: false, 
+
+        })
+        return;
+      }
     let side_img = this.data.side_img;
     if(!side_img){
       app.msg("请拍摄身份证国徽面");
@@ -88,7 +99,7 @@ Page({
       name:this.data.name,
       sex:sex,
       nation:this.data.nation,
-      idcard:this.data.idcard,
+      idcard:idcard,
       address:this.data.address,
       positive_img:positive_img,
       side_img:side_img

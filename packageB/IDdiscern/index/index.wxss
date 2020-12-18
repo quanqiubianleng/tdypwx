@@ -192,7 +192,6 @@ page{
   text-align: center;
   font-size: 28rpx;
   border: 1rpx solid red;
-  color: red;
   border-radius: 8rpx;
 }
 .frame-bt{

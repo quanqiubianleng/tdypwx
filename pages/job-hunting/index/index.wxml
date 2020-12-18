@@ -104,6 +104,7 @@
             <van-col span="6" custom-class="box-img">
               <image src="{{it.headimg}}" mode="scaleToFill" class="image" ></image>
               <image src="../../../icons/hot.png" class="hot" mode="scaleToFill" wx:if="{{it.is_recommend==10}}"></image>
+              <image src="../../../icons/youqi.png" class="hot" mode="scaleToFill" wx:if="{{it.is_recommend==20}}"></image>
               <image src="../../../icons/stop.png" class="stop"  wx:if="{{it.stop==0}}"></image>
             </van-col>
             <van-col span="17" offset="1" custom-class="box-bill">
@@ -153,8 +154,9 @@
             <van-col span="22" offset="1" custom-class="box {{key==locationlist.length-1?'box-key':''}}" wx:if="{{locationlist.length>0}}" wx:for="{{locationlist}}" wx:for-item="it" data-status="{{it.apply_status}}" wx:for-index="key" wx:key="key" data-id="{{it.id}}" bindtap="details">
               <van-col span="6" custom-class="box-img">
                 <image src="{{it.headimg}}"  mode="scaleToFill" class="image" ></image>
-              <image src="../../../icons/hot.png" class="hot" mode="scaleToFill" wx:if="{{it.is_recommend==10}}"></image>
-              <image src="../../../icons/stop.png" class="stop"  wx:if="{{it.stop==0}}"></image>
+                <image src="../../../icons/hot.png" class="hot" mode="scaleToFill" wx:if="{{it.is_recommend==10}}"></image>
+                <image src="../../../icons/youqi.png" class="hot" mode="scaleToFill" wx:if="{{it.is_recommend==20}}"></image>
+                <image src="../../../icons/stop.png" class="stop"  wx:if="{{it.stop==0}}"></image>
               </van-col>
               <van-col span="17" offset="1" custom-class="box-bill">
                 <van-col span="24" custom-class="box-bill-name">

@@ -24,7 +24,14 @@
 				<view class="shop-type">{{list.title}}</view>
 				<view class="shop-type shop-num">{{list.emolumentl}}-{{list.emolumentr}}元</view>
 			</view>
-			<view class="shop-name">{{list.shop_name}}</view>
+			<van-col span="24"custom-class="shop-name">
+				<van-col span="17"custom-class="shop-name-l" >{{list.shop_name}}</van-col>
+				<van-col span="7"custom-class="shop-name-r" wx:if="{{share==1}}" bindtap="gengduo">
+					<text>查看更多</text>
+					<van-icon name="arrow"custom-class="shop-name-r-inc" />
+				</van-col>
+			</van-col>
+			<!-- <view class="shop-name">{{list.shop_name}}</view> -->
 			<view class="tags-box">
 				<view class="tags" wx:if="{{list.welfare_name}}" wx:for="{{list.welfare_name}}" wx:key="key" plain color="#3B67B1"
 					size="20rpx" text-color="#3B67B1">{{item.name}}</view>

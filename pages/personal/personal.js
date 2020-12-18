@@ -69,9 +69,10 @@ Page({
     let rendata = app.requestfun(datad, '/Api/UserAuto/authenticationFind',true); 
     rendata.then((v)=>{
       if(v.data.status==1&&v.data.data){
-        let Valuable = 1;
-        wx.navigateTo({
-          url: '/packageB/certification/index/index?Valuable='+Valuable,
+        wx.showModal({
+          title: '提示',
+          content: '你已实名认证',
+          showCancel: false, 
         })
       }
       else{

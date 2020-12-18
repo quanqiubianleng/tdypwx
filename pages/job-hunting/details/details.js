@@ -34,9 +34,11 @@ Page({
     }
     let id = options.id;
     let nopenid = options.nopenid;
+    let share = options.share;
     this.setData({
       id:id,
-      nopenid:nopenid
+      nopenid:nopenid,
+      share:share
     })
     this.nobillinfo(id);
   },
@@ -394,9 +396,27 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
-  },
+    var pages = getCurrentPages();
+    var currPage = pages[pages.length - 1];
+    if(currPage.__data__.type==1){
+      
+      let openid= wx.getStorageSync('userinfo').openid;
+      this.UserContext(openid);
+    }
 
+  },
+  UserContext:function(openid){
+    let data = {
+      openid:this.data.nopenid,
+      nopenid:openid
+    }
+    let rendata = app.requestfun(data, '/Api/Nobill/UserContext',true);    
+  },
+  gengduo:function(e){
+    wx.switchTab({
+      url: '/pages/job-hunting/index/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -430,10 +450,11 @@ Page({
    */
   onShareAppMessage: function () {
     let id = this.data.id;
-    let nopenid =  this.data.nopenid
+    let nopenid =  this.data.nopenid;
+    let share = 1;
     return{
       title: '天大云聘',
-      path: '/pages/job-hunting/details?id=' + id + '&nopenid=' +nopenid,
+      path: '/pages/job-hunting/details?id=' + id + '&nopenid=' +nopenid +'&share='+share,
     }
   }
 })

@@ -10,7 +10,7 @@
     <text class="card-bottom" wx:if="{{item.status==3}}">提交申请，待后台验证</text>
     <text class="card-bottoms" wx:if="{{item.status==0}}">审核中</text>
     <text class="card-bottomss" wx:if="{{item.status==1}}">审核已通过</text>
-    <text class="card-bottomsss" wx:if="{{item.status==2}}">未通过<text style="font-size: 20rpx;color:#666666">（可联系客服咨询详情，重新申请）</text></text>
+    <text class="card-bottomsss" wx:if="{{item.status==2}}">未通过<text style="font-size: 20rpx;color:#666666">（可联系客服咨询详情）</text></text>
   </van-col>
   <van-col span="22"offset="1"custom-class="desc">{{item.desc}}</van-col>
   
@@ -22,7 +22,7 @@
     <van-col span="24" custom-class="popup-tel" wx:if="{{Valuable==14}}">在职推荐人申请通过</van-col>
     <van-col span="24" custom-class="popup-tel" wx:if="{{Valuable==15}}">校园代理申请通过</van-col>
     <van-col span="24" custom-class="popup-tel" wx:if="{{Valuable==16}}">渠道运营商申请通过</van-col>
-    <van-col span="24" custom-class="popup-tel" wx:if="{{Valuable==16}}">站长合伙人申请通过</van-col>
+    <van-col span="24" custom-class="popup-tel" wx:if="{{Valuable==17}}">站长合伙人申请通过</van-col>
     <van-col span="24" custom-class="popup-del"  wx:if="{{Valuable==12}}">【恭喜，您已成为天大社会合伙人】</van-col>
     <van-col span="24" custom-class="popup-del"  wx:if="{{Valuable==14}}">【恭喜，您已成为天大在职推荐人】</van-col>
     <van-col span="24" custom-class="popup-del"  wx:if="{{Valuable==15}}">【恭喜，您已成为天大校园代理】</van-col>
@@ -50,15 +50,15 @@
   <van-col span="24"custom-class="frame-name">申请社会合伙人需完善以下资料</van-col>
   <van-col span="24"custom-class="frame-list">
     <van-col span="6"custom-class="frame-list-l">姓<text decode="{{true}}"space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>名</van-col>
-    <van-col span="18"custom-class="frame-list-r"><input class="{{roll==1?'roll':'input'}}" placeholder="请输入" placeholder-style="{{roll==1?'roll':''}}" value="{{name}}" bindblur="name"/></van-col>
+    <van-col span="18"custom-class="frame-list-r"><input class="{{roll==1?'roll':'input'}}" placeholder="请输入" value="{{name}}" bindblur="name"/></van-col>
   </van-col>
   <van-col span="24"custom-class="frame-list">
     <van-col span="6"custom-class="frame-list-l">身<text decode="{{true}}"space="{{true}}">&nbsp;&nbsp;</text>份<text decode="{{true}}"space="{{true}}">&nbsp;&nbsp;</text>证</van-col>
-    <van-col span="18"custom-class="frame-list-r"><input class="{{roll==2?'roll':'input'}}" placeholder="请输入" placeholder-style="{{roll==2?'roll':''}}" value="{{ID}}" bindblur="ID"/></van-col>
+    <van-col span="18"custom-class="frame-list-r"><input class="{{roll==2?'roll':'input'}}" placeholder="请输入" value="{{ID}}" bindblur="ID"/></van-col>
   </van-col>
   <van-col span="24"custom-class="frame-list">
     <van-col span="6"custom-class="frame-list-l">联系电话</van-col>
-    <van-col span="18"custom-class="frame-list-r"><input class="{{roll==3?'roll':'input'}}" placeholder="请输入" placeholder-style="{{roll==3?'roll':''}}" value="{{tel}}" bindblur="tel"/></van-col>
+    <van-col span="18"custom-class="frame-list-r"><input class="{{roll==3?'roll':'input'}}" placeholder="请输入"  value="{{tel}}" bindblur="tel"/></van-col>
   </van-col>
   <van-col span="24"custom-class="frame-bt">
     <van-col span="12"custom-class="frame-bt-bt"><text style="float: right;border: 1rpx solid #999999;height: 50rpx;line-height: 50rpx;width: 100rpx;font-size: 28rpx;color: #999999;margin-right: 50rpx;border-radius: 8rpx;text-align: center;" bindtap="quxiao">取消</text></van-col>

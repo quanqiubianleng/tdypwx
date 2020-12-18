@@ -200,6 +200,7 @@ Page({
       let id = e.currentTarget.dataset.id;
       let stop = e.currentTarget.dataset.stop;
       let status = e.currentTarget.dataset.status;
+      let share = 0;
       if(stop==0){
         wx.showModal({
           title: '提示',
@@ -209,7 +210,7 @@ Page({
           return;
       }
       wx.navigateTo({
-        url: '/pages/job-hunting/details/details?id='+id +'&nopenid='+userInfos ,
+        url: '/pages/job-hunting/details/details?id='+id +'&nopenid='+userInfos + '&share=' +share ,
       })
     }
    
@@ -371,12 +372,14 @@ Page({
       this.setData({
         province:province,
         city_code:currPage.__data__.cityNameTemp.id,
-        pages:1
+        pages:1,
+        locationlist:[]
       })
       this.locationlabel(currPage.__data__.cityNameTemp.id);
     }
     this.setData({
-      page:1
+      page:1,
+      list:[]
     })
     this.label();
   },
