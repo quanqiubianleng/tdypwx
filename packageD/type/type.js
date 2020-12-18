@@ -8,7 +8,8 @@ Page({
   data: {
     currentTab: 0,
     productList: [],
-    page:1
+    page:1,
+
   },
 
   /**
@@ -19,21 +20,20 @@ Page({
       this.setData({
         type:type
       })
-   
   },
   collectionList:function(){
     let data = {
       page:this.data.page,
       mesype:this.data.type,
-      status:this.data.currentTab
     }
     let rendata = app.requestfun(data, '/Api/notice/noticeList',true);    
     rendata.then((v) => {
-      if(v.data.status==1&&v.data.data){
-        this.setData({
-          productList:v.data.data
-        })
-      }
+      console.log(v);
+      // if(v.data.status==1&&v.data.data){
+      //   this.setData({
+      //     productList:v.data.data
+      //   })
+      // }
     })
   },
   /**
@@ -90,21 +90,9 @@ Page({
       content: '确定要删除吗？',
       success: function (sm) {
         if (sm.confirm) {
-          let data = {
-            j_id:id,
-            status:0
-          }
-          let rendata = app.requestfun(data, '/Api/job/collection',true);    
-          rendata.then((v) => {
-            if(v.data.status==1){
-              let productList = that.data.productList
-                productList.splice(index,1);
-              that.setData({
-                productList:productList
-              })
-            }
-          })
-        } else if (sm.cancel) {
+          
+         
+        } else {
           console.log('用户点击取消')
         }
         }
@@ -121,11 +109,9 @@ Page({
         return false;
     } else {
         that.setData( {
-            currentTab: e.target.dataset.current,
-            page:1
+            currentTab: e.target.dataset.current
         })
     }
-    that.collectionList();
   },
 
   /**

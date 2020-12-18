@@ -378,8 +378,8 @@ color: #666666;
   padding: 2rpx 15rpx;
   color: #fff;
   font-size: 22rpx;
-  background: #666666;
-  margin-top: 5rpx;
+  background: #3B67B1;
+  margin-top: 15rpx;
   border-radius: 10rpx;
 }
 .details{

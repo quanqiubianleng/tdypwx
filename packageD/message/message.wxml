@@ -1,12 +1,4 @@
 <view class="msgGroup">
-  <navigator class="msgItem" url="/packageD/message/type?id=1">
-    <view class="inBox">
-      <view wx:if="{{notice.msg7}}" class="badge">{{notice.msg7 < 100 ? notice.msg7 : '99+'}}</view>
-      <image class="mainIcon" src="../../icons/word.png" />
-      <mp-icon class="iconOpen" icon="arrow" color="#C2C4CA" size="{{12}}"></mp-icon>
-      <text>申请通知</text>
-    </view>
-  </navigator>
   <navigator class="msgItem" url="/packageD/message/type?id=2">
     <view class="inBox">
       <view wx:if="{{notice.msg2}}" class="badge">{{notice.msg2 < 100 ? notice.msg2 : '99+'}}</view>

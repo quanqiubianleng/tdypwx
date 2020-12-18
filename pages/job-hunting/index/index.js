@@ -103,10 +103,17 @@ Page({
     let rendata = app.requestfun(datad, '/Api/job/label',false);    
     rendata.then((v) => {
       if(v.data.status==1&&v.data.data){
-        let id = 0;
-        let city_code = '';
+        let list = v.data.data;
+        let label ={
+          "id":0,
+          "name":'全部',
+          "orderid":'',
+          "indate": "1590570012"
+        }
+        list.unshift(label);
+        let id = list[0].id;
         this.setData({
-          navData:v.data.data
+          navData:list
         })
         this.index(id);
       }else{
@@ -274,9 +281,17 @@ Page({
     let rendata = app.requestfun(datad, '/Api/job/label',false);    
     rendata.then((v) => {
       if(v.data.status==1&&v.data.data){
-        let id = 0;
+        let list = v.data.data;
+        let label ={
+          "id":0,
+          "name":'全部',
+          "orderid":'',
+          "indate": "1590570012"
+        }
+        list.unshift(label);
+        let id = list[0].id;
         this.setData({
-          navlist:v.data.data
+          navlist:list
         })
         this.location(id,city_code);
       }else{
@@ -373,13 +388,13 @@ Page({
         province:province,
         city_code:currPage.__data__.cityNameTemp.id,
         pages:1,
-        locationlist:[]
+        // locationlist:[]
       })
       this.locationlabel(currPage.__data__.cityNameTemp.id);
     }
     this.setData({
       page:1,
-      list:[]
+      // list:[]
     })
     this.label();
   },

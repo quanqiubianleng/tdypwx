@@ -1,9 +1,9 @@
-<!--packageD/message/type.wxml-->
+<!--packageD/type/type.wxml-->
     <!--顶部导航栏-->
-  <van-col span="24"custom-class="box">
+    <van-col span="24"custom-class="box">
     <van-col span="22" offset="1" custom-class="swiper-tab">
-      <van-col span="8"offset="2" custom-class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">未读</van-col>
-      <van-col span="8"offset="3" custom-class="tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">已读</van-col>
+      <van-col span="8"offset="2" custom-class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">未处理</van-col>
+      <van-col span="8"offset="3" custom-class="tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">已处理</van-col>
     </van-col>
   </van-col>
   <!--内容主体-->

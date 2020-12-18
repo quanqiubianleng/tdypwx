@@ -140,6 +140,7 @@
       "pages": [
         "message/message",
         "message/type",
+        "type/type",
         "msginfo/msginfo"
       ]
     }

@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "van-row":"../../../dist/row/index",
+    "van-popup":"../../../dist/popup/index" ,
+    "van-col":"../../../dist/col/index",
+    "van-tag": "../../../dist/tag/index",
+    "van-icon":"../../../dist/icon/index"
+  },
+  "navigationBarTitleText": "申请通知",
+  "backgroundColor": "#f8f9fa",
+  "backgroundTextStyle": "dark"
+}

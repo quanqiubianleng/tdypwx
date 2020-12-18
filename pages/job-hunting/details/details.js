@@ -454,7 +454,7 @@ Page({
     let share = 1;
     return{
       title: '天大云聘',
-      path: '/pages/job-hunting/details?id=' + id + '&nopenid=' +nopenid +'&share='+share,
+      path: '/pages/job-hunting/details/details?id=' + id + '&nopenid=' +nopenid +'&share='+share,
     }
   }
 })
