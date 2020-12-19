@@ -17,18 +17,11 @@
     <view class="name-te">{{userlist.type_name}}</view>
   </van-col>
   <van-col span="24" custom-class="name">
-    <view class="id-name id-names">
-      身<text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>份<text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>证
-    </view>
-   
-    <view class="name-te">
-      <view class="name-img">
-        <image src="{{userlist.positive_img}}"></image>
-      </view>
-      <view class="name-img">
-        <image src="{{userlist.side_img}}"></image>
-      </view>
-    </view>
+    <view class="id-name">身<text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>份<text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>证</view>
+  </van-col>
+  <van-col span="24"custom-class="name">
+    <van-col span="12"custom-class="name-img"><image src="{{userlist.positive_img}}"></image></van-col>
+    <van-col span="12"custom-class="name-img"><image src="{{userlist.side_img}}"></image></van-col>
   </van-col>
 </van-col>
 <van-col span="22" offset="1" custom-class="tle">审批处理</van-col>
@@ -50,10 +43,9 @@
   </van-col>
   <van-col span="24" custom-class="name">
     <view class="id-name">审批说明</view>
-    <view class="name-tes">
-      <textarea placeholder="请输入审批说明" bindblur="remark"></textarea>
-    </view>
   </van-col>
- 
+  <van-col span="24"custom-class="name">
+    <textarea placeholder="请输入审批说明" bindblur="remark"></textarea>
+  </van-col>
 </van-col>
-<van-col span="20" offset="1" custom-class="bottom" bindtap="determine">提交</van-col>
+<van-col span="20" offset="2" custom-class="bottom" bindtap="determine">提交</van-col>

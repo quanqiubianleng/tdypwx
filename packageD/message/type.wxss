@@ -58,7 +58,7 @@
   
   .product-list .product-item movable-area {
     height: 225rpx;
-    width: calc(100vw - 360rpx);
+    width: calc(100vw - 120rpx);
   }
   
   .product-list .product-item movable-view {
@@ -72,7 +72,7 @@
     top: 0;
     bottom: 0;
     right: 32rpx; 
-    width: 360rpx;
+    width: 120rpx;
     font-family: PingFangSC-Regular;
     font-size: 24rpx;
     color: #FFFFFF;
@@ -81,15 +81,10 @@
 
     text-align: center;
   }
-  .weidu{
-    display: inline-block;
-    width: 180rpx;
-    height: 100%;
-    background: #999999;
-  }
+ 
   .shanchu{
     display: inline-block;
-    width: 180rpx;
+    width: 120rpx;
     height: 100%;
     background: #E66671;
     border-radius:0 18rpx 18rpx 0;
@@ -163,7 +158,7 @@
      width: 100%;
      height: 100%;
      text-align: center;
-     margin-top: 20rpx;
+     margin-top: 200rpx;
    }
    .list-top{
      line-height: 80rpx;

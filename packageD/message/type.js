@@ -85,16 +85,16 @@ Page({
     let that = this;
     let id = e.currentTarget.dataset.id;
     let index = e.currentTarget.dataset.index;
+    console.log(id,index);
     wx.showModal({
       title: '提示',
-      content: '确定要删除吗？',
+      content: '确定要清楚该数据吗？',
       success: function (sm) {
         if (sm.confirm) {
           let data = {
-            j_id:id,
-            status:0
+            id:id,
           }
-          let rendata = app.requestfun(data, '/Api/job/collection',true);    
+          let rendata = app.requestfun(data, '/Api/notice/setDelete',true);    
           rendata.then((v) => {
             if(v.data.status==1){
               let productList = that.data.productList
@@ -122,12 +122,30 @@ Page({
     } else {
         that.setData( {
             currentTab: e.target.dataset.current,
-            page:1
+            page:1,
+            productList:[]
         })
     }
     that.collectionList();
   },
-
+  //设置为已读
+  read:function(e){
+    let id = e.currentTarget.dataset.id;
+    let index = e.currentTarget.dataset.index;
+    let data = {
+      id:id,
+    }
+    let rendata = app.requestfun(data, '/Api/notice/setLook',true);    
+    rendata.then((v) => {
+      if(v.data.status==1){
+        let productList = this.data.productList
+          productList.splice(index,1);
+        this.setData({
+          productList:productList
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

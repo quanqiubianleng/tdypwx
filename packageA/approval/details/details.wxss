@@ -37,11 +37,22 @@ page{
   justify-content: left;
   vertical-align: middle;
 }
-.name-tes{
-  float: right;
-  width: 75%;
+.name-img{
+  height: 180rpx;
 }
-.name-tes textarea{
+.name-img{
+  width: 100%;
+  height: 100%;
+}
+
+.name textarea{
+  height: 150rpx;
+  width: 95%;
+  padding: 5rpx 15rpx;
+  border-radius: 10rpx;
+  background: #F3F6FA;
+  margin-right: 20rpx;
+  font-size: 26rpx;
   color: #333333;
 }
  .text{

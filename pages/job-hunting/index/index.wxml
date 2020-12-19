@@ -90,13 +90,12 @@
       <van-row wx:if="{{location==0}}">
         <van-col span="24" offset="" custom-class="Hot">
           <scroll-view scroll-x="true" class="navs" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
-            <!-- <view class="nav-item {{currentTab == 0 ?'active':''}}" data-current="0" data-id="0"
-                bindtap="switchNav">全部</view> -->
             <block wx:for="{{navData}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
               <view class="nav-item {{currentTab == navItem.id ?'active':''}}" data-current="{{idx}}" data-id="{{navItem.id}}"
                 bindtap="switchNav">{{navItem.name}}</view>
             </block>
           </scroll-view>
+          <view class="gengduo"><image src="../../../icons/zuohua.png"  mode="scaleToFill"></image></view>
         </van-col>
         <van-col span="24" custom-class="box-box">
           <van-col span="22" offset="1" custom-class="box {{key==list.length-1?'box-key':''}}" data-status="{{it.apply_status}}" data-stop="{{it.stop}}" wx:for="{{list}}" wx:for-item="it" wx:for-index="key" wx:key="key"
@@ -128,24 +127,19 @@
                   <text>已报名</text>
                 </van-col>
               </van-col>
-             
             </van-col>
-            
           </van-col>
         </van-col>
       </van-row>
       <van-row wx:if="{{location==1}}">
         <van-col span="24" offset="" custom-class="Hot">
           <scroll-view scroll-x="true" class="navs" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
-            <!-- <block wx:for="{{navlist}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
-              <view class="nav-item {{currentTab == idx ?'active':''}}" data-current="{{idx}}" data-id="{{navItem.id}}"
-                bindtap="switchNav">{{navItem.name}}</view>
-            </block> -->
             <block wx:for="{{navlist}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
               <view class="nav-item {{currentTab == navItem.id ?'active':''}}" data-current="{{idx}}" data-id="{{navItem.id}}"
                 bindtap="switchNav">{{navItem.name}}</view>
             </block>
           </scroll-view>
+          <view class="gengduo"><image src="../../../icons/zuohua.png"  mode="scaleToFill"></image></view>
         </van-col>
         <van-col span="24" custom-class="box-box">
             <van-col span="22" offset="1" custom-class="box {{key==locationlist.length-1?'box-key':''}}" wx:if="{{locationlist.length>0}}" wx:for="{{locationlist}}" wx:for-item="it" data-status="{{it.apply_status}}" wx:for-index="key" wx:key="key" data-id="{{it.id}}" bindtap="details">

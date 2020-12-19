@@ -10,7 +10,7 @@
   <van-col span="10"custom-class="box-list-ul">
     <view class="tel">姓名</view>
     <view class="name">{{item.name}}</view>
-    <view class="desc">审批意见：{{item.admin_remark}}</view>
+    <view class="desc">审批意见：待处理</view>
   </van-col>
   <van-col span="8"custom-class="box-list-co">
     <view class="te">电话</view>

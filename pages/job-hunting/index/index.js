@@ -170,8 +170,8 @@ Page({
               let city = res.result.address_component.city;
               let city_code =res.result.ad_info.adcode;
               _this.setData({
-                province: province,
-                city: city,
+                province: '全国',
+                city: province,
                 // city_code:city_code
               });
             },
@@ -388,13 +388,13 @@ Page({
         province:province,
         city_code:currPage.__data__.cityNameTemp.id,
         pages:1,
-        // locationlist:[]
+        locationlist:[]
       })
       this.locationlabel(currPage.__data__.cityNameTemp.id);
     }
     this.setData({
       page:1,
-      // list:[]
+      list:[]
     })
     this.label();
   },

@@ -5578,7 +5578,12 @@ Page({
         //     ]
         // },
         hotCityData: [
-            {
+          {
+            "id": "0",
+            "name": "全国",
+            "fullname": "全国",
+        }, 
+          {
                 "id": "110000",
                 "name": "北京",
                 "fullname": "北京市",

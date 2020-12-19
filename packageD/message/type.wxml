@@ -9,52 +9,49 @@
   <!--内容主体-->
   <!-- 未处理 -->
   <van-col span="24"custom-class="box-box" wx:if="{{currentTab==0}}">
-    <van-col span="22"offset="1"custom-class="box-list">
+    <van-col span="22"offset="1"custom-class="box-list" wx:for="{{productList}}" wx:key="key" data-id="{{item.id}}" data-index="{{key}}" bindtap="read">
       <van-col span="24"custom-class="list-top">
-        <van-col span="12"custom-class="list-top-tie">申请通知</van-col>
-        <van-col span="12"custom-class="list-top-time">2020-12-1</van-col>
+        <van-col span="12"custom-class="list-top-tie" wx:if="{{item.mesype==2}}">出发通知</van-col>
+        <van-col span="12"custom-class="list-top-tie" wx:if="{{item.mesype==3}}">入职通知</van-col>
+        <van-col span="12"custom-class="list-top-tie" wx:if="{{item.mesype==4}}">离职通知</van-col>
+        <van-col span="12"custom-class="list-top-tie" wx:if="{{item.mesype==5}}">转厂通知</van-col>
+        <van-col span="12"custom-class="list-top-tie" wx:if="{{item.mesype==6}}">面试通知</van-col>
+        <van-col span="12"custom-class="list-top-time">{{item.indtae}}</van-col>
       </van-col>
-      <van-col span="24"custom-class="list-desc">业务专员邵亚梅申请跟踪客户刘豪，已同意该申请。</van-col>
+      <van-col span="24"custom-class="list-desc">{{item.details}}</van-col>
       <van-col span="24"custom-class="list-bts">
-        <view class="xiangxin">已通过</view>
-        <view class="xiangxin">已通过</view>
+        <view class="xiangxin">标记已读</view>
       </van-col>
     </van-col>
-    <van-col span="22"offset="1"custom-class="box-list">
-      <van-col span="24"custom-class="list-top">
-        <van-col span="12"custom-class="list-top-tie">申请通知</van-col>
-        <van-col span="12"custom-class="list-top-time">2020-12-1</van-col>
-      </van-col>
-      <van-col span="24"custom-class="list-desc">业务专员邵亚梅申请跟踪客户刘豪，已同意该申请。</van-col>
-      <van-col span="24"custom-class="list-bts">
-        <view class="xiangxin">已通过</view>
-        <view class="xiangxin">已通过</view>
-      </van-col>
-    </van-col>
+    <view wx:if="{{productList.length<=0}}" class="null" style="margin-top:40rpx">
+        <image src="../../icons/null.png"></image>
+    </view>
   </van-col>
   <!-- 已处理 -->
   <view class="product-container" wx:if="{{currentTab==1}}">
   <view class="product-list">
-    <view class="product-item" wx:if="{{productList.length>=1}}" wx:for="{{productList}}" wx:for-index="index" wx:key="{{item.j_id}}">
+    <view class="product-item" wx:if="{{productList.length>=1}}" wx:for="{{productList}}" wx:for-index="index" >
       <movable-area>
         <movable-view out-of-bounds="true" direction="horizontal" x="{{item.xmove}}" inertia="true" data-productIndex="{{index}}" bindtouchstart="handleTouchStart" bindtouchend="handleTouchEnd" bindchange="handleMovableChange">
           <van-col span="22"offset="1"custom-class="list">
             <van-col span="24"custom-class="list-top">
-              <van-col span="12"custom-class="list-top-tie">申请通知</van-col>
-              <van-col span="12"custom-class="list-top-time">2020-12-1</van-col>
+              <van-col span="12"custom-class="list-top-tie" wx:if="{{item.mesype==2}}">出发通知</van-col>
+              <van-col span="12"custom-class="list-top-tie" wx:if="{{item.mesype==3}}">入职通知</van-col>
+              <van-col span="12"custom-class="list-top-tie" wx:if="{{item.mesype==4}}">离职通知</van-col>
+              <van-col span="12"custom-class="list-top-tie" wx:if="{{item.mesype==5}}">转厂通知</van-col>
+              <van-col span="12"custom-class="list-top-tie" wx:if="{{item.mesype==6}}">面试通知</van-col>
+              <van-col span="12"custom-class="list-top-time">{{item.indtae}}</van-col>
             </van-col>
-            <van-col span="24"custom-class="list-desc">业务专员邵亚梅申请跟踪客户刘豪，已同意该申请。</van-col>
-            <van-col span="24"custom-class="list-bt"><view>已通过</view></van-col>
+            <van-col span="24"custom-class="list-desc">{{item.details}}</van-col>
           </van-col>
         </movable-view>
       </movable-area>
-      <view class="delete-btn" data-id="{{item.j_id}}" data-index="{{index}}" bindtap="handleDeleteProduct">
-        <text class="weidu">标记未读</text>
+      <view class="delete-btn" data-id="{{item.id}}" data-index="{{index}}" bindtap="handleDeleteProduct">
         <text class="shanchu">清除</text>
       </view>
     </view>
     <view wx:if="{{productList.length<=0}}" class="null">
-        <image src="../../../icons/null.png"></image>
+        <image src="../../icons/null.png"></image>
     </view>
   </view>
  </view>

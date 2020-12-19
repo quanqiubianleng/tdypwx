@@ -189,79 +189,6 @@ Page({
       show1:false
     })
   },
-  // async bindgetphonenumber (e){
-  //   let that =this;
-  //   let status = that.data.status;
-  //   if(status==1){
-  //     that.setData({
-  //       show:true
-  //     })
-  //     return;
-  //   }else{
-  //     let code = await new Promise((resolve) => {
-  //       wx.login({success: (res) => { if (res.code) resolve(res.code) } })});
-  //       code = await new Promise((resolve) => {
-  //       wx.login({ success: (res) => { if (res.code) resolve(res.code) } })
-  //     });
-  //     if(e.detail.errMsg=='getPhoneNumber:fail user deny'){
-  //       app.msg('获取手机号失败');
-  //       return;
-  //     }else{
-  //       var datad = {
-  //         iv: e.detail.iv,
-  //         encryptedData:e.detail. encryptedData,
-  //         code: code
-  //       };
-  //       let rendata = app.requestfun(datad, '/Api/login/GetPhoneNumber'); 
-  //       rendata.then((v)=>{
-  //         if(v.data.passdata!=''){
-  //           wx.setStorageSync('passdata',v.data.passdata);
-  //           wx.login({
-  //             success (res) {
-  //               let data ={
-  //                 code:res.code,
-  //                 passdata:v.data.passdata,
-  //                 billid:that.data.id,
-  //                 type:2
-  //               }
-  //               let rendata = app.requestfun(data, '/Api/Apply/index'); 
-  //               rendata.then((v)=>{
-  //                 if(v.data.status==1){
-  //                   wx.showModal({
-  //                     title: '提示',
-  //                     content: '报名成功',
-  //                     showCancel: false, 
-  //                     success: function (sm) {
-  //                       if (sm.confirm) {
-  //                         setTimeout(function() {
-  //                           wx.navigateBack();
-  //                          }, 1000);
-  //                       }
-  //                       }
-  //                     })
-  //                 }else{
-  //                   wx.showModal({
-  //                     title: '提示',
-  //                     content: '报名失败',
-  //                     showCancel: false, 
-  //                     success: function (sm) {
-  //                       if (sm.confirm) {
-  //                         setTimeout(function() {
-  //                           wx.navigateBack();
-  //                          }, 1000);
-  //                       }
-  //                       }
-  //                     })
-  //                 }     
-  //               })
-  //             }
-  //           })
-  //         }     
-  //       })
-  //     }
-  //   }
-   
-  // },
   bao:function(e){
   let that = this;
     wx.login({
@@ -399,7 +326,6 @@ Page({
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];
     if(currPage.__data__.type==1){
-      
       let openid= wx.getStorageSync('userinfo').openid;
       this.UserContext(openid);
     }
@@ -407,8 +333,8 @@ Page({
   },
   UserContext:function(openid){
     let data = {
-      openid:this.data.nopenid,
-      nopenid:openid
+      nopenid:this.data.nopenid,
+      openid:openid
     }
     let rendata = app.requestfun(data, '/Api/Nobill/UserContext',true);    
   },
