@@ -28,7 +28,9 @@ Page({
    let id = e.currentTarget.dataset.leavl;
     this.setData({
         page:0,
-        id:id
+        id:id,
+        userlist:[]
+      
      })
      this.getSubordinatelist();
 
@@ -48,6 +50,7 @@ Page({
           page:this.data.page+1
         })
       }else{
+        
         app.msg("已经到底了");
         return;
       }

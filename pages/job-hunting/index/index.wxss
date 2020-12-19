@@ -226,11 +226,26 @@ color: #666666;
   color: #333;
   background: #fff;
   box-shadow: 0px 4px 4px 0px #F2F9FE;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.quanguo{
+  width: 15%;
+  float: left;
+  padding-left: 15rpx;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.quanguo-xiala{
+  transform: translateY(8rpx);
 }
 .navs {
-  float: left;
   height: 80rpx;
-  width: 90%;
+  width: 75%;
   box-sizing: border-box;
   overflow: hidden;
   line-height: 80rpx;
@@ -245,7 +260,6 @@ color: #666666;
   }
 .nav-item {
   width:auto;
-  margin:0 15rpx ;
   padding: 0 10rpx;
   display: inline-block;
   text-align: center;

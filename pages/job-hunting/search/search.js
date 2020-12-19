@@ -44,12 +44,8 @@ Page({
         this.setData({
           page:this.data.page+1,
           locationlist:this.data.locationlist.concat(v.data.data),
-          Yes:1
         })
       }else{
-        this.setData({
-          Yes:0
-        })
         app.msg("已经到底了");
         return;
       }
@@ -70,6 +66,60 @@ Page({
     wx.navigateTo({
       url: '/pages/job-hunting/details/details?id='+id,
     })
+  },
+  bindconfirm:function(e){
+    let search = e.detail.value;
+    if(!search){
+      app.msg("请输入岗位/地区/公司名称");
+      return;
+    }
+    var datad = {
+      page:this.data.page,
+      keyworld:search
+    };
+    let rendata = app.requestfun(datad, '/Api/job/index',false);    
+    rendata.then((v) => {
+      if(v.data.status==1&&v.data.data){
+        this.setData({
+          page:this.data.page+1,
+          locationlist:this.data.locationlist.concat(v.data.data),
+          search:search
+        })
+      }else{
+        this.setData({
+          search:search
+        })
+        app.msg("已经到底了");
+        return;
+      }
+    }) 
+  },
+  bindinput:function(e){
+    let search = e.detail.value;
+    if(!search){
+      app.msg("请输入岗位/地区/公司名称");
+      return;
+    }
+    var datad = {
+      page:this.data.page,
+      keyworld:search
+    };
+    let rendata = app.requestfun(datad, '/Api/job/index',false);    
+    rendata.then((v) => {
+      if(v.data.status==1&&v.data.data){
+        this.setData({
+          page:this.data.page+1,
+          locationlist:this.data.locationlist.concat(v.data.data),
+          search:search
+        })
+      }else{
+        this.setData({
+          search:search
+        })
+        app.msg("已经到底了");
+        return;
+      }
+    }) 
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

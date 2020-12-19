@@ -4,8 +4,8 @@
     <van-col span="24" custom-class="search-box">
       <van-col span="22" offset="1" custom-class="search">
         <van-col span="19" offset="1" custom-class="search-input"><input placeholder="岗位/地区/公司名称" bindblur="search"
-            focus="true" bindconfirm="searchlist"  confirm-type="search"/></van-col>
-        <van-col span="2" offset='1' custom-class="search-inc" bindtap="gosearch">
+             bindconfirm="bindconfirm" bindinput="bindinput" confirm-type="search"/></van-col>
+        <van-col span="2" offset='1' custom-class="search-inc" bindtap="gosearch" >
           <image src="/icons/search.png"></image>
         </van-col>
       </van-col>
@@ -19,7 +19,8 @@
             <van-col span="6" custom-class="box-img">
               <image src="{{it.headimg}}" mode="scaleToFill" class="image" ></image>
               <image src="../../../icons/hot.png" class="hot" mode="scaleToFill" wx:if="{{it.is_recommend==10}}"></image>
-              <image src="../../../icons/stop.png" class="stop"  wx:if="{{it.stop==0}}"></image>
+                <image src="../../../icons/youqi.png" class="hot" mode="scaleToFill" wx:if="{{it.is_recommend==20}}"></image>
+                <image src="../../../icons/stop.png" class="stop"  wx:if="{{it.stop==0}}"></image>
             </van-col>
             <van-col span="17" offset="1" custom-class="box-bill">
               <van-col span="24" custom-class="box-bill-name">
@@ -34,20 +35,17 @@
                 </van-col>
               </van-col>
               <van-col span="24" custom-class="tags">
-                <van-col span="20" custom-class="tags-box">
+                <van-col span="18" custom-class="tags-box">
                   <van-tag custom-class="tags-list" wx:for="{{it.label_name}}" wx:key="key" max-count="3" plain
                     color="#3B67B1" size="8rpx" text-color="#3B67B1">{{item.name}}</van-tag>
                 </van-col>
+                <van-col span="6"custom-class="yibaoming" wx:if="{{it.apply_status==1}}">
+                 <text>已报名</text>
+                </van-col>
               </van-col>
-              <image src="../../../icons/sign.png" mode="scaleToFill" class="sign"></image>
             </van-col>
             
           </van-col>
         </van-col>
-  </van-col>
-  
-  <van-col span="24" custom-class="null" wx:if="{{Yes==0}}">
-    <image src="/icons/null-3.png"></image>
-    <view>暂无岗位~</view>
   </van-col>
 </van-row>

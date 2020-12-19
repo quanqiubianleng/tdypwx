@@ -10,7 +10,7 @@ Page({
    */
   data: {
     city: '定位中',
-    province:'定位中',
+    province:'全国',
     currentCity: '',
     banner:[],
     current: 0,
@@ -104,16 +104,18 @@ Page({
     rendata.then((v) => {
       if(v.data.status==1&&v.data.data){
         let list = v.data.data;
-        let label ={
-          "id":0,
-          "name":'全部',
-          "orderid":'',
-          "indate": "1590570012"
-        }
-        list.unshift(label);
         let id = list[0].id;
+        // let label ={
+        //   "id":0,
+        //   "name":'全部',
+        //   "orderid":'',
+        //   "indate": "1590570012"
+        // }
+        // list.unshift(label);
+        // let id = list[0].id;
         this.setData({
-          navData:list
+          navData:list,
+          id:id,
         })
         this.index(id);
       }else{
@@ -171,7 +173,7 @@ Page({
               let city_code =res.result.ad_info.adcode;
               _this.setData({
                 province: '全国',
-                city: province,
+                city: city,
                 // city_code:city_code
               });
             },
@@ -238,34 +240,26 @@ Page({
   switchNav(event){
     let id = event.currentTarget.dataset.id;
     var cur = event.currentTarget.dataset.current; 
-    //每个tab选项宽度占1/5
-    var singleNavWidth = this.data.windowWidth / 5;
-    //tab选项居中                            
-    this.setData({
+   
+    if(this.data.location==0){
+      this.setData({
+        list:[],
+        page:1,
+        currentTab: event.currentTarget.dataset.current,
         id:id,
-        navScrollLeft: (cur - 2) * singleNavWidth
-    })
-    console.log(id)  
-    if (this.data.currentTab == id) {
-        return false;
-    } else {
-        if(this.data.location==0){
-          this.setData({
-            list:[],
-            page:1,
-            currentTab: event.currentTarget.dataset.id
-          })
-          this.index(id);
-        }
-       if(this.data.location==1){
-        this.setData({
-          locationlist:[],
-          pages:1,
-          currentTab: event.currentTarget.dataset.id
-        })
-        this.location(id,this.data.city_code)
-       }
+      })
+      this.index(id);
     }
+    if(this.data.location==1){
+    this.setData({
+      locationlist:[],
+      pages:1,
+      currentTab: event.currentTarget.dataset.current,
+      id:id,
+    })
+    this.location(id,this.data.city_code)
+    }
+    
     console.log(this.data.currentTab)
    
 },
@@ -282,15 +276,9 @@ Page({
     rendata.then((v) => {
       if(v.data.status==1&&v.data.data){
         let list = v.data.data;
-        let label ={
-          "id":0,
-          "name":'全部',
-          "orderid":'',
-          "indate": "1590570012"
-        }
-        list.unshift(label);
         let id = list[0].id;
         this.setData({
+          id:id,
           navlist:list
         })
         this.location(id,city_code);
@@ -383,20 +371,25 @@ Page({
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];
     if(currPage.__data__.cityNameTemp){
+
       let province = currPage.__data__.cityNameTemp.fullname;
       this.setData({
         province:province,
         city_code:currPage.__data__.cityNameTemp.id,
         pages:1,
-        locationlist:[]
+        locationlist:[],
+        currentTab:0
       })
       this.locationlabel(currPage.__data__.cityNameTemp.id);
+    }else{
+      this.setData({
+        page:1,
+        list:[],
+        currentTab:0
+      })
+      this.label();
     }
-    this.setData({
-      page:1,
-      list:[]
-    })
-    this.label();
+   
   },
 
   /**
@@ -430,10 +423,10 @@ Page({
       title: '玩命加载中',
       duration: 1000
     })
-    let currentTab = this.data.currentTab;
+    let currentTab = this.data.id;
    
     let city_code = this.data.city_code;
-    
+    console.log(currentTab)
     if(city_code){
       this.location(currentTab,city_code);
     }else{
