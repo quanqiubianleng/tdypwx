@@ -15,6 +15,7 @@ Page({
     msgList: [],// 消息记录
     j_id: 0,// 接收id
     msg: '',
+    page: 1,
   },
 
   /**
@@ -33,12 +34,28 @@ Page({
       j_id: data.j_id,
       new_type: data.type,
     })
+    self.getMsgRecord(data);
     // 改变页面标题
     wx.setNavigationBarTitle({
       title: data.title 
     })
 
     this.receiveMsg();
+  },
+
+  // 获取消息记录
+  getMsgRecord: function(data){
+    let f_msg = {
+      type: 'getMsgRecord',
+      params: {
+        type: data.type,
+        f_id: 'user_' + app.globalData.userInfo.id,
+        j_id: data.j_id,
+        mtype: this.data.new_type,
+        page: this.data.page,
+      }
+    }
+    app.sendSocketMessage(f_msg);
   },
 
   // 接收消息
