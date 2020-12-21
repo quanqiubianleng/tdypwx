@@ -65,6 +65,13 @@ function getMsg(res,that){
       arr.unshift(data)
       that.globalData.user_kefu_msg = arr
       break;
+    // 与部门的聊天记录
+    case 'setion':
+      console.log('公共方法，与部门的聊天记录')
+      
+      that.globalData.msg_count = that.globalData.msg_count + 1
+      updateCategory(1, that.globalData.msg_count+'')
+      break;
   }
 }
 

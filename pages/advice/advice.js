@@ -87,15 +87,11 @@ Page({
             item.create_time = chat.showTime(item.create_time)
             arr2[arr.length-index-1] = item
           })
-          console.log('工具')
-          console.log(arr2)
           self.setData({
             msgList: arr2
           })
         }
       }else if(data.type == "setion"){
-        console.log('接收消息setion')
-        console.log(data)
         data.create_time = chat.showTime(data.create_time)
         let arr2 = self.data.msgList
         arr2.push(data)
@@ -175,6 +171,7 @@ Page({
   scrollPage: function (){
     setTimeout(function() {
       wx.createSelectorQuery().select('.cu-chat').boundingClientRect(function (rect) {
+        console.log(rect)
         // 使页面滚动到底部
         wx.pageScrollTo({
             scrollTop: rect.bottom  + 5000

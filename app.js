@@ -202,6 +202,7 @@ App({
   initEventHandle() {
     var that = this
     wx.onSocketMessage((res) => {
+      console.log(11111)
       // 不同类型的消息
       chat.getMsg(res.data,that)
     })
