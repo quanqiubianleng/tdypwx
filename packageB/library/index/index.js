@@ -46,7 +46,7 @@ Page({
     rendata.then((v)=>{
       if(v.data.status==1&&v.data.linkuser){
         this.setData({
-          userlist:v.data.linkuser,
+          userlist:this.data.userlist.concat(v.data.linkuser),
           page:this.data.page+1
         })
       }else{
@@ -72,7 +72,7 @@ Page({
           })
         }else{
           that.setData({
-            userlist:v.data.linkuser,
+            userlist:that.data.userlist.concat(v.data.linkuser),
             count:v.data.count,
             count1:v.data.count1,
             count2:v.data.count2,
