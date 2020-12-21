@@ -42,7 +42,6 @@ Page({
     rendata.then((v) => {
       if(v.data.status==1&&v.data.data){
         this.setData({
-         
           locationlist:this.data.locationlist.concat(v.data.data),
         })
       }else{
@@ -81,7 +80,6 @@ Page({
     rendata.then((v) => {
       if(v.data.status==1&&v.data.data){
         this.setData({
-        
           locationlist:this.data.locationlist.concat(v.data.data),
           search:search
         })
@@ -108,7 +106,6 @@ Page({
     rendata.then((v) => {
       if(v.data.status==1&&v.data.data){
         this.setData({
-         
           locationlist:this.data.locationlist.concat(v.data.data),
           search:search
         })
@@ -160,7 +157,14 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    wx.showLoading({
+      title: '玩命加载中',
+      duration: 1000
+    })
+    this.setData({
+      page:this.data.page+1
+    })
+      this.gosearch();
   },
 
   /**
