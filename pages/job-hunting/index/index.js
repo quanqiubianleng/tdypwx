@@ -12,6 +12,7 @@ Page({
     city: '定位中',
     province:'全国',
     currentCity: '',
+    city_code:'',
     banner:[],
     current: 0,
     currentTab: 0,
@@ -72,7 +73,8 @@ Page({
   index:function(e){
       var datad = {
         page:this.data.page,
-        label:e
+        label:e,
+        city_code:this.data.city_code
       };
       let rendata = app.requestfun(datad, '/Api/job/index',false);    
       rendata.then((v) => {
@@ -104,15 +106,15 @@ Page({
     rendata.then((v) => {
       if(v.data.status==1&&v.data.data){
         let list = v.data.data;
-        let id = list[0].id;
-        // let label ={
-        //   "id":0,
-        //   "name":'全部',
-        //   "orderid":'',
-        //   "indate": "1590570012"
-        // }
-        // list.unshift(label);
         // let id = list[0].id;
+        let label ={
+          "id":0,
+          "name":'全部',
+          "orderid":'',
+          "indate": "1590570012"
+        }
+        list.unshift(label);
+        let id = list[0].id;
         this.setData({
           navData:list,
           id:id,
@@ -193,7 +195,7 @@ Page({
       url: '/pages/job-hunting/city/city?currentCity=' + this.data.province,
     })
     this.setData({
-      locationlist:[],
+      list:[],
       pages:1,
     })
   },
@@ -245,23 +247,20 @@ Page({
       this.setData({
         list:[],
         page:1,
-        currentTab: event.currentTarget.dataset.current,
+        currentTab: event.currentTarget.dataset.id,
         id:id,
       })
       this.index(id);
     }
-    if(this.data.location==1){
-    this.setData({
-      locationlist:[],
-      pages:1,
-      currentTab: event.currentTarget.dataset.current,
-      id:id,
-    })
-    this.location(id,this.data.city_code)
-    }
-    
-    console.log(this.data.currentTab)
-   
+    // if(this.data.location==1){
+    // this.setData({
+    //   locationlist:[],
+    //   pages:1,
+    //   currentTab: event.currentTarget.dataset.current,
+    //   id:id,
+    // })
+    // this.location(id,this.data.city_code)
+    // }
 },
   tel:function(e){
     let mobile ='400-899-8877' ;
@@ -269,60 +268,60 @@ Page({
       phoneNumber: mobile
     })
   },
-  locationlabel:function(code){
-    let city_code = code;
-    var datad = {};
-    let rendata = app.requestfun(datad, '/Api/job/label',false);    
-    rendata.then((v) => {
-      if(v.data.status==1&&v.data.data){
-        let list = v.data.data;
-        let id = list[0].id;
-        this.setData({
-          id:id,
-          navlist:list
-        })
-        this.location(id,city_code);
-      }else{
-        app.msg("暂无标题");
-        return;
-      }
-    }) 
-  },
-  location:function(l_id,code){
-    var datad = {
-      page:this.data.pages,
-      label:l_id,
-      city_code:code
-    };
-    let rendata = app.requestfun(datad, '/Api/job/index',false);    
-    rendata.then((v) => {
-      console.log(v.data.data);
-      if(v.data.status&&v.data.data){
-        if(this.data.location.length>1){
+  // locationlabel:function(code){
+  //   let city_code = code;
+  //   var datad = {};
+  //   let rendata = app.requestfun(datad, '/Api/job/label',false);    
+  //   rendata.then((v) => {
+  //     if(v.data.status==1&&v.data.data){
+  //       let list = v.data.data;
+  //       let id = list[0].id;
+  //       this.setData({
+  //         id:id,
+  //         navlist:list
+  //       })
+  //       this.location(id,city_code);
+  //     }else{
+  //       app.msg("暂无标题");
+  //       return;
+  //     }
+  //   }) 
+  // },
+  // location:function(l_id,code){
+  //   var datad = {
+  //     page:this.data.pages,
+  //     label:l_id,
+  //     city_code:code
+  //   };
+  //   let rendata = app.requestfun(datad, '/Api/job/index',false);    
+  //   rendata.then((v) => {
+  //     console.log(v.data.data);
+  //     if(v.data.status&&v.data.data){
+  //       if(this.data.location.length>1){
 
-          this.setData({
-            locationlist:this.data.location.concat(v.data.data),
-            pages:this.data.pages+1,
-            location:1
-          })
-        }else{
-          this.setData({
-            locationlist:v.data.data,
-            pages:this.data.pages+1,
-            location:1
-          })
-        }
+  //         this.setData({
+  //           locationlist:this.data.location.concat(v.data.data),
+  //           pages:this.data.pages+1,
+  //           location:1
+  //         })
+  //       }else{
+  //         this.setData({
+  //           locationlist:v.data.data,
+  //           pages:this.data.pages+1,
+  //           location:1
+  //         })
+  //       }
         
-      }
-      else{
-        this.setData({
-          location:1
-        })
-        app.msg("已经到底了");
-        return;
-      }
-    }) 
-  },
+  //     }
+  //     else{
+  //       this.setData({
+  //         location:1
+  //       })
+  //       app.msg("已经到底了");
+  //       return;
+  //     }
+  //   }) 
+  // },
 
   gosearch:function(e){
    wx.navigateTo({
@@ -376,20 +375,13 @@ Page({
       this.setData({
         province:province,
         city_code:currPage.__data__.cityNameTemp.id,
-        pages:1,
-        locationlist:[],
-        currentTab:0
-      })
-      this.locationlabel(currPage.__data__.cityNameTemp.id);
-    }else{
-      this.setData({
         page:1,
         list:[],
         currentTab:0
       })
-      this.label();
+     
     }
-   
+    this.label();
   },
 
   /**
@@ -424,15 +416,8 @@ Page({
       duration: 1000
     })
     let currentTab = this.data.id;
-   
     let city_code = this.data.city_code;
-    console.log(currentTab)
-    if(city_code){
-      this.location(currentTab,city_code);
-    }else{
       this.index(currentTab);
-    }
-   
   },
   /**
    * 用户点击右上角分享
