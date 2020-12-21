@@ -6,7 +6,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    index:1
+    index:1,
+    userlist:[],
+    urls:{
+      
+    }
   },
 
   /**
@@ -24,6 +28,8 @@ Page({
      if(v.data.status==1){
        this.setData({
           userlist:v.data.data,
+          img1:v.data.data.positive_img,
+          img2:v.data.data.side_img,
           id:id,
           index:index,
           name:v.data.data.admin_data.username
@@ -53,6 +59,7 @@ Page({
     rendata.then((v)=>{
      console.log(v);
      if(v.data.status==1){
+       app.msg("提交成功");
       let pages = getCurrentPages(); //获取当前页面js里面的pages里的所有信息。
       let prevPage = pages[ pages.length - 2 ];  
       prevPage.setData({  // 将我们想要传递的参数在这里直接setData。上个页面就会执行这里的操作。
@@ -63,6 +70,14 @@ Page({
       })
      }
     })
+  },
+  previewImage:function(e){
+  let  url = e.currentTarget.dataset.url;
+  let urls = [this.data.img1,this.data.img2]
+  wx.previewImage({
+    current: url, // 当前显示图片的http链接  
+    urls:urls
+  })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

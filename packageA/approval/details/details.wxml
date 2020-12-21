@@ -20,8 +20,8 @@
     <view class="id-name">身<text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>份<text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>证</view>
   </van-col>
   <van-col span="24"custom-class="name">
-    <van-col span="12"custom-class="name-img"><image src="{{userlist.positive_img}}"></image></van-col>
-    <van-col span="12"custom-class="name-img"><image src="{{userlist.side_img}}"></image></van-col>
+    <van-col span="12"custom-class="name-img"><image src="{{userlist.positive_img}}" data-url="{{userlist.positive_img}}" bindtap="previewImage"></image></van-col>
+    <van-col span="12"custom-class="name-img"><image src="{{userlist.side_img}}" data-url="{{userlist.side_img}}" bindtap="previewImage"></image></van-col>
   </van-col>
 </van-col>
 <van-col span="22" offset="1" custom-class="tle">审批处理</van-col>
