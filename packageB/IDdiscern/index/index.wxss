@@ -1,6 +1,7 @@
 /* packageB/IDdiscern/index/index.wxss */
 page{
   background: #F5F5F5;
+  
 }
 .ID{
   font-size: 36rpx;

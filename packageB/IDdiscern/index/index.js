@@ -96,21 +96,40 @@ Page({
     })
   },
   addPartner:function(e){
+    console.log(1111);
     let that = this;
     let type = e.currentTarget.dataset.type;
   
     let index = e.currentTarget.dataset.index;
     let status = that.data.status;
     let Valuable = that.data.Valuable;
-    let Tips1 = "你已申请";
-    let Tips2 = that.data.list[index].name;
-    let Tips3 = ",是否确认更换";
-    let Tips = Tips1+Tips2+Tips3;
+    console.log(status,Valuable)
     if(type==Valuable){
       app.msg("你已申请，无需重复申请！");
        return;
     }
     if(status&&Valuable){
+      let Tips1 = "你已申请";
+      let Tips2 = that.data.list[index].name;
+      let Tips3 = ",是否确认更换";
+      let Tips = Tips1+Tips2+Tips3;
+      wx.showModal({
+        title: '提示',
+        content: Tips,
+        success: function (sm) {
+          if (sm.confirm) {
+            that.setData({
+              frame:true,
+              type:type,
+              inx:index
+            })
+          }
+          }
+      })
+    }else{
+      let Tips1 = "你是否确定申请";
+      let Tips2 = that.data.list[index].name;
+      let Tips = Tips1+Tips2;
       wx.showModal({
         title: '提示',
         content: Tips,

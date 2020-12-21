@@ -51,7 +51,6 @@ Page({
     let remark = this.data.remark;
     let datad={
       id:this.data.id,
-      // id:6,
       remark:this.data.remark,
       status:this.data.index
     }

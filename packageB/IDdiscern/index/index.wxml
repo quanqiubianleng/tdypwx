@@ -2,19 +2,20 @@
 <view wx:if="{{show==false}}">
 <van-col span="22" offset="1" custom-class="ID">合作申请</van-col>
 <van-col span="22" offset="1" custom-class="ID-desc">合作伙伴需提请申请，经平台认证同意后，即可加入我们。</van-col>
-<van-col span="22" offset="1" custom-class="card" wx:for="{{list}}" wx:key="key" wx:for-index="key">
-  <van-col span="22"offset="1"custom-class="card-top">
-    <text class="card-top-desc">{{item.name}}</text>
-    <text class="card-top-bt" data-status="{{item.status}}" data-index="{{key}}" data-type="{{item.type}}" bindtap="addPartner">申请</text>
-    
-    <text class="card-bottom" wx:if="{{item.status==3}}">提交申请，待后台验证</text>
-    <text class="card-bottoms" wx:if="{{item.status==0}}">审核中</text>
-    <text class="card-bottomss" wx:if="{{item.status==1}}">审核已通过</text>
-    <text class="card-bottomsss" wx:if="{{item.status==2}}">未通过<text style="font-size: 20rpx;color:#666666">（可联系客服咨询详情）</text></text>
+<van-col span="24" style="padding-bottom: 50rpx;">
+  <van-col span="22" offset="1" custom-class="card" wx:for="{{list}}" wx:key="key" wx:for-index="key" data-status="{{item.status}}" data-index="{{key}}" data-type="{{item.type}}" bindtap="addPartner">
+    <van-col span="22"offset="1"custom-class="card-top">
+      <text class="card-top-desc">{{item.name}}</text>
+      <text class="card-top-bt">申请</text>
+      <text class="card-bottom" wx:if="{{item.status==3}}">未申请</text>
+      <text class="card-bottoms" wx:if="{{item.status==0}}">审核中</text>
+      <text class="card-bottomss" wx:if="{{item.status==1}}">审核已通过</text>
+      <text class="card-bottomsss" wx:if="{{item.status==2}}">未通过<text style="font-size: 20rpx;color:#666666">（可联系客服咨询详情）</text></text>
+    </van-col>
+    <van-col span="22"offset="1"custom-class="desc">{{item.desc}}</van-col>
   </van-col>
-  <van-col span="22"offset="1"custom-class="desc">{{item.desc}}</van-col>
-  
 </van-col>
+
 </view>
 <van-popup show="{{show}}" position="center"  custom-style="height:550rpx;width:550rpx;" custom-class="{{status==1?'popup ':'popups'}}">
   <block wx:if="{{status==1}}">
@@ -47,7 +48,11 @@
    </block>
 </van-popup>
 <van-popup show="{{frame}}" position="center"  custom-style="height:650rpx;width:550rpx;" custom-class="frame">
-  <van-col span="24"custom-class="frame-name">申请社会合伙人需完善以下资料</van-col>
+  <van-col span="24"custom-class="frame-name" wx:if="{{type==12}}">申请社会合伙人需完善以下资料</van-col>
+  <van-col span="24"custom-class="frame-name" wx:if="{{type==14}}">申请在职推荐人需完善以下资料</van-col>
+  <van-col span="24"custom-class="frame-name" wx:if="{{type==15}}">申请校园代理需完善以下资料</van-col>
+  <van-col span="24"custom-class="frame-name" wx:if="{{type==16}}">申请渠道运营商需完善以下资料</van-col>
+  <van-col span="24"custom-class="frame-name" wx:if="{{type==17}}">申请站长合伙人需完善以下资料</van-col>
   <van-col span="24"custom-class="frame-list">
     <van-col span="6"custom-class="frame-list-l">姓<text decode="{{true}}"space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>名</van-col>
     <van-col span="18"custom-class="frame-list-r"><input class="{{roll==1?'roll':'input'}}" placeholder="请输入" value="{{name}}" bindblur="name"/></van-col>

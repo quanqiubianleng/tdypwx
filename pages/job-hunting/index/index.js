@@ -379,9 +379,17 @@ Page({
         list:[],
         currentTab:0
       })
-     
+
+      this.label();
+    }else{
+      this.setData({
+        page:1,
+        list:[],
+        currentTab:0
+      })
+      this.label();
     }
-    this.label();
+   
   },
 
   /**
