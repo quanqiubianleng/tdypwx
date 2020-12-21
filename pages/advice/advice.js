@@ -172,10 +172,12 @@ Page({
     setTimeout(function() {
       wx.createSelectorQuery().select('.cu-chat').boundingClientRect(function (rect) {
         console.log(rect)
-        // 使页面滚动到底部
-        wx.pageScrollTo({
+        if(rect != null){
+          // 使页面滚动到底部
+          wx.pageScrollTo({
             scrollTop: rect.bottom  + 5000
-        })
+          })
+        }
       }).exec()
     }, 500);
     

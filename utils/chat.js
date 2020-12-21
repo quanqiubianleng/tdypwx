@@ -71,6 +71,21 @@ function getMsg(res,that){
       
       that.globalData.msg_count = that.globalData.msg_count + 1
       updateCategory(1, that.globalData.msg_count+'')
+      playVoice()
+      wx.showModal({
+        title: '提示',
+        content: '您有新的部门消息，是否前往查看！',
+        success (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+            wx.navigateTo({
+              url: '/pages/jurisdiction/setion/index',
+            })
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
       break;
   }
 }
@@ -128,6 +143,30 @@ function showTime(time) {
 	);
 }
 
+// 播放消息提示音
+function playVoice(){
+  const innerAudioContext = wx.createInnerAudioContext()
+  innerAudioContext.autoplay = true
+  innerAudioContext.src = 'https://tdyp1.tiandainfo.com/13637.wav'
+  innerAudioContext.onPlay(() => {
+    console.log('开始播放')
+  })
+  innerAudioContext.onError((res) => {
+    console.log(res.errMsg)
+    console.log(res.errCode)
+  })
+
+  // 震动
+  wx.vibrateLong({
+    success:function(){
+      console.log("vibrate success");
+    },
+    fail:function(){
+      console.log("vibrate fail");
+    }
+  })
+}
+
 
 module.exports = {
   getStorages: getStorages,
@@ -137,4 +176,5 @@ module.exports = {
   updateCategory: updateCategory,
   showTime: showTime,
   descArr: descArr,
+  playVoice: playVoice,
 }
