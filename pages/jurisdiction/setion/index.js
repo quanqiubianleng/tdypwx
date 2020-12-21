@@ -68,6 +68,8 @@ Page({
   },
   // 聊天详情
   advice:function(e){
+    console.log(e);
+    return false;
     let admin_info = e.currentTarget.dataset.item
     let arr = {
       type: 'setion',

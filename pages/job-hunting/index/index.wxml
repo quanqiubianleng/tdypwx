@@ -113,7 +113,7 @@
             <van-col span="17" offset="1" custom-class="box-bill">
               <van-col span="24" custom-class="box-bill-name">
                 <van-col span="12" custom-class="name">{{it.title}}</van-col>
-                <van-col span='11' offset="1" custom-class="num" wx:if="{{it.averagewage&&it.emolumentr}}">
+                <van-col span='11' offset="1" custom-class="num" wx:if="{{it.emolumentl&&it.emolumentr}}">
                   {{it.emolumentl}}-{{it.emolumentr}}元/月</van-col>
               </van-col>
               <van-col span="24" custom-class="box-bill-type">

@@ -42,7 +42,7 @@ Page({
     rendata.then((v) => {
       if(v.data.status==1&&v.data.data){
         this.setData({
-          page:this.data.page+1,
+         
           locationlist:this.data.locationlist.concat(v.data.data),
         })
       }else{
@@ -81,7 +81,7 @@ Page({
     rendata.then((v) => {
       if(v.data.status==1&&v.data.data){
         this.setData({
-          page:this.data.page+1,
+        
           locationlist:this.data.locationlist.concat(v.data.data),
           search:search
         })
@@ -108,7 +108,7 @@ Page({
     rendata.then((v) => {
       if(v.data.status==1&&v.data.data){
         this.setData({
-          page:this.data.page+1,
+         
           locationlist:this.data.locationlist.concat(v.data.data),
           search:search
         })

@@ -27,7 +27,7 @@ Page({
     var self = this
     console.log(app.globalData.userInfo)
     this.setData({
-      msgList: self.forData(),
+      //msgList: self.forData(),
       uid: 'user_' + app.globalData.userInfo.id,
       user_info: app.globalData.userInfo,
       j_id: data.j_id,
