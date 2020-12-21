@@ -16,6 +16,7 @@ Page({
     j_id: 0,// 接收id
     msg: '',
     page: 1,
+    d_headimgurl: '',
   },
 
   /**
@@ -23,7 +24,6 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
-    
     var data = JSON.parse(options.data)
     var self = this
     console.log(app.globalData.userInfo)
@@ -33,13 +33,13 @@ Page({
       user_info: app.globalData.userInfo,
       j_id: data.j_id,
       new_type: data.type,
+      d_headimgurl: data.headimgurl,
     })
     self.getMsgRecord(data);
     // 改变页面标题
     wx.setNavigationBarTitle({
       title: data.title 
     })
-
     this.receiveMsg();
   },
 
@@ -63,8 +63,9 @@ Page({
     var self = this
     wx.onSocketMessage((res) => {
       let data = JSON.parse(res.data);
+      console.log('接收消息')
+      console.log(data)
       if (data.type == "kefu") {
-
         // 赋值给全局消息变量
         var arr = app.globalData.user_kefu_msg
         arr.unshift(data)
@@ -77,8 +78,32 @@ Page({
         self.setData({
           msgList: arr2
         })
-        self.scrollPage()
+        
+      }else if(data.type == "getMsgRecord"){
+        var arr = data.data.data;
+        if(arr.length > 0){
+          var arr2 = [];
+          arr.forEach((item, index)=>{
+            item.create_time = chat.showTime(item.create_time)
+            arr2[arr.length-index-1] = item
+          })
+          console.log('工具')
+          console.log(arr2)
+          self.setData({
+            msgList: arr2
+          })
+        }
+      }else if(data.type == "setion"){
+        console.log('接收消息setion')
+        console.log(data)
+        data.create_time = chat.showTime(data.create_time)
+        let arr2 = self.data.msgList
+        arr2.push(data)
+        self.setData({
+          msgList: arr2
+        })
       }
+      self.scrollPage()
     })
   },
   // 转换时间
@@ -135,16 +160,12 @@ Page({
         var rendata = app.uploadFile(tempFilePaths[0]); 
         rendata.then((v) => {
           var imgurl = v.data
-          imgurl = imgurl.split("\\").join("");
-          var index = imgurl.lastIndexOf('"data":"');
-          var index2 = imgurl.lastIndexOf('"}');
-          var img_url = imgurl.substring(index+8,index2);
           self.setData({
-            msg: app.globalData.imgUrl + img_url,
+            msg: app.globalData.imgUrl + imgurl,
             type: 'img',
           })
           self.sendMessage()
-          self.onLoad()
+          self.receiveMsg()
         });
       }
     })

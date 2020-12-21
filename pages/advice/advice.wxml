@@ -15,7 +15,7 @@
       <!-- 聊天对象 -->
       <view wx:else class="cu-item">
         <view class="cu-avatar radius"
-          style="background-image:url({{item.kefu_img}});"></view>
+          style="background-image:url({{d_headimgurl}});"></view>
         <view class="main">
           <view wx:if="{{item.msg_type == 1}}" class="content shadow"><rich-text nodes="{{item.content}}"></rich-text></view>
           <image wx:elif="{{item.msg_type == 2}}" class="radius" src="{{item.content}}" mode="widthFix" data-img="{{item.content}}" bindtap="previewImg"></image>

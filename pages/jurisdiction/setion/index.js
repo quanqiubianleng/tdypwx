@@ -74,6 +74,7 @@ Page({
       type: 'setion',
       j_id: 'user_'+admin_info.userid,
       title: admin_info.username,
+      headimgurl: admin_info.headimgurl,
     }
     wx.navigateTo({
       url: '/pages/advice/advice?data='+ JSON.stringify(arr),
