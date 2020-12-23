@@ -219,8 +219,8 @@ Page({
     }
   },
   hideviews:function(e){
-    wx.navigateTo({
-      url: '/packageB/wallet/index/index',
+    wx.navigateBack({
+      data:1
     })
   },
   /**

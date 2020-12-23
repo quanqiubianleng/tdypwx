@@ -63,7 +63,7 @@ Page({
     rendata.then((v)=>{
       console.log(v);
       if(v.data.status==1){
-        if(typeof(v.data.linkuser)=='null'){
+        if(v.data.linkuser==null){
           that.setData({
             count:v.data.count,
             count1:v.data.count1,

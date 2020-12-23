@@ -105,10 +105,18 @@ Page({
     let rendata = app.requestfun(datad, '/Api/job/index',false);    
     rendata.then((v) => {
       if(v.data.status==1&&v.data.data){
-        this.setData({
-          locationlist:this.data.locationlist.concat(v.data.data),
-          search:search
-        })
+        if(this.data.page<2){
+          this.setData({
+            locationlist:v.data.data,
+            search:search
+          })
+        }
+        if(this.data.page>=2){
+          this.setData({
+            locationlist:this.data.locationlist.concat(v.data.data),
+            search:search
+          })
+        }
       }else{
         this.setData({
           search:search

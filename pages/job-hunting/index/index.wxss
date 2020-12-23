@@ -340,7 +340,7 @@ color: #666666;
 }
 .box-img .stop{
   position: absolute;
-  top:10rpx;
+  top:6rpx;
   left: 10rpx;
   width: 160rpx;
   height: 120rpx;
