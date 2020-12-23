@@ -1,5 +1,6 @@
 // packageB/IDdiscern/index/index.js
 const app = getApp();
+var tcity = require("../../utils/citys.js");
 Page({
 
   /**
@@ -39,7 +40,17 @@ Page({
     ],
     status:'',
     show:false,
-    frame:false
+    frame:false,
+
+    provinces: [],
+    province: "",
+    citys: [],
+    city: "",
+    countys: [],
+    county: '',
+    value: [0, 0, 0],
+    values: [0, 0, 0],
+    condition: false
   },
 
   /**
@@ -77,7 +88,117 @@ Page({
      }
      
     }
-   
+   this.cityData()
+  },
+  cityData:function(){
+    var that = this;
+    tcity.init(that);
+    var cityData = that.data.cityData;
+    const provinces = [];
+    const citys = [];
+    const countys = [];
+
+    for(let i=0;i<cityData.length;i++){
+      provinces.push(cityData[i].name);
+    }
+    console.log('省份完成');
+    for (let i = 0 ; i < cityData[0].sub.length; i++) {
+      citys.push(cityData[0].sub[i].name)
+    }
+    console.log('city完成');
+    for (let i = 0 ; i < cityData[0].sub[0].sub.length; i++) {
+      countys.push(cityData[0].sub[0].sub[i].name)
+    }
+
+    that.setData({
+      'provinces': provinces,
+      'citys':citys,
+      'countys':countys,
+      // 'province':cityData[0].name,
+      // 'city':cityData[0].sub[0].name,
+      // 'county':cityData[0].sub[0].sub[0].name
+    })
+    console.log('初始化完成');
+
+  },
+  bindChange: function(e) {
+    //console.log(e);
+    var val = e.detail.value
+    var t = this.data.values;
+    var cityData = this.data.cityData;
+    
+    if(val[0] != t[0]){
+      console.log(111111111)
+      console.log('province no ');
+      const citys = [];
+      const countys = [];
+
+      for (let i = 0 ; i < cityData[val[0]].sub.length; i++) {
+        citys.push(cityData[val[0]].sub[i].name)
+      }
+      for (let i = 0 ; i < cityData[val[0]].sub[0].sub.length; i++) {
+        countys.push(cityData[val[0]].sub[0].sub[i].name)
+      }
+
+      this.setData({
+        province: this.data.provinces[val[0]],
+        city: cityData[val[0]].sub[0].name,
+        citys:citys,
+        county: cityData[val[0]].sub[0].sub[0].name,
+        countys:countys,
+        values: val,
+        value:[val[0],0,0]
+      })
+      
+      return;
+    }
+    if(val[1] != t[1]){
+      console.log(22222222222222);
+      console.log('city no');
+      const countys = [];
+
+      for (let i = 0 ; i < cityData[val[0]].sub[val[1]].sub.length; i++) {
+        countys.push(cityData[val[0]].sub[val[1]].sub[i].name)
+      }
+      
+      this.setData({
+        city: this.data.citys[val[1]],
+        county: cityData[val[0]].sub[val[1]].sub[0].name,
+        countys:countys,
+        values: val,
+        value:[val[0],val[1],0]
+      })
+      return;
+    }
+    if(val[2] != t[2]){
+      console.log('county no');
+      this.setData({
+        province:this.data.provinces[0],
+        city:this.data.citys[0],
+        county: this.data.countys[val[2]],
+        values: val
+      })
+      return;
+    }else{
+      this.setData({
+        province:this.data.provinces[0],
+        city:this.data.citys[0],
+        county: this.data.countys[0],
+      })
+    }
+  },
+  open:function(){
+    this.setData({
+      province:this.data.provinces[0],
+        city:this.data.citys[0],
+        county: this.data.countys[0],
+      condition:!this.data.condition
+    })
+  },
+  opens:function(){
+    this.setData({
+      condition:!this.data.condition
+    })
   },
   close:function(){
     this.setData({
@@ -169,6 +290,11 @@ Page({
       tel:e.detail.value
     })
   },
+  detail:function(e){
+    this.setData({
+      details:e.detail.value
+    })
+  },
   quxiao:function(){
     this.setData({
       frame:false
@@ -216,6 +342,17 @@ Page({
       app.msg("联系电话方式不正确");
       return;
     }
+    let address = this.data.province+this.data.city+thia.data.county;
+    if(type==17){
+      if(!address){
+        app.msg("选择工作区域");
+        this.setData({
+          roll:'4',
+        })
+        return;
+      }
+    }
+    let addr = this.data.details;
     let type = this.data.type;
     let index = this.data.inx;
     var datad = {
@@ -260,6 +397,9 @@ Page({
       }) 
 
   },
+
+
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

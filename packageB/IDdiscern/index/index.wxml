@@ -47,26 +47,47 @@
     </van-col>
    </block>
 </van-popup>
-<van-popup show="{{frame}}" position="center"  custom-style="height:650rpx;width:550rpx;" custom-class="frame">
+<van-popup show="{{frame}}" position="center"  custom-style="width:550rpx;" custom-class="frame">
   <van-col span="24"custom-class="frame-name" wx:if="{{type==12}}">申请社会合伙人需完善以下资料</van-col>
   <van-col span="24"custom-class="frame-name" wx:if="{{type==14}}">申请在职推荐人需完善以下资料</van-col>
   <van-col span="24"custom-class="frame-name" wx:if="{{type==15}}">申请校园代理需完善以下资料</van-col>
   <van-col span="24"custom-class="frame-name" wx:if="{{type==16}}">申请渠道运营商需完善以下资料</van-col>
   <van-col span="24"custom-class="frame-name" wx:if="{{type==17}}">申请站长合伙人需完善以下资料</van-col>
   <van-col span="24"custom-class="frame-list">
-    <van-col span="6"custom-class="frame-list-l">姓<text decode="{{true}}"space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>名</van-col>
-    <van-col span="18"custom-class="frame-list-r"><input class="{{roll==1?'roll':'input'}}" placeholder="请输入" value="{{name}}" bindblur="name"/></van-col>
+    <van-col span="24"custom-class="frame-list-r"><input class="{{roll==1?'roll':'input'}}" placeholder="姓名" value="{{name}}" bindblur="name"/></van-col>
   </van-col>
   <van-col span="24"custom-class="frame-list">
-    <van-col span="6"custom-class="frame-list-l">身<text decode="{{true}}"space="{{true}}">&nbsp;&nbsp;</text>份<text decode="{{true}}"space="{{true}}">&nbsp;&nbsp;</text>证</van-col>
-    <van-col span="18"custom-class="frame-list-r"><input class="{{roll==2?'roll':'input'}}" placeholder="请输入" value="{{ID}}" bindblur="ID"/></van-col>
+    <van-col span="24"custom-class="frame-list-r"><input class="{{roll==2?'roll':'input'}}" placeholder="身份证" value="{{ID}}" bindblur="ID"/></van-col>
   </van-col>
   <van-col span="24"custom-class="frame-list">
-    <van-col span="6"custom-class="frame-list-l">联系电话</van-col>
-    <van-col span="18"custom-class="frame-list-r"><input class="{{roll==3?'roll':'input'}}" placeholder="请输入"  value="{{tel}}" bindblur="tel"/></van-col>
+    <van-col span="24"custom-class="frame-list-r"><input class="{{roll==3?'roll':'input'}}" placeholder="联系电话"  value="{{tel}}" bindblur="tel"/></van-col>
+  </van-col>
+  <van-col span="24"custom-class="frame-list" wx:if="{{type==17}}" bindtap="open">
+    <van-col span="24"custom-class="frame-list-r"><input class="{{roll==4?'roll':'input'}}" disabled="disabled" placeholder="工作区域"  value="{{province}}{{city}}{{county}}" focus="{{focus}}" /></van-col>
+  </van-col>
+  <van-col span="24"custom-class="frame-list" wx:if="{{type==17}}">
+    <van-col span="24"custom-class="frame-list-r"><input class="{{roll==5?'roll':'input'}}"  placeholder="详细地址"  value="{{details}}" bindblur="detail"/></van-col>
   </van-col>
   <van-col span="24"custom-class="frame-bt">
     <van-col span="12"custom-class="frame-bt-bt"><text style="float: right;border: 1rpx solid #999999;height: 50rpx;line-height: 50rpx;width: 100rpx;font-size: 28rpx;color: #999999;margin-right: 50rpx;border-radius: 8rpx;text-align: center;" bindtap="quxiao">取消</text></van-col>
     <van-col span="12"custom-class="frame-bt-bt"><text style="float: left;background: #3B66B0;height: 50rpx;line-height: 50rpx;width: 100rpx;font-size: 28rpx;color:#fff;margin-left: 50rpx;border-radius: 8rpx;text-align: center;" bindtap="queren">确认</text></van-col>
   </van-col>
+</van-popup>
+
+<van-popup show="{{condition}}" position="bottom" custom-style="height: 300px;width:100%;" >
+  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange" class="citybody">
+    <view class="cityheader">
+      <view bindtap="opens" class="city-cancel">取消</view>
+      <view bindtap="open" class="city-true">确定</view>
+    </view>
+    <picker-view-column>
+      <view wx:for="{{provinces}}" wx:key="item" style="line-height: 50px;text-align: center;">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{citys}}" wx:key="item" style="line-height: 50px;text-align: center;">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{countys}}" wx:key="item" style="line-height: 50px;text-align: center;">{{item}}</view>
+    </picker-view-column>
+  </picker-view>
 </van-popup>

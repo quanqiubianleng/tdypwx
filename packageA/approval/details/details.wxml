@@ -42,6 +42,15 @@
     </view>
   </van-col>
   <van-col span="24" custom-class="name">
+    <view class="id-name">
+      可否提现
+    </view>
+    <view class="name-te">
+      <text class="text {{index2==1?'on':''}}" data-id="1" bindtap="shif">是</text>
+      <text class="text {{index2==0?'on':''}}" data-id="0" bindtap="shif">否</text>
+    </view>
+  </van-col>
+  <van-col span="24" custom-class="name">
     <view class="id-name">审批说明</view>
   </van-col>
   <van-col span="24"custom-class="name">

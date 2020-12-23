@@ -67,6 +67,7 @@ page{
   color: #666F83;
   font-size: 28rpx;
   background: #F8F9FA;
+  margin-left: 20rpx;
 }
 .card-bottoms{
   color: #E95525;
@@ -76,6 +77,7 @@ page{
   text-align: left;
   font-size: 28rpx;
   background: #F8F9FA;
+  margin-left: 20rpx;
 }
 .card-bottomss{
   color: #3B66B0;
@@ -165,7 +167,7 @@ page{
 .frame-list{
   height: 80rpx;
   background: #F3F6FA;
-  margin-top: 50rpx;
+  margin-top: 30rpx;
   padding: 10rpx 15rpx;
 }
 .frame-list-l{
@@ -196,6 +198,47 @@ page{
   border-radius: 8rpx;
 }
 .frame-bt{
-  margin-top: 80rpx;
+  margin-top: 40rpx;
+  margin-bottom: 20rpx;
+}
+.citypickers{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  background-color: red;
+}
+
+/* .citypicker{
   
+} */
+.citybody {
+  position: fixed;
+  bottom: 0px;
+}
+
+.cityheader {
+  position: absolute;
+  top:0px;
+  width: 100%;
+  z-index: 4;
+}
+
+.city-cancel {
+  float: left;
+  margin: 20rpx;
+  color: #818181;
+}
+
+.city-true {
+  float: right;
+  margin: 20rpx;
+  color: #2FB42E
+}
+
+.section .picker {
+  background-color: #fff;
+  border-bottom: 1px #d9d9d9 solid;
+  border-top: 1px #d9d9d9 solid;
+  padding: 20rpx;
 }

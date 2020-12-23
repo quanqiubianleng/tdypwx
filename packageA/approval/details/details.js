@@ -7,10 +7,9 @@ Page({
    */
   data: {
     index:1,
+    index2:1,
     userlist:[],
-    urls:{
-      
-    }
+    urls:{}
   },
 
   /**
@@ -31,7 +30,7 @@ Page({
           img1:v.data.data.positive_img,
           img2:v.data.data.side_img,
           id:id,
-          index:index,
+          indexs:index,
           name:v.data.data.admin_data.username
        })
      }
@@ -52,17 +51,19 @@ Page({
     let datad={
       id:this.data.id,
       remark:this.data.remark,
-      status:this.data.index
+      status:this.data.index,
+      status_pay:this.data.index2
     }
     let rendata = app.requestfun(datad, '/Api/UserAuto/partnerExamine',true); 
     rendata.then((v)=>{
      console.log(v);
      if(v.data.status==1){
+       
        app.msg("提交成功");
       let pages = getCurrentPages(); //获取当前页面js里面的pages里的所有信息。
       let prevPage = pages[ pages.length - 2 ];  
       prevPage.setData({  // 将我们想要传递的参数在这里直接setData。上个页面就会执行这里的操作。
-        id:this.data.index,
+        id:this.data.indexs,
       })
       wx.navigateBack({
         data:1
@@ -77,6 +78,11 @@ Page({
     current: url, // 当前显示图片的http链接  
     urls:urls
   })
+  },
+  shif:function(e){
+    this.setData({
+      index2:e.currentTarget.dataset.id
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
