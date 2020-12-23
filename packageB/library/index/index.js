@@ -77,7 +77,6 @@ Page({
             count1:v.data.count1,
             count2:v.data.count2,
             count3:v.data.count3,
-            page:this.data.page+1
           })
         }
        
@@ -185,6 +184,10 @@ Page({
     wx.showLoading({
       title: '玩命加载中',
       duration: 1000
+    })
+    console.log(this.data.page)
+    this.setData({
+      page:this.data.page+1
     })
     let id = this.data.id;
     if(!id){

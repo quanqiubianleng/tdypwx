@@ -1,7 +1,7 @@
 <!--packageB/library/index/index.wxml-->
 <van-col span="24" offset="" custom-class="notice">
   <van-col span="22" offset="1" custom-class="notice-notice">
-    <van-notice-bar  left-icon="volume-o" text="公告：杭州智见科技高价来袭，综合月薪6500元,杭州智见科技高价来袭，综合月薪6500元" backgroundColor="#D7ECF5" color="#FF0000" speed="25" delay="2000" custom-class="notice-bar" />
+    <van-notice-bar  left-icon="volume-o" text="通知：天大平台正式开通了，找工作就来天大 , 众多优秀企业任你选" backgroundColor="#D7ECF5" color="#FF0000" speed="25" delay="2000" custom-class="notice-bar" />
   </van-col>
 </van-col>
 <van-col span="22" offset="1" custom-class="card">

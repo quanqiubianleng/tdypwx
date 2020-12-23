@@ -25,7 +25,7 @@ Page({
     location:0,
     imageWidth:0, 
     imageHeight:0 ,
-    msgList: [{id:1,text:"通知：天大平台正式开通了，找工作就来天大"},{id:2,text:"公告：今日邀约20人，到场面试16人，出发23人，入职10人"}],
+    msgList: [{id:1,text:"通知：天大平台正式开通了，找工作就来天大"},{id:2,text:"公告：杭州智见科技高价来袭，综合月薪6500元"}],
     Time:'',        num:0,        showpic:null,        hidepic:null,
     money:'1000000',
     start_time: '2020-12-12',
