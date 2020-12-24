@@ -8,4 +8,4 @@
     <van-icon wx:if="{{img==''}}" custom-class="inc-add" name="plus" bindtap="shangchuan" size="60rpx" />
   </view>
 </van-col>
-<van-col span="22"offset="1"custom-class="add">确认添加</van-col>
+<van-col span="22"offset="1"custom-class="add" bindtap="add">确认添加</van-col>

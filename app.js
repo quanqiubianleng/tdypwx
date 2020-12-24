@@ -36,12 +36,11 @@ App({
   },  
   //网络请求
   async requestfun(data, url,type=false){
-    
     if (!data) {
       datas = {};
     }
     data.token = wx.getStorageSync('token');
-    if(type==true&&!data.token){
+    if(type==true&&! this.globalData.isLogin){
       wx.navigateTo({
         url: "/pages/loginByWechat/loginByWechat"
       });
@@ -112,8 +111,6 @@ App({
               'content-type': 'multipart/form-data'
             },
         success: (res) => {
-          console.log(res.data)
-          
           if(res.data){
             resolve(res);
           }

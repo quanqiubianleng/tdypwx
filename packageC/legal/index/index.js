@@ -18,7 +18,8 @@ Page({
     currentTab:0,
     page:1,
     cid:'',
-    categorylist:[]
+    categorylist:[],
+    navScrollLeft:'50rpx'
   },
 
   /**
@@ -152,7 +153,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**

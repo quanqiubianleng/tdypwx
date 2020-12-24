@@ -13,7 +13,7 @@
         <text class="num">1</text>
         <text class="tel">什么是人才库？</text>
       </van-col>
-     <van-col span="23" custom-class="con">“天大云聘”拥有海量的蓝领用工信息，凡是通过您的邀请码下载注册“天大云聘”APP的新用户，都将归属到您的“人才库”中。通过个人“人才库”，您可以实现好友动态可见、工作互荐等功能，以及查看好友为您带来的收益情况。本平台所给予的所有奖励指推荐的好友从事的是劳务派遣工、小时工、寒暑假工、实习生工作，推荐的好友为工厂正式职工的不享有奖励。
+     <van-col span="23" custom-class="con">天大云聘”拥有海量的蓝领用工信息，凡是通过您分享出去的公众号、小程序、APP注册新用户，都将归属到您的“人才库”中。“人才库”总共设立为一级（直接推荐）、二级（转推荐）、三级（再转推荐），您下面的任一级好友入职后，您都将获得不同金额的奖励。通过个人“人才库”，您可以进行好友工作动态查看、岗位互荐、奖励提现等功能，真正实现数据透明化。
     </van-col>
     </van-col>
   </van-col>
@@ -21,9 +21,9 @@
     <van-col span="24"custom-class="box-tel">
       <van-col span="24">
         <text class="num">2</text>
-        <text class="tel">什么是平台补贴？</text>
+        <text class="tel">什么是互帮基金？</text>
       </van-col>
-     <van-col span="23" custom-class="con">互助金是除了工资之外，“天大云聘”APP针对注册用户通过信息置换、岗位介绍等方式为其他好友推荐工作，额外奖励给就业者的奖金，需在推荐就职成功的好友入职满一个月后结算领取。               
+     <van-col span="23" custom-class="con">由于您将“天大云聘”分享出去，帮助好友找到了工作，只要您“人才库”里的三级好友入职后，平台将根据入职人数，每月给予您一定金额的奖励，以感谢您所做的推荐分享。只要好友在平台任一企业入职，在职期间，每月您都享有互帮基金奖励。由于市场波动原因，每月的奖励金额，可能会有一定的变化。               
     </van-col>
     </van-col>
   </van-col>
@@ -31,12 +31,12 @@
     <van-col span="24"custom-class="box-tel">
       <van-col span="24">
         <text class="num">3</text>
-        <text class="tel">什么是推荐奖？</text>
+        <text class="tel">奖励收益如何提现？</text>
       </van-col>
-     <van-col span="23" custom-class="con"> 通过“推荐有奖”分享微信链接，邀请好友下载注册“天大云聘”APP;好友完成注册,通过平台求职并面试成功，入职满一个月后，平台将在设立的互助金里，按照一定比例按月奖励给推荐者。</van-col>
+     <van-col span="23" custom-class="con"> 在“人才库”右上方有“一键提现”功能，点击后可将一级、二级、三级好友入职后当月给您的奖励一次提现到微信、支付宝、银行卡。根据第三方支付系统要求，提现时需完成实名认证，以确保您的资金安全。</van-col>
     </van-col>
   </van-col>
-  <van-col span="24"custom-class="box">
+  <!-- <van-col span="24"custom-class="box">
     <van-col span="24"custom-class="box-tel">
       <van-col span="24">
         <text class="num">4</text>
@@ -75,7 +75,7 @@
      <van-col span="23" custom-class="con">推荐好友成功就职后，请在“天大云聘”APP首页一“人才库”中查看;好友入职满一个月后，审核通过的互助金会自动进入您的“人才库”账单;您可设置关联账户，提现转至个人银行卡。
     </van-col>
     </van-col>
-  </van-col>
+  </van-col> -->
   <!-- <import src="/utils/wxParse/wxParse.wxml" />
   <template is="wxParse" data="{{wxParseData:article.nodes}}" /> -->
 </van-col>

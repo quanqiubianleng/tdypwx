@@ -1,6 +1,6 @@
 // packageB/IDdiscern/index/index.js
 const app = getApp();
-var tcity = require("../../utils/citys.js");
+var amapFile = require('../../../utils/amap-wx.js');
 Page({
 
   /**
@@ -36,21 +36,34 @@ Page({
         type:17,
         status:3,
         desc:"定义：指具有门店、固定场地、区域人脉，愿意在平台的管理和指导下，开展就业平台推广工作的个人。"
-      }
+      },{
+        name:'乡镇推荐人',
+        type:18,
+        status:3,
+        desc:"定义：指具有门店、固定场地、区域人脉，愿意在平台的管理和指导下，开展就业平台推广工作的个人。"
+      },{
+        name:'内部员工',
+        type:4,
+        status:3,
+        desc:"定义：指不在平台上找工作就业的人员，愿意在平台的管理和指导下，开展就业平台推广工作的个人。"
+      },
     ],
     status:'',
     show:false,
     frame:false,
-
-    provinces: [],
-    province: "",
-    citys: [],
-    city: "",
-    countys: [],
-    county: '',
-    value: [0, 0, 0],
-    values: [0, 0, 0],
-    condition: false
+    province:[],
+    pro:'',
+    p_inx:null,
+    citys:[],
+    city:'',
+    c_inx:null,
+    countys:[],
+    county:'',
+    co_inx:null,
+    towns:[],
+    town:'',
+    t_inx:null
+   
   },
 
   /**
@@ -88,117 +101,84 @@ Page({
      }
      
     }
-   this.cityData()
+   let subdistrict=1;
+  let keywords='';
+   this.amapFile(keywords,subdistrict)
   },
-  cityData:function(){
-    var that = this;
-    tcity.init(that);
-    var cityData = that.data.cityData;
-    const provinces = [];
-    const citys = [];
-    const countys = [];
-
-    for(let i=0;i<cityData.length;i++){
-      provinces.push(cityData[i].name);
+  amapFile:function(keyword,sub){
+    let that = this;
+    let data = {
+      keywords:keyword,
+      subdistrict : 1,
+      key : '69c8498d07aefc3360063fb83c21e6fd',
+      output:'JSON'
     }
-    console.log('省份完成');
-    for (let i = 0 ; i < cityData[0].sub.length; i++) {
-      citys.push(cityData[0].sub[i].name)
-    }
-    console.log('city完成');
-    for (let i = 0 ; i < cityData[0].sub[0].sub.length; i++) {
-      countys.push(cityData[0].sub[0].sub[i].name)
-    }
-
-    that.setData({
-      'provinces': provinces,
-      'citys':citys,
-      'countys':countys,
-      // 'province':cityData[0].name,
-      // 'city':cityData[0].sub[0].name,
-      // 'county':cityData[0].sub[0].sub[0].name
+     wx.request({
+      url: "https://restapi.amap.com/v3/config/district",data,  //如果不设置method 则默认get请求地址
+      success: function(res) {
+        if(sub==1){
+          that.setData({
+            province:res.data.districts[0].districts
+          })
+        }
+        if(sub==2){
+          that.setData({
+            citys:res.data.districts[0].districts
+          })
+        }
+        if(sub==3){
+          that.setData({
+            countys:res.data.districts[0].districts
+          })
+        }
+        if(sub==4){
+          that.setData({
+            towns:res.data.districts[0].districts
+          })
+        }
+      },
     })
-    console.log('初始化完成');
-
-  },
-  bindChange: function(e) {
-    //console.log(e);
-    var val = e.detail.value
-    var t = this.data.values;
-    var cityData = this.data.cityData;
-    
-    if(val[0] != t[0]){
-      console.log(111111111)
-      console.log('province no ');
-      const citys = [];
-      const countys = [];
-
-      for (let i = 0 ; i < cityData[val[0]].sub.length; i++) {
-        citys.push(cityData[val[0]].sub[i].name)
-      }
-      for (let i = 0 ; i < cityData[val[0]].sub[0].sub.length; i++) {
-        countys.push(cityData[val[0]].sub[0].sub[i].name)
-      }
-
-      this.setData({
-        province: this.data.provinces[val[0]],
-        city: cityData[val[0]].sub[0].name,
-        citys:citys,
-        county: cityData[val[0]].sub[0].sub[0].name,
-        countys:countys,
-        values: val,
-        value:[val[0],0,0]
-      })
-      
-      return;
-    }
-    if(val[1] != t[1]){
-      console.log(22222222222222);
-      console.log('city no');
-      const countys = [];
-
-      for (let i = 0 ; i < cityData[val[0]].sub[val[1]].sub.length; i++) {
-        countys.push(cityData[val[0]].sub[val[1]].sub[i].name)
-      }
-      
-      this.setData({
-        city: this.data.citys[val[1]],
-        county: cityData[val[0]].sub[val[1]].sub[0].name,
-        countys:countys,
-        values: val,
-        value:[val[0],val[1],0]
-      })
-      return;
-    }
-    if(val[2] != t[2]){
-      console.log('county no');
-      this.setData({
-        province:this.data.provinces[0],
-        city:this.data.citys[0],
-        county: this.data.countys[val[2]],
-        values: val
-      })
-      return;
-    }else{
-      this.setData({
-        province:this.data.provinces[0],
-        city:this.data.citys[0],
-        county: this.data.countys[0],
-      })
-    }
   },
   open:function(){
     this.setData({
-      province:this.data.provinces[0],
-        city:this.data.citys[0],
-        county: this.data.countys[0],
-      condition:!this.data.condition
+      condition:!this.data.condition,
+      address:this.data.pro  +this.data.city  + this.data.county  + this.data.town
     })
   },
   opens:function(){
     this.setData({
-      condition:!this.data.condition
+      condition:!this.data.condition,
     })
+  },
+  select:function(e){
+    let sub = e.currentTarget.dataset.sub;
+    if(sub==2){
+      this.setData({
+        pro:e.currentTarget.dataset.name,
+        p_inx:e.currentTarget.dataset.index
+      })
+      this.amapFile(e.currentTarget.dataset.code,e.currentTarget.dataset.sub)
+    }
+    if(sub==3){
+      this.setData({
+        city:e.currentTarget.dataset.name,
+        c_inx:e.currentTarget.dataset.index
+      })
+      this.amapFile(e.currentTarget.dataset.code,e.currentTarget.dataset.sub)
+    }
+    if(sub==4){
+      this.setData({
+        county:e.currentTarget.dataset.name,
+        co_inx:e.currentTarget.dataset.index
+      })
+      this.amapFile(e.currentTarget.dataset.code,e.currentTarget.dataset.sub)
+    }
+    if(sub==5){
+      this.setData({
+        town:e.currentTarget.dataset.name,
+        t_inx:e.currentTarget.dataset.index
+      })
+    }
   },
   close:function(){
     this.setData({
@@ -220,7 +200,6 @@ Page({
     console.log(1111);
     let that = this;
     let type = e.currentTarget.dataset.type;
-  
     let index = e.currentTarget.dataset.index;
     let status = that.data.status;
     let Valuable = that.data.Valuable;
@@ -301,7 +280,6 @@ Page({
     })
   },
   queren:function(){
-  
     let name= this.data.name;
     if(!name){
       app.msg("请输入姓名");
@@ -342,10 +320,32 @@ Page({
       app.msg("联系电话方式不正确");
       return;
     }
-    let address = this.data.province+this.data.city+thia.data.county;
-    if(type==17){
-      if(!address){
-        app.msg("选择工作区域");
+    let address = this.data.address;
+    console.log(this.data.pro,this.data.city,this.data.county,this.data.county);
+    if(this.data.type==17){
+      if(!this.data.pro){
+        app.msg("请选择完整的工作区域");
+        this.setData({
+          roll:'4',
+        })
+        return;
+      }
+      if(!this.data.city){
+        app.msg("请选择完整的工作区域");
+        this.setData({
+          roll:'4',
+        })
+        return;
+      }
+      if(!this.data.county){
+        app.msg("请选择完整的工作区域");
+        this.setData({
+          roll:'4',
+        })
+        return;
+      }
+      if(!this.data.town){
+        app.msg("请选择完整的工作区域");
         this.setData({
           roll:'4',
         })
@@ -379,7 +379,8 @@ Page({
             index:type,
             list:lists,
             frame:false
-          })
+          }),
+          wx.navigateBack();
         }else{
           wx.showModal({
             title: '提示',

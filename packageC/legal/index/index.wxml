@@ -9,7 +9,7 @@
 </view>
 
 <van-col span="24" offset="" custom-class="scroll-Hot">
-  <scroll-view scroll-x="true" class="scroll-nav" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+  <scroll-view scroll-x="true" class="scroll-nav" scroll-left="{{navScrollLeft}}" scroll-into-view scroll-with-animation="{{true}}">
     <view class="view-item"  wx:for="{{lawyer}}" wx:key="{{index}}">
         <van-col span="22" offset="1" custom-class="item-img">
           <view class="item-img-img"> 

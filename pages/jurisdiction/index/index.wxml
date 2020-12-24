@@ -16,4 +16,4 @@
     </view>
   </view>
 </view>
-<van-col span="20" offset="2" custom-class="add" bindtap="aad">添加部门</van-col>
+<van-col span="20" offset="2" custom-class="add" bindtap="aad">添加分组</van-col>
