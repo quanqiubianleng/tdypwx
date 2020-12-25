@@ -7,14 +7,14 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     productList: [],
-    page:0
+    page:1
   },
 
   onLoad: function (options) {
     let type = options.type;
     if(type==1){
       wx.setNavigationBarTitle({title: '报名记录'})
-     
+      this.record();
     }
     if(type==2){
       wx.setNavigationBarTitle({title: '我的收藏'})
@@ -28,6 +28,22 @@ Page({
     })
 
   },
+  //报名记录
+
+  record:function(){
+    let data = {
+      page:this.data.page
+    }
+    let rendata = app.requestfun(data, '/Api/Bming/record',true);    
+    rendata.then((v) => {
+      if(v.data.status==1&&v.data.data){
+        this.setData({
+          productList:v.data.data
+        })
+      }
+    })
+  },
+  //收藏记录
   collectionList:function(){
     let data = {
       page:this.data.page
@@ -122,5 +138,22 @@ Page({
     wx.navigateTo({
       url: '/pages/job-hunting/details/details?id='+id,
     })
-  }
+  },
+  onReachBottom: function () {
+    wx.showLoading({
+      title: '玩命加载中',
+      duration: 1000
+    })
+   let type = this.data.type;
+   this.setData({
+     page:this.data.page+1
+   })
+   if(type==1){
+     this.record();
+   }
+   if(type==2){
+     this.collectionList();
+   }
+     
+  },
 })

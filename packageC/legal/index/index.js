@@ -19,7 +19,9 @@ Page({
     page:1,
     cid:'',
     categorylist:[],
-    navScrollLeft:'50rpx'
+    navScrollLeft:0,
+    setInter:'',
+
   },
 
   /**
@@ -153,20 +155,30 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+    var that = this;
+    //将计时器赋值给setInter
+    that.data.setInter = setInterval(
+        function () {
+          that.setData({ navScrollLeft : that.data.navScrollLeft + 50 });   
+        }
+  , 3000);  
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+   onShow: function () {
+   
   },
+ 
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    let that = this;
+    console.log(that.data.setInter)
+    clearInterval(that.data.setInter);
   },
 
   /**
@@ -174,6 +186,10 @@ Page({
    */
   onUnload: function () {
 
+    let that = this;
+    console.log(that.data.setInter)
+    clearInterval(that.data.setInter);
+    
   },
 
   /**

@@ -111,7 +111,6 @@ Page({
            let rendata = app.requestfun(data, '/Api/Authority/SaveAccess');    
            rendata.then((v) => {
              if(v.data.status==1){
-
               wx.showToast({
                 title: '设置成功',
                 duration:2000,//显示时长
@@ -122,10 +121,16 @@ Page({
                   })
                 },
               })
+             }else{
+              wx.showToast({
+                title: v.data.message,
+                duration:2000,//显示时长
+                icon:'none',
+              })
              }
            })
          } else {
-           console.log('失败！' + res.errMsg)
+          
          }
        }
      })

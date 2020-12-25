@@ -34,6 +34,7 @@ Page({
     }
     let id = options.id;
     let nopenid = options.nopenid;
+    console.log(nopenid);
     let share = options.share;
     this.setData({
       id:id,
@@ -233,7 +234,7 @@ Page({
       }
     })
   },
-  nobillinfo:function(id,nopenid){
+  nobillinfo:function(id){
     let that = this;
         let data = {
           id:id 
@@ -260,7 +261,7 @@ Page({
             WxParse.wxParse('rest', 'html', v.data.data.rest, that);
             that.setData({
               list:v.data.data,
-              nopenid:v.data.openid,
+              // nopenid:v.data.openid,
               keep:keep,
               apply_status: v.data.data.apply_status,
               all_status: v.data.data.all_status
@@ -378,6 +379,7 @@ Page({
     let id = this.data.id;
     let nopenid =  this.data.nopenid;
     let share = 1;
+    console.log(id,nopenid);
     return{
       title: '天大云聘',
       path: '/pages/job-hunting/details/details?id=' + id + '&nopenid=' +nopenid +'&share='+share,

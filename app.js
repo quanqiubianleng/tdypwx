@@ -67,7 +67,7 @@ App({
             resolve(res);
             }
             if(res.data.status==1){
-            resolve(res);
+               resolve(res);
             }
           }
           if (res.statusCode == 401) {

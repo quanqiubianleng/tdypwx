@@ -28,10 +28,15 @@ page{
 .scroll-nav{
   width: 100%;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow-X: hidden;
   height: 240rpx;
   white-space: nowrap;
 }
+.scroll-nav::-webkit-scrollbar {
+  width:0;
+  height:0;
+  color:transparent;
+  }
 .view-item{
   display: inline-block;
   width:300rpx;
@@ -95,6 +100,12 @@ page{
   height: 70rpx;
  
 }
+
+
+
+
+
+
 .Hot{
   height: 80rpx;
   line-height: 80rpx;
@@ -125,11 +136,13 @@ page{
   line-height: 75rpx;
   color: #3B67B1;
 }
-  .swipers-list{
-    padding-bottom: 20rpx;
-    background: #fff;
-    margin-top: 5rpx;
-  }
+.swipers-list{
+  padding-bottom: 20rpx;
+  background: #fff;
+  margin-top: 5rpx;
+}
+
+
   .list{
     border-bottom: 1rpx solid #ddd;
     padding-bottom: 15rpx;

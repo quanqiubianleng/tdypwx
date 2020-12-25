@@ -7,9 +7,9 @@
     </swiper-item>
   </swiper>
 </view>
-
+<!-- 滑动 -->
 <van-col span="24" offset="" custom-class="scroll-Hot">
-  <scroll-view scroll-x="true" class="scroll-nav" scroll-left="{{navScrollLeft}}" scroll-into-view scroll-with-animation="{{true}}">
+  <scroll-view scroll-x="true" class="scroll-nav" scroll-left="{{navScrollLeft}}"  scroll-with-animation="{{true}}">
     <view class="view-item"  wx:for="{{lawyer}}" wx:key="{{index}}">
         <van-col span="22" offset="1" custom-class="item-img">
           <view class="item-img-img"> 
@@ -26,29 +26,10 @@
       </view>
   </scroll-view>
 </van-col>
+<!-- 轮播 -->
 
-
-
-<!-- <van-col span="22"offset="1"custom-class="scroll-x">
-  <scroll-view scroll-x="true" class="scroll-nav" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
-      <view class="view-item"  wx:for="{{lawyer}}" wx:key="{{index}}">
-        <van-col span="22" offset="1" custom-class="item-img">
-          <view class="item-img-img"> 
-            <image src="{{item.imageurl}}"></image>
-          </view>
-          <view class="item-name">
-            <view class="item-name-name">{{item.title}}</view>
-            <view class="item-name-zu">入职律师</view>
-          </view>
-        </van-col>
-        <van-col span="22"offset="1"custom-class="item-tel">
-          {{item.description}}
-        </van-col>
-      </view>
-  </scroll-view>
-</van-col> -->
 <van-col span="24" offset="" custom-class="Hot">
-  <scroll-view scroll-x="true" class="nav" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+  <scroll-view scroll-x="true" class="nav"  scroll-with-animation="{{true}}">
     <block wx:for="{{type}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
       <view class="nav-item {{currentTab == idx ?'active':''}}" data-index="{{idx}}" data-id="{{navItem.id}}" bindtap="nav">{{navItem.name}}</view>
     </block>
