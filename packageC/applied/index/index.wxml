@@ -1,0 +1,48 @@
+<!--packageC/applied/index/index.wxml-->
+
+<view class="product-container">
+  <view class="product-list">
+    <view class="product-item" wx:if="{{productList.length>=1}}" wx:for="{{productList}}" >
+      <movable-area>
+        <movable-view out-of-bounds="true" direction="horizontal" x="{{item.xmove}}" inertia="true" data-productIndex="{{index}}" >
+          <van-col span="24" custom-class="box-box" data-id="{{item.billid}}" data-pathway="{{item.pathway}}" data-openid="{{item.openid}}" bindtap="details">
+            <van-col span="22" offset="1" custom-class="box" style="border-bottom: 1rpx solid #ddd;">
+              <van-col span="6" custom-class="box-img">
+                <image src="{{item.order.headimg}}"></image>
+              </van-col>
+              <van-col span="17" offset="1" custom-class="box-bill">
+                <van-col span="24" custom-class="box-bill-name">
+                  <van-col span="12" custom-class="name">{{item.order.title}}</van-col>
+                  <van-col span='11' offset="1" custom-class="num" wx:if="{{item.order.emolumentl&&item.order.emolumentr}}">
+                    {{item.order.emolumentl}}-{{item.order.emolumentr}}元/月</van-col>
+                </van-col>
+                <van-col span="24" custom-class="box-bill-type">
+                  <van-col span="19" custom-class="type">企业类型：{{item.order.shoptype}}</van-col>
+                  <van-col span="4" offset="1" custom-class="details" >
+                    <text>详情</text>
+                  </van-col>
+                </van-col>
+                <van-col span="24" custom-class="tags">
+                <van-col span="18" custom-class="tags-box">
+                  <van-tag custom-class="tags-list" wx:for="{{item.order.welfare_name}}" wx:key="key" wx:if="{{index<4}}" max-count="3" plain
+                    color="#3B67B1" size="8rpx" text-color="#3B67B1">{{item}}</van-tag>
+                </van-col>
+                <van-col span="6"custom-class="yibaoming">
+                  <text wx:if="{{index==0}}">已报名</text>
+                  <text wx:if="{{index!=0}}" style="background:#999999">已取消</text>
+                </van-col>
+              </van-col>
+              </van-col>
+            </van-col>
+            <van-col span="11" offset="1"   custom-class="baotime" wx:if="{{item.indate}}">报名时间：{{item.indate}}</van-col>
+            <van-col span="11"custom-class="qutime" wx:if="{{item.no_time}}">报名时间：{{item.no_time}}</van-col>
+          </van-col>
+        </movable-view>
+      </movable-area>
+      <view class="delete-btn" data-id="{{item.id}}" data-index="{{index}}" bindtap="handleDeleteProduct">删除</view>
+    </view>
+    <view wx:if="{{productList.length<=0}}" class="null">
+        <image src="../../../icons/null.png"></image>
+    </view>
+  </view>
+</view>

@@ -230,12 +230,12 @@ page{
 }
 
 .picker-view-column{
-  height: 440rpx;
+  height: 540rpx;
   
   overflow: hidden;
 }
 .picker-view{
-  height: 440rpx;
+  height: 540rpx;
   padding-left: 10rpx;
   padding-right: 10rpx;
   text-align: center;
@@ -250,7 +250,7 @@ page{
   line-height: 50rpx;
 }
 .picker-select{
-  height: 390rpx;
+  height: 490rpx;
   /* border-left:1rpx solid #ddd ;
   border-right:1rpx solid #ddd ; */
    

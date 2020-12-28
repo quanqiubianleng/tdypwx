@@ -107,6 +107,9 @@ Page({
     let rendata = app.requestfun(datad, '/Api/UserAuto/authentication',true); 
     rendata.then((v)=>{
       if(v.data.status==1){
+        let userinfo = wx.getStorageSync('userinfo');
+        userinfo.authentication ='已认证';
+        wx.setStorageSync('userinfo', userinfo);
         wx.showToast({
           title: '提交成功',
           duration:1000,//显示时长

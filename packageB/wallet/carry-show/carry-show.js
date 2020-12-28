@@ -8,7 +8,7 @@ Page({
    */
   data: {
     index:1,
-    money:100,
+    money:0.00,
     display:'none',
     display1:'block',
   },
@@ -120,6 +120,7 @@ Page({
         })
       }
       if(type==2){
+        
         if(!that.data.name){
           app.msg("请输入姓名");
           return;

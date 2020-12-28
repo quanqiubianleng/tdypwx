@@ -40,12 +40,12 @@ Page({
         name:'乡镇推荐人',
         type:18,
         status:3,
-        desc:"定义：指具有门店、固定场地、区域人脉，愿意在平台的管理和指导下，开展就业平台推广工作的个人。"
+        desc:"定义：指在乡镇、村有一定人脉，愿意在平台的管理和指导下，开展就业平台推广工作的个人"
       },{
         name:'内部员工',
         type:4,
         status:3,
-        desc:"定义：指不在平台上找工作就业的人员，愿意在平台的管理和指导下，开展就业平台推广工作的个人。"
+        desc:"定义：指平台内部从业人员。"
       },
     ],
     status:'',
@@ -155,21 +155,39 @@ Page({
     if(sub==2){
       this.setData({
         pro:e.currentTarget.dataset.name,
-        p_inx:e.currentTarget.dataset.index
+        p_inx:e.currentTarget.dataset.index,
+        citys:[],
+        city:'',
+        c_inx:null,
+        countys:[],
+        county:'',
+        co_inx:null,
+        towns:[],
+        town:'',
+        t_inx:null
       })
       this.amapFile(e.currentTarget.dataset.code,e.currentTarget.dataset.sub)
     }
     if(sub==3){
       this.setData({
         city:e.currentTarget.dataset.name,
-        c_inx:e.currentTarget.dataset.index
+        c_inx:e.currentTarget.dataset.index,
+        countys:[],
+        county:'',
+        co_inx:null,
+        towns:[],
+        town:'',
+        t_inx:null
       })
       this.amapFile(e.currentTarget.dataset.code,e.currentTarget.dataset.sub)
     }
     if(sub==4){
       this.setData({
         county:e.currentTarget.dataset.name,
-        co_inx:e.currentTarget.dataset.index
+        co_inx:e.currentTarget.dataset.index,
+        towns:[],
+        town:'',
+        t_inx:null
       })
       this.amapFile(e.currentTarget.dataset.code,e.currentTarget.dataset.sub)
     }
@@ -204,7 +222,7 @@ Page({
     let status = that.data.status;
     let Valuable = that.data.Valuable;
     console.log(status,Valuable)
-    if(type==Valuable){
+    if(type==Valuable&&status==1){
       app.msg("你已申请，无需重复申请！");
        return;
     }
@@ -238,7 +256,18 @@ Page({
             that.setData({
               frame:true,
               type:type,
-              inx:index
+              inx:index,
+              pro:'',
+              p_inx:null,
+              citys:[],
+              city:'',
+              c_inx:null,
+              countys:[],
+              county:'',
+              co_inx:null,
+              towns:[],
+              town:'',
+              t_inx:null
             })
           }
           }
@@ -364,31 +393,40 @@ Page({
       let rendata = app.requestfun(datad, '/Api/UserAuto/addPartner',true);    
       rendata.then((v) => {
         if(v.data.status==1){
-          app.msg("已提交申请");
-            let lists = this.data.list;
-            for (let i = 0; i < lists.length; i++) {
-              console.log(i)
-              if(index==i){
-                lists[index].status=0;
+          wx.showModal({
+            title: '提示',
+            content: '已提交申请',
+            showCancel: false, 
+            success: function (sm) {
+                if (sm.confirm) {
+                  wx.navigateBack();
+                }
               }
-              else{
-                lists[i].status=3;
-              }
-            }
-          this.setData({
-            index:type,
-            list:lists,
-            frame:false
-          }),
-          wx.navigateBack();
+          })
+          //   let lists = this.data.list;
+          //   for (let i = 0; i < lists.length; i++) {
+          //     if(index==i){
+          //       lists[index].status=0;
+          //     }
+          //     else{
+          //       lists[i].status=3;
+          //     }
+          //   }
+          // this.setData({
+          //   index:type,
+          //   list:lists,
+          //   frame:false
+          // }),
+         
         }else{
+          let that = this;
           wx.showModal({
             title: '提示',
             content: '您输入的信息与实名认证的信息不一致!',
             showCancel: false, 
             success: function (sm) {
               if (sm.confirm) {
-                this.setData({
+                that.setData({
                   frame:false
                 })
               }

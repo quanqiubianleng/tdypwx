@@ -204,7 +204,7 @@
 		</van-col>
 	</van-row>
 	<van-dialog show="{{show}}" title="" show-confirm-button confirm-button-color="#3B67B1" cancel-button-color="#3B67B1"
-		show-cancel-button message="检测到你已报名了其他工厂，如确定报名，报名系统将自动为您取消上一家报名工厂！" customStyle="show" bind:confirm="confirm"
+		show-cancel-button message="检测到您已报名了其他工厂，如确定报名，报名系统将自动为您取消上一家报名工厂！" customStyle="show" bind:confirm="confirm"
 		bind:cancel="cancel" custom-style="height:300rpx">
 	</van-dialog>
 	<van-popup show="{{show1}}" position="bottom" custom-class="shows" bind:close="onClose"  custom-style="height:500rpx">

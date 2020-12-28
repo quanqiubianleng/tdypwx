@@ -40,6 +40,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+     let id  = decodeURIComponent(options.scene);  
+   
+   // let id = 10005937;
+ 
+    if(id!='undefined'){
+      wx.login({
+        success (res) {
+          if (res.code) {
+            var datad = {
+              code: res.code,
+              nopenid:id
+              // lat:wx.getStorageSync('coordinates').longitude,
+              // lng:wx.getStorageSync('coordinates').latitude,
+            };
+            let rendata = app.requestfun(datad, '/Api/Nobill/seylevelno'); 
+          } else {
+            console.log('登录失败！' + res.errMsg)
+          }
+        }
+      })
+    }
     wx.getSystemInfo({
       success: (res) => {
           this.setData({

@@ -1,5 +1,5 @@
 <!--packageC/keep/index/index.wxml-->
-<view class="product-container">
+<view class="product-container" wx:if="{{type!=1}}">
   <view class="product-list">
     <view class="product-item" wx:if="{{productList.length>=1}}" wx:for="{{productList}}" wx:for-index="index" wx:key="{{item.j_id}}">
       <movable-area>
@@ -12,12 +12,12 @@
               <van-col span="17" offset="1" custom-class="box-bill">
                 <van-col span="24" custom-class="box-bill-name">
                   <van-col span="12" custom-class="name">{{item.title}}</van-col>
-                  <van-col span='11' offset="1" custom-class="num" wx:if="{{item.averagewage&&item.emolumentr}}">
-                    {{item.averagewage}}-{{item.emolumentr}}元/月</van-col>
+                  <van-col span='11' offset="1" custom-class="num" wx:if="{{item.emolumentl&&item.emolumentr}}">
+                    {{item.emolumentl}}-{{item.emolumentr}}元/月</van-col>
                 </van-col>
                 <van-col span="24" custom-class="box-bill-type">
                   <van-col span="19" custom-class="type">企业类型：{{item.shoptype}}</van-col>
-                  <van-col span="4" offset="1" custom-class="details" data-id="{{item.j_id}}" bindtap="details">
+                  <van-col span="4" offset="1" custom-class="details" data-id="{{item.j_id}}" data-pathway="2" bindtap="details">
                     <text>详情</text>
                   </van-col>
                 </van-col>

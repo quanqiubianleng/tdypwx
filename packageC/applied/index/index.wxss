@@ -1,4 +1,4 @@
-/* packageC/keep/index/index.wxss */
+/* packageC/applied/index/index.wxss */
 page {
   background-color: #F5F5F5;
   }
@@ -19,7 +19,7 @@ page {
     margin-top: 20rpx;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
     margin-bottom: 10rpx;
-    height: 178rpx;
+    height: 220rpx;
   }
   
   .slide-product-list .slide-product-item {
@@ -32,12 +32,12 @@ page {
   }
   
   .product-list .product-item movable-area {
-    height: 150rpx;
+    height: 220rpx;
     width: calc(100vw - 120rpx);
   }
   
   .product-list .product-item movable-view {
-    height: 178rpx;
+    height: 220rpx;
     width: 100vw;
     background: #fff;
     z-index: 999;
@@ -52,8 +52,8 @@ page {
     font-family: PingFangSC-Regular;
     font-size: 24rpx;
     color: #FFFFFF;
-    line-height: 178rpx;
-    height: 178rpx;
+    line-height: 220rpx;
+    height: 220rpx;
     z-index: 1;
     background: #E66671;
     text-align: center;
@@ -119,7 +119,8 @@ page {
   .box{
     margin-top: 20rpx;
     padding-bottom: 10rpx;
-    height: auto;
+    height: 150rpx;
+    border-bottom: 1rpx solid #ddd;
   }
   .box-img{
     height: 140rpx;
@@ -221,7 +222,18 @@ page {
    border-radius: 10rpx;
    margin-top: 10rpx;
   }
- 
+  .baotime{
+    line-height: 40rpx;
+    text-align: left;
+    font-size: 24rpx;
+    color: #999999;
+  }
+  .qutime{
+    line-height: 40rpx;
+    text-align: right;
+    font-size: 24rpx;
+    color: #999999;
+  }
    .null{
      width: 100%;
      height: 100%;

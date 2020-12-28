@@ -8,7 +8,7 @@
     <van-col span="12" custom-class="tel-lef">功能权限</van-col>
     <van-col span="12" custom-class="tel-rel">
       <picker bindchange="bindPickerChange" value="{{index}}" range="{{branch}}">
-        <input class="Inp" disabled="disabled" placeholder="部门选择" placeholder-style="color: #333;" value="{{branch[index]}}"></input>
+        <input class="Inp" disabled="disabled" placeholder="选择分组" placeholder-style="color: #333;" value="{{branch[index]}}"></input>
         <van-icon name="arrow-down" custom-class="tel-rel-inc" />
      </picker>
     </van-col>

@@ -82,7 +82,7 @@
   </van-col>
 </van-popup>
 
-<van-popup show="{{condition}}" position="bottom" custom-style="height: 500rpx;width:100%;" >
+<van-popup show="{{condition}}" position="bottom" custom-style="height: 600rpx;width:100%;" >
   <van-col span="22" offset="1"  custom-class="citybody-bt">
     <view bindtap="opens" class="city-cancel">取消</view>
     <view bindtap="open" class="city-true">确定</view>

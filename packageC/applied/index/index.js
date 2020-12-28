@@ -1,7 +1,10 @@
-// packageC/keep/index/index.js
-const app = getApp()
-
+// packageC/applied/index/index.js
+const app = getApp();
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
     userInfo: {},
     hasUserInfo: false,
@@ -10,32 +13,19 @@ Page({
     page:1
   },
 
+  /**
+   * 生命周期函数--监听页面加载
+   */
   onLoad: function (options) {
-    var  userInfos= wx.getStorageSync('userinfo');
-    console.log(userInfos)
-    this.setData({
-      userInfo: userInfos,
-    }) 
-    let type = options.type;
-    if(type==2){
-      wx.setNavigationBarTitle({title: '我的收藏'})
-      this.collectionList();
-    }
-    if(type==3){
-      wx.setNavigationBarTitle({title: '浏览记录'})
-    }
-    this.setData({
-      type:type
-    })
-
+   
   },
+  record:function(){
 
-  //收藏记录
-  collectionList:function(){
     let data = {
-      page:this.data.page
+      page:this.data.page,
+      openid:this.data.userInfo.openid
     }
-    let rendata = app.requestfun(data, '/Api/job/collectionList',true);    
+    let rendata = app.requestfun(data, '/Api/Bming/record',true);    
     rendata.then((v) => {
       if(v.data.status==1&&v.data.data){
         this.setData({
@@ -44,7 +34,7 @@ Page({
       }
     })
   },
-  /**
+    /**
    * 显示删除按钮
    */
   showDeleteButton: function (e) {
@@ -99,14 +89,13 @@ Page({
       content: '确定要删除吗？',
       success: function (sm) {
         if (sm.confirm) {
-          if(that.data.type==2){
             let data = {
-              j_id:id,
-              status:0
+              id:id,
             }
-            let rendata = app.requestfun(data, '/Api/job/collection',true);    
+            let rendata = app.requestfun(data, '/Api/Bming/del',true);    
             rendata.then((v) => {
               if(v.data.status==1){
+
                 let productList = that.data.productList
                   productList.splice(index,1);
                 that.setData({
@@ -114,8 +103,6 @@ Page({
                 })
               }
             })
-          }
-          
         } else if (sm.cancel) {
           console.log('用户点击取消')
         }
@@ -126,7 +113,7 @@ Page({
   details:function(e){
     let id = e.currentTarget.dataset.id;
     let pathway = e.currentTarget.dataset.pathway;
-    let openid = this.data.openid
+    let openid = e.currentTarget.dataset.openid;
     if(pathway==2){
       wx.navigateTo({
         url: '/pages/job-hunting/details/details?id='+id + '&nopenid=' +openid,
@@ -139,19 +126,68 @@ Page({
       title: '玩命加载中',
       duration: 1000
     })
-   let type = this.data.type;
    this.setData({
      page:this.data.page+1
    })
-   if(type==2){
-     this.collectionList();
-   }
-     
+   this.record();  
   },
-  onShow:function(){
-    let openid= wx.getStorageSync('userinfo').openid;
-    this.setData({
-      openid:openid
-    })
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
   },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    let isLogin = app.globalData.isLogin; 
+    let userInfos= wx.getStorageSync('userinfo').openid
+    if(!isLogin||!userInfos){
+      wx.navigateTo({
+        url: '/pages/loginByWechat/loginByWechat',
+      })
+      return;
+    }
+     this.setData({
+       userInfo: userInfos,
+     }) 
+     this.record();
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
 })

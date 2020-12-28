@@ -45,6 +45,9 @@ Page({
           locationlist:this.data.locationlist.concat(v.data.data),
         })
       }else{
+        this.setData({
+          locationlist:[]
+        })
         app.msg("已经到底了");
         return;
       }
@@ -85,7 +88,8 @@ Page({
         })
       }else{
         this.setData({
-          search:search
+          search:search,
+          locationlist:[]
         })
         app.msg("已经到底了");
         return;
@@ -119,7 +123,8 @@ Page({
         }
       }else{
         this.setData({
-          search:search
+          search:search,
+          locationlist:[]
         })
         app.msg("已经到底了");
         return;

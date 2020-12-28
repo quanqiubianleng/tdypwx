@@ -15,7 +15,8 @@ Page({
     currentTab:0,
     userInfos:wx.getStorageSync('userinfo'),
     isLogin:app.globalData.isLogin,
-    id:''
+    id:'',
+    RecommendMessage:''
   },
 
   /**
@@ -68,11 +69,13 @@ Page({
             count:v.data.count,
             count1:v.data.count1,
             count2:v.data.count2,
-            count3:v.data.count3
+            count3:v.data.count3,
+            RecommendMessage:v.data.RecommendMessage,
           })
         }else{
           that.setData({
             userlist:that.data.userlist.concat(v.data.linkuser),
+            RecommendMessage:v.data.RecommendMessage,
             count:v.data.count,
             count1:v.data.count1,
             count2:v.data.count2,

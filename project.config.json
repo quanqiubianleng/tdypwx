@@ -66,6 +66,7 @@
       "list": []
     },
     "miniprogram": {
+      "current": -1,
       "list": [
         {
           "id": 0,
@@ -82,10 +83,10 @@
           "scene": null
         },
         {
-          "id": -1,
+          "id": 2,
           "name": "找工作",
           "pathName": "pages/job-hunting/index/index",
-          "query": "scene=1",
+          "query": "id = 10005937",
           "scene": null
         },
         {
@@ -103,9 +104,10 @@
           "scene": null
         },
         {
-          "id": -1,
-          "name": "packageD/message/type",
-          "pathName": "packageD/message/type",
+          "id": 6,
+          "name": "packageC/keep/index/index",
+          "pathName": "packageC/keep/index/index",
+          "query": "type=1",
           "scene": null
         }
       ]

@@ -101,7 +101,7 @@
           </scroll-view>
           <view class="gengduo"><image src="../../../icons/zuohua.png"  mode="scaleToFill"></image></view>
         </van-col>
-        <van-col span="24" custom-class="box-box">
+        <van-col span="24" custom-class="box-box" wx:if="{list.length>=1}">
           <van-col span="22" offset="1" custom-class="box {{key==list.length-1?'box-key':''}}" data-status="{{it.apply_status}}" data-stop="{{it.stop}}" wx:for="{{list}}" wx:for-item="it" wx:for-index="key" wx:key="key"
             data-id="{{it.id}}" bindtap="details">
             <van-col span="6" custom-class="box-img">
@@ -133,6 +133,10 @@
               </van-col>
             </van-col>
           </van-col>
+          <van-col span="24" custom-class="null" wx:if="{{list.length<=0}}">
+          <image src="/icons/null-3.png"></image>
+          <view>该地区暂无岗位~</view>
+        </van-col>
         </van-col>
       </van-row>
       <!-- <van-row wx:if="{{location==1}}">
@@ -182,10 +186,7 @@
             
             </van-col>
         </van-col>
-        <van-col span="24" custom-class="null" wx:if="{{locationlist.length<=0}}">
-          <image src="/icons/null-3.png"></image>
-          <view>该地区暂无岗位~</view>
-        </van-col>
+       
       </van-row> -->
     </view>
   </view>

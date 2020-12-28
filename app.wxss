@@ -14,7 +14,6 @@ button{
 }
 button::after{
   border: none;
-  
   border: 0px solid rgba(0,0,0,.2);
   -webkit-transform: scale(.5);
   transform: scale(.5);

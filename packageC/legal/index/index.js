@@ -177,7 +177,9 @@ Page({
    */
   onHide: function () {
     let that = this;
-    console.log(that.data.setInter)
+    that.setData({
+      navScrollLeft:0
+    })
     clearInterval(that.data.setInter);
   },
 
@@ -187,7 +189,9 @@ Page({
   onUnload: function () {
 
     let that = this;
-    console.log(that.data.setInter)
+    that.setData({
+      navScrollLeft:0
+    })
     clearInterval(that.data.setInter);
     
   },

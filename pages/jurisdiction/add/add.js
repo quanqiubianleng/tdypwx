@@ -46,15 +46,15 @@ Page({
       app.msg("请输入部门名称");
       return;
     }
-    if(!this.data.path){
-      app.msg("请选择部门图标");
-      return;
-    }
+    // if(!this.data.path){
+    //   app.msg("请选择部门图标");
+    //   return;
+    // }
     var datad = {
       openid:wx.getStorageSync('userinfo').openid,
       uid:wx.getStorageSync('userinfo').id,
       name:this.data.name,
-      path:this.data.path
+      // path:this.data.path
     };
     let rendata = app.requestfun(datad, '/Api/Department/AddDepartment',true);    
     rendata.then((v) => {

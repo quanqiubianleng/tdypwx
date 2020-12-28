@@ -132,7 +132,8 @@
         "legal/details/details",
         "billing/index/index",
         "billing/details/details",
-        "keep/index/index"
+        "keep/index/index",
+        "applied/index/index"
       ]
     },{
       "root": "packageD",

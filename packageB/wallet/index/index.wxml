@@ -2,15 +2,15 @@
 <van-col span="24" offset=""  custom-class="balance">
   <!-- <image src="/icons/balance-bj.jpg"></image> -->
   <view class="record" bindtap="record">提现记录</view>
-  <view class="balance-num">1312</view>
+  <view class="balance-num">0.00</view>
   <view class="balance-tel">可提现金额(元)</view>
 </van-col>
 <van-col span="22" offset="1" bindtap="carry" custom-class="balance-bt">提现</van-col>
 <van-row>
   <van-col span="22" offset="1" custom-class="detailed-tel">收入明细</van-col>
-  <van-col span="22" offset="1" custom-class="detailed-list">
+  <!-- <van-col span="22" offset="1" custom-class="detailed-list">
     <van-col span="21" custom-class="detailed-name"> 推荐人-张小明成功入职</van-col>
     <van-col span="21" custom-class="detailed-time">2020-09-12</van-col>
     <text>+20</text>
-  </van-col>
+  </van-col> -->
 </van-row>

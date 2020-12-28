@@ -198,6 +198,7 @@ Page({
           code:res.code,
           passdata:that.data.passdata,
           billid:that.data.id,
+          shopid:that.data.shopid,
           type:2
         }
         let rendata = app.requestfun(data, '/Api/Apply/index'); 
@@ -264,7 +265,8 @@ Page({
               // nopenid:v.data.openid,
               keep:keep,
               apply_status: v.data.data.apply_status,
-              all_status: v.data.data.all_status
+              all_status: v.data.data.all_status,
+              shopid:v.data.data.shopid
             })
           }
          

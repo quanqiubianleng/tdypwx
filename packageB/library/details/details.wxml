@@ -93,7 +93,10 @@
   </van-col>
 </van-col>
 <van-col span="24" wx:if="{{index==3}}">
-  <van-col span="22"offset="1"custom-class="cards">
+  <van-col span="22" offset="1" custom-class="null">
+    <image src="../../../icons/null.png"></image>
+  </van-col>
+  <!-- <van-col span="22"offset="1"custom-class="cards">
     <van-col span="24" custom-class="cards-top">
       <van-col span="14"offset="1"custom-class="money"><text class="money-num">49361</text><text class="money-des">总金额（元）</text></van-col>
       <van-col span="7"offset="1"custom-class="tiem">2020-08
@@ -151,5 +154,5 @@
         <view>或得金额</view>
       </van-col>
     </van-col>
-  </van-col>
+  </van-col> -->
 </van-col>

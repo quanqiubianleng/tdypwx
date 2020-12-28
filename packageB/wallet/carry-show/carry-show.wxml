@@ -17,11 +17,12 @@
       <image src="/packageB/images/WeChat.png"></image><text>微信</text>
       <!-- <van-icon wx:if="{{index==1}}" custom-class="type-icn" color="red" name="success" /> -->
     </van-col>
-    <van-col span="7" offset="1" custom-class="type-il {{index==2?'on':''}}" data-opt="2" bindtap="showtype">
-      <image src="/packageB/images/Alipay.png"></image><text>支付宝</text>
+    <van-col span="7" offset="1" custom-class="type-il {{index==2?'on':''}}" data-opt="2" >
+      <image src="/packageB/images/Alipay-1.png"></image><text>支付宝</text>
     </van-col>
-    <van-col span="7" offset="1" custom-class="type-il {{index==3?'on':''}}" data-opt="3" bindtap="showtype">
-      <image src="/packageB/images/bank.png"></image><text>银行卡</text>
+    <!-- bindtap="showtype" -->
+    <van-col span="7" offset="1" custom-class="type-il {{index==3?'on':''}}" data-opt="3" >
+      <image src="/packageB/images/bank-1.png"></image><text>银行卡</text>
     </van-col>
   </van-col>
 </van-col>

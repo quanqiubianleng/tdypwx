@@ -232,7 +232,8 @@ Page({
           code:res.code,
           passdata:that.data.passdata,
           billid:that.data.id,
-          type:1
+          type:1,
+          shopid:that.data.shopid
         }
         let rendata = app.requestfun(data, '/Api/Apply/index'); 
         rendata.then((v)=>{
@@ -278,7 +279,9 @@ Page({
         let data = {
           code:res.code,
           nopenid:nopenid ,
-          billid :id 
+          billid :id,
+          type:1,
+          shopid:that.data.shopid
         }
         let rendata = app.requestfun(data, '/Api/nobill/nobillinfo');    
         rendata.then((v) => {
@@ -296,7 +299,8 @@ Page({
             WxParse.wxParse('rest', 'html', v.data.billinfo.rest, that);
             that.setData({
               list:v.data.billinfo,
-              nopenid:v.data.openid
+              nopenid:v.data.openid,
+              shopid:v.data.shopid
             })
           }
          
