@@ -5,7 +5,7 @@
       <!-- <image class="mainIcon" src="{{list.path}}" /> -->
       <van-icon wx:if="{{list.down==0}}" custom-class="iconOpen" name="arrow"  />
       <van-icon wx:if="{{list.down==1}}" custom-class="iconOpen" name="arrow-down" />
-      <text class="inBox-name">{{list.name}} <text wx:if="{{list.num}}">({{list.num}})</text> </text>
+      <text class="inBox-name">{{list.name}} <text>({{list.num}})</text> </text>
     </view>
     <view class="msgItems" wx:if="{{list.down==1}}" wx:for="{{list.array}}" wx:for-item="lists" wx:key="indexx">
       <view class="inBoxs">

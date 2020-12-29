@@ -34,7 +34,6 @@ Page({
     }
     let id = options.id;
     let nopenid = options.nopenid;
-    console.log(nopenid);
     let share = options.share;
     this.setData({
       id:id,
@@ -234,6 +233,17 @@ Page({
       show:false
     })
   },
+    // 报名后提醒客服
+  kefuTips:function(data){
+    var f_msg = {
+      type: 'bming',
+      f_id: 'user_' + app.globalData.userInfo.id,
+      j_id: 0,
+      msg_type: 'admin_kefu',
+      content: app.globalData.userInfo.mobile,
+    }
+    app.sendSocketMessage(f_msg);
+  },
   bubao:function(e){
     this.setData({
       show1:false
@@ -253,6 +263,10 @@ Page({
         let rendata = app.requestfun(data, '/Api/Apply/index'); 
         rendata.then((v)=>{
           if(v.data.status==1){
+            if(app.globalData.lockReconnect){
+              // 给客服发消息提示有人报名
+              that.kefuTips()
+            }
             wx.showModal({
               title: '提示',
               content: '报名成功',

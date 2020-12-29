@@ -25,7 +25,7 @@ Page({
     location:0,
     imageWidth:0, 
     imageHeight:0 ,
-    msgList: [{id:1,text:"通知：天大平台正式开通了，找工作就来天大"},{id:2,text:"公告：杭州智见科技高价来袭，综合月薪6500元"}],
+    notice: [],
     Time:'',        num:0,        showpic:null,        hidepic:null,
     money:'1000000',
     start_time: '2020-12-12',
@@ -155,7 +155,7 @@ Page({
         if (res.code) {
           var datad = {
             code:res.code,
-            position_id:5
+            position_id:1
           };
           let rendata = app.requestfun(datad, '/Api/business/index');    
           rendata.then((v) => {

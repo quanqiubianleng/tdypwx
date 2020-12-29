@@ -111,14 +111,15 @@ Page({
   onShow: function () {
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];
- if(currPage.__data__.id) {
-   let list = this.data.list;
-   list.splice(currPage.__data__.id,1);//view删除了对应的input值也要删掉
-    this.setData({
-      list:list
-    })
-    
-  }
+    if(currPage.__data__.id) {
+      let list = this.data.list;
+      list.splice(currPage.__data__.id,1);//view删除了对应的input值也要删掉
+        this.setData({
+          list:list,
+          strip:this.data.strip-1
+        })
+        
+      }
   },
 
   /**

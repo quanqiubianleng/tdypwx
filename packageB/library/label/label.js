@@ -48,7 +48,7 @@ Page({
       background:'#FF9C6E',
       select:false
     }
-  ],
+    ],
   id:null
   },
   
@@ -71,11 +71,11 @@ Page({
         if (res.code) {
           var datad = {
             r_id:id,
-            code: res.code
+            code: app.globalData.userInfo.token
           };
           let rendata = app.requestfun(datad, '/Api/UserRemark/index'); 
           rendata.then((v)=>{
-           if(v.data.status==1){
+           if(v.data.status==1&&v.data.data){
              let background = that.data.background;
              for (let index = 0; index < background.length; index++) {
                 if(v.data.data.tags==background[index].id){

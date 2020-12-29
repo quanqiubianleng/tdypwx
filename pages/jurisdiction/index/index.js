@@ -24,12 +24,18 @@ Page({
           let rendata = app.requestfun(data, '/Api/Department/index');    
           rendata.then((v) => {
             if(v.data.status==1){
+              console.log(v)
               let list = v.data.department;
               if(v.data.department){
                 for (let index = 0; index < list.length; index++) {
                   var down =0;
                    list[index].down=down;
-                   list[index].num=list[index].array.length
+                   if(list[index].array){
+                    list[index].num=list[index].array.length;
+                   }else{
+                    list[index].num = 0;
+                   }
+                   
                 }
               }
               that.setData({

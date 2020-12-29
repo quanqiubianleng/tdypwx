@@ -285,7 +285,11 @@ page{
   color: #666F83;
   font-size: 24rpx;
 }
-
+.types{
+  text-align: right;
+  color: #666F83;
+  font-size: 24rpx;
+}
 .fei view{
   float: right;  
   border-radius: 5rpx;

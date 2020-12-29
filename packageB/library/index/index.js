@@ -16,7 +16,7 @@ Page({
     userInfos:wx.getStorageSync('userinfo'),
     isLogin:app.globalData.isLogin,
     id:'',
-    RecommendMessage:''
+    RecommendMessage:'',
   },
 
   /**
@@ -30,7 +30,7 @@ Page({
     this.setData({
         page:0,
         id:id,
-        userlist:[]
+        userlist:[],
       
      })
      this.getSubordinatelist();
@@ -46,8 +46,15 @@ Page({
     let rendata = app.requestfun(datad, '/Api/Talentpool/getSubordinate'); 
     rendata.then((v)=>{
       if(v.data.status==1&&v.data.linkuser){
+        let list = v.data.linkuser
+        for (let index = 0; index < list.length; index++) {
+         if(list[index].username=='undefined')
+          list[index].username='';
+          if(list[index].mobile=='undefined')
+            list[index].mobile  =''
+        }
         this.setData({
-          userlist:this.data.userlist.concat(v.data.linkuser),
+          userlist:this.data.userlist.concat(list),
           page:this.data.page+1
         })
       }else{
@@ -62,9 +69,10 @@ Page({
     var datad = {};
     let rendata = app.requestfun(datad, '/Api/Talentpool/index'); 
     rendata.then((v)=>{
-      console.log(v);
+      
       if(v.data.status==1){
         if(v.data.linkuser==null){
+         
           that.setData({
             count:v.data.count,
             count1:v.data.count1,
@@ -73,8 +81,16 @@ Page({
             RecommendMessage:v.data.RecommendMessage,
           })
         }else{
+          let list = v.data.linkuser
+          for (let index = 0; index < list.length; index++) {
+          if(list[index].username=='undefined')
+            list[index].username='';
+          if(list[index].mobile=='undefined')
+            list[index].mobile  =''
+          
+          }
           that.setData({
-            userlist:that.data.userlist.concat(v.data.linkuser),
+            userlist:that.data.userlist.concat(list),
             RecommendMessage:v.data.RecommendMessage,
             count:v.data.count,
             count1:v.data.count1,

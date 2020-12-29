@@ -33,6 +33,8 @@ App({
     friend_msg: [], // 好友消息
     msg_count: [],// 总未读消息
     user_kefu_msg: [],// 用户与客服聊天记录
+    lockReconnect: false,// webocket连接状态
+    limit: 0,// websocket重连次数
   },  
   //网络请求
   async requestfun(data, url,type=false){
@@ -205,8 +207,7 @@ App({
     })
     wx.onSocketOpen(() => {
       console.log('WebSocket连接打开')
-      //that.reset()
-      //that.start()
+      that.globalData.lockReconnect = true
       that.bindUserId()
     })
     wx.onSocketError((res) => {
@@ -215,6 +216,7 @@ App({
     })
     wx.onSocketClose((res) => {
       console.log('WebSocket 已关闭！')
+      that.globalData.lockReconnect = false
       that.reconnect()
     })
   },
@@ -223,7 +225,7 @@ App({
   reconnect() {
     var that = this;
     if (that.lockReconnect) return;
-    that.lockReconnect = true;
+    // that.lockReconnect = true;
     clearTimeout(that.timer)
     if (that.globalData.limit < 10) {//连接10次后不再重新连接
       that.timer = setTimeout(() => {

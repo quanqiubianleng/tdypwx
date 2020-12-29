@@ -60,9 +60,9 @@
       <van-col span="24" offset="" wx:if="{{notice}}" custom-class="notice">
         <van-icon name="volume" color="#30B9EF" size="40rpx"/>
         <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
-          <block wx:for="{{msgList}}" wx:key="msgList">
+          <block wx:for="{{notice}}" wx:key="msgList">
               <swiper-item>
-                <view class="swiper_item">{{item.text}}</view>
+                <view class="swiper_item">{{item.title}}</view>
               </swiper-item>
           </block>
         </swiper>

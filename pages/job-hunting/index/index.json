@@ -6,7 +6,7 @@
     "van-tag": "../../../dist/tag/index",
     "van-icon":"../../../dist/icon/index"
   },
-  "navigationBarTitleText": "找工作",
+  "navigationBarTitleText": "首页",
   "navigationBarBackgroundColor":"#fff",
   "navigationBarTextStyle":"black"
 }

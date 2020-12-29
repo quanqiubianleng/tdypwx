@@ -47,34 +47,36 @@ Page({
     })
   },
   determine:function(){
-    let remark = this.data.remark;
+    let that = this;
+    let remark = that.data.remark;
     let datad={
-      id:this.data.id,
-      remark:this.data.remark,
-      status:this.data.index,
-      status_pay:this.data.index2
+      id:that.data.id,
+      remark:that.data.remark,
+      status:that.data.index,
+      status_pay:that.data.index2
     }
     let rendata = app.requestfun(datad, '/Api/UserAuto/partnerExamine',true); 
     rendata.then((v)=>{
      if(v.data.status==1){
       app.msg("审批成功");
-      let pages = getCurrentPages(); //获取当前页面js里面的pages里的所有信息。
-      let prevPage = pages[ pages.length - 2 ];  
-      prevPage.setData({  // 将我们想要传递的参数在这里直接setData。上个页面就会执行这里的操作。
-        id:this.data.indexs,
-      })
-      wx.navigateBack({
-        data:1
-      })
+      setTimeout(function(){
+        let pages = getCurrentPages(); //获取当前页面js里面的pages里的所有信息。
+        let prevPage = pages[ pages.length - 2 ];  
+        prevPage.setData({  // 将我们想要传递的参数在这里直接setData。上个页面就会执行这里的操作。
+          id:that.data.indexs,
+        })
+        wx.navigateBack({
+          data:1
+        })
+      },2000)
+      
      
      }
     })
   },
   previewImage:function(e){
-    let  url = this.data.img1;
-    let urls = this.data.img2
+    let urls = [this.data.img1,this.data.img2]
     wx.previewImage({
-      current: url, // 当前显示图片的http链接  
       urls:urls
     })
   },

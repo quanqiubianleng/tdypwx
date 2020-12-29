@@ -12,7 +12,50 @@ Page({
     page:0,
     pages:0,
     userlist:[],
-    BrowsHistory:[]
+    BrowsHistory:[],
+    background:[
+      {
+        id:1,
+        background:'#2E54EB',
+        select:false
+    },{
+      id:2,
+      background:'#FFC069',
+      select:false
+    },{
+      id:3,
+      background:'#40A9FF',
+      select:false
+    },{
+      id:4,
+      background:'#B3B39A',
+      select:false
+    },{
+      id:5,
+      background:'#B388FF',
+      select:false
+    },{
+      id:6,
+      background:'#FF7875',
+      select:false
+    },{
+      id:7,
+      background:'#E2BB8D',
+      select:false
+    },{
+      id:8,
+      background:'#5CDBD3',
+      select:false
+    },{
+      id:9,
+      background:'#95DE64',
+      select:false
+    },{
+      id:10,
+      background:'#FF9C6E',
+      select:false
+    }
+    ],
   },
 
   /**
@@ -29,8 +72,8 @@ Page({
       openid:openid,
       level:level
     })
-    this.detail(id);
     this.BrowsHistory(id);
+    this.detail(id);
   },
   getSubordinate:function(id,openid,level){
     var datad = {
@@ -42,8 +85,17 @@ Page({
     let rendata = app.requestfun(datad, '/Api/Talentpool/getSubordinate'); 
     rendata.then((v)=>{
       if(v.data.status==1&&v.data.linkuser){
+        let list = v.data.linkuser
+        for (let index = 0; index < list.length; index++) {
+        if(list[index].username=='undefined')
+          list[index].username='';
+        if(list[index].mobile=='undefined')
+          list[index].mobile  =''
+        if(list[index].status=='null')
+          list[index].status  =''
+        }
         this.setData({
-          userlist:v.data.linkuser,
+          userlist:list,
         })
       }else{
         app.msg("暂无下级");
@@ -60,13 +112,26 @@ Page({
           var datad = {
             uid:id,
             code: res.code,
-           
           };
           let rendata = app.requestfun(datad, '/Api/Talentpool/detail'); 
           rendata.then((v)=>{
             if(v.data.status==1&&v.data.data.user){
+              let user = v.data.data.user;
+              if(user.username=='undefined')
+                user.username = '';
+              if(user.mobile=='undefined')
+                user.mobile='';
+              if(user.remarks){
+                let background = that.data.background;
+                for (let index = 0; index < background.length; index++) {
+                    if(user.background==background[index].id){
+                      user.background=background[index].background
+                    }
+                }
+              }
+                console.log(user)
               that.setData({
-                user:v.data.data.user
+                user:user
               })
             }
            
@@ -113,10 +178,14 @@ Page({
   choice:function(e){
     let index = e.currentTarget.dataset.index;
     this.setData({
-      index:index
+      index:index,
+      userlist:[]
     })
     if(index==1){
-      this.getSubordinate(this.data.id,this.data.openid,this.data.level)
+      this.getSubordinate(this.data.id,this.data.openid,1)
+    }
+    if(index==4){
+      this.getSubordinate(this.data.id,this.data.openid,2)
     }
   },
   down:function(e){
@@ -131,16 +200,19 @@ Page({
     })
   },
   label:function(e){
+
     wx.navigateTo({
       url: '/packageB/library/label/label?id='+this.data.id,
     })
   },
-  // details:function(e){
-  //   let id = e.currentTarget.dataset.id;
-  //   wx.navigateTo({
-  //     url: '/',
-  //   })
-  // },
+  details:function(e){
+    let nopenid= wx.getStorageSync('userinfo').openid
+    let share = 0;
+    let id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/job-hunting/details/details?id='+id +'&nopenid='+nopenid + '&share=' +share ,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -152,7 +224,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.detail(this.data.id);
   },
 
   /**

@@ -60,7 +60,7 @@ Page({
       if (res.code) {
         var datad = {
           code:res.code,
-          position_id:5
+          position_id:2
         };
         let rendata = app.requestfun(datad, '/Api/business/index');    
         rendata.then((v) => {
@@ -86,11 +86,21 @@ Page({
     };
     let rendata = app.requestfun(datad, '/Api/article/index',false);    
     rendata.then((v) => {
-       if(v.data.status==1&&v.data.data){
-          this.setData({
-            lawyer:v.data.data
-          })
-       }
+      if(v.data.status==1&&v.data.data){
+        // let arr = [];
+        // let arry=[];
+        // v.data.data.forEach(element => {
+        //   console.log(element)
+        //   arr.push(element);
+        //   if(arr.length>=2){
+        //     arry.push(arr);
+        //     arr =[];
+        //   }
+        // });
+        this.setData({
+          lawyer:v.data.data
+        })
+      }
     }) 
   },
   type:function(){
@@ -151,24 +161,32 @@ Page({
       phoneNumber: mobile
     })
   },
+  scrolltolower:function(e){
+    // if(upper-threshold==0){
+      console.log(1111111111);
+      this.setData({
+        navScrollLeft:0
+      })
+    //}
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
     var that = this;
     //将计时器赋值给setInter
-    that.data.setInter = setInterval(
-        function () {
-          that.setData({ navScrollLeft : that.data.navScrollLeft + 50 });   
-        }
-  , 3000);  
+    that.data.setInter = setInterval(function () {
+      that.setData({ navScrollLeft : that.data.navScrollLeft + 10 });   
+    }, 100);
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
    onShow: function () {
-   
+    this.setData({
+      navScrollLeft:0
+    })
   },
  
 
