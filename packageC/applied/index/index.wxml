@@ -28,8 +28,8 @@
                     color="#3B67B1" size="8rpx" text-color="#3B67B1">{{item}}</van-tag>
                 </van-col>
                 <van-col span="6"custom-class="yibaoming">
-                  <text wx:if="{{index==0}}">已报名</text>
-                  <text wx:if="{{index!=0}}" style="background:#999999">已取消</text>
+                  <text wx:if="{{item.status==1}}">已报名</text>
+                  <text wx:if="{{item.status==0}}" style="background:#999999">已取消</text>
                 </van-col>
               </van-col>
               </van-col>
