@@ -54,15 +54,19 @@ Page({
     province:[],
     pro:'',
     p_inx:null,
+    p_code:null,
     citys:[],
     city:'',
     c_inx:null,
+    c_code:null,
     countys:[],
     county:'',
     co_inx:null,
+    cc_code:null,
     towns:[],
     town:'',
-    t_inx:null
+    t_inx:null,
+    t_code:null
    
   },
 
@@ -156,15 +160,23 @@ Page({
       this.setData({
         pro:e.currentTarget.dataset.name,
         p_inx:e.currentTarget.dataset.index,
+        p_code:e.currentTarget.dataset.code,
+
         citys:[],
         city:'',
+        c_code:null,
         c_inx:null,
+
         countys:[],
         county:'',
         co_inx:null,
+        cc_code:null,
+
         towns:[],
         town:'',
-        t_inx:null
+        t_inx:null,
+        t_code:null,
+        
       })
       this.amapFile(e.currentTarget.dataset.code,e.currentTarget.dataset.sub)
     }
@@ -172,12 +184,17 @@ Page({
       this.setData({
         city:e.currentTarget.dataset.name,
         c_inx:e.currentTarget.dataset.index,
+
         countys:[],
         county:'',
         co_inx:null,
+        cc_code:null,
+
         towns:[],
         town:'',
-        t_inx:null
+        t_inx:null,
+        t_code:null,
+        c_code:e.currentTarget.dataset.code
       })
       this.amapFile(e.currentTarget.dataset.code,e.currentTarget.dataset.sub)
     }
@@ -187,14 +204,17 @@ Page({
         co_inx:e.currentTarget.dataset.index,
         towns:[],
         town:'',
-        t_inx:null
+        t_inx:null,
+        t_code:null,
+        cc_code:e.currentTarget.dataset.code
       })
       this.amapFile(e.currentTarget.dataset.code,e.currentTarget.dataset.sub)
     }
     if(sub==5){
       this.setData({
         town:e.currentTarget.dataset.name,
-        t_inx:e.currentTarget.dataset.index
+        t_inx:e.currentTarget.dataset.index,
+        t_code:e.currentTarget.dataset.code
       })
     }
   },
@@ -259,15 +279,21 @@ Page({
               inx:index,
               pro:'',
               p_inx:null,
+              p_code:null,
+
               citys:[],
               city:'',
               c_inx:null,
+              c_code:null,
+
               countys:[],
               county:'',
               co_inx:null,
+              cc_code:null,
               towns:[],
               town:'',
-              t_inx:null
+              t_inx:null,
+              t_code:null
             })
           }
           }
@@ -349,8 +375,6 @@ Page({
       app.msg("联系电话方式不正确");
       return;
     }
-    let address = this.data.address;
-    console.log(this.data.pro,this.data.city,this.data.county,this.data.county);
     if(this.data.type==17){
       if(!this.data.pro){
         app.msg("请选择完整的工作区域");
@@ -381,14 +405,17 @@ Page({
         return;
       }
     }
-    let addr = this.data.details;
+    let address = this.data.pro+this.data.city+this.data.county+this.data.town;
+    let code = this.data.p_code + ','+this.data.c_code+ ',' +this.data.cc_code + ',' +this.data.t_code;
     let type = this.data.type;
     let index = this.data.inx;
     var datad = {
         type:type,
         name:name,
         idcard:ID,
-        mobile:tel
+        mobile:tel,
+        address:address,
+        code:code
       };
       let rendata = app.requestfun(datad, '/Api/UserAuto/addPartner',true);    
       rendata.then((v) => {

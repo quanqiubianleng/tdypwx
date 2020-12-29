@@ -56,26 +56,17 @@ Page({
     }
     let rendata = app.requestfun(datad, '/Api/UserAuto/partnerExamine',true); 
     rendata.then((v)=>{
-     console.log(v);
      if(v.data.status==1){
-     
-      wx.showModal({
-        title: '提示',
-        content: '提交成功',
-        showCancel: false, 
-        success: function (sm) {
-            if (sm.confirm) {
-              let pages = getCurrentPages(); //获取当前页面js里面的pages里的所有信息。
-              let prevPage = pages[ pages.length - 2 ];  
-              prevPage.setData({  // 将我们想要传递的参数在这里直接setData。上个页面就会执行这里的操作。
-                id:this.data.indexs,
-              })
-              wx.navigateBack({
-                data:1
-              })
-            }
-          }
+      app.msg("审批成功");
+      let pages = getCurrentPages(); //获取当前页面js里面的pages里的所有信息。
+      let prevPage = pages[ pages.length - 2 ];  
+      prevPage.setData({  // 将我们想要传递的参数在这里直接setData。上个页面就会执行这里的操作。
+        id:this.data.indexs,
       })
+      wx.navigateBack({
+        data:1
+      })
+     
      }
     })
   },
