@@ -7,9 +7,30 @@
     </swiper-item>
   </swiper>
 </view>
+<swiper style="height: 300rpx;" class="swiper" indicator-dots="{{swiper.indicatorDots}}" indicator-color="{{swiper.indicatorColor}}"
+    indicator-active-color="{{swiper.indicatorActiveColor}}" autoplay="{{swiper.autoplay}}" circular="true">
+    <swiper-item wx:for="{{lawyer}}"  data-item="item" wx:key="key" class="swiper-item">
+      
+      <view class="view-item">
+          <van-col style="width: 49%;margin-right: 2%;" span="22" offset="1" custom-class="item-img">
+            <view class="item-img-img"> 
+              <image src="{{item.imageurl}}"></image>
+            </view>
+            <view class="item-name">
+              <view class="item-name-name">{{item.title}}</view>
+              <view class="item-name-zu">在线律师</view>
+            </view>
+          </van-col>
+          <van-col span="22"offset="1"custom-class="item-tel">
+            {{item.description}}
+          </van-col>
+      </view>
+    </swiper-item>
+  </swiper>
 <!-- 滑动 -->
 <van-col span="24" offset="" custom-class="scroll-Hot">
-  <scroll-view scroll-x="true" class="scroll-nav" scroll-left="{{navScrollLeft}}"  scroll-with-animation="{{true}}">
+  
+  <!-- <scroll-view scroll-x="true" class="scroll-nav" scroll-left="{{navScrollLeft}}"  scroll-with-animation="{{true}}">
     <view class="view-item"  wx:for="{{lawyer}}" wx:key="{{index}}">
         <van-col span="22" offset="1" custom-class="item-img">
           <view class="item-img-img"> 
@@ -24,7 +45,7 @@
           {{item.description}}
         </van-col>
       </view>
-  </scroll-view>
+  </scroll-view> -->
 </van-col>
 <!-- 轮播 -->
 
