@@ -95,12 +95,14 @@ Page({
             let rendata = app.requestfun(data, '/Api/Bming/del',true);    
             rendata.then((v) => {
               if(v.data.status==1){
-
+                app.msg("删除成功");
                 let productList = that.data.productList
                   productList.splice(index,1);
                 that.setData({
                   productList:productList
                 })
+              }else{
+                app.msg("删除失败");
               }
             })
         } else if (sm.cancel) {

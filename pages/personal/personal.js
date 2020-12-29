@@ -37,6 +37,7 @@ Page({
                   url: '/packageB/IDdiscern/index/index?Valuable='+type +'&status='+ status ,
                 })
               }else{
+                console.log(1111111111)
                 let type = '';
                 let status = '';
                 wx.navigateTo({

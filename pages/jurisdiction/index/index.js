@@ -7,7 +7,7 @@ Page({
    */
   data: {
     list:[],
-    userInfos: wx.getStorageSync('userinfo')
+    userInfos: wx.getStorageSync('userinfo'),
   },
 
   /**
@@ -29,10 +29,11 @@ Page({
                 for (let index = 0; index < list.length; index++) {
                   var down =0;
                    list[index].down=down;
+                   list[index].num=list[index].array.length
                 }
               }
               that.setData({
-               
+                // num:
                 list:list
               });  
             }else{

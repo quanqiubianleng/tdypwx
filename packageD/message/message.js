@@ -79,7 +79,7 @@ Page({
     this.setData({
       notice: app.globalData.jop_msg
     })
-    app.globalData.jop_notice = 14
+    // app.globalData.jop_notice = 14
     console.log(this.notice)
   },
   /**

@@ -174,6 +174,55 @@ Page({
      }
     }
   },
+  showcancel:function(e){
+    let that = this;
+    wx.showModal({
+      title: '提示',
+      content: '您确定要取消吗？',
+      cancelText:'我再想想',
+      cancelColor:'#999999',
+      success: function (sm) {
+        if (sm.confirm) {
+          let datat = {
+            openid:that.data.nopenid,
+            billid:that.data.list.id
+          }
+          let rendata = app.requestfun(datat, '/Api/Apply/cancel',true); 
+          rendata.then((v)=>{
+            if(v.data.status==1){
+              wx.showModal({
+                title: '提示',
+                content: '取消成功',
+                showCancel: false, 
+                success: function (sm) {
+                  if (sm.confirm) {
+                    setTimeout(function() {
+                      wx.navigateBack();
+                    }, 1000);
+                  }
+                  }
+                })
+            }else{
+              wx.showModal({
+                title: '提示',
+                content: '取消失败',
+                showCancel: false, 
+                success: function (sm) {
+                  if (sm.confirm) {
+                    setTimeout(function() {
+                      wx.navigateBack();
+                    }, 1000);
+                  }
+                  }
+                })
+            }
+          })
+        } else if (sm.cancel) {
+          console.log('用户点击取消')
+        }
+        }
+      })
+  },
   confirm:function(){
     this.setData({
       show:false

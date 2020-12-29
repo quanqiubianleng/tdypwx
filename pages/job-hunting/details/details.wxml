@@ -197,7 +197,11 @@
 						</button>
 					</van-col>
 				</van-col>
-				<van-col span="12" custom-class="shop-buy"data-type="buynow" bindtap="showPopup">
+			
+				<van-col span="12" custom-class="shop-buy"data-type="buynow" bindtap="showcancel" wx:if="{{apply_status==1&&all_status==1}}">
+					取消报名
+				</van-col>
+				<van-col span="12" custom-class="shop-buy"data-type="buynow" bindtap="showPopup" wx:else>
 					立即报名
 				</van-col>
 			</van-col>
