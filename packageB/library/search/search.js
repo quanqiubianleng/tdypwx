@@ -61,7 +61,7 @@ Page({
       console.log(v);
       if(v.data.status==1&&v.data.linkuser){
         that.setData({
-          userlist:that.data.userlist.concat(v.data.linkuser[0][2]),
+          userlist:that.data.userlist.concat(v.data.linkuser),
           page:that.data.page+1,
           Yes:1
         })

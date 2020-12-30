@@ -134,6 +134,7 @@ Page({
     let own= e.currentTarget.dataset.own;
     let openid = e.currentTarget.dataset.openid;
     let level = e.currentTarget.dataset.level;
+    console.log(id)
     wx.navigateTo({
       url: '/packageB/library/details/details?id='+id +'&own='+own + '&openid='+openid +'&level=' +level,
     })

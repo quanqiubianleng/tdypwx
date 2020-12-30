@@ -190,12 +190,17 @@ Page({
   },
   choice:function(e){
     let index = e.currentTarget.dataset.index;
+    let level = this.data.level;
+    if(index==3&&level ==3){
+      level = 0
+    }
+
     this.setData({
       index:index,
       userlist:[],
       pages:0,
       page:1,
-      level :1
+      level :level
     })
     if(index==1){
 
@@ -338,7 +343,7 @@ Page({
       this.getSubordinate(this.data.id,this.data.openid,1)
     }
     if(index==2){
-      this.BrowsHistory();
+      this.BrowsHistory(this.data.id);
     }
    
   },
