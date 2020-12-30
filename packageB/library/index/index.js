@@ -71,6 +71,10 @@ Page({
     rendata.then((v)=>{
       
       if(v.data.status==1){
+        let RecommendMessage = '';
+        if(v.data.RecommendMessage){
+          RecommendMessage = v.data.RecommendMessage + '                             '
+        }
         if(v.data.linkuser==null){
          
           that.setData({
@@ -78,7 +82,7 @@ Page({
             count1:v.data.count1,
             count2:v.data.count2,
             count3:v.data.count3,
-            RecommendMessage:v.data.RecommendMessage,
+            RecommendMessage:RecommendMessage,
           })
         }else{
           let list = v.data.linkuser
@@ -96,6 +100,7 @@ Page({
             count1:v.data.count1,
             count2:v.data.count2,
             count3:v.data.count3,
+            RecommendMessage:RecommendMessage,
           })
         }
        

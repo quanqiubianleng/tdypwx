@@ -28,12 +28,10 @@ Page({
               var banners = v.data.banner;
               var navlist = v.data.access;
               var notice = v.data.notification;
-              var notification = v.data.notification;
               that.setData({
                 banner: banners,
                 navlist:navlist,
                 notice:notice
-                
               });   
           }) 
         } else {

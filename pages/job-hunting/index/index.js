@@ -248,9 +248,11 @@ Page({
    
   },
   library:function(){
-    let isLogin = app.globalData.isLogin;
+    let isLogin = app.globalData.isLogin; 
+    let userInfos= wx.getStorageSync('userinfo').openid
+
     console.log(isLogin);
-    if(!isLogin){
+    if(!isLogin&&!userInfos){
       wx.navigateTo({
         url: '/pages/loginByWechat/loginByWechat',
       })

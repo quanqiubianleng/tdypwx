@@ -50,6 +50,29 @@ page{
   height: 60rpx;
   margin-top: 15rpx;
 }
+.notices{
+  background: #D7ECF5;
+  padding-left: 32rpx;
+  height: 50rpx;
+  margin-top: 15rpx;
+  
+}
+.swiper_container {
+  /* display: inline-block;  */
+  float: right;
+  text-align: left;
+  height: 50rpx;
+  line-height: 50rpx;
+  width: 90%;
+  margin-left: 10rpx;
+}
+.swiper_items {
+font-size: 24rpx;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+color: #666666;
+}
 /* 滚动公告结束*/
 /* 工作中心 */
 .toppos{

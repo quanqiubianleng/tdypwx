@@ -1,51 +1,57 @@
 <!--packageB/library/details/details.wxml-->
 <van-col span="22" offset="1" custom-class="card">
-  <van-col span="4" custom-class="heom"><image src="{{user.headimgurl}}"></image></van-col>
-  <van-col span="12" offset="1" custom-class="xinxi">
+  <van-col span="6" custom-class="heom"><image src="{{user.headimgurl}}"></image></van-col>
+  <van-col span="10" custom-class="xinxi">
     <van-col span="24" custom-class="name">
       <text class="name-name">{{user.username?user.username:'未注册'}}</text><text class="name-sex" wx:if="{{user.sex==1}}">男</text><text class="name-sex" wx:if="{{user.sex==2}}">女</text>
     </van-col>
     <van-col span="24"custom-class="user-tel">电话 {{user.mobile?user.mobile:'未知'}}</van-col>
-    <van-col span="24"custom-class="user-tel">备注：<text style="background:{{user.background}}">{{user.remarks}}</text></van-col>
+    <van-col span="24"custom-class="user-tel" wx:if="{{user.remarks}}">备注：<text style="color:{{user.background?user.background:'#333'}}">{{user.remarks}}</text></van-col>
   </van-col>
-  <van-col span="6" offset="1" custom-class="card-bt" wx:if="{{own==2}}" bindtap="label">添加备注</van-col>
+  <van-col span="7" offset="1" custom-class="card-bt" wx:if="{{own==2}}" bindtap="label">添加备注</van-col>
   <!-- <van-col span="24"offset="0" custom-class="card-desc" >该好友入职后,您预计可获得<text style="color:red">800-1500元</text>推荐奖励。</van-col>
   <van-col span="24"offset="0" custom-class="card-desc" >他的好友入职后,您预计还可获得<text style="color:red">150-280元</text>推荐奖励。</van-col> -->
 </van-col>
 <van-col span="24"custom-class="choice">
-  <text bindtap="choice" data-index="1" wx:if="{{own==2&&level!=3}}" class="{{index==1?'on':''}}">{{level==1?'二级好友':'三级好友'}} </text>
-  <text bindtap="choice" data-index="4" wx:if="{{own==2&&level!=3&&level==1}}" class="{{index==4?'on':''}}">三级好友</text>
+  <text bindtap="choice" data-index="1" wx:if="{{own==2&&level==1}}" class="{{index==1?'on':''}}">二级好友</text>
+  <text bindtap="choice" data-index="4" wx:if="{{own==2&&level==1||level==2}}" class="{{index==4?'on':''}}">三级好友</text>
   <text bindtap="choice" data-index="2" class="{{index==2?'on':''}}">动态</text>
   <text bindtap="choice" data-index="3" class="{{index==3?'on':''}}">奖励</text>
 
 
 </van-col>
 <van-col span="24" wx:if="{{index==1||index==4}}">
-  <van-col span="22" offset="1" custom-class="box-list" wx:if="{{userlist.length>=1}}" wx:for="{{userlist}}" wx:key="key"  data-level="{{item.level}}" data-openid="{{item.openid}}" data-id="{{item.uid}}" data-own="2">
+  <van-col span="22" offset="1" custom-class="box-list" wx:if="{{userlist.length>=1}}" wx:for="{{userlist}}" wx:key="key" wx:for-index="key"  data-level="{{item.level}}" data-openid="{{item.openid}}" data-id="{{item.uid}}" data-own="2" bindtap="subordinate">
     <van-col span="5" custom-class="box-list-img">
       <image src="{{item.headimgurl?item.headimgurl:'../../../icons/ic_def_avatar.png'}}"></image>
     </van-col>
     <van-col span="19"custom-class="box-desc">
       <van-col span="24" custom-class="box-desc-top">
         <text style="font-size: 32rpx;max-width:100rpx;overflow:hidden;white-space:nowrap; float: left; ">{{item.username?item.username:'未注册'}}</text>
-        <text class="box-desc-top-ji">{{item.level+1}}</text>
+        <text class="box-desc-top-ji" wx:if="{{level==1}}">{{item.level+1}}</text>
+        <text class="box-desc-top-ji" wx:if="{{level==2}}">{{item.level+2}}</text>
         <text style=" margin-left:12rpx ;color:#54BBE6">{{item.sex?item.sex:'未知'}}</text>
         <text style=" margin-left:12rpx ;color:#54BBE6">{{item.age?item.age:''}}岁</text>
         <text style=" margin-left:12rpx ;color:#54BBE6">{{item.idtype?item.idtype:'普通用户'}}</text>
         <text style=" margin-left:12rpx ">{{item.status?item.status:'待职'}}</text>
         <text style=" margin-left:12rpx ">{{item.mobile?item.mobile:''}}</text>
       </van-col>
-      <van-col span="24"custom-class="box-desc-bottom">
-        <van-col span="6"custom-class="box-desc-bottom-er">二级:{{item.count2?item.count2:0}}人</van-col>
-        <van-col span="6"custom-class="box-desc-bottom-er">入职:0人</van-col>
-        <van-col span="6"custom-class="box-desc-bottom-er">待岗:0人</van-col>
-        <van-col span="6"custom-class="box-desc-bottom-er"><text>详情</text></van-col>
+      <van-col span="24" wx:if="{{item.level==1&&index==1}}">
+        <van-col span="24"custom-class="box-desc-bottom">
+          <van-col span="6"custom-class="box-desc-bottom-er">三级:{{item.count2?item.count2:0}}人</van-col>
+          <van-col span="6"custom-class="box-desc-bottom-er">入职:0人</van-col>
+          <van-col span="6"custom-class="box-desc-bottom-er">待岗:0人</van-col>
+          <van-col span="6"custom-class="box-desc-bottom-er"><text>详情</text></van-col>
+        </van-col>
+        <van-col span="24"custom-class="box-desc-bottom-er" ><view style="font-size: 18rpx;text-align: right;margin-right: 15rpx;">{{item.indate}}</view></van-col>
       </van-col>
-      <van-col span="24"custom-class="box-desc-bottom">
-        <van-col span="6"custom-class="box-desc-bottom-er">三级:{{item.count3?item.count3:0}}人</van-col>
-        <van-col span="6"custom-class="box-desc-bottom-er">入职:0人</van-col>
-        <van-col span="6"custom-class="box-desc-bottom-er">待岗:0人</van-col>
-        <van-col span="6"custom-class="box-desc-bottom-er" ><view style="font-size: 18rpx;text-align: right;margin-right: 15rpx;">{{item.indate}}</view></van-col>
+      <van-col span="24" wx:if="{{item.level==2&&index==4}}">
+        <van-col span="6"offset="18"  custom-class="box-desc-bottom-er"><text>详情</text></van-col>
+        <van-col span="24"custom-class="box-desc-bottom-er" ><view style="font-size: 18rpx;text-align: right;margin-right: 15rpx;margin-top:10rpx">{{item.indate}}</view></van-col>
+      </van-col>
+      <van-col span="24" wx:if="{{item.level==1&&index==4}}">
+        <van-col span="6"offset="18"  custom-class="box-desc-bottom-er"><text>详情</text></van-col>
+        <van-col span="24"custom-class="box-desc-bottom-er" ><view style="font-size: 18rpx;text-align: right;margin-right: 15rpx;margin-top:10rpx">{{item.indate}}</view></van-col>
       </van-col>
     </van-col>
   </van-col>

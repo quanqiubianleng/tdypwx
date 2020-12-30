@@ -9,9 +9,19 @@
         </swiper>
       </view>
     	<!-- 公告部分 -->
-    <van-col span="22" offset="1" custom-class="notice" wx:if="{{notice}}">
-      <van-notice-bar left-icon="../../icons/mag.png" text="{{notice}}" backgroundColor="#D7ECF5" color="#666" speed="25" delay="2000" bind:click="toExchange" />
+    <van-col span="22" offset="1" custom-class="notice" wx:if="{{notice.length==1}}">
+      <van-notice-bar left-icon="../../icons/mag.png"  text="{{notice}}" backgroundColor="#D7ECF5" color="#666" speed="25" delay="2000" bind:click="toExchange" />
     </van-col>
+    <van-col span="22" offset="1" wx:if="{{notice.length>1}}" custom-class="notices">
+        <van-icon name="volume" color="#30B9EF" size="40rpx" style="float: left;margin-top: 6rpx;"/>
+        <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
+          <block wx:for="{{notice}}" wx:key="msgList">
+              <swiper-item>
+                <view class="swiper_items">{{item.title}}</view>
+              </swiper-item>
+          </block>
+        </swiper>
+      </van-col>
     <van-col span="22" offset="1" custom-class="toppos">工作中心</van-col>
 
   </view>

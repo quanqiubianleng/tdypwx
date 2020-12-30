@@ -3,14 +3,15 @@ page{
   background: #F5F5F5;
 }
 /* 滚动公告开始*/
-/* .notice{
-  background: #F5F5F5;
-} */
+.notice{
+  background: #D7ECF5;
+}
 .notice-bar{
   height: 55rpx;
   line-height: 55rpx;
   border-radius:10rpx;
 }
+
 /* 滚动公告结束*/
 .card{
   background: #fff;

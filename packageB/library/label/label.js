@@ -77,14 +77,17 @@ Page({
           rendata.then((v)=>{
            if(v.data.status==1&&v.data.data){
              let background = that.data.background;
+             let activeItemIndex =that.data.activeItemIndex;
              for (let index = 0; index < background.length; index++) {
                 if(v.data.data.tags==background[index].id){
-                  background[index].select=true
+                  background[index].select=true;
+                  activeItemIndex=background[index].id
                 }
              }
              that.setData({
                background:background,
-              name:v.data.data.remark
+              name:v.data.data.remark,
+              activeItemIndex:activeItemIndex
              })
            }
            
@@ -129,8 +132,8 @@ Page({
               duration:2000,//显示时长
               icon:'none',
               success:function(){ 
-                wx.navigateTo({
-                  url: '/packageB/library/index/index',
+                wx.navigateBack({
+                  delta: -1,
                 })
               },
             })

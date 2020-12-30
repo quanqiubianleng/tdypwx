@@ -9,7 +9,7 @@ Page({
     index:2,
     down:2,
     strip:0,
-    page:0,
+    page:1,
     pages:0,
     userlist:[],
     BrowsHistory:[],
@@ -66,14 +66,31 @@ Page({
     let own = options.own;
     let openid = options.openid;
     let level = options.level;
+    console.log(level);
+    let index = 2;
+    if(level==1){
+      index=1;
+     
+    }
+    if(level==2){
+      index=4;
+      
+    }
     this.setData({
       own:own,
       id:id,
       openid:openid,
-      level:level
+      level:level,
+      index:index
     })
     this.BrowsHistory(id);
     this.detail(id);
+    if(index==1){
+      this.getSubordinate(id,openid,1)
+    }
+    if(index==4){
+      this.getSubordinate(id,openid,1)
+    }
   },
   getSubordinate:function(id,openid,level){
     var datad = {
@@ -95,10 +112,11 @@ Page({
           list[index].status  =''
         }
         this.setData({
-          userlist:list,
+          userlist:this.data.userlist.concat(list),
+          pages:this.data.pages+1
         })
       }else{
-        app.msg("暂无下级");
+        app.msg("暂无数据");
         return;
       }
     })
@@ -129,7 +147,6 @@ Page({
                     }
                 }
               }
-                console.log(user)
               that.setData({
                 user:user
               })
@@ -162,11 +179,7 @@ Page({
                   strip:v.data.data.length,
                   page:that.data.page+1
                 })
-            }else{
-              app.msg("暂无浏览记录");
-              return;
             }
-           
           })
         } else {
           app.msg("网络连接失败，请稍后再试");
@@ -179,13 +192,22 @@ Page({
     let index = e.currentTarget.dataset.index;
     this.setData({
       index:index,
-      userlist:[]
+      userlist:[],
+      pages:0,
+      page:1,
+      level :1
     })
     if(index==1){
+
       this.getSubordinate(this.data.id,this.data.openid,1)
     }
     if(index==4){
-      this.getSubordinate(this.data.id,this.data.openid,2)
+      if(this.data.level==1){
+        this.getSubordinate(this.data.id,this.data.openid,2)
+      }else{
+        this.getSubordinate(this.data.id,this.data.openid,1)
+      }
+      
     }
   },
   down:function(e){
@@ -212,6 +234,54 @@ Page({
     wx.navigateTo({
       url: '/pages/job-hunting/details/details?id='+id +'&nopenid='+nopenid + '&share=' +share ,
     })
+  },
+  subordinate:function(e){
+   let id= e.currentTarget.dataset.id;
+   let level = e.currentTarget.dataset.level;
+   let openid = e.currentTarget.dataset.openid;
+   let own = e.currentTarget.dataset.own;
+   console.log(id,level,openid,own,this.data.index)
+   let index = 0;
+  if(level==1&&this.data.index==1){
+    index=4;
+    level=2;
+  }
+  // if(level==1){
+  //    level = 2
+  // }
+  if(level==1&&this.data.index==4){
+    console.log(111111111111)
+    index=2;
+    level=0;
+  }
+  if(level==2&&this.data.index==4){
+    index=2;
+    level=0;
+  }
+  // if(this.data.index!=4){
+    this.setData({
+      index:index,
+      level:level,
+      own:own,
+      openid:openid,
+      uid:id,
+      pages:0,
+      page:1,
+      userlist:[]
+    })
+     if(index==4){
+      this.getSubordinate(id,openid,1);
+      this.detail(id)
+    }
+    if(index==2){
+      this.setData({
+        pages:1
+      })
+      this.detail(id);
+      this.BrowsHistory();
+    }
+ // }
+  
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -257,8 +327,15 @@ Page({
       duration: 1000
     })
     let index = this.data.index;
-    if(index==1){
-     this.getSubordinate(this.data.id,this.data.openid,this.data.level)
+    console.log(this.data.index,this.data.id,this.data.openid,this.data.level)
+    if(index==1&&this.data.level==1){
+      this.getSubordinate(this.data.id,this.data.openid,1)
+    }
+    if(index==4&&this.data.level==1){
+      this.getSubordinate(this.data.id,this.data.openid,2)
+    }
+    if(index==4&&this.data.level==2){
+      this.getSubordinate(this.data.id,this.data.openid,1)
     }
     if(index==2){
       this.BrowsHistory();
