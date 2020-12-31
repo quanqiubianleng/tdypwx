@@ -139,31 +139,24 @@ page{
   position: absolute;
   top: 30%;
   left: 15%;
-  width: 70%;
+  width: 65%;
   height: 40%;
-  
   z-index: 1002;
   overflow: auto;
 }
 .show-diy{
   border-radius: 5%;
-  margin-top: 80rpx;
   background: #fff;
-  width: 80%;
-  height: 80%;
-  margin-left:10% ;
+  width: 100%;
+  height: 100%;
 }
 .show-img{
-  position: relative;
-  z-index: 1003;
-  top: -70rpx;
+ margin-top: 19rpx;
   width: 70%;
   height: 70%;
 }
 .show-imgs{
-  position: relative;
-  z-index: 1003;
-  top: -70rpx;
+  margin-top: 19rpx;
   width: 70%;
   height: 70%;
 }
@@ -172,24 +165,18 @@ page{
   text-align: center;
 }
 .show-btn{
-  width: 70%;
-  margin-top: 50rpx;
+  width: 100%;
   height: 80rpx;
-  margin-left: 15%;
   line-height: 80rpx;
   background: #30B9EF;
   letter-spacing: 1rpx;
   color: #fff;
-  border-radius: 40rpx;
+ margin-top: 40rpx;
+ border-radius: 0rpx 0rpx 30rpx 30rpx;
 }
 .show-btns{
-  width: 70%;
-  margin-top: 50rpx;
-  height: 100rpx;
-  margin-left: 15%;
-  line-height: 100rpx;
-  background: #E87751;
+  background: #999999;
   letter-spacing: 1rpx;
   color: #fff;
-  border-radius: 40rpx;
+  
 }

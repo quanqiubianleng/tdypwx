@@ -127,6 +127,9 @@ color: #666666;
   padding-bottom: 10px;
   padding-top: 10px;
 }
+.menu_items{
+  display: none
+}
 .menu_icon {
   width: 45px;
   height: 45px;

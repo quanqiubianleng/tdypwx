@@ -134,9 +134,18 @@ Page({
     let own= e.currentTarget.dataset.own;
     let openid = e.currentTarget.dataset.openid;
     let level = e.currentTarget.dataset.level;
-    console.log(id)
+    let count2 = 0;
+    if(e.currentTarget.dataset.count2!=undefined){
+      count2= e.currentTarget.dataset.count2
+    }
+    let count3 = 0;
+    if(e.currentTarget.dataset.count3!=undefined){
+      count3=e.currentTarget.dataset.count3
+    }
+   
+  
     wx.navigateTo({
-      url: '/packageB/library/details/details?id='+id +'&own='+own + '&openid='+openid +'&level=' +level,
+      url: '/packageB/library/details/details?id='+id +'&own='+own + '&openid='+openid +'&level=' +level +'&count2='+count2 + '&count3=' +count3,
     })
   },
   explain:function(e){

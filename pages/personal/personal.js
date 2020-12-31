@@ -4,8 +4,6 @@ const app = getApp()
 const utils = require("../../utils/tool.js")
 Page({
   data: {
-    userInfo:[],
-
   },
 
   // 记录列表跳转
@@ -146,11 +144,19 @@ Page({
     
   },3000),
   onShow:function(){
-    var  userInfos= wx.getStorageSync('userinfo');
-    console.log(userInfos)
-    this.setData({
-      userInfo: userInfos,
-    }) 
+    if(!this.data.userInfo){
+      var  userInfos= wx.getStorageSync('userinfo');
+      console.log(userInfos)
+      this.setData({
+        userInfo: userInfos,
+      }) 
+    }
+    // else{
+    //   this.setData({
+    //     userInfo: [],
+    //   }) 
+    // }
+    
   },
   onLoad: function () { 
     

@@ -1,5 +1,5 @@
 <!--pages/jurisdiction/add/add.wxml-->
-<van-col span="22" offset="1" custom-class="tel">输入部门名称</van-col>
+<van-col span="22" offset="1" custom-class="tel">输入分组名称</van-col>
 <van-col span="22" offset="1" custom-class="inp"><input value="{{name}}" placeholder="请输入" bindblur="name"/></van-col>
 <!-- <van-col span="22"offset="1"custom-class="tel">选择部门图标</van-col> -->
 <!-- <van-col span="22"offset="1"custom-class="inc">

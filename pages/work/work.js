@@ -11,7 +11,8 @@ Page({
       indicatorActiveColor:"rgba(255,255,255)",
       autoplay:true,
     },
-    navlist:[]
+    navlist:[],
+    userInfo:[]
   },
   // 首页动态数据逻辑处理
   getDynamicData() {
@@ -27,6 +28,7 @@ Page({
           rendata.then((v) => {
               var banners = v.data.banner;
               var navlist = v.data.access;
+              console.log(navlist);
               var notice = v.data.notification;
               that.setData({
                 banner: banners,
@@ -41,95 +43,56 @@ Page({
           });
         }
       }
-    })
-    
-         
+    })     
   }, 
-  //跳转到厂入职
-  entry:function(){
-    wx.navigateTo({
-      url: '/pages/entry/index/index',
-    })
-  },
-   //跳转转厂设置
-  turnfactory:function(){
-    wx.navigateTo({
-      url: '/pages/turn-factory/index/index',
-    })
-  },
-    //跳转新增客户
-    additions:function(){
-      wx.navigateTo({
-        url: '/pages/additions/index/index',
-      })
-    },
-  //跳转客户资源
-  client:function(){
-    wx.navigateTo({
-      url: '/pages/client/index/index',
-    })
-  },
-  //跳转修改信息
-  modify:function(){
-    wx.navigateTo({
-      url: '/pages/modify/index/index',
-    })
-  },
-  //跳转邀约记录
-  invitation:function(){
-    wx.navigateTo({
-      url: '/pages/invitation/index/index',
-    })
-  },
-  //跳转面试记录
-  facerecord:function(){
-    wx.navigateTo({
-      url: '/pages/face-record/index/index',
-    })
-  },
-  //跳转借支申请
-  advance:function(){
-    wx.navigateTo({
-      url: '/pages/advance/advance',
-    })
-  },
-  //跳转借支审批
-  approver:function(){
-    wx.navigateTo({
-      url: '/pages/approver/approver',
-    })
-  },
-  //跳转打卡
-  clock:function(){
-    wx.navigateTo({
-      url: '/pages/clock/index/index',
-    })
-  },
-  //跳转面试登记
-  interview:function(){
-    wx.navigateTo({
-      url: '/pages/interview/index',
-    })
-  },
-  //跳转找工作
-  hunting:function(){
-    wx.navigateTo({
-      url: '/pages/job-hunting/index/index',
-    })
-  },
   onLoad: function () {
     let that = this;
     that.getDynamicData(); 
 
  
   },
+  url:function(e){
+    let  userInfos= wx.getStorageSync('userinfo');
+    let isLogin = app.globalData.isLogin; 
+    if(!userInfos||!isLogin){
+      wx.navigateTo({
+        url: '/pages/loginByWechat/loginByWechat',
+      })
+      return;
+    }else{
+      // let url = e.currentTarget.dataset.url;
+      // console.log(url);
+      // if(url=='/packageA/approval/index/index'){
+      //   let jurisdiction = userInfos.jurisdiction[0];
+      //   if(jurisdiction){
+      //     wx.navigateTo({
+      //       url: url,
+      //     })
+      //   }
+      //   return;
+      // }else{
+       
+      // }
+      wx.navigateTo({
+        url: url,
+      })
+      
+    }
+    console.log()
+  },
     /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
     let that = this;
-   
     that.getDynamicData(); 
+    if(!that.data.userInfo){
+      var  userInfos= wx.getStorageSync('userinfo');
+      console.log(userInfos)
+      that.setData({
+        userInfo: userInfos,
+      }) 
+    }
   },
   /**
    * 生命周期函数--监听页面卸载

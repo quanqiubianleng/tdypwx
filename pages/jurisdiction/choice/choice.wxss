@@ -74,7 +74,6 @@ page {
   border-radius: 15rpx;
   font-size: 12px;
   box-sizing: border-box;
-  padding-bottom: 10px;
   padding-top: 10px;
   margin-top: 30rpx;
   margin-bottom: 20rpx;
@@ -98,6 +97,16 @@ page {
   right: 8rpx;
   top: 5rpx;
 } 
+.menu_wsq{
+  background-color: #E0E0E0;
+  color: #999999;
+  line-height: 35rpx;
+}
+.menu_ysq{
+  background-color: #E6F5FB;
+  color: #2FAEDF;
+  line-height: 35rpx;
+}
 /* 弹窗 */
 .popup{
   border-radius: 15rpx;

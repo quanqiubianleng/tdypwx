@@ -45,8 +45,11 @@ Page({
             rendata.then((v)=>{
               if(v.data.status==1){
                 // app.globalData.token = v.data.data.token;
+                let  arr=v.data.data
+                let arry =arr.jurisdiction.split(',');
+                    arr.jurisdiction=arry
                 wx.setStorageSync('token', v.data.data.token);
-                wx.setStorageSync('userinfo', v.data.data);
+                wx.setStorageSync('userinfo', arr);
                 wx.setStorageSync('isLogin', true);
               
                 wx.showToast({ icon: "none", title: '成功' });

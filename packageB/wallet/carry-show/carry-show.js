@@ -8,9 +8,10 @@ Page({
    */
   data: {
     index:1,
-    money:0.00,
+    money:'100.00',
     display:'none',
     display1:'block',
+    uid:wx.getStorageSync('userinfo').id
   },
 
   /**
@@ -62,6 +63,7 @@ Page({
 
   Submit:function(e){
     let that = this;
+    console.log(that.data.number);
     if(!that.data.number){
       app.msg("提现金额不能为空");
       return;
@@ -80,35 +82,43 @@ Page({
       return;
     }else{
       if(type==1){
-        if(!that.data.name){
-          app.msg("请输入姓名");
-          return;
-        }
-        if(!that.data.uid){
-          app.msg("请输入身份证");
-          return;
-        }
-        var pattsss = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
-        if (!pattsss.test(that.data.uid)) {
-          app.msg("请输入有效的身份证号");
-          return;
-        }
+        // if(!that.data.name){
+        //   app.msg("请输入姓名");
+        //   return;
+        // }
+        // if(!that.data.uid){
+        //   app.msg("请输入身份证");
+        //   return;
+        // }
+        // var pattsss = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+        // if (!pattsss.test(that.data.uid)) {
+        //   app.msg("请输入有效的身份证号");
+        //   return;
+        // }
         wx.login({
           success (res) {
             if (res.code) {
               let data={
                 code:res.code,
-                money:that.data.number,
-                username:that.data.name,
+                // money:that.data.number,
+                // username:that.data.name,
                 uid:that.data.uid,
                 type:type
               }
               let rendata = app.requestfun(data, '/Api/Advances/Getmoney',true);    
               rendata.then((v) => {
-                if(v.data.status==1){
+               if(v.data.status==1){
                   that.setData({
                     display:'block',
                     display1:'none',
+                    show:1
+                  })
+                }
+                else{
+                  that.setData({
+                    display:'block',
+                    display1:'none',
+                    show:0
                   })
                 }
               }) 
@@ -222,6 +232,12 @@ Page({
   hideviews:function(e){
     wx.navigateBack({
       data:1
+    })
+  },
+  hideview:function(e){
+    this.setData({
+      display:'none',
+      display1:'block',
     })
   },
   /**

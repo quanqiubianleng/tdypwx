@@ -66,6 +66,8 @@ Page({
     let own = options.own;
     let openid = options.openid;
     let level = options.level;
+    let count2 = options.count2;
+    let count3 = options.count3;
     console.log(level);
     let index = 2;
     if(level==1){
@@ -81,45 +83,51 @@ Page({
       id:id,
       openid:openid,
       level:level,
-      index:index
+      index:index,
+      count2:count2,
+      count3:count2
     })
     this.BrowsHistory(id);
     this.detail(id);
     if(index==1){
-      this.getSubordinate(id,openid,1)
+      this.getSubordinate(id,openid,1,count2,count3)
     }
     if(index==4){
-      this.getSubordinate(id,openid,1)
+      this.getSubordinate(id,openid,1,count2,count3)
     }
   },
-  getSubordinate:function(id,openid,level){
-    var datad = {
-      openid:openid,
-      leavl:level,
-      uid:id,
-      page:this.data.pages
-    };
-    let rendata = app.requestfun(datad, '/Api/Talentpool/getSubordinate'); 
-    rendata.then((v)=>{
-      if(v.data.status==1&&v.data.linkuser){
-        let list = v.data.linkuser
-        for (let index = 0; index < list.length; index++) {
-        if(list[index].username=='undefined')
-          list[index].username='';
-        if(list[index].mobile=='undefined')
-          list[index].mobile  =''
-        if(list[index].status=='null')
-          list[index].status  =''
+  getSubordinate:function(id,openid,level,count2,count3){
+    console.log(count2,count3);
+    if(count2!=0||count3!=0){
+      var datad = {
+        openid:openid,
+        leavl:level,
+        uid:id,
+        page:this.data.pages
+      };
+      let rendata = app.requestfun(datad, '/Api/Talentpool/getSubordinate'); 
+      rendata.then((v)=>{
+        if(v.data.status==1&&v.data.linkuser){
+          let list = v.data.linkuser
+          for (let index = 0; index < list.length; index++) {
+          if(list[index].username=='undefined')
+            list[index].username='';
+          if(list[index].mobile=='undefined')
+            list[index].mobile  =''
+          if(list[index].status=='null')
+            list[index].status  =''
+          }
+          this.setData({
+            userlist:this.data.userlist.concat(list),
+            pages:this.data.pages+1
+          })
+        }else{
+          app.msg("暂无数据");
+          return;
         }
-        this.setData({
-          userlist:this.data.userlist.concat(list),
-          pages:this.data.pages+1
-        })
-      }else{
-        app.msg("暂无数据");
-        return;
-      }
-    })
+      })
+    }
+    
   },
   detail:function(e){
     let id = e;
@@ -203,14 +211,14 @@ Page({
       level :level
     })
     if(index==1){
-
-      this.getSubordinate(this.data.id,this.data.openid,1)
+      // if()
+      this.getSubordinate(this.data.id,this.data.openid,1,this.data.count2,this.data.count3)
     }
     if(index==4){
       if(this.data.level==1){
-        this.getSubordinate(this.data.id,this.data.openid,2)
+        this.getSubordinate(this.data.id,this.data.openid,2,this.data.count2,this.data.count3)
       }else{
-        this.getSubordinate(this.data.id,this.data.openid,1)
+        this.getSubordinate(this.data.id,this.data.openid,1,this.data.count2,this.data.count3)
       }
       
     }
@@ -245,6 +253,14 @@ Page({
    let level = e.currentTarget.dataset.level;
    let openid = e.currentTarget.dataset.openid;
    let own = e.currentTarget.dataset.own;
+   let count2 = 0;
+   if(e.currentTarget.dataset.count2!=undefined){
+     count2= e.currentTarget.dataset.count2
+   }
+   let count3 = 0;
+   if(e.currentTarget.dataset.count3!=undefined){
+     count3=e.currentTarget.dataset.count3
+   }
    console.log(id,level,openid,own,this.data.index)
    let index = 0;
   if(level==1&&this.data.index==1){
@@ -272,10 +288,12 @@ Page({
       uid:id,
       pages:0,
       page:1,
-      userlist:[]
+      userlist:[],
+      count2:count2,
+      count3:count2
     })
      if(index==4){
-      this.getSubordinate(id,openid,1);
+      this.getSubordinate(id,openid,1,count2,count3);
       this.detail(id)
     }
     if(index==2){

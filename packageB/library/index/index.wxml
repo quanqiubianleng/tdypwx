@@ -67,7 +67,7 @@
     </van-col>
 
   </van-col>
-  <van-col span="22" offset="1" custom-class="box-list" wx:for="{{userlist}}" wx:key="key" bindtap="details" data-level="{{item.level}}" data-openid="{{item.openid}}" data-id="{{item.uid}}" data-own="2">
+  <van-col span="22" offset="1" custom-class="box-list" wx:for="{{userlist}}" wx:key="key" bindtap="details" data-level="{{item.level}}" data-openid="{{item.openid}}" data-id="{{item.uid}}" data-own="2" data-count2="{{item.count2}}" data-count3="{{item.count3}}">
     <van-col span="5" custom-class="box-list-img">
       <image src="{{item.headimgurl?item.headimgurl:'../../../icons/ic_def_avatar.png'}}"></image>
     </van-col>

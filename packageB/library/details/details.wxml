@@ -21,7 +21,7 @@
 
 </van-col>
 <van-col span="24" wx:if="{{index==1||index==4}}">
-  <van-col span="22" offset="1" custom-class="box-list" wx:if="{{userlist.length>=1}}" wx:for="{{userlist}}" wx:key="key" wx:for-index="key"  data-level="{{item.level}}" data-openid="{{item.openid}}" data-id="{{item.uid}}" data-own="2" bindtap="subordinate">
+  <van-col span="22" offset="1" custom-class="box-list" wx:if="{{userlist.length>=1}}" wx:for="{{userlist}}" wx:key="key" wx:for-index="key"  data-level="{{item.level}}" data-openid="{{item.openid}}" data-id="{{item.uid}}" data-own="2" data-count2="{{item.count2}}" data-count3="{{item.count3}}" bindtap="subordinate">
     <van-col span="5" custom-class="box-list-img">
       <image src="{{item.headimgurl?item.headimgurl:'../../../icons/ic_def_avatar.png'}}"></image>
     </van-col>

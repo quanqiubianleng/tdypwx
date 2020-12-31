@@ -25,6 +25,8 @@
           </view>
           <image class="menu_icon" src="{{nav.nodeimage}}" />
           <view class="menu_name">{{nav.title}}</view>
+          <view class="menu_ysq" wx:if="{{nav.tag==1}}">已授权</view>
+          <view class="menu_wsq" wx:if="{{nav.tag==0}}">未授权</view>
          </van-col>
         </van-col>
       </van-col>
