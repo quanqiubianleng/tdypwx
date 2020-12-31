@@ -6,13 +6,15 @@
         <image src="{{image_path}}" wx:if="{{image_path}}" class="box-imgs"></image>
         <image src="../../images/id-1.png" class="box-img" wx:if="{{image_path==''}}"></image>
         <view wx:if="{{image_path==''}}">拍摄身份证人像面</view>
+        <image src="../../images/certified.png" wx:if="{{Valuable==1&&val==1}}" class="certified"></image>
       </ocr-navigator>
     </van-col>
     <van-col span="10"  custom-class="box-ul" bindtap="imgs">
       <ocr-navigator bind:onSuccess="inverse" certificateType="idCard" opposite="{{true}}">
         <image src="{{inverse_img}}" wx:if="{{inverse_img}}"  class="box-imgs"></image>
         <image src="../../images/id-2.png" class="box-img" wx:if="{{inverse_img==''}}"></image>
-        <view wx:if="{{inverse_img==''}}">拍摄身份证国徽面</view>
+        <view wx:if="{{inverse_img==''}}" >拍摄身份证国徽面</view>
+        <image src="../../images/certified.png" wx:if="{{Valuable==1&&vals==1}}" class="certified"></image>
       </ocr-navigator>
     </van-col>
   </van-col>
@@ -23,5 +25,5 @@
     </van-col>
   </van-col>
   <van-col span="22" offset="1" custom-class="btn" bindtap="Submit" wx:if="{{Valuable==0}}">提交</van-col>
-  <van-col span="22" offset="1" custom-class="btn" bindtap="Submit" wx:if="{{Valuable==1}}">重新认证</van-col>
+  <van-col span="22" offset="1" custom-class="btn" bindtap="Submits" wx:if="{{Valuable==1}}">重新认证</van-col>
 </van-col>

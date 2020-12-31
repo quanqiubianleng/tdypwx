@@ -15,12 +15,21 @@ page{
   margin-left: 5%;
   padding: 25rpx 45rpx;
   text-align: center;
-
+  position: relative;
 }
 .box-ul .box-img{
   height: 150rpx;
   width: 100%;
 }
+.certified{
+  position: relative;
+  top:-170rpx;
+  left: 30rpx;
+  width: 150rpx;
+  height: 150rpx;
+  z-index: 333;
+}
+
 .box-ul .box-imgs{
   height: 200rpx;
   width: 100%;

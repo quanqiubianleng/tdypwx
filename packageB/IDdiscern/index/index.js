@@ -228,27 +228,30 @@ Page({
       url: '/packageB/library/index/index',
     })
   },
-  tel:function(e){
+  phone:function(e){
     let mobile ='400-899-8877' ;
     wx.makePhoneCall({
       phoneNumber: mobile
     })
   },
   addPartner:function(e){
-    console.log(1111);
     let that = this;
     let type = e.currentTarget.dataset.type;
     let index = e.currentTarget.dataset.index;
     let status = that.data.status;
     let Valuable = that.data.Valuable;
-    console.log(status,Valuable)
     if(type==Valuable&&status==1){
       app.msg("你已申请，无需重复申请！");
        return;
     }
     if(status&&Valuable){
       let Tips1 = "你已申请";
-      let Tips2 = that.data.list[index].name;
+      let Tips2= '';
+      for (let index = 0; index < this.data.list.length; index++) {
+       if(Valuable==this.data.list[index].type){
+        Tips2=that.data.list[index].name
+       }
+      }
       let Tips3 = ",是否确认更换";
       let Tips = Tips1+Tips2+Tips3;
       wx.showModal({

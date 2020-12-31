@@ -96,9 +96,48 @@ App({
     });
     return pro;
   },
-
-
-
+  //判断是否有jurisdiction
+  jurisdiction :function(data){
+    let jurisdiction= wx.getStorageSync('userinfo').jurisdiction;
+    let show  =[];
+    let pro = new Promise((resolve, reject) => {
+       for (let index = 0; index < data.length; index++) {
+         if(jurisdiction.length>0){
+           if(jurisdiction.indexOf(JSON.stringify(data[index]))>=0){
+            show[index]=1;
+           }else{
+            show[index]=0;
+           }
+         }else{
+          show[index]=0;
+         } 
+       }
+      resolve(show);
+      // wx.uploadFile({
+      //       url: this.d.hostUrl + '/api/Upload/images',
+      //       filePath: data,
+      //       name: 'file',
+      //       header: {
+      //         'content-type': 'multipart/form-data'
+      //       },
+      //   success: (res) => {
+      //     if(res.data){
+      //       resolve(res);
+      //     }
+      //   },
+      //   fail: (res) => {
+      //     if (res.message) {
+      //       wx.hideLoading();
+      //     }
+      //     setTimeout(function() {
+      //       showMsg('网络请求失败');
+      //     }, 500);
+      //     reject();
+      //   }
+      // });
+    });
+    return pro;
+  },
   //图片上传
   async uploadFile(data){
     if (!data) {
@@ -130,11 +169,9 @@ App({
     });
     return pro;
   },
-  
   msg: function(data) {
     showMsg(data);
   },
-
   //图片下载 
   saveImg: function(imgSrc) {
     wx.showLoading({
@@ -173,9 +210,6 @@ App({
       }
     });
   },
-
-
-
   onShow: function() {
     
     if(chat.getStorages('isLogin')){
@@ -185,7 +219,6 @@ App({
       this.linkSocket()
     }
  	},
-
 	//建立websocket连接
   linkSocket() {
     var that = this
@@ -196,7 +229,6 @@ App({
       }
     })
   },
-
 	//绑定事件
   initEventHandle() {
     var that = this
@@ -220,7 +252,6 @@ App({
       that.reconnect()
     })
   },
-
 	//重新连接
   reconnect() {
     var that = this;

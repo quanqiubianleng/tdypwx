@@ -28,7 +28,6 @@ Page({
           rendata.then((v) => {
               var banners = v.data.banner;
               var navlist = v.data.access;
-              console.log(navlist);
               var notice = v.data.notification;
               that.setData({
                 banner: banners,
@@ -60,7 +59,7 @@ Page({
       })
       return;
     }else{
-      // let url = e.currentTarget.dataset.url;
+       let url = e.currentTarget.dataset.url;
       // console.log(url);
       // if(url=='/packageA/approval/index/index'){
       //   let jurisdiction = userInfos.jurisdiction[0];

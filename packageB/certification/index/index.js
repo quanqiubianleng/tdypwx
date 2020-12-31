@@ -16,8 +16,29 @@ Page({
    */
   onLoad: function (options) {
     let Valuable = options.Valuable;
+    let positive_img = options.positive_img;
+    let side_img = options.side_img;
+    let val = 0;
+    let vals = 0;
+    if(positive_img){
+        val = 1;
+    }
+    if(side_img){
+      vals=1
+    }
+    if(Valuable==1){
+      wx.showModal({
+        title: '提示',
+        content: '你已实名认证',
+        showCancel: false, 
+      })
+    }
     this.setData({
-      Valuable:Valuable
+      image_path:positive_img,
+      inverse_img:side_img,
+      Valuable:Valuable,
+      val :val,
+      vals:  vals
     })
   },
   // authenticationFind:function(){
@@ -33,9 +54,10 @@ Page({
             sex:e.detail.gender.text,
             nation:e.detail.nationality.text,
             idcard:e.detail.id.text,
-            address:e.detail.address.text,
+            address: e.detail.address.text,
             image_path:e.detail.image_path,
             positive_img:v.data,
+            val:0
           })
         }else{
           app.msg("图片上传失败，请重试");
@@ -53,8 +75,9 @@ Page({
       rendata.then((v) => {
         if(v.data){
           this.setData({
-            inverse_img:e.detail.image_path,
-            side_img:v.data,
+             inverse_img:e.detail.image_path,
+             side_img:v.data,
+            vals:0
           })
         }else{
           app.msg("图片上传失败，请重试");
@@ -128,6 +151,13 @@ Page({
         app.msg("网络连接失败，请稍后重试!")
         return;
       }
+    })
+  },
+  Submits:function(){
+    this.setData({
+      image_path:'',
+      inverse_img:'',
+      Valuable:0
     })
   },
   /**

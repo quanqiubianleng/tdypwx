@@ -10,7 +10,7 @@
       <text class="card-bottom" wx:if="{{item.status==3}}">未申请</text>
       <text class="card-bottoms" wx:if="{{item.status==0}}">审核中</text>
       <text class="card-bottomss" wx:if="{{item.status==1}}">审核已通过</text>
-      <text class="card-bottomsss" wx:if="{{item.status==2}}">未通过<text style="font-size: 20rpx;color:#666666">（可联系客服咨询详情）</text></text>
+      <text class="card-bottomsss" wx:if="{{item.status==2}}" bindtap="phone">未通过<text style="font-size: 20rpx;color:#666666">（可联系客服咨询详情）</text></text>
     </van-col>
     <van-col span="22"offset="1"custom-class="desc">{{item.desc}}</van-col>
   </van-col>
@@ -33,7 +33,7 @@
     <van-col span="24" custom-class="popup-del"  wx:if="{{Valuable==16}}">【恭喜，您已成为天大渠道运营商】</van-col>
     <van-col span="24" custom-class="popup-del"  wx:if="{{Valuable==17}}">【恭喜，您已成为天大站长合伙人】</van-col>
     <van-col span="24" custom-class="popup-del"  wx:if="{{Valuable==18}}">【恭喜，您已成为天大乡镇推荐】</van-col>
-    <van-col span="24" custom-class="popup-go" style="color:#333">赶快去寻找属于你的合伙人吧~</van-col>
+    <van-col span="24" custom-class="popup-go" style="color:#333">赶快去寻找属于您的合伙人吧~</van-col>
     <van-col span="24" custom-class="popup-bt">
       <van-col span="12"custom-class="ganbi" style="color:#999999" bindtap="close">关闭</van-col><van-col span="12"custom-class="ganbi" style="color:#30B9EF" bindtap="go">前往人才库</van-col>
     </van-col>
@@ -49,7 +49,7 @@
     <van-col span="24" custom-class="popup-shibai-del">【很遗憾，您的申请未通过】</van-col>
     <van-col span="24" custom-class="popup-shibai-go">可联系客服了解详情重新申请~</van-col>
     <van-col span="24" custom-class="popup-bt">
-      <van-col span="12"custom-class="ganbi" style="color:#999999" bindtap="close">关闭</van-col><van-col span="12"custom-class="ganbi" style="color:#30B9EF" bindtap="tel">联系客服</van-col>
+      <van-col span="12"custom-class="ganbi" style="color:#999999" bindtap="close">关闭</van-col><van-col span="12"custom-class="ganbi" style="color:#30B9EF" bindtap="phone">联系客服</van-col>
     </van-col>
    </block>
 </van-popup>

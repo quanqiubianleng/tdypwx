@@ -14,12 +14,12 @@
   <van-col span="24" custom-class="name">
     <view class="id-name">申请类型</view>
     
-    <view class="name-te">{{userlist.address}}</view>
+    <view class="name-te">{{userlist.type_name}}</view>
   </van-col>
   <van-col span="24" custom-class="name">
     <view class="id-name">工作区域</view>
     
-    <view class="name-te">{{userlist.type_name}}</view>
+    <view class="name-te">{{userlist.address}}</view>
   </van-col>
   <van-col span="24" custom-class="name">
     <view class="id-name">身<text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>份<text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>证</view>

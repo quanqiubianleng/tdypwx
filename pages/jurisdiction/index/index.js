@@ -51,7 +51,20 @@ Page({
         }
       }
     })
+    that.jurisdiction();
   },
+  jurisdiction:function(){
+    let data = [234,235];
+    let jurisdiction = app.jurisdiction(data);
+   
+       jurisdiction.then((v)=>{
+        console.log(v);
+        this.setData({
+          jurisdiction:v
+        })
+    })
+  },
+
   Showdown:function(e){
     let index = e.currentTarget.dataset.id;
      if(this.data.list[index].down==0){

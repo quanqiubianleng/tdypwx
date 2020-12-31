@@ -29,7 +29,7 @@
       <van-col span="24" custom-class='main-list'>
         <van-col span="22" offset="1" custom-class="menu">
           <van-col span="24" custom-class="menu-type" wx:for="{{navlist}}" wx:for-item="item" wx:key="index">
-            <van-col span="22" offset="1" custom-class="menu-type-tetl">{{item.title}}</van-col>
+            <van-col span="22" offset="1" custom-class="menu-type-tetl" wx:if="{{item.array[index].length>0}}">{{item.title}}</van-col>
             <van-col span="24" custom-class="menu_container">
               <view  data-url="{{nav.path}}"  class="menu_item" wx:for="{{item.array[index]}}" wx:for-item="nav" wx:key="indexx" bindtap="url" >
                 <image class="menu_icon" src="{{nav.menuimage}}" />
