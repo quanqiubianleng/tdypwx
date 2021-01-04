@@ -143,19 +143,10 @@ Page({
     
   },3000),
   onShow:function(){
-    if(!this.data.userInfo){
-      var  userInfos= wx.getStorageSync('userinfo');
-      console.log(userInfos)
-      this.setData({
-        userInfo: userInfos,
-      }) 
-    }
-    // else{
-    //   this.setData({
-    //     userInfo: [],
-    //   }) 
-    // }
-    
+    var  userInfos= wx.getStorageSync('userinfo');
+    this.setData({
+      userInfo: userInfos,
+    })   
   },
   onLoad: function () { 
     

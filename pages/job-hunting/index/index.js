@@ -40,11 +40,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     let id  = decodeURIComponent(options.scene);  
+     let id  = decodeURIComponent(options.scene)?decodeURIComponent(options.scene):options.id;  
    
    // let id = 10005937;
- 
+ console.log(id);
     if(id!='undefined'){
+      console.log(11111111111111)
       wx.login({
         success (res) {
           if (res.code) {

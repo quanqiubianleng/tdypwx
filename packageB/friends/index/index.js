@@ -280,6 +280,12 @@ Page({
       cangan:function(e){
       console.log(111)
       } , 
+
+    more:function(e){
+      wx.switchTab({
+        url: '/pages/job-hunting/index/index',
+      })
+    },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -326,11 +332,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    let levlid= this.data.levlid
-    console.log(levlid);
+    let userInfos= wx.getStorageSync('userinfo').openid
    return {
-     title: '天大云聘系统',
-     path: '/packageB/friends/index/index?levlid='+levlid,
+     title: '天大云聘',
+     path: '/pages/job-hunting/index/index?id='+userInfos,
      desc: '',
      success: function (res) {
        app.msg("分享成功");

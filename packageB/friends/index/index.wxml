@@ -4,7 +4,7 @@
     <van-loading size="30px" color="#0d0d0d">图片加载中</van-loading>
   </view>
   <van-col span="24" wx:if="{{qrcode}}">
-    <van-col span="24" offset="" custom-class="box">
+    <van-col span="24" offset="" custom-class="box" bindtap="more">
       <van-col span="22" offset="1" custom-class="box-topimg">
         <image src="./../../images/friends.png"></image>
       </van-col>
