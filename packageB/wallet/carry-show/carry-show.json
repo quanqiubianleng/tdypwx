@@ -2,7 +2,8 @@
   "usingComponents": {
     "van-row":"../../../../dist/row/index",
     "van-col":"../../../../dist/col/index",
-    "van-icon":"../../../../dist/icon/index"
+    "van-icon":"../../../../dist/icon/index",
+    "van-popup":"../../../dist/popup/index"
   },
   "navigationBarTitleText": "申请提现",  
   "navigationBarBackgroundColor":"#fff",

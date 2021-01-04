@@ -75,9 +75,10 @@ page{
 }
 .inBoxs text{
   line-height: 116rpx;
-  padding-left: 94rpx;
+  padding-left: 80rpx;
   font-size: 28rpx;
   font-weight: 600;
+  margin-left: 10rpx;
 }
 .add{
   margin-top: 40rpx;

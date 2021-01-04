@@ -6,10 +6,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    index:1,
-    index2:1,
+    index:'',
+    index2:'',
     userlist:[],
-    urls:{}
+    urls:{},
+    remark:''
   },
 
   /**
@@ -18,6 +19,7 @@ Page({
   onLoad: function (options) {
     let id = options.id;
     let index = options.index;
+    let currentTab = options.currentTab;
     let datad={
       id:id
     }
@@ -30,8 +32,12 @@ Page({
           img1:v.data.data.positive_img,
           img2:v.data.data.side_img,
           id:id,
+          name:v.data.data.admin_data.username,
+          currentTab:currentTab,
+          index:v.data.data.status,
+          index2:v.data.data.status_pay,
           indexs:index,
-          name:v.data.data.admin_data.username
+          remark:v.data.data.admin_remark
        })
      }
     })

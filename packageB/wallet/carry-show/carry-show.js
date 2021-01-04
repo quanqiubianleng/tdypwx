@@ -8,8 +8,8 @@ Page({
    */
   data: {
     index:1,
-    money:'100.00',
-    display:'none',
+    money:'0.00',
+    display:false,
     display1:'block',
     uid:wx.getStorageSync('userinfo').id
   },
@@ -109,14 +109,14 @@ Page({
               rendata.then((v) => {
                if(v.data.status==1){
                   that.setData({
-                    display:'block',
+                    display:true,
                     display1:'none',
                     show:1
                   })
                 }
                 else{
                   that.setData({
-                    display:'block',
+                    display:true,
                     display1:'none',
                     show:0
                   })
@@ -236,7 +236,7 @@ Page({
   },
   hideview:function(e){
     this.setData({
-      display:'none',
+      display:false,
       display1:'block',
     })
   },

@@ -40,18 +40,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     let id  = decodeURIComponent(options.scene)?decodeURIComponent(options.scene):options.id;  
-   
+     let userlevelid = 0;
+     let levlid = options.id;
+    // let levlid = 47;
+     let id  = decodeURIComponent(options.scene);  
+     //let id = 1027;
+     if(id!='undefined'&&typeof(levlid)=='undefined'){
+      userlevelid = id;
+     }
+     if(typeof(levlid)!='undefined'&&id=='undefined'){
+      userlevelid=levlid;
+     }
    // let id = 10005937;
- console.log(id);
-    if(id!='undefined'){
+   console.log(userlevelid);
+    if(userlevelid!=0){
       console.log(11111111111111)
       wx.login({
         success (res) {
           if (res.code) {
             var datad = {
               code: res.code,
-              nopenid:id
+              nopenid:userlevelid
               // lat:wx.getStorageSync('coordinates').longitude,
               // lng:wx.getStorageSync('coordinates').latitude,
             };

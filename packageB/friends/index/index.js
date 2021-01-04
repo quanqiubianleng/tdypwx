@@ -28,9 +28,6 @@ Page({
      if(id!='undefined'&&typeof(levlid)=='undefined'){
       userlevelid = id;
      }
-    //  if(typeof(levlid)=='undefined'&&id=='undefined'){
-    //   userlevelid= 0;
-    //  }
      if(typeof(levlid)!='undefined'&&id=='undefined'){
       userlevelid=levlid;
      }

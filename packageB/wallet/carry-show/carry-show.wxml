@@ -70,13 +70,20 @@
 </van-col> -->
 <van-col span="22"offset="1"custom-class="btn" bindtap="Submit" style='display:{{display1}}'>提交</van-col>
 
-<view class="bg" style='display:{{display}}'></view>
+<!-- <view class="bg" style='display:{{display}}'></view>
 <view class="show"  style='display:{{display}}'>
   <view class="show-diy">
      <image src="../../images/success-1.png"   class="show-img" wx:if="{{show==0}}"></image>
      <image src="../../images/success.png"  class="show-imgs" wx:if="{{show==1}}"></image>
      <view bindtap='hideviews' class="show-btn" wx:if="{{show==1}}">申请成功</view>
      <view bindtap='hideview' class="show-btn {{show==0?'show-btns':''}}" wx:if="{{show==0}}">申请失败</view>
-     <!-- <view class="show-btns"  bindtap='hideview' wx:if="{{show==0}}">去完善</view> -->
   </view>
-</view>
+</view> -->
+<van-popup show="{{ display }}" custom-class="show-diy" custom-style="width:70%">
+  <image src="../../images/success-1.png"   class="show-img" wx:if="{{show==0}}"></image>
+  <image src="../../images/success.png"  class="show-imgs" wx:if="{{show==1}}"></image>
+  <view class="show-tex" wx:if="{{show==1}}">申请成功</view>
+  <view class="show-tex" wx:if="{{show==0}}">申请失败</view>
+  <view bindtap='hideviews' class="show-btn" wx:if="{{show==1}}">确定</view>
+  <view bindtap='hideview' class="show-btn {{show==0?'show-btns':''}}" wx:if="{{show==0}}">确定</view>
+</van-popup>

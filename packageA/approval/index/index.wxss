@@ -5,6 +5,26 @@ page{
 /* .time{
   height: 120rpx;
 } */
+.navigation{
+  display: flex;
+  flex-direction: row;
+  line-height: 80rpx;
+  border-bottom: 2rpx solid #777;
+}
+.tab-item {
+  width: 50%;
+  text-align: center;
+  font-size: 15px;
+  color: #777;
+}
+.swiper {
+  height: 1100px;
+  background: #dfdfdf;
+}
+.on {
+  color: blue;
+  border-bottom: 5rpx solid blue;
+}  
 .time-img{
   float: left;
   padding: 20rpx 10rpx;

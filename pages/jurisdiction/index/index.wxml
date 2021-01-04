@@ -12,6 +12,7 @@
         <image class="mainIcons" src="{{lists.headimgurl}}" />
         <view class="iconOpens" data-name="{{lists.username}}" data-img="{{lists.headimgurl}}" data-id="{{lists.id}}" wx:if="{{jurisdiction[1]==1}}" bindtap="choice">权限管理</view>
         <text>{{lists.username}}</text>
+        <view style="display: inline-block;margin-left: 10rpx;font-size: 28rpx;font-weight: 600;line-height: 116rpx;">({{lists.idtypename}})</view>
       </view>
     </view>
   </view>

@@ -25,20 +25,22 @@ Page({
       initEndTime: "",
       limitStartTime: "",
       limitEndTime: ""
-    }
+    },
+    currentTab: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   this.partnerExamineList(this.data.youstart,this.data.youend,this.data.page);
+   this.partnerExamineList(this.data.youstart,this.data.youend,this.data.page,this.data.currentTab);
   },
-  partnerExamineList:function(youstart,youend,page){
+  partnerExamineList:function(youstart,youend,page,currentTab){
     let datad={
       page:page,
       start_time:youstart,
-      end_time:youend
+      end_time:youend,
+      status:currentTab
     }
     let rendata = app.requestfun(datad, '/Api/UserAuto/partnerExamineList',true); 
     rendata.then((v)=>{
@@ -70,7 +72,6 @@ Page({
       chartHide: false
     });
   },
-
   bindPickerChange: function(e) {
     console.log("picker发送选择改变，携带值为", e.detail.startTime);
   },
@@ -87,17 +88,34 @@ Page({
       youstart:youstart,
        youend:youend,
     })
-    this.partnerExamineList(youstart,youend,page);
+    this.partnerExamineList(youstart,youend,page,this.data.currentTab);
   } ,
-   
   details:function(e){
-    console.log(e);
     let id = e.currentTarget.dataset.id;
-    let index = e.currentTarget.dataset.index
+    let index = e.currentTarget.dataset.index;
+    let currentTab = this.data.currentTab;
     wx.navigateTo({
-      url: '/packageA/approval/details/details?id='+id +'&index='+index,
+      url: '/packageA/approval/details/details?id='+id +'&index='+index + '&currentTab='+currentTab,
     })
   },
+  swichNav: function (e) {
+    var that = this;
+    if (this.data.currentTab === e.target.dataset.current) {
+    return false;
+    } else {
+      that.setData({
+      currentTab: e.target.dataset.current,
+      page:0,
+      list:[],
+      strip:0
+    })
+    let youstart = '';   
+    let youend = '';
+    let page= 0
+    this.partnerExamineList(youstart,youend,page,e.target.dataset.current)
+  }
+  },
+    
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

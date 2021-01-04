@@ -1,4 +1,8 @@
 <!--packageA/approval/index/index.wxml-->
+<van-col span="24"custom-class="navigation">
+  <view class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">未审批</view>
+  <view class="tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">已审批</view>
+</van-col>
 <van-col span="22" offset="1" custom-class="time">
   <view class="time-img" bindtap="pickerShow">
     <image src="../../images/time.png"></image>
@@ -10,7 +14,9 @@
   <van-col span="10"custom-class="box-list-ul">
     <view class="tel">姓名</view>
     <view class="name">{{item.name}}</view>
-    <view class="desc">审批意见：待处理</view>
+    <view class="desc" wx:if="{{item.status==0}}">审批意见：待处理</view>
+    <view class="desc" style="color: #3B66B0;" wx:if="{{item.status==1}}">审批意见：已通过</view>
+    <view class="desc" style="color: red;" wx:if="{{item.status==2}}">审批意见：不通过</view>
   </van-col>
   <van-col span="8"custom-class="box-list-co">
     <view class="te">电话</view>

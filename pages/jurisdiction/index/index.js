@@ -56,9 +56,7 @@ Page({
   jurisdiction:function(){
     let data = [234,235];
     let jurisdiction = app.jurisdiction(data);
-   
        jurisdiction.then((v)=>{
-        console.log(v);
         this.setData({
           jurisdiction:v
         })

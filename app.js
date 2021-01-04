@@ -113,28 +113,6 @@ App({
          } 
        }
       resolve(show);
-      // wx.uploadFile({
-      //       url: this.d.hostUrl + '/api/Upload/images',
-      //       filePath: data,
-      //       name: 'file',
-      //       header: {
-      //         'content-type': 'multipart/form-data'
-      //       },
-      //   success: (res) => {
-      //     if(res.data){
-      //       resolve(res);
-      //     }
-      //   },
-      //   fail: (res) => {
-      //     if (res.message) {
-      //       wx.hideLoading();
-      //     }
-      //     setTimeout(function() {
-      //       showMsg('网络请求失败');
-      //     }, 500);
-      //     reject();
-      //   }
-      // });
     });
     return pro;
   },

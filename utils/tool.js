@@ -3,7 +3,7 @@
 /*函数节流*/
 function throttle(fn, interval) {
   var enterTime = 0;//触发的时间
-  var gapTime = interval || 3000 ;//间隔时间，如果interval不传，则默认300ms
+  var gapTime = interval || 2000 ;//间隔时间，如果interval不传，则默认300ms
   return function() {
     var context = this;
     var backTime = new Date();//第一次函数return即触发的时间
@@ -17,7 +17,7 @@ function throttle(fn, interval) {
 /*函数防抖*/
 function debounce(fn, interval) {
   var timer;
-  var gapTime = interval || 3000;//间隔时间，如果interval不传，则默认1000ms
+  var gapTime = interval || 2000;//间隔时间，如果interval不传，则默认1000ms
   return function() {
     clearTimeout(timer);
     var context = this;

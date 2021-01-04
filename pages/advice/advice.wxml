@@ -68,7 +68,7 @@
   </view>
   <view class="cu-bar foot input" style="{{'bottom:'+(InputBottom+'px')+';'}}">
     <view class="action" bindtap="sendImg"><text class="cuIcon-pic text-grey"></text></view>
-    <input class="solid-bottom" bindinput="Message" value="{{msg}}"
+    <input class="solid-bottom" bindinput="Message" value="{{msg}}" adjust-position="true"
       adjust-position="{{false}}" focus="{{false}}" maxlength="300" cursor-spacing="10"
       data-event-opts="{{[['focus',[['InputFocus',['$event']]]],['blur',[['InputBlur',['$event']]]]]}}" bindfocus="__e"
       bindblur="__e" />

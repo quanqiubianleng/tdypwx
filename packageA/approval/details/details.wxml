@@ -59,7 +59,7 @@
     <view class="id-name">审批说明</view>
   </van-col>
   <van-col span="24"custom-class="name">
-    <textarea placeholder="请输入审批说明" bindblur="remark"></textarea>
+    <textarea placeholder="请输入审批说明" value="{{remark}}" bindblur="remark"></textarea>
   </van-col>
 </van-col>
 <van-col span="20" offset="2" custom-class="bottom" bindtap="determine">提交</van-col>

@@ -413,14 +413,24 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    // let share = this.data.share;
+    // if(share==1){
+    //   wx.switchTab({
+    //     url: '/pages/job-hunting/index/index',
+    //   })
+    // }
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    // let share = this.data.share;
+    // if(share==1){
+    //   wx.switchTab({
+    //     url: '/pages/job-hunting/index/index',
+    //   })
+    // }
   },
 
   /**
