@@ -50,12 +50,6 @@
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
-      "list": []
-    },
     "plugin": {
       "list": []
     },
@@ -66,7 +60,6 @@
       "list": []
     },
     "miniprogram": {
-      "current": -1,
       "list": [
         {
           "id": 0,
@@ -108,6 +101,17 @@
           "name": "packageC/keep/index/index",
           "pathName": "packageC/keep/index/index",
           "query": "type=1",
+          "scene": null
+        },
+        {
+          "name": "pages/advance/advancelist",
+          "pathName": "pages/advance/advancelist",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/advance/advancedetail",
+          "pathName": "pages/advance/advancedetail",
           "scene": null
         }
       ]

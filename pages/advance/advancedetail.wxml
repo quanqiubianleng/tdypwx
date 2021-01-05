@@ -1,0 +1,66 @@
+<!--pages/advance/advancedetail.wxml-->
+<van-cell-group>
+  <van-field
+    model:value="{{ username }}"
+    label="借支人"
+    placeholder="请输入姓名"
+    clearable
+  />
+
+  <van-field
+    model:value="{{ tel }}"
+    label="手机号"
+    type="number"
+    placeholder="请输入手机号"
+    clearable
+  />
+
+  <view bindtap="choose">
+    <van-field
+      model:value="{{ moneytype }}"
+      label="借支类型"
+      type="number"
+      readonly
+      placeholder="请选择借支类型"
+      clearable
+    />
+  </view>
+  
+
+
+  <van-field
+    model:value="{{ money }}"
+    label="借支金额"
+    type="number"
+    placeholder="请输入借支金额"
+    clearable
+  />
+
+  <van-field
+    model:value="{{ info }}"
+    label="借支说明"
+    type="textarea"
+    placeholder="请输入借支说明"
+    autosize
+  />
+</van-cell-group>
+
+<view class="foot-submit" bindtap="submit">
+  <van-button type="primary" block>确认</van-button>
+</view>
+
+
+
+
+<van-popup
+  show="{{ show }}"
+  position="bottom"
+  bind:close="onClose"
+  closeable
+>
+  <view style="padding: 80rpx 0;">
+    <view class="j-type {{indexs == index?'in':''}}" wx:for="{{type}}" wx:for-index="indexs" data-name="{{item}}" data-key="{{indexs}}" bindtap="chooseType"> {{item}} </view>
+  </view>
+  
+</van-popup>
+

@@ -1,0 +1,48 @@
+<!--pages/advance/advancelist.wxml-->
+<view >
+  <van-cell title="张勇" value="1818999633252" size="large" />
+  <van-cell title="2020-01-02" value="3330" size="large" label="张勇于今日跟公司预支生活费3330" />
+</view>
+
+<view class="j-list">
+  <view class="flex j-title justify-content">
+    <text>张勇</text>
+    <text class="gray-color">13256988563</text>
+  </view>
+  <view class="flex justify-content line-height-60">
+    <text>2020-01-02</text>
+    <text class="gray-color">￥3330</text>
+  </view>
+  <view class="gray-color text-sm">
+    张勇于今日跟公司预支生活费3330张勇于今日跟公司预支生活费3330张勇于今日跟公司预支生活费3330张勇于今日跟公司预支生活费3330
+  </view>
+</view>
+
+<view class="j-list">
+  <view class="flex j-title justify-content">
+    <text>张勇</text>
+    <text class="gray-color">13256988563</text>
+  </view>
+  <view class="flex justify-content line-height-60">
+    <text>2020-01-02</text>
+    <text class="gray-color">￥3330</text>
+  </view>
+  <view class="gray-color text-sm">
+    张勇于今日跟公司预支生活费3330张勇于今日跟公司预支生活费3330张勇于今日跟公司预支生活费3330张勇于今日跟公司预支生活费3330
+  </view>
+</view>
+
+<view class="j-list">
+  <view class="flex j-title justify-content">
+    <text>张勇</text>
+    <text class="gray-color">13256988563</text>
+  </view>
+  <view class="flex justify-content line-height-60">
+    <text>2020-01-02</text>
+    <text class="gray-color">￥3330</text>
+  </view>
+  <view class="gray-color text-sm">
+    张勇于今日跟公司预支生活费3330张勇于今日跟公司预支生活费3330张勇于今日跟公司预支生活费3330张勇于今日跟公司预支生活费3330
+  </view>
+</view>
+

@@ -12,3 +12,12 @@ $RECYCLE.BIN/
 
 # Node.js
 node_modules/
+dist/notify/index.d.ts
+dist/notify/index.d.ts
+dist/notify/index.d.ts
+*.ts
+dist/notify/index.d.ts
+dist/notify/index.js
+dist/notify/index.d.ts
+*.ts
+dist/notify/index.d.ts

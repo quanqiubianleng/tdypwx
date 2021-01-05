@@ -168,6 +168,19 @@ function playVoice(){
 }
 
 
+// 验证手机号码
+function checkMobile(mobile){
+  if (!(/^1[34578]\d{9}$/.test(mobile))) {
+    wx.showToast({
+      title: '手机号码有误',
+      duration: 2000,
+      icon:'none'
+    });
+    return false;
+  }
+}
+
+
 module.exports = {
   getStorages: getStorages,
   getTimer: getTimer,
@@ -177,4 +190,5 @@ module.exports = {
   showTime: showTime,
   descArr: descArr,
   playVoice: playVoice,
+  checkMobile: checkMobile,
 }

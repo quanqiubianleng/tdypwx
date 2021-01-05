@@ -1,0 +1,20 @@
+/* pages/advance/advancedetail.wxss */
+page{
+  width: 100%;
+  height:100%;
+  /* background: #ccc; */
+  background:#F5F5F5 ;
+}
+.foot-submit{
+  padding: 0 20rpx;
+  margin-top: 60rpx;
+}
+.j-type{
+  line-height: 80rpx;
+  height: 80rpx;
+  text-align: center;
+  color: #b9b9b9;
+}
+.in{
+  background-color: #f9f9f9;
+}
