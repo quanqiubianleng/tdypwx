@@ -5,6 +5,14 @@ page{
   /* background: #ccc; */
   background:#F5F5F5 ;
 }
+.icon{
+  display: flex;
+  flex-direction:row;
+  align-items:right;
+  justify-content: flex-end ;
+  margin-top: 20rpx;
+  margin-right: 20rpx;
+}
 .j-list{
   padding: 0 40rpx 40rpx 40rpx;
   background-color: #ffffff;

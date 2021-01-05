@@ -113,8 +113,6 @@ page {
 
   .box-box{
     background: #fff;
-    margin-top: 5rpx;
-    
   }
   .box{
     margin-top: 20rpx;
@@ -165,6 +163,11 @@ page {
     color: #666F83;
     font-size: 26rpx;
   }
+  .types{
+    text-align: right;
+    color: #666F83;
+    font-size: 22rpx;
+  }
   .fei{
     height: 60rpx;
   }
@@ -193,6 +196,9 @@ page {
     padding-right: 5rpx;
    border-radius: 5rpx 0 rpx 0 5rpx;
    
+  }
+  .tags{
+    margin-top: 8rpx;
   }
   .tags-box{
     overflow:hidden;

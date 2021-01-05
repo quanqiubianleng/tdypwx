@@ -70,6 +70,8 @@ Page({
         let prevPage = pages[ pages.length - 2 ];  
         prevPage.setData({  // 将我们想要传递的参数在这里直接setData。上个页面就会执行这里的操作。
           id:that.data.indexs,
+          currentTab:that.data.currentTab,
+          status :that.data.index
         })
         wx.navigateBack({
           data:1

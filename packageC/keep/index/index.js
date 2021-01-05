@@ -23,13 +23,29 @@ Page({
     }
     if(type==3){
       wx.setNavigationBarTitle({title: '浏览记录'})
+      this.BrowsHistory();
     }
     this.setData({
       type:type
     })
 
   },
-
+  //浏览记录
+  BrowsHistory:function(){
+    let data = {
+      page:this.data.page,
+      uid:wx.getStorageSync('userinfo').id
+    }
+    let rendata = app.requestfun(data, '/Api/BrowsHistory/index',true);    
+    rendata.then((v) => {
+      console.log(v);
+      if(v.data.status==1&&v.data.data){
+        this.setData({
+          productList:v.data.data
+        })
+      }
+    })
+  },
   //收藏记录
   collectionList:function(){
     let data = {

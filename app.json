@@ -35,7 +35,6 @@
     "pages/entry/details/details",
     "pages/client/index/index",
     "pages/userinformation/userinformation",
-    "pages/advance/advance",
     "pages/advance/advancelist",
     "pages/advance/advancedetail",
     "pages/bossinfo/bossinfo",

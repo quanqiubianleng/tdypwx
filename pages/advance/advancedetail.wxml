@@ -5,6 +5,8 @@
     label="借支人"
     placeholder="请输入姓名"
     clearable
+    required
+    bind:change="name"
   />
 
   <van-field
@@ -13,6 +15,8 @@
     type="number"
     placeholder="请输入手机号"
     clearable
+    required
+    bind:change="tel"
   />
 
   <view bindtap="choose">
@@ -23,6 +27,8 @@
       readonly
       placeholder="请选择借支类型"
       clearable
+      required
+      bind:change="moneytype"
     />
   </view>
   
@@ -34,6 +40,8 @@
     type="number"
     placeholder="请输入借支金额"
     clearable
+    required
+    bind:change="money"
   />
 
   <van-field
@@ -42,15 +50,14 @@
     type="textarea"
     placeholder="请输入借支说明"
     autosize
+    required
+    bind:change="info"
   />
 </van-cell-group>
 
 <view class="foot-submit" bindtap="submit">
-  <van-button type="primary" block>确认</van-button>
+  <van-button type="primary" color="#30B9EF"  block>提交</van-button>
 </view>
-
-
-
 
 <van-popup
   show="{{ show }}"
@@ -59,7 +66,7 @@
   closeable
 >
   <view style="padding: 80rpx 0;">
-    <view class="j-type {{indexs == index?'in':''}}" wx:for="{{type}}" wx:for-index="indexs" data-name="{{item}}" data-key="{{indexs}}" bindtap="chooseType"> {{item}} </view>
+    <view wx:if="{{indexs>0}}" class="j-type {{indexs == index?'in':''}}" wx:for="{{type}}" wx:for-index="indexs" data-name="{{item}}" data-key="{{indexs}}" bindtap="chooseType"> {{item}} </view>
   </view>
   
 </van-popup>

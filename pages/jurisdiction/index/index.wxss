@@ -5,7 +5,9 @@ page{
 .msgGroup{
   background: white;
   margin-top: 16rpx;
+
 }
+
 .msgGroup .msgItem{
   width: 100%;
   /* height: 116rpx; */
@@ -89,4 +91,20 @@ page{
   line-height: 60rpx;
   color: #fff;
   text-align: center;
+}
+.long{
+  height: 80rpx;
+  line-height: 80rpx;
+  letter-spacing: 1rpx;
+  text-align: center;
+  color: #999999;
+  border-bottom: 5rpx solid #ddd;
+}
+.lon{
+  margin-top: 10rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #999999;
+  letter-spacing: 1rpx;
 }

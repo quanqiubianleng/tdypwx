@@ -18,7 +18,7 @@ Page({
     wx.login({ 
       success: (res) => { 
         if (res.code) {
-          wx.showLoading({ title: "登录中" })
+           wx.showLoading({ title: "登录中" })
           let iv = e.detail.iv;
           let encryptedData = e.detail.encryptedData;
           var datad = {
@@ -41,8 +41,10 @@ Page({
                     if(v.data.status==1){
                       // app.globalData.token = v.data.data.token;
                       let  arr=v.data.data
-                      let arry =arr.jurisdiction.split(',');
-                          arr.jurisdiction=arry
+                      if(arr.jurisdiction&&arr.jurisdiction.length>0){
+                        let arry =arr.jurisdiction.split(',');
+                        arr.jurisdiction=arry
+                      }
                       wx.setStorageSync('token', v.data.data.token);
                       wx.setStorageSync('userinfo', arr);
                       wx.setStorageSync('isLogin', true);

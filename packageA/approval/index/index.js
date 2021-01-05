@@ -107,7 +107,8 @@ Page({
       currentTab: e.target.dataset.current,
       page:0,
       list:[],
-      strip:0
+      strip:0,
+      data:'请选择时间'
     })
     let youstart = '';   
     let youend = '';
@@ -129,15 +130,24 @@ Page({
   onShow: function () {
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];
-    if(currPage.__data__.id) {
+    if(currPage.__data__.id&&currPage.__data__.currentTab==0) {
       let list = this.data.list;
-      list.splice(currPage.__data__.id,1);//view删除了对应的input值也要删掉
+      list.splice(currPage.__data__.id,1);//删除
         this.setData({
           list:list,
-          strip:this.data.strip-1
+          strip:this.data.strip-1,
+          currentTab:currPage.__data__.currentTab
         })
         
       }
+    if(currPage.__data__.id&&currPage.__data__.currentTab==1){
+      let list = this.data.list;
+      list[currPage.__data__.id].status=currPage.__data__.status;//修改
+        this.setData({
+          list:list,
+          currentTab:currPage.__data__.currentTab
+        })
+    }  
   },
 
   /**

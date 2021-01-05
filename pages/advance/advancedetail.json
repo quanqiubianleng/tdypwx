@@ -3,5 +3,6 @@
     "van-field": "../../dist/field/index",
     "van-button": "../../dist/button/index",
     "van-popup": "../../dist/popup/index"
-  }
+  },
+  "navigationBarTitleText": "借支申请"
 }

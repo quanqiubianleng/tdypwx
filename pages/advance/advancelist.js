@@ -14,7 +14,11 @@ Page({
   onLoad: function (options) {
 
   },
-
+  borrow:function(e){
+    wx.navigateTo({
+      url: '/pages/advance/advancedetail',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

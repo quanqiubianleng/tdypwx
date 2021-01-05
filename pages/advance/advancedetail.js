@@ -12,9 +12,9 @@ Page({
     info: '',// 借支说明
     username: '',// 姓名
     tel: '',// 电话
-    type: ['生活借支','住宿借支','工资借支'],
+    type: ['请选择','生活借支','住宿借支','工资借支'],
     show: false,
-    index: 0,
+    index: 1,
   },
 
   /**
@@ -72,11 +72,36 @@ Page({
   onShareAppMessage: function () {
 
   },
+
+  //借支人
+  name:function(e){
+    this.setData({
+      username:e.detail
+    })
+  },
+  //电话
+  tel:function(e){
+    this.setData({
+      tel:e.detail
+    })
+  },
   // 选择类型
   choose: function (){
     console.log('111')
     this.setData({
       show: true,
+    })
+  },
+  //金额
+  money:function(e){
+    this.setData({
+      money:e.detail
+    })
+  },
+  //说明
+  info:function(e){
+    this.setData({
+      info:e.detail
     })
   },
   // 关闭选择弹窗
@@ -107,14 +132,40 @@ Page({
       app.msg('手机号不能为空')
       return false
     }
-    chat.checkMobile(this.data.tel)
-    if(!this.data.money || this.data.money <= 0 || typeof(this.data.money)!="number"){
+    var patts = /^\d{11}$/g;
+    if(!patts.test(this.data.tel)){
+      app.msg('请输入正确的手机号')
+      return false
+    }
+    if(!this.data.money || this.data.money <= 0){
       app.msg('金额不能为空或者不能小于0')
       return false
+    }
+    if(!this.data.index||this.data.index<1){
+      app.msg("请选择借支类型");
+      return;
     }
     if(!this.data.info){
       app.msg('说明不能为空')
       return false
     }
+    let data = {
+      moneytype:this.data.index,
+      money:this.data.money,
+      info:this.data.info,
+      username:this.data.username,
+      tel:this.data.tel
+    }
+    let rendata = app.requestfun(data, '/Api/Borrowing/addBorrowing',true); 
+       rendata.then((v) => {
+          app.msg("提交成功");
+          if(v.data.status==1){
+            setTimeout(function() {
+              wx.navigateBack();
+             }, 1000);
+          }else{
+            wx.showToast({ icon: "none", title: v.data.message });
+          }
+       })
   }
 })
