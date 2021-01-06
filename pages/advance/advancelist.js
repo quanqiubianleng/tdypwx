@@ -1,11 +1,14 @@
 // pages/advance/advancelist.js
+const Util = require('../../utils/util.js')
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    page:1,
+    list:[]
   },
 
   /**
@@ -13,6 +16,23 @@ Page({
    */
   onLoad: function (options) {
 
+  },
+
+  BorrowList:function(e){
+    let data  = {
+      page :this.data.page
+    }
+    let rendata = app.requestfun(data, '/Api/Borrowing/BorrowList',true); 
+    rendata.then((v) => {
+       if(v.data.status==1&&v.data.data){
+         this.setData({
+           list:this.data.list.concat(v.data.data)
+         })
+       }else{
+         app.msg("已经到底了");
+         return;
+       }
+    })
   },
   borrow:function(e){
     wx.navigateTo({
@@ -30,7 +50,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      page:1
+    })
+    this.BorrowList();
   },
 
   /**
@@ -58,7 +81,14 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    wx.showLoading({
+      title: '玩命加载中',
+      duration: 1000
+    })
+    this.setData({
+      page:this.data.page+1
+    })
+    this.BorrowList();
   },
 
   /**

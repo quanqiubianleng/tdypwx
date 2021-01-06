@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "van-cell": "../../dist/cell/index",
-    "van-icon":"../../../dist/icon/index"
+    "van-icon":"../../../dist/icon/index",
+    "van-col":"../../dist/col/index"
   },
   "navigationBarTitleText": "借支列表"
 }

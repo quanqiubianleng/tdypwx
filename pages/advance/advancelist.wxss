@@ -6,17 +6,29 @@ page{
   background:#F5F5F5 ;
 }
 .icon{
-  display: flex;
+  position: fixed;
+  top:0rpx;
+  left: 0rpx;
+  z-index: 999999;
+  background-color: #ffffff;
+  width: 100%;
+  text-align: right;
+  /* display: flex;
   flex-direction:row;
   align-items:right;
   justify-content: flex-end ;
   margin-top: 20rpx;
+  margin-right: 20rpx; */
+}
+.icon-icon{
+  float: right;
   margin-right: 20rpx;
 }
 .j-list{
-  padding: 0 40rpx 40rpx 40rpx;
+  padding: 0 40rpx 20rpx 40rpx;
   background-color: #ffffff;
   margin-top: 20rpx;
+  
 }
 .j-title{
   line-height: 80rpx;
@@ -38,4 +50,12 @@ page{
 }
 .text-sm{
   font-size: 24rpx;
+}
+.null{
+  margin-top: 20rpx;
+  text-align: center;
+}
+.null image{
+  height: 350rpx;
+  width: 100%;
 }

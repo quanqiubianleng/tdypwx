@@ -1,46 +1,25 @@
 <!--pages/advance/advancelist.wxml-->
 <view class="icon" bindtap="borrow">
-  <van-icon name="add-o" size="50rpx" color="#2A487C"/>
+  <van-icon name="add-o" size="50rpx" custom-class="icon-icon" color="#2A487C"/>
 </view>
-<view class="j-list">
-  <view class="flex j-title justify-content">
-    <text>张勇</text>
-    <text class="gray-color">13256988563</text>
+<view style="margin-top:80rpx;margin-bottom: 30rpx;">
+  <view class="j-list" wx:if="{{list.length>=1}}" wx:for="{{list}}" wx:key="key">
+    <view class="flex j-title justify-content">
+      <text class="gray-name">{{item.username}}</text>
+      <text class="gray-color">{{item.tel}}</text>
+      <text class="gray" style="color:#E95525" wx:if="{{item.status==0}}">审核中</text>
+      <text class="gray" style="color:#3B66B0" wx:if="{{item.status==1}}">已打款</text>
+      <text class="gray" style="color:#FE0402" wx:if="{{item.status==2}}">驳回</text>
+    </view>
+    <view class="flex justify-content line-height-60">
+      <text>{{item.indate}}</text>
+      <text class="gray-color">￥{{item.money}}</text>
+    </view>
+    <view class="gray-color text-sm">
+      {{item.info}}
+    </view>
   </view>
-  <view class="flex justify-content line-height-60">
-    <text>2020-01-02</text>
-    <text class="gray-color">￥3330</text>
-  </view>
-  <view class="gray-color text-sm">
-    张勇于今日跟公司预支生活费3330张勇于今日跟公司预支生活费3330张勇于今日跟公司预支生活费3330张勇于今日跟公司预支生活费3330
-  </view>
+  <van-col span="22" offset="1" custom-class="null" wx:if="{{list.length<=0}}">
+    <image src="../../icons/null.png"></image>
+  </van-col>
 </view>
-
-<view class="j-list">
-  <view class="flex j-title justify-content">
-    <text>张勇</text>
-    <text class="gray-color">13256988563</text>
-  </view>
-  <view class="flex justify-content line-height-60">
-    <text>2020-01-02</text>
-    <text class="gray-color">￥3330</text>
-  </view>
-  <view class="gray-color text-sm">
-    张勇于今日跟公司预支生活费3330张勇于今日跟公司预支生活费3330张勇于今日跟公司预支生活费3330张勇于今日跟公司预支生活费3330
-  </view>
-</view>
-
-<view class="j-list">
-  <view class="flex j-title justify-content">
-    <text>张勇</text>
-    <text class="gray-color">13256988563</text>
-  </view>
-  <view class="flex justify-content line-height-60">
-    <text>2020-01-02</text>
-    <text class="gray-color">￥3330</text>
-  </view>
-  <view class="gray-color text-sm">
-    张勇于今日跟公司预支生活费3330张勇于今日跟公司预支生活费3330张勇于今日跟公司预支生活费3330张勇于今日跟公司预支生活费3330
-  </view>
-</view>
-

@@ -183,7 +183,7 @@ Page({
           rendata.then((v)=>{
             if(v.data.status==1&&v.data.data){
                 that.setData({
-                  BrowsHistory:v.data.data,
+                  BrowsHistory:that.data.BrowsHistory.concat(v.data.data),
                   strip:v.data.data.length,
                   page:that.data.page+1
                 })
