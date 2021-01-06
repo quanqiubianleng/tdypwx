@@ -87,18 +87,14 @@ Page({
     let rendata = app.requestfun(datad, '/Api/article/index',false);    
     rendata.then((v) => {
       if(v.data.status==1&&v.data.data){
-        // let arr = [];
-        // let arry=[];
-        // v.data.data.forEach(element => {
-        //   console.log(element)
-        //   arr.push(element);
-        //   if(arr.length>=2){
-        //     arry.push(arr);
-        //     arr =[];
-        //   }
-        // });
+        let lawyer = v.data.data;
+        for (let index = 0; index < 4; index++) {
+          v.data.data.forEach(item=>{
+            lawyer.push(item)
+          })
+        }
         this.setData({
-          lawyer:v.data.data
+          lawyer:lawyer
         })
       }
     }) 
