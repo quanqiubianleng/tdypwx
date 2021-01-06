@@ -731,9 +731,10 @@ Page({
                })
              }else{
                that.setData({
-                 display1:"block",
-                 display: "none",
-                 show:0
+                display1:"none",
+                 display:"block",
+                 show:0,
+                 title:v.data.message
                })
              }
            });

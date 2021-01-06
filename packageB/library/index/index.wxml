@@ -73,10 +73,10 @@
     </van-col>
     <van-col span="19"custom-class="box-desc">
       <van-col span="24" custom-class="box-desc-top">
-        <text style="font-size: 32rpx;max-width:100rpx;overflow:hidden;white-space:nowrap; float: left;">{{item.username?item.username:'未注册'}}</text>
+        <text style="font-size: 32rpx;max-width:100rpx;overflow:hidden;white-space:nowrap; float: left;">{{item.username?item.username:'未认证'}}</text>
         <text class="box-desc-top-ji">{{item.level}}</text>
         <text style=" margin-left:12rpx ;color:#54BBE6;max-width:50rpx;overflow:hidden;white-space:nowrap;">{{item.sex?item.sex:'未知'}}</text>
-        <text style=" margin-left:12rpx ;color:#54BBE6">{{item.age?item.age:''}}岁</text>
+        <text style=" margin-left:12rpx ;color:#54BBE6" wx:if="{{item.age}}">{{item.age}}岁</text>
         <text style=" margin-left:12rpx ;color:#54BBE6">{{item.idtype?item.idtype:'普通用户'}}</text>
         <text style=" margin-left:12rpx ">{{item.status?item.status:'待职'}}</text>
         <text style=" margin-left:12rpx" wx:if="{{item.mobile}}">{{item.mobile}}</text>

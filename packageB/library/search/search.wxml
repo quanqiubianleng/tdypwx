@@ -22,11 +22,12 @@
           <text class="box-desc-top-ji">{{item.level}}</text>
           <text style=" margin-left:12rpx ;color:#54BBE6">{{item.sex}}</text>
           <text style=" margin-left:12rpx ;color:#54BBE6" wx:if="{{item.age}}">{{item.age}}岁</text>
-          <text style=" margin-left:12rpx ;color:#54BBE6">{{item.idtype}}</text>
+          <text style=" margin-left:12rpx ;color:#54BBE6" wx:if="{{item.idtype}}">{{item.idtype}}</text>
           <text style=" margin-left:12rpx ">{{item.status}}</text>
           <text style=" margin-left:12rpx ">{{item.mobile}}</text>
         </van-col>
-        <van-col span="24"custom-class="box-desc-bottom">
+        <van-col span="24" wx:if="{{item.level==1}}">
+        <van-col span="24"custom-class="box-desc-bottom" >
           <van-col span="6"custom-class="box-desc-bottom-er">二级:{{item.count2?item.count2:0}}人</van-col>
           <van-col span="6"custom-class="box-desc-bottom-er">入职:0人</van-col>
           <van-col span="6"custom-class="box-desc-bottom-er">待岗:0人</van-col>
@@ -38,6 +39,20 @@
           <van-col span="6"custom-class="box-desc-bottom-er">待岗:0人</van-col>
           <van-col span="6"custom-class="box-desc-bottom-er" ><view style="font-size: 18rpx;text-align: right;margin-right: 15rpx;">{{item.indate}}</view></van-col>
         </van-col>
+      </van-col>
+     <van-col span="24" wx:if="{{item.level==2}}">
+      <van-col span="24"custom-class="box-desc-bottom">
+          <van-col span="6"custom-class="box-desc-bottom-er">三级:{{item.count3?item.count3:0}}人</van-col>
+          <van-col span="6"custom-class="box-desc-bottom-er">入职:0人</van-col>
+          <van-col span="6"custom-class="box-desc-bottom-er">待岗:0人</van-col>
+          <van-col span="6"custom-class="box-desc-bottom-er"><text>详情</text></van-col>
+        </van-col>
+        <van-col span="24"custom-class="box-desc-bottom-er" ><view style="font-size: 18rpx;text-align: right;margin-right: 15rpx;">{{item.indate}}</view></van-col>
+     </van-col>
+     <van-col span="24" wx:if="{{item.level==3}}">
+      <van-col span="24"custom-class="box-desc-bottom-er"><text>详情</text></van-col>
+      <van-col span="24"custom-class="box-desc-bottom-er" ><view style="font-size: 18rpx;text-align: right;margin-right: 15rpx;margin-top: 10rpx;">{{item.indate}}</view></van-col>
+     </van-col>
       </van-col>
   </van-col>
 </van-col>
