@@ -1,41 +1,37 @@
 // pages/additions/details/details.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    show:0,
-    show1:0
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let id = options.id;
+    this.setData({
+      id:id
+    })
+    this.getUserResource();
   },
-  show:function(){
-    if(this.data.show==0){
+  getUserResource:function(){
+    let rendata = app.requestfun({uid:this.data.id}, '/Api/commissioner/getUserResource',true);    
+    rendata.then((v) => {
       this.setData({
-        show:1
+        list:v.data.data
       })
-    }else{
-      this.setData({
-        show:0
-      })
-    }
+    })
   },
-  show1:function(){
-    if(this.data.show==0){
-      this.setData({
-        show1:1
-      })
-    }else{
-      this.setData({
-        show1:0
-      })
-    }
+  tel:function(e){
+    let tel = e.currentTarget.dataset.tel;
+    wx.makePhoneCall({
+      phoneNumber: tel,
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -215,10 +215,17 @@ Page({
       title: '玩命加载中',
       duration: 1000
     })
-    this.setData({
-      page:this.data.page+1
-    })
-    this.list();
+    if(!this.data.search){
+      this.setData({
+        page:this.data.page+1
+      })
+      this.list();
+    }else{
+      this.setData({
+        pages:this.data.pages+1
+      })
+      this.searchlist();
+    }
   },
 
   /**

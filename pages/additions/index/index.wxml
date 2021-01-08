@@ -1,103 +1,66 @@
 <!--pages/additions/index/index.wxml-->
-<view class='wraper'>
-  <view class='header'>
-    <van-row>
+  <van-col span="24" custom-class='header'>
       <van-col span="24" custom-class="search-box">
         <van-col span="20" offset="2" custom-class="search">
-          <van-col span="19" custom-class="search-input"><input placeholder="输入姓名/模糊查找" /></van-col>
-          <van-col span="4" offset='1' custom-class="search-inc">
+          <van-col span="19" custom-class="search-input"><input placeholder-style="color: #666666;font-size: 28rpx;" placeholder="输入姓名/模糊查找" value="{{search}}" confirm-type="search" bindconfirm="bindconfirm"  bindblur="search"/></van-col>
+          <van-col span="4" offset='1' custom-class="search-inc" bindtap="searchlist">
             <image src="/icons/search.png"></image>
           </van-col>
         </van-col>
       </van-col>
-    </van-row>
-  </view>
+      <view class="banner">
+        <swiper class="swiper" indicator-dots="{{swiper.indicatorDots}}" indicator-color="{{swiper.indicatorColor}}"
+          indicator-active-color="{{swiper.indicatorActiveColor}}" autoplay="{{swiper.autoplay}}" circular="true">
+          <swiper-item wx:for="{{banner}}"  data-item="item" wx:key="key">
+            <image src="{{item.image}}" />
+          </swiper-item>
+        </swiper>
+      </view>
+    <van-col span="22" offset="1" custom-class="list-tel">
+      <text>我的客户</text>
+     <image src="../../../icons/ic_adduser_blue.png" style="height:50rpx;width:50rpx" bindtap="add"></image>
+    </van-col>
+  </van-col>
   <view class='main'>
-    <scroll-view class='main-scroll' scroll-y style="height: 100%">
-        <van-row>
-          <van-col span="22" offset="1" custom-class="banner"><image src="/icons/entry.png"></image></van-col>
-        </van-row>
-        <van-col span="22"  offset="1" style="height:60rpx">
-          <van-col span="20"  custom-class="list-tel">我的客户</van-col>
-          <image bindtap="add" src="/icons/ic_adduser_blue.png" mode="aspectFit" class="list-tel-img"></image>
-        </van-col>
-        <van-col span="22" offset="1" custom-class="list" bindtap="details" >
-          <van-col span="16" custom-class="list-usrename">
-            <view class="name">李仁杰</view>
-            <view class="tel">电话：15186107585</view>
-            <view class="add">电话：15186107585</view>
-          </van-col>
-          <van-col span="7" offset="1" custom-class="list-inp"><view class="list-bt" bindtap="showview">客户信息</view></van-col>
-        </van-col>
-        <van-col span="22" offset="1" custom-class="list" >
-          <van-col span="16" custom-class="list-usrename">
-            <view class="name">李仁杰</view>
-            <view class="tel">电话：15186107585</view>
-            <view class="add">电话：15186107585</view>
-          </van-col>
-          <van-col span="7" offset="1" custom-class="list-inp"><view class="list-bt">客户信息</view></van-col>
-        </van-col>
-        <van-col span="22" offset="1" custom-class="list" >
-          <van-col span="16" custom-class="list-usrename">
-            <view class="name">李仁杰</view>
-            <view class="tel">电话：15186107585</view>
-            <view class="add">电话：15186107585</view>
-          </van-col>
-          <van-col span="7" offset="1" custom-class="list-inp"><view class="list-bt">客户信息</view></van-col>
-        </van-col>
-        <van-col span="22" offset="1" custom-class="list" >
-          <van-col span="16" custom-class="list-usrename">
-            <view class="name">李仁杰</view>
-            <view class="tel">电话：15186107585</view>
-            <view class="add">电话：15186107585</view>
-          </van-col>
-          <van-col span="7" offset="1" custom-class="list-inp"><view class="list-bt">客户信息</view></van-col>
-        </van-col>
-        <van-col span="22" offset="1" custom-class="list" >
-          <van-col span="16" custom-class="list-usrename">
-            <view class="name">李仁杰</view>
-            <view class="tel">电话：15186107585</view>
-            <view class="add">电话：15186107585</view>
-          </van-col>
-          <van-col span="7" offset="1" custom-class="list-inp"><view class="list-bt">客户信息</view></van-col>
-        </van-col>
-    </scroll-view>
+    <van-col span="22" offset="1" custom-class="list" wx:if="{{list.length>=1}}" wx:for="{{list}}" wx:for-index="key" wx:key="key" data-index="{{key}}"  data-id="{{item.id}}" bindtap="details">
+      <van-col span="16" custom-class="list-usrename">
+        <view class="name">{{item.username}}</view>
+        <view class="tel">电话：{{item.mobile}}</view>
+      </van-col>
+      <van-col span="7" offset="1" custom-class="list-inp"><view class="list-bt" >客户信息</view></van-col>
+    </van-col>
+    <!-- <van-col span="22" wx:if="{{list.length<=0}}" offset="1" custom-class="null"><image src="/icons/null-1.png"></image></van-col> -->
   </view>
-</view>
    <!-- 新增弹框部分 -->
-   <van-popup show="{{ show }}" position="bottom" bind:close="onClose"  custom-style="height:800rpx" catchtouchmove="false">
+   <van-popup show="{{ show }}" position="bottom" bind:close="onClose"  overlay="true">
     <van-col span="24" custom-class="newadd">新增信息</van-col>
     <van-col span="24" custom-class="add-list">
-      <van-col span="5" offset="1" custom-class="add-inp">客户姓名</van-col>
-      <van-col span="15" offset="1" custom-class="add-inp-v"><input class="add-inp-v-inp" value="{{username}}" placeholder="输入客户姓名" bindinput="" /></van-col>
+      <van-col span="22" offset="1" custom-class="add-inp-v"><input class="add-inp-v-inp" value="{{username}}" placeholder="输入客户姓名" bindinput="username" /></van-col>
     </van-col>
     <van-col span="24" custom-class="add-list">
-      <van-col span="5" offset="1" custom-class="add-inp">联系电话</van-col>
-      <van-col span="15" offset="1" custom-class="add-inp-v"><input value="{{username}}" class="add-inp-v-inp" placeholder="输入客户电话" bindinput="" /></van-col>
+      <van-col span="22" offset="1" custom-class="add-inp-v"><input value="{{phone}}" class="add-inp-v-inp" placeholder="输入客户电话" bindinput="phone" /></van-col>
     </van-col>
     <van-col span="24" custom-class="add-list">
-      <van-col span="5" offset="1" custom-class="add-inp">所处状态</van-col>
-      <van-col span="15" offset="1" custom-class="add-inp-v">
+      <van-col span="22" offset="1" custom-class="add-inp-v">
         <!-- 下拉框 -->
         <view class='select_box'>
             <view class='select' catchtap='selectTap'>
-              <input class='select_text' placeholder="请选择状态" disabled="disabled" value="{{selectData[index]}}" />
+              <input class='select_text' placeholder="请选择所处状态" disabled="disabled" value="{{selectData[index]}}" />
             </view>
             <view class='option_box' style='height:{{show1?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
-              <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this'
+              <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:if="{{index>0}}" wx:for='{{selectData}}'  wx:key='this'
                 data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
             </view>
           </view>
       </van-col>
     </van-col>
     <van-col span="24" custom-class="add-list">
-      <van-col span="5" offset="1" custom-class="add-inp">跟踪备注</van-col>
-      <van-col span="15" offset="1" custom-class="add-inp-v">
-        <textarea class="add-inp-v-text" value="{{username}}" placeholder="请输入备注" bindinput=""></textarea>
+      <van-col span="22" offset="1" custom-class="add-inp-v">
+        <textarea class="add-inp-v-text" value="{{remarks}}" placeholder="请输入跟踪备注" bindinput="remarks"></textarea>
       </van-col>
     </van-col>
     <van-col span="24"custom-class="bottom">
       <view class="quxiao" bindtap="cancel">取消</view>
-      <view class="queding">确定</view>
+      <view class="queding" bindtap="Submit">确定</view>
     </van-col>
   </van-popup>

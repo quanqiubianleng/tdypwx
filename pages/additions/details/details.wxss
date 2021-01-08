@@ -22,69 +22,65 @@ page{
   background:#F5F5F5
 }
 .card{
-  padding: 20rpx 50rpx;
   background: #fff;
-  border-radius: 15rpx;
-  margin-bottom: 20rpx;
-  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 20rpx;
+  margin-bottom: 30rpx;
+  padding: 30rpx 32rpx 25rpx 32rpx;
 }
-.card-v{
-  display: inline-block;
-  height: 35rpx;
-  font-size: 26rpx;
-  color: #666666;
-  margin-right: 50rpx;
+.card-list-l{
+  color: #999999;
+  text-align: left;
+  font-size: 30rpx;
   margin-bottom: 20rpx;
-
 }
-.card-view{
-  display: inline-block;
-  max-width: 300rpx;
-  overflow: hidden;
-  height: 35rpx;
-  font-size: 26rpx;
-  color: #333;
+.card-list-r{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start ;
+  color: #333333;
+  text-align: left;
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
+}
+.card-list-text{
+  background: #EDF9FE;
+  border-radius: 5rpx;
+  padding: 8rpx;
+  font-size: 30rpx;
+  color: #000;
+  padding-bottom: 20rpx;
+  text-align: justify;
+  text-justify: newspaper;
+  word-break: break-all;
   
 }
-.card view image{
-  position: relative;
-  left: 25rpx;
-  top: 9rpx ;
-  width: 35rpx;
-  height: 35rpx;
+.information{
+  margin-top: 30rpx;
+  background: #fff;
+  padding-bottom: 40rpx;
 }
-.cards{
-  padding-top: 10rpx;
+.information-telt{
+  padding-left: 15rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  box-shadow: 0 4px 4px 0 #E9EFF6;
+  padding-top: 30rpx;
   padding-bottom: 30rpx;
-  background: #fff;
-  border-radius: 15rpx;
-  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
 }
-.card-list{
-  height: 60rpx ;
-  line-height: 60rpx;
-  padding-left: 50rpx;
-  color: #333;
-  font-size: 30rpx;
-  font-weight: 600;
+.information-list{
+  border-bottom: 2rpx solid #ddd;
+  padding-bottom: 20rpx;
+}
+.information-list-li{
   margin-top: 20rpx;
-  text-align: left;
-  background: #EAF7FF;
-}
-.card-lists{
-  padding-left: 50rpx;
-  color: #333;
-  font-size: 30rpx;
-  font-weight: 600;
-  margin-top: 20rpx;
-  padding-top:15rpx;
-  padding-bottom: 15rpx;
-  background: #EAF7FF;
-}
-.card-tel{
-  background: #fff;
-  color: #666666;
+  color: #333333;
   font-size: 28rpx;
-  text-align: center;
+  font-weight: bold;
+}
+.record-tetl{
+  color: #19559F;
+  font-size: 28rpx;
+  font-weight: bold;
   margin-top: 30rpx;
 }

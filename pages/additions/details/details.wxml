@@ -2,54 +2,72 @@
 <van-row>
   <van-col span="22" offset="1" custom-class="list">
     <van-col span="24" custom-class="basic basics">基本信息</van-col>
-    <van-col span="24" custom-class="card">
+    <van-col span="24"offset="0"custom-class="card">
       <van-col span="24">
-        <view class="card-v">姓名</view>
-        <view class="card-view">王华江</view>
+        <van-col span="5"custom-class="card-list-l">
+          <text decode="{{true}}">姓&ensp;&ensp;&ensp;&ensp;名</text>
+        </van-col>
+        <van-col span="15"offset="1" custom-class="card-list-r">{{list.username}}</van-col>
       </van-col>
       <van-col span="24">
-        <view class="card-v">性别</view>
-        <view class="card-view">男</view>
+        <van-col span="5"custom-class="card-list-l">
+          <text decode="{{true}}">性&ensp;&ensp;&ensp;&ensp;别</text>
+        </van-col>
+        <van-col span="15"offset="1" custom-class="card-list-r" wx:if="{{list.sex==1}}">男</van-col>
+        <van-col span="15"offset="1" custom-class="card-list-r" wx:if="{{list.sex==2}}">女</van-col>
       </van-col>
       <van-col span="24">
-        <view class="card-v">名族</view>
-        <view class="card-view">汉</view>
+        <van-col span="5"custom-class="card-list-l">
+          <text decode="{{true}}">名&ensp;&ensp;&ensp;&ensp;族</text>
+        </van-col>
+        <van-col span="15"offset="1" custom-class="card-list-r">{{list.race}}</van-col>
       </van-col>
       <van-col span="24">
-        <view class="card-v">出生日期</view>
-        <view class="card-view">2020-9-28</view>
+        <van-col span="5"custom-class="card-list-l">
+          出生日期
+        </van-col>
+        <van-col span="15"offset="1" custom-class="card-list-r">{{list.birthday}}</van-col>
       </van-col>
       <van-col span="24">
-        <view class="card-v">联系电话</view>
-        <view class="card-view">199999999</view>
-        <image src="/icons/tel.png"></image>
+        <van-col span="5"custom-class="card-list-l">
+          联系电话
+        </van-col>
+        <van-col span="18"offset="1" custom-class="card-list-r"  data-tel="{{list.mobile}}" bindtap="tel">
+          {{list.mobile}} <van-icon color="#2FAEDF" size="40rpx" style="margin-left: 8rpx;" name="phone-o" />
+        </van-col>
+      </van-col>
+  </van-col>
+  </van-col>
+</van-row>
+<van-row>
+  <van-col span="22"offset="1"custom-class="information">
+    <van-col span="24"custom-class="information-telt">其他信息/跟踪记录</van-col>
+    <van-col span="24"custom-class="information-list">
+      <van-col span="22"offset="1"custom-class="information-list-li">
+        学历：{{list.education}}
+      </van-col>
+      <van-col span="22"offset="1"custom-class="information-list-li">
+        户籍地址：{{list.censusaddress}}
+      </van-col>
+      <van-col span="22"offset="1"custom-class="information-list-li">
+        现居地址：{{list.address}}
+      </van-col>
+      <van-col span="22"offset="1"custom-class="information-list-li">
+        可接受区域：<text wx:if="{{list.worksite==1}}">省内</text> <text wx:if="{{list.worksite==2}}">省外</text> 
+        <text wx:if="{{list.worksite==3}}">都可以</text> 
+      </van-col>
+      <van-col span="22"offset="1"custom-class="information-list-li">
+        工厂经验：<text wx:if="{{list.plantundergo==1}}">无经验</text>
+        <text wx:if="{{list.plantundergo==2}}">有经验</text>
       </van-col>
     </van-col>
-  </van-col>
-  <van-col span="22" offset="1" custom-class="list">
-    <van-col span="24" custom-class="basic" bindtap="show">其他信息</van-col>
-    <van-col span="24"custom-class="cards" wx:if="{{show==1}}">
-      <van-col span="24"custom-class="card-list">学历：本科</van-col>
-      <van-col span="24"custom-class="card-list">学历：本科</van-col>
-      <van-col span="24"custom-class="card-list">学历：本科</van-col>
-      <van-col span="24"custom-class="card-list">学历：本科</van-col>
-      <van-col span="24"custom-class="card-list">学历：本科</van-col>
-    </van-col>
-  </van-col>
-  <van-col span="22"offset="1"custom-class="list lists">
-    <van-col span="24" custom-class="basic" bindtap="show1">跟踪记录</van-col>
-    <van-col span="24"custom-class="cards" wx:if="{{show1==1}}" >
-      <van-col span="24">
-        <van-col span="24" custom-class="card-tel">记录1</van-col>
-        <van-col span="24"custom-class="card-lists">跟踪时间：2020-08-17</van-col>
-        <van-col span="24"custom-class="card-lists">所处状态：考虑当中</van-col>
-        <van-col span="24"custom-class="card-lists">  跟踪备注：考虑省外，但要与父母商量后才确定，今晚回复，需跟进</van-col>
+    <van-col span="24"custom-class="record">
+      <van-col span="22"offset="1" custom-class="record-tetl">第一次跟踪记录</van-col>
+      <van-col span="22"offset="1"custom-class="information-list-li">
+        跟踪时间：2020-08-17
       </van-col>
-      <van-col span="24">
-        <van-col span="24" custom-class="card-tel">记录2</van-col>
-        <van-col span="24"custom-class="card-lists">跟踪时间：2020-08-17</van-col>
-        <van-col span="24"custom-class="card-lists">所处状态：考虑当中</van-col>
-        <van-col span="24"custom-class="card-lists">  跟踪备注：考虑省外，但要与父母商量后才确定，今晚回复，需跟进</van-col>
+      <van-col span="22"offset="1"custom-class="information-list-li">
+        所处状态：考虑当中
       </van-col>
     </van-col>
   </van-col>
