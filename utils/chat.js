@@ -71,23 +71,45 @@ function getMsg(res,that){
       
       that.globalData.msg_count = that.globalData.msg_count + 1
       updateCategory(1, that.globalData.msg_count+'')
-      playVoice()
-      wx.showModal({
-        title: '提示',
-        content: '您有新的部门消息，是否前往查看！',
-        success (res) {
-          if (res.confirm) {
-            console.log('用户点击确定')
-            wx.navigateTo({
-              url: '/pages/jurisdiction/setion/index',
-            })
-          } else if (res.cancel) {
-            console.log('用户点击取消')
-          }
-        }
-      })
+      msgTips(data, that)
       break;
   }
+}
+
+// 消息提醒
+function msgTips(data, that){
+  playVoice()
+  if(data.type == "kefu"){
+    let arr = {
+      type: 'kefu',
+      j_id: 0,
+      title: '咨询',
+    }
+    // 判断是否应该解除绑定的客服UID
+    if(unBindTime(that)){
+      // 解除绑定的客服UID
+      updateBindUid(that, 0)
+    }else{
+      arr.j_id = that.globalData.kefuUid ? that.globalData.kefuUid : 0
+    }
+    var url = '/pages/advice/advice?data='+ JSON.stringify(arr)
+  }else if(data.type == "setion"){
+    var url = '/pages/jurisdiction/setion/index'
+  }
+  wx.showModal({
+    title: '提示',
+    content: '您有新的消息，是否前往查看！',
+    success (res) {
+      if (res.confirm) {
+        console.log('用户点击确定')
+        wx.navigateTo({
+          url: url,
+        })
+      } else if (res.cancel) {
+        console.log('用户点击取消')
+      }
+    }
+  })
 }
 
 // 颠倒数组
@@ -180,6 +202,26 @@ function checkMobile(mobile){
   }
 }
 
+// 更新聊天绑定时间戳
+function updateBindTime(that){
+  that.globalData.kefuChatTimer = Date.parse(new Date());
+}
+
+// 更新聊天绑定客服UID
+function updateBindUid(that, kefuUid){
+  that.globalData.kefuUid = kefuUid;
+}
+
+// 判断是否应该解除
+function unBindTime(that){
+  if((that.globalData.kefuChatTimer * 1 + (that.globalData.UnsetChatTimer * 60 * 1000)) > Date.parse(new Date())){
+    // 不需要解除绑定
+    return false;
+  }else{
+    return true;
+  }
+}
+
 
 module.exports = {
   getStorages: getStorages,
@@ -191,4 +233,8 @@ module.exports = {
   descArr: descArr,
   playVoice: playVoice,
   checkMobile: checkMobile,
+  updateBindTime: updateBindTime,
+  unBindTime: unBindTime,
+  updateBindUid: updateBindUid,
+  msgTips: msgTips
 }

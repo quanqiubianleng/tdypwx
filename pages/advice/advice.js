@@ -17,6 +17,7 @@ Page({
     msg: '',
     page: 1,
     d_headimgurl: '',
+    isNowPage: 0,
   },
 
   /**
@@ -34,6 +35,7 @@ Page({
       j_id: data.j_id,
       new_type: data.type,
       d_headimgurl: data.headimgurl,
+      isNowPage: 1,
     })
     self.getMsgRecord(data);
     // 改变页面标题
@@ -61,10 +63,17 @@ Page({
   // 接收消息
   receiveMsg: function(){
     var self = this
+
     wx.onSocketMessage((res) => {
       let data = JSON.parse(res.data);
       console.log('接收消息')
       console.log(data)
+
+      // 消息提醒
+      if(data.f_id != self.data.uid && !self.data.isNowPage){
+        chat.msgTips(data, app)
+      }
+
       if (data.type == "kefu") {
         // 赋值给全局消息变量
         var arr = app.globalData.user_kefu_msg
@@ -77,8 +86,14 @@ Page({
         arr2.push(data)
         self.setData({
           msgList: arr2,
-          d_headimgurl: data.d_headimgurl
+          d_headimgurl: data.d_headimgurl,
+          j_id: data.f_id == self.data.uid ? data.j_id : data.f_id,
         })
+        // 更新聊天绑定时间戳
+        chat.updateBindTime(app)
+        // 更新聊天绑定的客服ID
+        let uids = data.f_id == self.data.uid ? data.j_id : data.f_id
+        chat.updateBindUid(app, uids)
         
       }else if(data.type == "getMsgRecord"){
         var arr = data.data.data;
@@ -212,13 +227,17 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
+    console.log('onHide')
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    
+    console.log('onUnload')
+    this.setData({
+      isNowPage: 0,
+    })
   },
 
   /**

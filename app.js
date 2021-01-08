@@ -25,7 +25,7 @@ App({
     socketOpen: false,
     kefuChatTimer: 0, // 客服和用户绑定聊天时间，绑定之后的最后一次发消息或收消息的时间戳
     UnsetChatTimer: 30,// 分钟，客服和用户接触绑定聊天，过多长时间解除绑定，之后用户再连接客服聊天就进入用户池，可以被任何客服接待
-    kefuUid: null, // 客服UID
+    kefuUid: 0, // 客服UID
     jop_msg: [], // 工作通知未读条数
     jop_notice: 0, // 工作通知总未读条数
     section_notice: 0, // 部门通知总未读条数
