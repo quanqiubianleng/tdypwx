@@ -41,8 +41,11 @@ Page({
       console.log(v);
       if(v.data.status==1&&v.data.data){
         this.setData({
-          productList:v.data.data
+          productList:this.data.productList.concat(v.data.data)
         })
+      }else{
+        app.msg("已经到底了");
+        return;
       }
     })
   },
@@ -55,8 +58,11 @@ Page({
     rendata.then((v) => {
       if(v.data.status==1&&v.data.data){
         this.setData({
-          productList:v.data.data
+          productList:this.data.productList.concat(v.data.data)
         })
+      }else{
+        app.msg("已经到底了");
+        return;
       }
     })
   },
@@ -162,7 +168,9 @@ Page({
    if(type==2){
      this.collectionList();
    }
-     
+  if(type==3){
+    this.BrowsHistory();
+  }
   },
   onShow:function(){
     let openid= wx.getStorageSync('userinfo').openid;

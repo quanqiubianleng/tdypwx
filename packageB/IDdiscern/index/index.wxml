@@ -62,13 +62,13 @@
   <van-col span="24"custom-class="frame-name" wx:if="{{type==17}}">申请站长合伙人需完善以下资料</van-col>
   <van-col span="24"custom-class="frame-name" wx:if="{{type==18}}">申请乡镇推荐人需完善以下资料</van-col>
   <van-col span="24"custom-class="frame-list">
-    <van-col span="24"custom-class="frame-list-r"><input class="{{roll==1?'roll':'input'}}" placeholder="姓名" value="{{name}}" bindblur="name"/></van-col>
+    <van-col span="24"custom-class="frame-list-r"><input class="{{roll==1?'roll':'input'}}" placeholder="姓名" value="{{name}}" bindinput="name"/></van-col>
   </van-col>
   <van-col span="24"custom-class="frame-list">
-    <van-col span="24"custom-class="frame-list-r"><input class="{{roll==2?'roll':'input'}}" type="idcard" placeholder="身份证" value="{{ID}}" bindblur="ID"/></van-col>
+    <van-col span="24"custom-class="frame-list-r"><input class="{{roll==2?'roll':'input'}}" type="idcard" placeholder="身份证" value="{{ID}}" bindinput="ID"/></van-col>
   </van-col>
   <van-col span="24"custom-class="frame-list">
-    <van-col span="24"custom-class="frame-list-r"><input class="{{roll==3?'roll':'input'}}" type="number" placeholder="联系电话"  value="{{tel}}" bindblur="tel"/></van-col>
+    <van-col span="24"custom-class="frame-list-r"><input class="{{roll==3?'roll':'input'}}" type="number" placeholder="联系电话"  value="{{tel}}" bindinput="tel"/></van-col>
   </van-col>
   <van-col span="24"custom-class="frame-list" wx:if="{{type==17}}" bindtap="open">
     <van-col span="24"custom-class="frame-list-r"><input class="{{roll==4?'roll':'input'}}" disabled="disabled" placeholder="工作区域"  value="{{address}}" focus="{{focus}}" /></van-col>

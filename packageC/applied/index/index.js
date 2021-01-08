@@ -29,8 +29,11 @@ Page({
     rendata.then((v) => {
       if(v.data.status==1&&v.data.data){
         this.setData({
-          productList:v.data.data
+          productList:this.data.productList.concat(v.data.data)
         })
+      }else{
+        app.msg("已经到底了");
+        return;
       }
     })
   },
@@ -123,16 +126,6 @@ Page({
     }
     
   },
-  onReachBottom: function () {
-    wx.showLoading({
-      title: '玩命加载中',
-      duration: 1000
-    })
-   this.setData({
-     page:this.data.page+1
-   })
-   this.record();  
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -183,7 +176,14 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    wx.showLoading({
+      title: '玩命加载中',
+      duration: 1000
+    })
+    this.setData({
+      page:this.data.page+1
+    })
+   this.record();
   },
 
   /**

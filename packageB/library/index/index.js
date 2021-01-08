@@ -55,7 +55,6 @@ Page({
         }
         this.setData({
           userlist:this.data.userlist.concat(list),
-          page:this.data.page+1
         })
       }else{
         
@@ -69,11 +68,11 @@ Page({
     var datad = {};
     let rendata = app.requestfun(datad, '/Api/Talentpool/index'); 
     rendata.then((v)=>{
-      
+
       if(v.data.status==1){
         let RecommendMessage = '';
         if(v.data.RecommendMessage){
-          RecommendMessage = v.data.RecommendMessage + '                             '
+          RecommendMessage = v.data.RecommendMessage
         }
         if(v.data.linkuser==null){
          
@@ -121,7 +120,6 @@ Page({
       if(v.data.status==1&&v.data.linkuser){
         that.setData({
           userlist:that.data.userlist.concat(v.data.linkuser),
-          page:this.data.page+1
         })
       }else{
         app.msg("已经到底了");

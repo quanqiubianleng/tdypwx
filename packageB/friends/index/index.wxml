@@ -4,7 +4,7 @@
     <van-loading size="30px" color="#0d0d0d">图片加载中</van-loading>
   </view>
   <van-col span="24" wx:if="{{qrcode}}">
-    <van-col span="24" offset="" custom-class="box" bindtap="more">
+    <van-col span="24" offset="" custom-class="box">
       <van-col span="22" offset="1" custom-class="box-topimg">
         <image src="./../../images/friends.png"></image>
       </van-col>
@@ -15,7 +15,7 @@
         <image src="../../images/friends-text.png"></image>
         <view class="box-view"><text class="box-view-tex">我的邀请码</text><text
             class="box-view-qrcode {{index==1?'box-view-qrcode-on':''}}">{{incode}}</text><text class="box-view-btn"
-            bindtap="copyText" data-text="{{000194}}">{{index==1?'取消':'复制'}}</text></view>
+            bindtap="copyText" data-text="{{incode}}">{{index==1?'取消':'复制'}}</text></view>
       </van-col>
     </van-col>
     <button open-type="share">

@@ -58,7 +58,10 @@
         <van-col span="24" custom-class="cards-list-tetel" wx:if="{{currentTab==2}}">转厂时间</van-col>
         <van-col span="24" custom-class="cards-list-tetel" wx:if="{{currentTab!=2&&currentTab!=0}}">操作时间</van-col>
         <van-col span="24" custom-class="cards-list-inp" style="background: #EEF9FD;">
-          <input class="picker" disabled="disabled" placeholder="还未确认到厂" value="{{date}}"></input>
+          <picker mode="date" value="{{date}}" start="" end="" bindchange="bindDateChange">
+              <input class="picker" disabled="disabled" placeholder="请选择到厂时间" value="{{date}}">
+              </input>
+            </picker>
         </van-col>
       </van-col>
       <van-col span="24" custom-clas="cards-list">

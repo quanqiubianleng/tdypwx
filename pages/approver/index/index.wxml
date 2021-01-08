@@ -16,7 +16,7 @@
         <swiper class="swiper" indicator-dots="{{swiper.indicatorDots}}" indicator-color="{{swiper.indicatorColor}}"
           indicator-active-color="{{swiper.indicatorActiveColor}}" autoplay="{{swiper.autoplay}}" circular="true">
           <swiper-item>
-            <image src="/icons/pbank.png" />
+            <image src="/icons/null.png" />
           </swiper-item>
         </swiper>
       </view>

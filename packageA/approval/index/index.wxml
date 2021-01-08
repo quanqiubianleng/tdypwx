@@ -10,7 +10,7 @@
   <view class="time-time" bindtap="pickerShow">{{data}}</view>
    <view class="time-num">共{{strip}}人</view>
 </van-col>
-<van-col span="22"offset="1" custom-class="box-list" wx:if="{{list.length>=1}}" wx:for="{{list}}" wx:for-index="key" wx:key="key" data-index="{{key}}" data-id="{{item.id}}" bindtap="details">
+<van-col span="22"offset="1" custom-class="box-list" wx:if="{{list.length>=1}}" wx:for="{{list}}" wx:for-index="key" wx:key="key" data-index="{{key}}" data-type="{{item.type}}" data-id="{{item.id}}" bindtap="details">
   <van-col span="10"custom-class="box-list-ul">
     <view class="tel">姓名</view>
     <view class="name">{{item.name}}</view>

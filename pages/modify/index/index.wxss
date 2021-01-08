@@ -1,17 +1,19 @@
-/* pages/modify/index/index.wxss */
+/* pages/client/index/index.wxss */
 page{
   width: 100%;
   height:100%;
   background: #F5F5F5;
+  padding-bottom: 20rpx;
 }
-.wraper{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height:100%;
-}
+
 .header{
-  color: #fff;
+  background: #fff;
+  position: fixed;
+  top:0rpx;
+  left:  0rpx;
+  z-index: 10000;
+  /* display: flex;
+  flex-direction: row; */
 }
 .search-box{
   background: #fff;
@@ -47,12 +49,28 @@ page{
   width: 45rpx;
   height: 45rpx;
 }
-.banner image{
-  margin-top: 10rpx;
+/* banner */
+.banner{
   width: 100%;
   height: 250rpx;
-  border-radius: 25rpx;
+  margin-top: 16rpx;
+  margin-bottom: 10rpx;
 }
+.swiper{
+  width: inherit;
+  height: inherit;
+}
+.swiper swiper-item{
+  box-sizing: border-box;
+}
+.swiper image{
+
+  overflow: hidden;
+  width: inherit;
+  height: inherit;
+  background-color: #eee
+}
+/* banner结束 */
 .list-tel{
   color: #333;
   height: 60rpx;
@@ -62,9 +80,9 @@ page{
 }
 
 .main{
-  flex: 1;
-  margin-top: 20rpx;
+  margin-top: 80rpx;
   position: relative;
+  padding-bottom: 20rpx;  
 }
 .main-scroll{
   position: absolute;
@@ -94,6 +112,7 @@ page{
   padding: 10rpx 50rpx;
   margin-top: 20rpx;
   margin-bottom: 10rpx;
+  padding-bottom: 20rpx;
 }
 .list-usrename{
   height: 110rpx;
@@ -105,11 +124,13 @@ page{
   margin-bottom: 15rpx;
   overflow: hidden;
   text-overflow:ellipsis;
-  white-space: nowrap
+  white-space: nowrap;
+  margin-top: 20rpx;
 }
 .list-usrename .tel,.add{
   color: #666;
   font-size: 20rpx;
+  margin-top: 10rpx;
 }
 .list-inp{
   height: 110rpx;
@@ -119,16 +140,79 @@ page{
   height: 40rpx;
   width: 150rpx;
   letter-spacing: 1rpx;
-  background: #FC7E80;
-  color: #fff;
+  background: #FBDDD3;
+  color: #EA5322;
   font-size: 24rpx;
   text-align: center;
   line-height: 40rpx;
   border-radius: 25rpx;
 }
-.footer{
+.null {
+  height: 300rpx;
+  margin-top: 30rpx;
+  background-size:100% 100%;
+}
+.null image{
+  width: 100%;
+  height: 100%;
+}
+/* 弹框 */
+
+.bg {
+  display: none;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 1001;
+  -moz-opacity: 0.7;
+  opacity: 0.70;
+  filter: alpha(opacity=70);
+
+}
+ 
+.show {
+  display: none;
+  text-align: center;
+  position: absolute;
+  top: 30%;
+  left: 15%;
+  width: 70%;
+  height: 40%;
+  
+  z-index: 1002;
+  overflow: auto;
+}
+.show-diy{
+  border-radius: 5%;
+  margin-top: 80rpx;
   background: #fff;
-  color: #fff;
+  width: 80%;
+  height: 80%;
+  margin-left:10% ;
+}
+.show-img{
+  position: relative;
+  z-index: 1003;
+  top: -70rpx;
+  left: 3%;
+  width: 65%;
+  height: 60%;
+}
+.show-tex{
+  margin-top:-20% ;
+  text-align: center;
+}
+.show-btn{
+  width: 70%;
+  margin-top: 50rpx;
+  height: 100rpx;
+  margin-left: 15%;
   line-height: 100rpx;
-  flex: 0 0 100rpx; /* 不放大不缩小固定100rpx */
+  background: #30B9EF;
+  letter-spacing: 1rpx;
+  color: #fff;
+  border-radius: 40rpx;
 }

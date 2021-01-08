@@ -89,6 +89,7 @@ page{
   float: left;
   width: 50%;
   line-height: 120rpx;
+  height: 120rpx;
   font-size: 36rpx;
   text-align: center;
   color: #fff;
@@ -100,6 +101,7 @@ page{
   width: 50%;
   border-radius: 0;
   line-height: 120rpx;
+  height: 120rpx;
   font-size: 36rpx;
   text-align: center;
   color: #fff;

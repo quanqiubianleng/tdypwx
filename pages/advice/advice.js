@@ -76,7 +76,8 @@ Page({
         data.create_time = chat.showTime(data.create_time)
         arr2.push(data)
         self.setData({
-          msgList: arr2
+          msgList: arr2,
+          d_headimgurl: data.d_headimgurl
         })
         
       }else if(data.type == "getMsgRecord"){

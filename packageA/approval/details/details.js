@@ -6,8 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    index:'',
-    index2:'',
+    index:null,
+    index2:null,
     userlist:[],
     urls:{},
     remark:''
@@ -20,6 +20,7 @@ Page({
     let id = options.id;
     let index = options.index;
     let currentTab = options.currentTab;
+    let type = options.type;
     let datad={
       id:id
     }
@@ -34,10 +35,11 @@ Page({
           id:id,
           name:v.data.data.admin_data.username,
           currentTab:currentTab,
-          index:v.data.data.status,
-          index2:v.data.data.status_pay,
+          // index:v.data.data.status,
+          // index2:v.data.data.status_pay,
           indexs:index,
-          remark:v.data.data.admin_remark
+          remark:v.data.data.admin_remark,
+          type:type
        })
      }
     })
@@ -55,6 +57,21 @@ Page({
   determine:function(){
     let that = this;
     let remark = that.data.remark;
+    if(!that.data.index){
+      app.msg("请选择审批意见");
+      return;
+    }
+    if(that.data.type!=4){
+      if(!that.data.index2){
+        app.msg("请选择是否可提现");
+        return;
+      }
+    }
+    if(!that.data.remark){
+      app.msg("请输入审批说明");
+        return;
+    }
+    
     let datad={
       id:that.data.id,
       remark:that.data.remark,
@@ -76,7 +93,7 @@ Page({
         wx.navigateBack({
           data:1
         })
-      },2000)
+      },1000)
       
      
      }

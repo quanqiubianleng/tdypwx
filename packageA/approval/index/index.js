@@ -94,8 +94,9 @@ Page({
     let id = e.currentTarget.dataset.id;
     let index = e.currentTarget.dataset.index;
     let currentTab = this.data.currentTab;
+    let type = e.currentTarget.dataset.type;
     wx.navigateTo({
-      url: '/packageA/approval/details/details?id='+id +'&index='+index + '&currentTab='+currentTab,
+      url: '/packageA/approval/details/details?id='+id +'&index='+index + '&currentTab='+currentTab + '&type=' +type,
     })
   },
   swichNav: function (e) {

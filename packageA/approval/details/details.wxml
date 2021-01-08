@@ -46,7 +46,7 @@
       <text class="text {{index==2?'on':''}}" data-id="2" bindtap="xuanze">不同意</text>
     </view>
   </van-col>
-  <van-col span="24" custom-class="name">
+  <van-col span="24" custom-class="name" wx:if="{{type!=4}}">
     <view class="id-name">
       可否提现
     </view>
@@ -55,11 +55,20 @@
       <text class="text {{index2==0?'on':''}}" data-id="0" bindtap="shif">否</text>
     </view>
   </van-col>
+  <van-col span="24" custom-class="name" wx:if="{{type==4}}">
+    <view class="id-name">
+      可否提现
+    </view>
+    <view class="name-te">
+      <text class="text {{index2==1?'on':''}}" data-id="1" >是</text>
+      <text class="text {{index2==0?'on':''}}" data-id="0" >否</text>
+    </view>
+  </van-col>
   <van-col span="24" custom-class="name">
     <view class="id-name">审批说明</view>
   </van-col>
   <van-col span="24"custom-class="name">
-    <textarea placeholder="请输入审批说明" value="{{remark}}" bindblur="remark"></textarea>
+    <textarea placeholder="请输入审批说明" value="{{remark}}" bindinput="remark" bindblur="remark"></textarea>
   </van-col>
 </van-col>
 <van-col span="20" offset="2" custom-class="bottom" bindtap="determine">提交</van-col>

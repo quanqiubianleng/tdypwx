@@ -28,22 +28,22 @@
   </view>
   <view class='main'>
       <van-col span="24" custom-class="" wx:if="{{searchlist.length>=1}}">
-        <van-col span="22" offset="1" custom-class="list" wx:for="{{searchlist}}" wx:for-item="item" wx:for-index="key" wx:key="key" data-id="{{key}}" bindtap="show">
+        <van-col span="22" offset="1" custom-class="list" wx:for="{{searchlist}}" wx:for-item="item" wx:for-index="key" wx:key="key" data-id="{{key}}" data-type="2"  data-id="{{key}}" bindtap="show">
         <van-col span="16" custom-class="list-usrename">
           <view class="name">{{item.username}}-{{item.shopname}}</view>
           <view class="tel" bindtap="mobile" data-mobile="{{item.mobile}}">电话：{{item.mobile}}</view>
         </van-col>
-        <van-col span="7" offset="1" custom-class="list-inp"><view class="list-bt" data-type="2"  data-id="{{key}}" bindtap="show">专员操作</view></van-col>
+        <van-col span="7" offset="1" custom-class="list-inp"><view class="list-bt" data-type="2"  data-id="{{key}}">专员操作</view></van-col>
         </van-col>
         <van-col span="22" wx:if="{{searchlist.length<=0}}" offset="1" custom-class="null"><image src="/icons/null-1.png"></image></van-col>
       </van-col>
       <van-col span="24" custom-class="" wx:if="{{list.length>=1&&searchlist.length<=0}}">
-        <van-col span="22" offset="1" custom-class="list" wx:for="{{list}}" wx:for-item="item" wx:for-index="key" wx:key="key" data-id="{{item.id}}" >
+        <van-col span="22" offset="1" custom-class="list" wx:for="{{list}}" wx:for-item="item" wx:for-index="key" wx:key="key" data-id="{{item.id}}" data-type="1"   data-id="{{key}}" bindtap="show">
         <van-col span="16" custom-class="list-usrename">
           <view class="name">{{item.username}}</view>
           <view class="tel" bindtap="mobile" data-mobile="{{item.mobile}}">电话：{{item.mobile}}</view>
         </van-col>
-        <van-col span="7" offset="1" custom-class="list-inp"><view class="list-bt" data-type="1"   data-id="{{key}}" bindtap="show">专员操作</view></van-col>
+        <van-col span="7" offset="1" custom-class="list-inp"><view class="list-bt" data-type="1"   data-id="{{key}}">专员操作</view></van-col>
         </van-col>
         <van-col span="22" wx:if="{{list.length<=0}}" offset="1" custom-class="null"><image src="/icons/null-1.png"></image></van-col>
       </van-col>
