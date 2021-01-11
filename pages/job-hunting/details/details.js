@@ -1,6 +1,7 @@
 // packageC/job-hunting/details/details.js
 const app = getApp();
 const WxParse = require('../../../utils/wxParse/wxParse.js');
+const chat = require('../../../utils/chat.js')
 Page({
 
   /**
@@ -346,6 +347,13 @@ Page({
       type: 'kefu',
       j_id: 0,
       title: '咨询',
+    }
+    // 判断是否应该解除绑定的客服UID
+    if(chat.unBindTime(app)){
+      // 解除绑定的客服UID
+      chat.updateBindUid(app, 0)
+    }else{
+      arr.j_id = app.globalData.kefuUid ? app.globalData.kefuUid : 0
     }
     wx.navigateTo({
       url: '/pages/advice/advice?data='+ JSON.stringify(arr),
