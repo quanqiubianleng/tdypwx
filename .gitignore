@@ -21,3 +21,8 @@ dist/notify/index.js
 dist/notify/index.d.ts
 *.ts
 dist/notify/index.d.ts
+project.config.json
+project.config.json
+*.json
+project.config.json
+project.config.json

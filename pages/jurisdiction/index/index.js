@@ -116,6 +116,21 @@ Page({
         }
       })
   },
+
+  // 聊天详情
+  advice:function(e){
+    console.log(e);
+    let admin_info = e.currentTarget.dataset.item
+    let arr = {
+      type: 'setion',
+      j_id: 'user_'+admin_info.userid,
+      title: admin_info.username,
+      headimgurl: admin_info.headimgurl,
+    }
+    wx.navigateTo({
+      url: '/pages/advice/advice?data='+ JSON.stringify(arr),
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
