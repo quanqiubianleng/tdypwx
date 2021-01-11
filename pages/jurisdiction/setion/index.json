@@ -4,7 +4,8 @@
     "van-row":"../../../dist/row/index",
     "van-popup":"../../../dist/popup/index" ,
     "van-col":"../../../dist/col/index",
-    "van-tag": "../../../dist/tag/index"
+    "van-tag": "../../../dist/tag/index",
+    "van-button": "../../../dist/button/index"
 
   },
   "navigationBarTitleText": "部门消息",

@@ -1,5 +1,6 @@
 <!--pages/jurisdiction/index/index.wxml-->
 <view class="msgGroup">
+
   <view class="msgItem" wx:for="{{list}}" wx:for-item="list" wx:for-index="key" wx:key="key"  >
     <view class="inBox" bindtap="Showdown" data-id="{{key}}">
       <view wx:if="{{msg_list[key].f_msg_count >0}}" class="f-badge">{{msg_list[key].f_msg_count}}</view>
@@ -19,3 +20,5 @@
     </view>
   </view>
 </view>
+
+<van-button type="primary" block style="position: fixed;bottom: 0;width: 100%;">添加群聊</van-button>
