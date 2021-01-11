@@ -58,10 +58,10 @@
       </view>
     </van-col>
     <van-col span="24"offset=""custom-class="box-card-level">
-      <view class="level" bindtap="getSubordinate" data-leavl="0">全部:{{count}}人</view>
-      <view class="level" bindtap="getSubordinate" data-leavl="1">一级:{{count1}}人</view>
-      <view class="level" bindtap="getSubordinate" data-leavl="2">二级:{{count2}}人</view>
-      <view class="level" bindtap="getSubordinate" data-leavl="3">三级:{{count3}}人</view>
+      <view class="level {{currentTab==0?'on':''}}" bindtap="getSubordinate" data-leavl="0">全部:{{count}}人</view>
+      <view class="level {{currentTab==1?'on':''}}" bindtap="getSubordinate" data-leavl="1">一级:{{count1}}人</view>
+      <view class="level {{currentTab==2?'on':''}}" bindtap="getSubordinate" data-leavl="2">二级:{{count2}}人</view>
+      <view class="level {{currentTab==3?'on':''}}" bindtap="getSubordinate" data-leavl="3">三级:{{count3}}人</view>
       <view class="level" style="color:#999999" >明细</view>
       <!-- bindtap="detailed" -->
     </van-col>

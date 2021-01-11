@@ -61,13 +61,16 @@
         <text wx:if="{{list.plantundergo==2}}">有经验</text>
       </van-col>
     </van-col>
-    <van-col span="24"custom-class="record">
-      <van-col span="22"offset="1" custom-class="record-tetl">第一次跟踪记录</van-col>
+    <van-col span="24"custom-class="record" wx:for="{{list.record_list}}" wx:for-index="index" wx:key="index">
+      <van-col span="22"offset="1" custom-class="record-tetl">第{{index+1}}次跟踪记录</van-col>
       <van-col span="22"offset="1"custom-class="information-list-li">
-        跟踪时间：2020-08-17
+        跟踪时间：{{item.indate}}
       </van-col>
       <van-col span="22"offset="1"custom-class="information-list-li">
-        所处状态：考虑当中
+        所处状态：{{item.status_name}}
+      </van-col>
+      <van-col span="22"offset="1"custom-class="information-list-li">
+        跟踪备注：{{item.info}}
       </van-col>
     </van-col>
   </van-col>

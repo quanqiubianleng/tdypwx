@@ -1,14 +1,20 @@
 <!--packageB/library/details/details.wxml-->
 <van-col span="22" offset="1" custom-class="card">
   <van-col span="6" custom-class="heom"><image src="{{user.headimgurl}}"></image></van-col>
-  <van-col span="10" custom-class="xinxi">
+  <van-col span="18" custom-class="xinxi">
     <van-col span="24" custom-class="name">
-      <text class="name-name">{{user.username?user.username:'未注册'}}</text><text class="name-sex" wx:if="{{user.sex==1}}">男</text><text class="name-sex" wx:if="{{user.sex==2}}">女</text>
+      <text class="name-name">{{user.username?user.username:'未注册'}}</text>
+      <text class="name-sex" wx:if="{{user.sex==1}}">男</text>
+      <text class="name-sex" wx:if="{{user.sex==2}}">女</text>
+      <text style="color:{{user.background?user.background:'#333'}};margin-left:10rpx" wx:if="{{user.remarks}}">{{user.remarks}}</text>
     </van-col>
-    <van-col span="24"custom-class="user-tel">电话 {{user.mobile?user.mobile:'未知'}}</van-col>
-    <van-col span="24"custom-class="user-tel" wx:if="{{user.remarks}}">备注：<text style="color:{{user.background?user.background:'#333'}}">{{user.remarks}}</text></van-col>
+    <van-col span="24"custom-class="user-tel">
+     <van-col span="12">电话 {{user.mobile?user.mobile:'未知'}}</van-col> 
+    <van-col span="11" offset="1" custom-class="card-bt" wx:if="{{own==2}}" bindtap="label">添加备注</van-col>
+    </van-col>
+   <van-col span="24"custom-class="user-tel" wx:if="{{user.address!='null'}}">区域：{{user.address}}</van-col>
   </van-col>
-  <van-col span="7" offset="1" custom-class="card-bt" wx:if="{{own==2}}" bindtap="label">添加备注</van-col>
+
   <!-- <van-col span="24"offset="0" custom-class="card-desc" >该好友入职后,您预计可获得<text style="color:red">800-1500元</text>推荐奖励。</van-col>
   <van-col span="24"offset="0" custom-class="card-desc" >他的好友入职后,您预计还可获得<text style="color:red">150-280元</text>推荐奖励。</van-col> -->
 </van-col>

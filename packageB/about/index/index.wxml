@@ -14,4 +14,3 @@
   </van-col>
 </van-col>
 
-<van-col span="20"offset="2"custom-class="login" bindtap="login">重新登录</van-col>

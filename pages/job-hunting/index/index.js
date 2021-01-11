@@ -26,51 +26,41 @@ Page({
     imageWidth:0, 
     imageHeight:0 ,
     notice: [],
-    Time:'',        num:0,        showpic:null,        hidepic:null,
+    Time:'',        
+    num:0,        
+    showpic:null,        
+    hidepic:null,
     money:'1000000',
     start_time: '2020-12-12',
     end_time: '2020-12-30'
   },
-  swiperChange:function(res){
-    this.setData({
-      current: res.detail.current
-    })
- },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+     //判断是否由分享和扫码进入
      let userlevelid = 0;
      let levlid = options.id;
-    // let levlid = 47;
+    //let levlid = 1005
      let id  = decodeURIComponent(options.scene);  
-     //let id = 1027;
+     // let id = 1005937;
      if(id!='undefined'&&typeof(levlid)=='undefined'){
       userlevelid = id;
      }
      if(typeof(levlid)!='undefined'&&id=='undefined'){
       userlevelid=levlid;
      }
-   // let id = 10005937;
-   console.log(userlevelid);
+     //是分享进入或者扫码
     if(userlevelid!=0){
-      console.log(11111111111111)
-      wx.login({
-        success (res) {
-          if (res.code) {
-            var datad = {
-              code: res.code,
-              nopenid:userlevelid
-              // lat:wx.getStorageSync('coordinates').longitude,
-              // lng:wx.getStorageSync('coordinates').latitude,
-            };
-            let rendata = app.requestfun(datad, '/Api/Nobill/seylevelno'); 
-          } else {
-            console.log('登录失败！' + res.errMsg)
-          }
-        }
-      })
+      console.log(userlevelid);
+      //进入首页跳转登录
+      let type = 4;
+        wx.navigateTo({
+          url: '/pages/loginByWechat/loginByWechat?type=' +type + '&userlevelid=' +userlevelid,
+        })
+        return;
     }
+
     wx.getSystemInfo({
       success: (res) => {
           this.setData({
@@ -251,6 +241,11 @@ Page({
           })
           return;
       }
+      let data = {
+        id:id,
+        nopenid:userInfos,
+        share:share
+      }
       wx.navigateTo({
         url: '/pages/job-hunting/details/details?id='+id +'&nopenid='+userInfos + '&share=' +share ,
       })
@@ -414,7 +409,9 @@ Page({
       })
 
       this.label();
-    }else{
+    }
+    
+    if(!currPage.__data__.cityNameTemp&&!currPage.__data__.type){
       this.setData({
         page:1,
         list:[],
@@ -422,7 +419,24 @@ Page({
       })
       this.label();
     }
-   
+    //判断是否由分享和扫码进入已授权手机号
+   if(currPage.__data__.type==4&&currPage.__data__.userlevelid){
+     console.log(22222222222222222)
+     console.log(currPage.__data__.userlevelid);
+    wx.login({
+      success (res) {
+        if (res.code) {
+          var datad = {
+            code: res.code,
+            nopenid:currPage.__data__.userlevelid
+          };
+          let rendata = app.requestfun(datad, '/Api/Nobill/seylevelno'); 
+        } else {
+          console.log('挂级失败' + res.errMsg)
+        }
+      }
+    })
+   }
   },
 
   /**

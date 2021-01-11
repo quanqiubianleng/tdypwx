@@ -3,21 +3,27 @@
   <van-col span="22" offset="1" custom-class="list">
     <van-col span="24" custom-class="basic basics">{{list.username}}</van-col>
     <van-col span="24"offset=""custom-class="card">
-    <van-col span="5"custom-class="card-list-l">
-      所处状态
+      <van-col span="24">
+        <van-col span="5"custom-class="card-list-l">
+          所处状态
+        </van-col>
+        <van-col span="15"offset="1" custom-class="card-list-r">{{list.status_name}}</van-col>
+      </van-col>
+   
+    <van-col span="24">
+      <van-col span="5"custom-class="card-list-l">
+        注册时间
+      </van-col>
+      <van-col span="15"offset="1" custom-class="card-list-r">{{list.indate}}</van-col>
     </van-col>
-    <van-col span="15"offset="1" custom-class="card-list-r">{{list.status_name}}</van-col>
-
-    <van-col span="5"custom-class="card-list-l">
-      注册时间
-    </van-col>
-    <van-col span="15"offset="1" custom-class="card-list-r">{{list.indate}}</van-col>
-
-    <van-col span="5"custom-class="card-list-l">
-      联系电话
-    </van-col>
-    <van-col span="18"offset="1" custom-class="card-list-r" data-tel="{{list.mobile}}" bindtap="tel">
-      {{list.mobile}} <van-icon color="#2FAEDF" size="40rpx" style="margin-left: 8rpx;" name="phone-o" />
+   
+    <van-col span="24">
+      <van-col span="5"custom-class="card-list-l">
+        联系电话
+      </van-col>
+      <van-col span="18"offset="1" custom-class="card-list-r" data-tel="{{list.mobile}}" bindtap="tel">
+        {{list.mobile}} <van-icon color="#2FAEDF" size="40rpx" style="margin-left: 8rpx;" name="phone-o" />
+      </van-col>
     </van-col>
   </van-col>
   </van-col>
@@ -34,11 +40,11 @@
     <van-col span="23" offset="1" custom-class="cards-list">
       <van-col span="12" custom-class="cards-list-inps">
         <van-col span="7"custom-class="label">姓名：</van-col>
-        <van-col span="14" custom-class="input"><input value="{{username}}" bindblur="username" placeholder="输入姓名"/></van-col>
+        <van-col span="14" custom-class="input"><input value="{{username}}" type="text" bindblur="username" placeholder="输入姓名"/></van-col>
       </van-col>
       <van-col span="12" custom-class="cards-list-inps">
         <van-col span="7"custom-class="label">电话：</van-col>
-        <van-col span="14" custom-class="input"><input value="{{mobile}}" bindblur="mobile" placeholder="输入电话"/></van-col>
+        <van-col span="14" custom-class="input"><input value="{{mobile}}" type="number" bindblur="mobile" placeholder="输入电话"/></van-col>
       </van-col>
     </van-col>
   </van-col>

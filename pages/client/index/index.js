@@ -81,7 +81,7 @@ Page({
     let that = this;
     let data = {
       type:0,
-      pages:that.data.pages,
+      page:that.data.pages,
       keyworld:search
     } 
     let rendata = app.requestfun(data, '/Api/commissioner/resource',true);    
@@ -113,7 +113,7 @@ Page({
     let that = this;
     let data = {
       type:0,
-      pages:that.data.pages,
+      page:that.data.pages,
       keyworld:search
     } 
     let rendata = app.requestfun(data, '/Api/commissioner/resource',true);    

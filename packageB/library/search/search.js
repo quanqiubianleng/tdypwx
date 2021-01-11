@@ -40,7 +40,8 @@ Page({
   },
   search:function(e){
     this.setData({
-      search:e.detail.value
+      search:e.detail.value,
+      page:0
     })
   },
   searchlist:function(e){

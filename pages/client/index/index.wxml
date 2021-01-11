@@ -28,7 +28,6 @@
       </van-col>
       <van-col span="7" offset="1" custom-class="list-inp"><view class="list-bt" data-index="{{key}}"  data-id="{{item.id}}" bindtap="showview">我来搞定</view></van-col>
     </van-col>
-    <van-col span="22" wx:if="{{list.length<=0}}" offset="1" custom-class="null"><image src="/icons/null-1.png"></image></van-col>
   </view>
 
 <view class="bg" style='display:{{display}}'></view>

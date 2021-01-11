@@ -77,7 +77,8 @@ Page({
         arr2.push(data)
         self.setData({
           msgList: arr2,
-          d_headimgurl: data.d_headimgurl
+          d_headimgurl: data.d_headimgurl,
+          j_id: data.f_id,
         })
         
       }else if(data.type == "getMsgRecord"){

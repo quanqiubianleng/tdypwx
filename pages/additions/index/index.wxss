@@ -5,7 +5,10 @@ page{
   background: #F5F5F5;
   padding-bottom: 20rpx;
 }
-
+.focus{
+ display: flex;
+ flex-direction:column
+}
 .header{
   position: fixed;
   top:0rpx;
@@ -84,29 +87,17 @@ page{
 }
 
 .main{
-  margin-top: 425rpx;
+  margin-top: 420rpx;
+  display: flex;
+  flex-direction:column;
   padding-bottom: 20rpx;  
+  height: 80%;
 }
-.main-scroll{
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
+
 .card{
   width: 100%;
   margin-top: 10rpx;
   margin-bottom: 10rpx;
-}
-.card-box{
-  width: 100%;
-  height: 200rpx;
-  border-radius: 6rpx;
-  background: #ccc;
-}
-.card-content{
-  color: blue;
 }
 .list{
   background: #fff;

@@ -378,7 +378,7 @@ Page({
       app.msg("联系电话方式不正确");
       return;
     }
-    if(this.data.type==17){
+    if(this.data.type==17||this.data.type==16||this.data.type==18){
       if(!this.data.pro){
         app.msg("请选择完整的工作区域");
         this.setData({
@@ -400,12 +400,14 @@ Page({
         })
         return;
       }
-      if(!this.data.town){
-        app.msg("请选择完整的工作区域");
-        this.setData({
-          roll:'4',
-        })
-        return;
+      if(this.data.type==17||this.data.type==18){
+        if(!this.data.town){
+          app.msg("请选择完整的工作区域");
+          this.setData({
+            roll:'4',
+          })
+          return;
+        }
       }
     }
     let address = this.data.pro+this.data.city+this.data.county+this.data.town;

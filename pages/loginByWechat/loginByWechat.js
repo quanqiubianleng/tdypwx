@@ -14,7 +14,8 @@ Page({
   // 进行登录
   async bindgetphonenumber(e) {
     console.log(e);
-    let type  =this.data.type;
+    let that = this;
+    let type  =that.data.type;
     wx.login({ 
       success: (res) => { 
         if (res.code) {
@@ -74,6 +75,18 @@ Page({
                           data:1
                         })
                       }
+                      if(type==4){
+                        let pages = getCurrentPages(); //获取当前页面js里面的pages里的所有信息。
+                        let prevPage = pages[ pages.length - 2 ];  
+                        prevPage.setData({  // 将我们想要传递的参数在这里直接setData。上个页面就会执行这里的操作。
+                          type:4,
+                          userlevelid:that.data.userlevelid
+
+                        })
+                        wx.navigateBack({
+                          data:1
+                        })
+                      }
                       else{
                         wx.navigateBack({
                           data:-1
@@ -103,11 +116,15 @@ Page({
     
   onLoad: function (options) {
     let type = options.type;
+    let userlevelid = options.userlevelid;
+    console.log(type);
+    console.log(userlevelid);
     let code =  new Promise((resolve) => {
       wx.login({ success: (res) => { if (res.code) resolve(res.code) } })
     });
     this.setData({
-      type:type
+      type:type,
+      userlevelid:userlevelid
     })
   },
   getUserInfo: function(e) {

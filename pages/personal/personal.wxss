@@ -41,6 +41,7 @@ page{
   display: inline-block;
   height: 126rpx;
   box-sizing: border-box;
+  margin-top: 10rpx;
 }
 .userInfoBox .userName{
   height: 88rpx;
@@ -186,4 +187,14 @@ page{
   margin-left: 10%;
   margin-right: 10%;
  
+}
+.logins{
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color:#fff;
+  margin-top: 100rpx;
+  margin-bottom: 30rpx;
+  background: linear-gradient(to top,#1385EE,#59C8F3);
+  border-radius: 50rpx;
 }

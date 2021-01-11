@@ -7,7 +7,8 @@ Page({
    */
   data: {
     banner:[],
-    page:0,
+    page:1,
+    pages:1,
     list:[],
     swiper:{
       indicatorDots:true,
@@ -33,7 +34,6 @@ Page({
   },
   searchlist:function(e){
     let that = this;
-    console.log(that.data.search);
     if(that.data.search==''||that.data.search=='null'||that.data.search=='undefined'){
       app.msg("请输入姓名/模糊查找");
       return
@@ -73,8 +73,8 @@ Page({
           if (res.code) {
           let data = {
             code:res.code,
-          type:0,
-          nameortel :that.data.search
+            type:0,
+            nameortel :that.data.search
           }
           let rendata = app.requestfun(data, '/Api/invites/index');    
           rendata.then((v) => {

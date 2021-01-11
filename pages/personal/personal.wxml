@@ -77,3 +77,5 @@
     </view>
   </view>
 </van-col>
+
+<van-col span="20"offset="2"custom-class="logins" wx:if="{{userInfo}}" bindtap="loginbyw">重新登录</van-col>

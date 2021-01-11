@@ -57,10 +57,11 @@ Page({
     })
   },
   Submit:function(e){
+    let that = this;
     let data = {
-      uid:this.data.id,
-      username:this.data.username,
-      mobile:this.data.mobile
+      uid:that.data.id,
+      username:that.data.username,
+      mobile:that.data.mobile
     }
     let rendata = app.requestfun(data, '/Api/commissioner/editUserResource',true);    
     rendata.then((v) => {
@@ -72,6 +73,13 @@ Page({
           showCancel: false, 
           success:function(sm){
             if(sm.confirm){
+              let pages = getCurrentPages(); //获取当前页面js里面的pages里的所有信息。
+              let prevPage = pages[ pages.length - 2 ];  
+              prevPage.setData({  // 将我们想要传递的参数在这里直接setData。上个页面就会执行这里的操作。
+                index:that.data.index,
+                username:that.data.username,
+                mobile:that.data.mobile
+              })
               wx.navigateBack({
                 delta: -1,
               })
@@ -81,7 +89,7 @@ Page({
       }else{
         wx.showModal({
           title: '提示',
-          content: '认领失败',
+          content: '修改失败',
           showCancel: false, 
         })
       }

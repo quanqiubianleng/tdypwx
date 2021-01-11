@@ -29,6 +29,7 @@ Page({
    */
   onLoad: function (options) {
     this.GetAdvertImg();
+    this.list();
   },
   GetAdvertImg:function(){
     let that = this;
@@ -84,7 +85,7 @@ Page({
     let that = this;
     let data = {
       type:1,
-      pages:that.data.pages,
+      page:that.data.pages,
       keyworld:search
     } 
     let rendata = app.requestfun(data, '/Api/commissioner/resource',true);    
@@ -119,7 +120,7 @@ Page({
     let that = this;
     let data = {
       type:1,
-      pages:that.data.pages,
+      page:that.data.pages,
       keyworld:search
     } 
     let rendata = app.requestfun(data, '/Api/commissioner/resource',true);    
@@ -237,6 +238,7 @@ Page({
             if (sm.confirm) {
               that.setData({
                 page:1,
+                list:[],
                 show:false
               })
               that.list();
@@ -259,7 +261,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.list();
+   
+
   },
 
   /**

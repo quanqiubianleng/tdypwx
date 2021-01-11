@@ -88,7 +88,7 @@ Page({
       count3:count2
     })
     this.BrowsHistory(id);
-    this.detail(id);
+   
     if(index==1){
       this.getSubordinate(id,openid,1,count2,count3)
     }
@@ -130,13 +130,12 @@ Page({
     
   },
   detail:function(e){
-    let id = e;
     let that = this;
     wx.login({
       success (res) {
         if (res.code) {
           var datad = {
-            uid:id,
+            uid:that.data.id,
             code: res.code,
           };
           let rendata = app.requestfun(datad, '/Api/Talentpool/detail'); 
@@ -317,7 +316,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.detail(this.data.id);
+    this.detail();
   },
 
   /**

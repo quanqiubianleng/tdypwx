@@ -31,7 +31,7 @@ Page({
         page:0,
         id:id,
         userlist:[],
-      
+        currentTab:id
      })
      this.getSubordinatelist();
 

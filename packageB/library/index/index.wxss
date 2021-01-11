@@ -178,6 +178,9 @@ page{
   font-size: 22rpx;
   
 }
+.on{
+  color: #32AFE0;
+}
 .box-list{
   height: 180rpx;
   background: #fff;

@@ -37,13 +37,11 @@ page{
 .user-tel{
   font-size: 22rpx;
   color: #333333;
-  margin-top: 10rpx;
+  margin-top: 15rpx;
 }
 .card-bt{
-  height: 100rpx;
   font-size: 28rpx;
   color: #42B9F2;
-  line-height: 100rpx;
   text-align: right;
 }
 .card-desc{

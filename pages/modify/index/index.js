@@ -23,7 +23,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.list();
     this.GetAdvertImg();
   },
   GetAdvertImg:function(){
@@ -80,7 +80,7 @@ Page({
     let that = this;
     let data = {
       type:1,
-      pages:that.data.pages,
+      page:that.data.pages,
       keyworld:search
     } 
     let rendata = app.requestfun(data, '/Api/commissioner/resource',true);    
@@ -112,7 +112,7 @@ Page({
     let that = this;
     let data = {
       type:1,
-      pages:that.data.pages,
+      page:that.data.pages,
       keyworld:search
     } 
     let rendata = app.requestfun(data, '/Api/commissioner/resource',true);    
@@ -183,7 +183,24 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.list();
+    var pages = getCurrentPages();
+    var currPage = pages[pages.length - 1];
+    if(currPage.__data__.index){
+      let list = this.data.list;
+      if(currPage.__data__.username){
+        list[currPage.__data__.index].username=currPage.__data__.username;
+      }
+      if(currPage.__data__.mobile){
+        list[currPage.__data__.index].mobile=currPage.__data__.mobile;
+      }
+      // if(currPage.__data__.username&&currPage.__data__.mobile){
+      //   list[currPage.__data__.index].username=currPage.__data__.username;
+      //   list[currPage.__data__.index].mobile=currPage.__data__.mobile;
+      // }
+      this.setData({
+        list:list
+      })
+    }
   },
 
   /**

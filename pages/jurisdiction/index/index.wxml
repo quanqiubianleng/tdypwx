@@ -17,7 +17,7 @@
     </view>
   </view>
 </view>
-<van-col span="20" offset="2" custom-class="add" bindtap="aad" wx:if="{{jurisdiction[0]==1}}">添加分组</van-col>
+<!-- <van-col span="20" offset="2" custom-class="add" bindtap="aad" wx:if="{{jurisdiction[0]==1}}">添加分组</van-col> -->
 <van-popup show="{{ show }}" position="bottom">
   <van-col span="24" custom-class="long" bindtap="long">删除</van-col>
   <van-col span="24" custom-class="lon" bindtap="quxiao">取消</van-col>

@@ -83,6 +83,7 @@ page{
   margin-top: 80rpx;
   position: relative;
   padding-bottom: 20rpx;  
+  height: 80%;
 }
 .main-scroll{
   position: absolute;
