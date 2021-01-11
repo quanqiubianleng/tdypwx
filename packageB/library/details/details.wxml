@@ -1,6 +1,6 @@
 <!--packageB/library/details/details.wxml-->
 <van-col span="22" offset="1" custom-class="card">
-  <van-col span="6" custom-class="heom"><image src="{{user.headimgurl}}"></image></van-col>
+  <van-col span="6" custom-class="heom"><image src="{{user.headimgurl?user.headimgurl:'../../../icons/ic_def_avatar.png'}}"></image></van-col>
   <van-col span="18" custom-class="xinxi">
     <van-col span="24" custom-class="name">
       <text class="name-name">{{user.username?user.username:'未注册'}}</text>

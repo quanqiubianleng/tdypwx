@@ -32,7 +32,8 @@ Page({
     hidepic:null,
     money:'1000000',
     start_time: '2020-12-12',
-    end_time: '2020-12-30'
+    end_time: '2020-12-30',
+    Back:0
   },
   /**
    * 生命周期函数--监听页面加载
@@ -41,7 +42,7 @@ Page({
      //判断是否由分享和扫码进入
      let userlevelid = 0;
      let levlid = options.id;
-    //let levlid = 1005
+    //let levlid = 1005937
      let id  = decodeURIComponent(options.scene);  
      // let id = 1005937;
      if(id!='undefined'&&typeof(levlid)=='undefined'){
@@ -58,7 +59,6 @@ Page({
         wx.navigateTo({
           url: '/pages/loginByWechat/loginByWechat?type=' +type + '&userlevelid=' +userlevelid,
         })
-        return;
     }
 
     wx.getSystemInfo({
@@ -73,6 +73,7 @@ Page({
     this.openCoordinates();
     this.getDynamicData();
     this.Redpacket();
+    this.label();
   },
   Redpacket:function(){
    //轮询红包金额数量
@@ -224,8 +225,9 @@ Page({
     let isLogin = app.globalData.isLogin; 
     let userInfos= wx.getStorageSync('userinfo').openid
     if(!isLogin||!userInfos){
+      let type =5
       wx.navigateTo({
-        url: '/pages/loginByWechat/loginByWechat',
+        url: '/pages/loginByWechat/loginByWechat?type=' +type,
       })
       return;
     }else{
@@ -361,7 +363,13 @@ Page({
       scrollTop: 0,
       duration: 300
     })
-
+    this.setData({
+      page:1,
+      list:[],
+      currentTab:this.data.currentTab,
+      city_code:this.data.city_code
+    })
+    this.index(this.data.currentTab);
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -410,19 +418,12 @@ Page({
 
       this.label();
     }
-    
-    if(!currPage.__data__.cityNameTemp&&!currPage.__data__.type){
-      this.setData({
-        page:1,
-        list:[],
-        currentTab:0
-      })
-      this.label();
-    }
     //判断是否由分享和扫码进入已授权手机号
+    //currPage.__data__.type==4&&currPage.__data__.userlevelid&&!wx.getStorageSync('Back')
    if(currPage.__data__.type==4&&currPage.__data__.userlevelid){
      console.log(22222222222222222)
      console.log(currPage.__data__.userlevelid);
+     let that = this;
     wx.login({
       success (res) {
         if (res.code) {
@@ -431,6 +432,11 @@ Page({
             nopenid:currPage.__data__.userlevelid
           };
           let rendata = app.requestfun(datad, '/Api/Nobill/seylevelno'); 
+              // rendata.then((v)=>{
+              //   console.log(v);
+              // })
+           // wx.setStorageSync('Back', 1);
+        
         } else {
           console.log('挂级失败' + res.errMsg)
         }
