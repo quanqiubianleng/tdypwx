@@ -80,6 +80,12 @@ Page({
       url: '/pages/advice/advice?data='+ JSON.stringify(arr),
     })
   },
+  // 添加群聊
+  addGroup: function (){
+    wx.navigateTo({
+      url: '/pages/jurisdiction/setion/add',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -1,0 +1,12 @@
+<!--pages/jurisdiction/setion/add.wxml-->
+<van-cell-group>
+  <van-field
+    model:value="{{title}}"
+    label="群聊名称"
+    placeholder="请输入群聊名称"
+    border="{{ false }}"
+    bind:change="onChange"
+  />
+</van-cell-group>
+
+<van-button type="primary" block custom-style="margin-top: 20px;" bind:click="addGroup">提交</van-button>

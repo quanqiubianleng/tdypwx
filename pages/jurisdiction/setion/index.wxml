@@ -21,4 +21,4 @@
   </view>
 </view>
 
-<van-button type="primary" block style="position: fixed;bottom: 0;width: 100%;">添加群聊</van-button>
+<van-button type="primary" block style="position: fixed;bottom: 0;width: 100%;" bind:click="addGroup">创建群聊</van-button>
