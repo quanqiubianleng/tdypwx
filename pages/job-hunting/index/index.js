@@ -39,6 +39,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+  
      //判断是否由分享和扫码进入
      let userlevelid = 0;
      let levlid = options.id;
@@ -355,21 +356,19 @@ Page({
 
   gosearch:function(e){
    wx.navigateTo({
-    url: '/pages/job-hunting/search/search',
-  })
+      url: '/pages/job-hunting/search/search',
+    })
   },
-  onTabItemTap(item) {
+  onTabItemTap() {
     wx.pageScrollTo({
       scrollTop: 0,
       duration: 300
     })
     this.setData({
-      page:1,
       list:[],
-      currentTab:this.data.currentTab,
-      city_code:this.data.city_code
+      page:1,
     })
-    this.index(this.data.currentTab);
+    this.index(0);
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -403,6 +402,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    if(app.globalData.enlist==1){
+      // wx.pageScrollTo({
+      //   scrollTop: 0,
+      //   duration: 300
+      // })
+      // this.setData({
+      //   page:1,
+      //   list:[],
+      //   navData:[]
+      // })
+      this.onTabItemTap();
+    }
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];
     if(currPage.__data__.cityNameTemp){

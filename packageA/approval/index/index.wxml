@@ -1,30 +1,39 @@
 <!--packageA/approval/index/index.wxml-->
 <van-col span="24" custom-class="nav">
   <van-col span="24"custom-class="navigation">
-    <view class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">未审批</view>
-    <view class="tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">已审批</view>
+    <view class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">未审批 <text wx:if="{{currentTab==0&&strip}}">（{{strip}}）</text></view>
+    <view class="tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">已审批<text wx:if="{{currentTab==1&&strip}}">（{{strip}}）</text></view>
   </van-col>
-  <van-col span="22" offset="1" custom-class="time">
+  <van-col span="24" offset="0" custom-class="time">
     <view class="time-img" bindtap="pickerShow">
       <image src="../../images/time.png"></image>
     </view>
     <view class="time-time" bindtap="pickerShow">{{data}}</view>
-    <view class="time-num">共{{strip}}人</view>
+    <view class="time-num">
+      <input value="{{search}}" bindinput="search" placeholder="输入名字/角色类型查询"  placeholder-style="font-size: 22rpx;"/>
+      <image src="../../../icons/search.png"  bindtap="searchlist"></image>
+    </view>
   </van-col>
 </van-col>
 <van-col span="24"custom-class="nav-s">
     <van-col span="22"offset="1" custom-class="box-list" wx:if="{{list.length>=1}}" wx:for="{{list}}" wx:for-index="key" wx:key="key" data-index="{{key}}" data-type="{{item.type}}" data-id="{{item.id}}" bindtap="details">
-      <van-col span="10"custom-class="box-list-ul">
+      <van-col span="24"custom-class="box-list-time">
+        <van-col span="24"offset=""custom-class="list-time" wx:if="{{currentTab==0}}">申请时间：{{item.add_time}}</van-col>
+        <van-col span="12"offset=""custom-class="list-time" wx:if="{{currentTab==1}}">申请时间：{{item.add_time}}</van-col>
+        <van-col span="12"offset=""custom-class="list-times" wx:if="{{currentTab==1}}">审批时间：{{item. examine_time}}</van-col>
+      </van-col>
+      <van-col span="9"custom-class="box-list-ul">
         <view class="tel">姓名</view>
         <view class="name">{{item.name}}</view>
         <view class="desc" wx:if="{{item.status==0}}">审批意见：待处理</view>
         <view class="desc" style="color: #3B66B0;" wx:if="{{item.status==1}}">审批意见：已通过</view>
         <view class="desc" style="color: red;" wx:if="{{item.status==2}}">审批意见：不通过</view>
       </van-col>
-      <van-col span="8"custom-class="box-list-co">
+      <van-col span="9"custom-class="box-list-co">
         <view class="te">电话</view>
         <view class="tes">{{item.mobile}}</view>
-        <view class="desc"></view>
+        <view class="desc" wx:if="{{currentTab==0}}"></view>
+        <view class="desc" wx:if="{{currentTab==1}}">审批人：{{item.admin_username}}</view>
       </van-col>
       <van-col span="6"custom-class="box-list-rl">
         <view class="type">申请类型</view>

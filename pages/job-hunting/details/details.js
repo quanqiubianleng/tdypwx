@@ -41,6 +41,7 @@ Page({
       nopenid:nopenid,
       share:share
     })
+    app.globalData.enlist=null;
     this.nobillinfo(id);
   },
   keep:function(e){
@@ -197,7 +198,12 @@ Page({
                 success: function (sm) {
                   if (sm.confirm) {
                     setTimeout(function() {
-                      wx.navigateBack();
+                      app.globalData.enlist=1;
+
+                      wx.switchTab({
+                        url: '/pages/job-hunting/index/index',
+                      })
+                     
                     }, 1000);
                   }
                   }
@@ -206,14 +212,7 @@ Page({
               wx.showModal({
                 title: '提示',
                 content: '取消失败',
-                showCancel: false, 
-                success: function (sm) {
-                  if (sm.confirm) {
-                    setTimeout(function() {
-                      wx.navigateBack();
-                    }, 1000);
-                  }
-                  }
+                showCancel: false,
                 })
             }
           })
@@ -275,7 +274,10 @@ Page({
               success: function (sm) {
                 if (sm.confirm) {
                   setTimeout(function() {
-                    wx.navigateBack();
+                    app.globalData.enlist=1;
+                    wx.switchTab({
+                      url: '/pages/job-hunting/index/index',
+                    })
                    }, 1000);
                 }
                 }
@@ -285,13 +287,6 @@ Page({
               title: '提示',
               content: '报名失败',
               showCancel: false, 
-              success: function (sm) {
-                if (sm.confirm) {
-                  setTimeout(function() {
-                    wx.navigateBack();
-                   }, 1000);
-                }
-                }
               })
           }
                 

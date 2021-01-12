@@ -12,6 +12,7 @@ Page({
     youend:'',
     list:[],
     page:1,
+    pages:1,
     strip:0,
     isPickerRender: false,
     isPickerShow: false,
@@ -24,7 +25,8 @@ Page({
       initStartTime: "",
       initEndTime: "",
       limitStartTime: "",
-      limitEndTime: ""
+      limitEndTime: "",
+      search:'',
     },
     currentTab: 0
   },
@@ -48,7 +50,7 @@ Page({
        this.setData({
          list:this.data.list.concat(v.data.data),
          page:this.data.page+1,
-         strip:this.data.strip+v.data.data.length
+         strip:v.data.total
        })
      }else{
        app.msg("暂无更多数据");
@@ -87,6 +89,7 @@ Page({
       data:data,
       youstart:youstart,
        youend:youend,
+       search:'',
     })
     this.partnerExamineList(youstart,youend,page,this.data.currentTab);
   } ,
@@ -110,7 +113,10 @@ Page({
       page:0,
       list:[],
       strip:0,
-      data:'请选择时间'
+      data:'请选择时间',
+      youstart : '',
+      youend:'',
+      search:'',
     })
     let youstart = '';   
     let youend = '';
@@ -118,7 +124,77 @@ Page({
     this.partnerExamineList(youstart,youend,page,e.target.dataset.current)
   }
   },
-    
+  search:function(e){
+    let search = e.detail.value;
+    if(!search){
+      app.msg("输入名字/角色类型查询");
+      return;
+    }
+    let data ={
+    page:this.data.pages,
+    start_time:this.data.youstart,
+    end_time:this.data.youend,
+    status:this.data.currentTab,
+    keyword:search
+  }
+  let rendata = app.requestfun(data, '/Api/UserAuto/partnerExamineList',true); 
+  rendata.then((v)=>{
+   if(v.data.status==1&&v.data.data){
+      this.setData({
+        list:v.data.data,
+        strip:v.data.total,
+        page:1,
+        search:search
+      })
+   }else{
+        this.setData({
+          list:[],
+        })
+        app.msg("暂无更多数据");
+        return;
+      }
+    })
+  },
+  searchlist:function(){
+    if(!this.data.search){
+      app.msg("输入名字/角色类型查询");
+      return;
+    }
+    let data ={
+      page:this.data.pages,
+      start_time:this.data.youstart,
+      end_time:this.data.youend,
+      status:this.data.currentTab,
+      keyword:this.data.search
+    }
+    let rendata = app.requestfun(data, '/Api/UserAuto/partnerExamineList',true); 
+    rendata.then((v)=>{
+     if(v.data.status==1&&v.data.data){
+       if(this.data.pages>1){
+        this.setData({
+          list:this.data.list.concat(v.data.data),
+          strip:v.data.total,
+          page:1,
+          search:this.data.search
+        })
+       }else{
+        this.setData({
+          list:v.data.data,
+          strip:v.data.total,
+          page:1,
+          search:this.data.search
+        })
+       }
+      
+     }else{
+      this.setData({
+        list:[],
+      })
+       app.msg("暂无更多数据");
+       return;
+     }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -181,11 +257,20 @@ Page({
       title: '玩命加载中',
       duration: 1000
     })
-    let youstart = this.data.youstart;
-    let youend = this.data.youend;
-    let page = this.data.page;
-    let currentTab = this.data.currentTab
-    this.partnerExamineList(youstart,youend,page,currentTab);
+    if(!this.data.search){
+      let youstart = this.data.youstart;
+      let youend = this.data.youend;
+      let page = this.data.page;
+      let currentTab = this.data.currentTab
+      this.partnerExamineList(youstart,youend,page,currentTab);
+    }
+   if(this.data.search){
+     this.setData({
+       pages:this.data.pages+1,
+       currentTab : this.data.currentTab
+     })
+     this.searchlist();
+   }
   },
 
   /**

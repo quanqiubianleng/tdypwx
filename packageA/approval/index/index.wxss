@@ -9,7 +9,6 @@ page{
   position: fixed;
   top: 0rpx;
   left: 0rpx;
-  z-index: 9999;
   background: #F5F5F5;
 }
 .navigation{
@@ -34,7 +33,7 @@ page{
 }  
 .time-img{
   float: left;
-  padding: 20rpx 10rpx;
+  padding: 20rpx 20rpx;
 }
 .time image{
   height: 45rpx;
@@ -42,11 +41,30 @@ page{
 }
 .time-time{
   display: inline-block;
-  padding: 20rpx 10rpx;
+  padding: 30rpx 0rpx;
+  font-size: 20rpx;
+  
 }
 .time-num{
   float: right;
-  padding: 20rpx 10rpx;
+  border-radius: 5rpx;
+  display: flex;
+  flex-direction:row;
+  margin-top: 10rpx;
+}
+.time-num input{
+  padding-left: 10rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #fff;
+  font-size: 24rpx;
+}
+.time-num image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  margin-top: 10rpx;
 }
 .nav-s{
   margin-top: 175rpx;
@@ -57,6 +75,22 @@ page{
   border-radius: 10rpx;
   margin-bottom: 20rpx;
 }
+.box-list-time{
+  border-bottom:1rpx solid #ddd ;
+  height: auto;
+  margin-top: 20rpx;
+  padding-bottom: 10rpx;
+}
+.list-time{
+  text-align: left;
+  color: #999999;
+  font-size: 24rpx;
+}
+.list-times{
+  text-align: right;
+  color: #999999;
+  font-size: 26rpx;
+}
 .box-list-ul{
   font-size: 26rpx;
   text-align: left;
@@ -64,7 +98,7 @@ page{
 .tel{
   padding-left: 35rpx;
   color: #999999;
-  margin-top: 20rpx;
+  margin-top: 10rpx;
 }
 .name{
   padding-left: 35rpx;
@@ -77,14 +111,16 @@ page{
   line-height: 50rpx;
   background: #F5F5F5;
   color: #999999;
+  text-align: left;
 }
 .box-list-co{
   font-size: 26rpx;
-  text-align: center;
+  text-align: left;
 }
 .te{
   color: #999999;
-  margin-top: 20rpx;
+  margin-top: 10rpx;
+  padding-left: 65rpx;
 }
 .tes{
   color: #333333;
@@ -95,7 +131,7 @@ page{
 }
 .type{
   color: #999999;
-  margin-top: 20rpx;
+  margin-top: 10rpx;
 }
 .type-te{
   color: #333333;

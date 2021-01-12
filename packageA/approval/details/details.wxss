@@ -1,6 +1,7 @@
 /* packageA/approval/details/details.wxss */
 page{
   background: #F5F5F5;
+  padding-bottom: 20rpx;
 }
 .tle{
   margin-top: 30rpx;
@@ -48,7 +49,7 @@ page{
 .name textarea{
   height: 150rpx;
   width: 95%;
-  padding: 5rpx 15rpx;
+  padding: 10rpx 15rpx;
   border-radius: 10rpx;
   background: #F3F6FA;
   margin-right: 20rpx;
@@ -83,10 +84,6 @@ page{
   margin-right: 15rpx;
 }
 .bottom{
-  position: fixed;
-  z-index: 99999;
-  bottom: 20rpx;
-  left: 0rpx;
   height: 60rpx;
   line-height: 60rpx;
   text-align: center;
@@ -94,5 +91,6 @@ page{
   color: #fff;
   background: #FF4E50;
   margin-top: 30rpx;
+  margin-bottom: 20rpx;
 }
 
