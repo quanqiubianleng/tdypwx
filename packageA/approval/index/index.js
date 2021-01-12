@@ -100,6 +100,7 @@ Page({
     })
   },
   swichNav: function (e) {
+    console.log(e.target.dataset.current);
     var that = this;
     if (this.data.currentTab === e.target.dataset.current) {
     return false;
@@ -183,7 +184,8 @@ Page({
     let youstart = this.data.youstart;
     let youend = this.data.youend;
     let page = this.data.page;
-    this.partnerExamineList(youstart,youend,page);
+    let currentTab = this.data.currentTab
+    this.partnerExamineList(youstart,youend,page,currentTab);
   },
 
   /**
