@@ -241,6 +241,7 @@ App({
   onShow: function() {
     
     if(chat.getStorages('isLogin')){
+      this.globalData.enlist = null;
       this.globalData.isLogin = true;
       this.globalData.socketOpen = true;
       this.globalData.userInfo = chat.getStorages('userinfo');
