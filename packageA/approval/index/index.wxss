@@ -5,6 +5,13 @@ page{
 /* .time{
   height: 120rpx;
 } */
+.nav{
+  position: fixed;
+  top: 0rpx;
+  left: 0rpx;
+  z-index: 9999;
+  background: #F5F5F5;
+}
 .navigation{
   display: flex;
   flex-direction: row;
@@ -41,8 +48,11 @@ page{
   float: right;
   padding: 20rpx 10rpx;
 }
+.nav-s{
+  margin-top: 175rpx;
+}
 .box-list{
- padding-bottom: 15rpx;
+  padding-bottom: 15rpx;
   background: #fff;
   border-radius: 10rpx;
   margin-bottom: 20rpx;
