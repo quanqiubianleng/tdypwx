@@ -14,6 +14,7 @@ App({
     hostUrl: 'https://www.tdyp520.com/index.php',
   },  
   globalData:{
+    kefuImgUrl: 'http://tdyp1.tiandainfo.com/static/images/avatar/2.png',
     imgUrl: 'https://www.tdyp520.com',
     userInfo:null,
     isLogin: false,

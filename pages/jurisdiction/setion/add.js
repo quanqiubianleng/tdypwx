@@ -21,9 +21,19 @@ Page({
       app.msg('群聊名称不能为空！');
       return false;
     }
-    let rendata = app.requestfun(data, '/Api/group/addGroup',false);    
+    let arr = {
+      title: this.data.title
+    }
+    let rendata = app.requestfun(arr, '/Api/group/addGroup',false);    
     rendata.then((v) => {
-      console.log(v)
+      app.msg(v.data.message)
+      if(v.data.status){
+        setTimeout(function(){
+          wx.navigateTo({
+            url: '/pages/jurisdiction/setion/index'
+          })
+        },2000)
+      }
     })
   },
   /**

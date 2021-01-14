@@ -342,6 +342,7 @@ Page({
       type: 'kefu',
       j_id: 0,
       title: '咨询',
+      headimgurl: app.globalData.kefuImgUrl
     }
     // 判断是否应该解除绑定的客服UID
     if(chat.unBindTime(app)){

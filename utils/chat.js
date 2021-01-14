@@ -84,6 +84,7 @@ function msgTips(data, that){
       type: 'kefu',
       j_id: 0,
       title: '咨询',
+      headimgurl: that.globalData.kefuImgUrl
     }
     // 判断是否应该解除绑定的客服UID
     if(unBindTime(that)){

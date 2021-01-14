@@ -1,23 +1,17 @@
 <!--pages/jurisdiction/index/index.wxml-->
 <view class="msgGroup">
+  <view class="msgItem">
 
-  <view class="msgItem" wx:for="{{list}}" wx:for-item="list" wx:for-index="key" wx:key="key"  >
-    <view class="inBox" bindtap="Showdown" data-id="{{key}}">
-      <view wx:if="{{msg_list[key].f_msg_count >0}}" class="f-badge">{{msg_list[key].f_msg_count}}</view>
-      <image class="mainIcon" src="{{list.path}}" />
-      <van-icon wx:if="{{list.down==0}}" custom-class="iconOpen" name="arrow"  />
-      <van-icon wx:if="{{list.down==1}}" custom-class="iconOpen" name="arrow-down" />
-      <text>{{list.name}}</text>
-    </view>
-    <view class="msgItems" wx:if="{{list.down==1}}" wx:for="{{list.array}}" wx:for-item="lists" wx:key="indexx" data-item="{{lists}}" bindtap="advice">
+    <view class="msgItems" wx:for="{{list}}" wx:for-item="lists" wx:key="indexx" data-item="{{lists}}" bindtap="advice">
       <view class="inBoxs">
         <view wx:if="{{msg_list[key].array[indexx].msg_count >0}}" class="badge">{{msg_list[key].array[indexx].msg_count}}</view>
-        <image class="mainIcons" src="{{lists.headimgurl}}" />
-        <view class="iconOpens">12-07</view>
-        <view class="username">{{lists.username}}</view>
-        <text class="lastmg">{{lists.username}}</text>
+        <image class="mainIcons" src="http://tdyp1.tiandainfo.com/static/images/avatar/2.png" />
+        <view class="iconOpens">{{lists.create_time}}</view>
+        <view class="username">{{lists.title}}</view>
+        <text class="lastmg">{{lists.create_time}}</text>
       </view>
     </view>
+
   </view>
 </view>
 

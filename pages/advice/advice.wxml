@@ -69,10 +69,10 @@
   <view class="cu-bar foot input" style="{{'bottom:'+(InputBottom+'px')+';'}}">
     <view class="action" bindtap="sendImg"><text class="cuIcon-pic text-grey"></text></view>
     <input class="solid-bottom" bindinput="Message" value="{{msg}}" adjust-position="true"
-      adjust-position="{{false}}" focus="{{false}}" maxlength="300" cursor-spacing="10"
+      focus="{{false}}" maxlength="300" cursor-spacing="10"
       data-event-opts="{{[['focus',[['InputFocus',['$event']]]],['blur',[['InputBlur',['$event']]]]]}}" bindfocus="__e"
       bindblur="__e" />
-    <view class="action"><text class="cuIcon-emojifill text-grey"></text></view><button
+    <view class="action"><text class="cuIcon-roundadd text-grey"></text></view><button
       class="cu-btn bg-green shadow" bindtap="sendMessage">发送</button>
   </view>
 <!-- <input type="tex" bindchange="sendMessage" class="text" placeholder="请输入消息"></input> -->
