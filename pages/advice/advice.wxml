@@ -72,7 +72,7 @@
       focus="{{false}}" maxlength="300" cursor-spacing="10"
       data-event-opts="{{[['focus',[['InputFocus',['$event']]]],['blur',[['InputBlur',['$event']]]]]}}" bindfocus="__e"
       bindblur="__e" />
-    <view class="action"><text class="cuIcon-roundadd text-grey"></text></view><button
+    <view class="action"><text wx:if="{{group_id > 0}}" class="cuIcon-roundadd text-grey" bindtap="addGroupUser"></text></view><button
       class="cu-btn bg-green shadow" bindtap="sendMessage">发送</button>
   </view>
 <!-- <input type="tex" bindchange="sendMessage" class="text" placeholder="请输入消息"></input> -->

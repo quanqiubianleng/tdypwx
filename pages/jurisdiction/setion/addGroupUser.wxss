@@ -1,0 +1,22 @@
+/* pages/jurisdiction/setion/addGroupUser.wxss */
+
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.block{
+  display: block;
+}
+.flex-item{
+  width: 16.6%;
+  text-align: center;
+  padding:  16rpx 0 0 0;
+}
+.flex-item image{
+  width: 80rpx;
+  height: 80rpx;
+}
+.flex-item text{
+  font-size: 26rpx;
+}

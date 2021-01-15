@@ -1,0 +1,42 @@
+<!--pages/jurisdiction/setion/addGroupUser.wxml-->
+<view class="flex">
+  
+  <view class="flex-item" wx:for="{{groupUserList}}" wx:for-item="lists">
+    <image src="{{lists.headimgurl}}"></image>
+    <text class="block">{{lists.username}}</text>
+  </view>
+  <view class="flex-item" bindtap="showPopup">
+    <image src="../../../icons/add_user.png"></image>
+    <text class="block">添加</text>
+  </view>
+</view>
+
+<view style="height: 60rpx;"></view>
+<van-cell-group >
+  <van-field
+    model:value="{{groupDetail.title}}"
+    label="群聊名称"
+    placeholder="请输入群聊名称"
+    border="{{ false }}"
+    bind:change="onChange"
+  />
+</van-cell-group>
+
+<van-button type="primary" block custom-style="margin-top: 20px;" bind:click="editGroup">提交</van-button>
+
+
+
+<van-popup
+  show="{{ show }}"
+  position="bottom"
+  overlay="true"
+  custom-style="height: 80%;"
+  bind:close="onClose"
+  closeable
+>
+  <van-row>
+    <van-col span="8">span: 8</van-col>
+    <van-col span="8">span: 8</van-col>
+    <van-col span="8">span: 8</van-col>
+  </van-row>
+</van-popup>

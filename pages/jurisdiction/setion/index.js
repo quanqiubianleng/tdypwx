@@ -84,6 +84,7 @@ Page({
       j_id: '0',
       title: admin_info.title,
       headimgurl: admin_info.headimgurl,
+      group_id: admin_info.group_id,
     }
     wx.navigateTo({
       url: '/pages/advice/advice?data='+ JSON.stringify(arr),

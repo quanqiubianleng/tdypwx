@@ -96,6 +96,11 @@
           "pathName": "pages/message/message",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/jurisdiction/setion/addGroupUser",
+          "pathName": "pages/jurisdiction/setion/addGroupUser",
+          "scene": null
         }
       ]
     }

@@ -18,6 +18,7 @@ Page({
     page: 1,
     d_headimgurl: '',
     isNowPage: 0,
+    group_id: 0, // 群组ID
   },
 
   /**
@@ -36,6 +37,7 @@ Page({
       new_type: data.type,
       d_headimgurl: data.headimgurl,
       isNowPage: 1,
+      group_id: ('group_id' in data) ? data.group_id : 0,
     })
     self.getMsgRecord(data);
     // 改变页面标题
@@ -137,6 +139,10 @@ Page({
   },
   sendMessage:function()
   {
+    if(this.data.msg.length == 0){
+      app.msg('请输入内容')
+      return false;
+    }
     var f_msg = {
       type: this.data.new_type,
       f_id: 'user_' + app.globalData.userInfo.id,
@@ -207,6 +213,14 @@ Page({
     str.push(e.currentTarget.dataset.img)
     wx.previewImage({
       urls: str // 需要预览的图片http链接列表
+    })
+  },
+
+  // 查看群组
+  addGroupUser(){
+    console.log('查看群组')
+    wx.navigateTo({
+      url: '/pages/jurisdiction/setion/addGroupUser?group_id='+ this.data.group_id,
     })
   },
   /**
