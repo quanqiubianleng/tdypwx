@@ -28,7 +28,6 @@ Page({
     let rendata = app.requestfun(arr, '/Api/group/groupList',false); 
     var that = this   
     rendata.then((v) => {
-      app.msg(v.data.message)
       if(v.data.status){
         let arr = v.data.data.map(function(v){
           v.create_time = chat.showTime(v.create_time*1000)

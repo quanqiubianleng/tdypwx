@@ -9,8 +9,11 @@ Page({
     group_id: 0, // 群聊ID
     groupUserList: [], // 群聊成员
     groupDetail: {}, // 群聊详情
+    addGroupUserList: [], // 可添加群聊成员
     title: '',
     show: false,
+    checked: false,
+    page: 1,
   },
 
   /**
@@ -22,23 +25,47 @@ Page({
       group_id: options.group_id
     })
     this.getGroupDetail()
+    // 获取可添加为群聊成员的列表
+    this.getGroupUserList()
   },
 
   // 获取群组详情
   getGroupDetail(){
     let arr = {
-      group_id: this.data.group_id
+      group_id: this.data.group_id,
+      page: this.data.page,
     };
     let rendata = app.requestfun(arr, '/Api/group/groupDetail',false); 
     var that = this   
     rendata.then((v) => {
-     
       if(v.data.status){
         that.setData({
           groupUserList: v.data.data.list,
           groupDetail: v.data.data.detail,
           title: v.data.data.detail.title,
         })
+      }
+    })
+  },
+
+  // 获取可添加群组成员列表
+  getGroupUserList(){
+    let arr = {
+      group_id: this.data.group_id
+    };
+    let rendata = app.requestfun(arr, '/Api/group/addGroupUserList',false); 
+    var that = this   
+    rendata.then((v) => {
+      if(v.data.status){
+        let value = v.data.data
+        let arr = value.map(function(item){
+          item.checked = false
+          return item;
+        })
+        that.setData({
+          addGroupUserList: arr,
+        })
+        console.log(that.data.addGroupUserList)
       }
     })
   },
@@ -83,9 +110,35 @@ Page({
   showPopup() {
     this.setData({ show: true });
   },
+  // 监听CheckBox
+  onChangeBox(e){
+    var value = !this.data.addGroupUserList[e.currentTarget.dataset.index].checked;
+    var checked = "addGroupUserList["+e.currentTarget.dataset.index+"].checked";
+    this.setData({
+      [checked]: value
+    })
+  },
 
   onClose() {
-    this.setData({ show: false });
+    // 取消选中状态
+    let value = this.data.addGroupUserList;
+    let arr = value.map(function(v){
+      v.checked = false
+      return v;
+    })
+    this.setData({ 
+      show: false,
+      addGroupUserList: arr
+    });
+    console.log(this.data.addGroupUserList)
+  },
+
+  lower(e) {
+    console.log(e)
+    this.setData({
+      page: this.data.page + 1,
+    })
+    this.getGroupUserList()
   },
 
   /**
@@ -127,7 +180,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    console.log('页面上拉触底事件的处理函数')
   },
 
   /**

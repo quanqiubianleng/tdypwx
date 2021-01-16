@@ -20,3 +20,28 @@
 .flex-item text{
   font-size: 26rpx;
 }
+.line-height-80{
+  line-height: 80rpx;
+}
+.text-right{
+  text-align: right;
+}
+.text-center{
+  text-align: center;
+}
+.padding-lr-20{
+  padding: 0 20rpx;
+  margin-top: 10rpx;
+}
+.justify-between{
+  justify-content: space-between;
+}
+.bottom-btn{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 94%;
+  text-align: right;
+  background-color: #ffffff;
+  height: 80rpx;
+}

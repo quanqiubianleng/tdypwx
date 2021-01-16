@@ -30,13 +30,31 @@
   show="{{ show }}"
   position="bottom"
   overlay="true"
-  custom-style="height: 80%;"
+  custom-style="height: 90%;padding-top: 5%;"
   bind:close="onClose"
   closeable
 >
-  <van-row>
-    <van-col span="8">span: 8</van-col>
-    <van-col span="8">span: 8</van-col>
-    <van-col span="8">span: 8</van-col>
-  </van-row>
+  <view class="text-center">添加成员</view>
+  <scroll-view scroll-y="true" style="height: 90%;" bindscrolltolower="lower" bindscroll="scroll">
+    <van-row bindtap="onChangeBox" data-index="{{index}}" wx:for="{{addGroupUserList}}" wx:for-item="items" wx:for-index="index" custom-class="padding-lr-20">
+      <label class="checkbox">
+        <van-col span="3">
+          <image wx:if="{{items.headimgurl != null}}" style="width: 80rpx;height: 80rpx;" :src="{{items.headimgurl}}"></image>
+          <image wx:else style="width: 80rpx;height: 80rpx;" src="../../../icons/index-2.png"></image>
+        </van-col>
+        <van-col span="18">
+          <view class="line-height-80">{{items.username}}</view>
+        </van-col>
+        <van-col span="3">
+          <view class="line-height-80 text-right" >
+            <checkbox color="#1989fa" checked="{{ items.checked }}"/>
+          </view>
+        </van-col>
+      </label>
+    </van-row>
+    <view class="padding-lr-20 bottom-btn">
+      <!-- <van-button size="small" type="primary">取消</van-button> -->
+      <van-button custom-style="margin-top: 10rpx;" size="small" type="info">确认</van-button>
+    </view>
+  </scroll-view>
 </van-popup>
