@@ -57,6 +57,7 @@ Page({
         j_id: data.j_id,
         mtype: this.data.new_type,
         page: this.data.page,
+        group_id: ('group_id' in data) ? data.group_id : 0,
       }
     }
     app.sendSocketMessage(f_msg);
@@ -116,6 +117,13 @@ Page({
         self.setData({
           msgList: arr2
         })
+      }else if(data.type == "group"){
+        data.create_time = chat.showTime(data.create_time)
+        let arr2 = self.data.msgList
+        arr2.push(data)
+        self.setData({
+          msgList: arr2
+        })
       }
       self.scrollPage()
     })
@@ -150,6 +158,7 @@ Page({
       msg_type: '1',
       content: this.data.msg,
       mtype: this.data.new_type,
+      group_id: this.data.group_id,
     }
     if(this.data.type == 'text'){
       f_msg.msg_type = '1'
