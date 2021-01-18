@@ -5,6 +5,9 @@
   flex-wrap: wrap;
   justify-content: flex-start;
 }
+.show-all{
+  height: 412rpx;overflow: hidden;
+}
 .block{
   display: block;
 }

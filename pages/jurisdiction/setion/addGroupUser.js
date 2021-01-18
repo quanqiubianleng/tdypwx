@@ -14,6 +14,7 @@ Page({
     show: false,
     checked: false,
     page: 1,
+    showAllUserGroup: false,// 展示全部成员
   },
 
   /**
@@ -51,7 +52,8 @@ Page({
   // 获取可添加群组成员列表
   getGroupUserList(){
     let arr = {
-      group_id: this.data.group_id
+      group_id: this.data.group_id,
+      page: this.data.page
     };
     let rendata = app.requestfun(arr, '/Api/group/addGroupUserList',false); 
     var that = this   
@@ -62,10 +64,17 @@ Page({
           item.checked = false
           return item;
         })
+        // 拼接下一页数据
+        if(that.data.addGroupUserList.length && arr.length){
+          arr = that.data.addGroupUserList.concat(arr)
+          console.log()
+        }
         that.setData({
           addGroupUserList: arr,
         })
         console.log(that.data.addGroupUserList)
+      }else{
+        app.msg('暂无更多数据！')
       }
     })
   },
@@ -96,6 +105,41 @@ Page({
             url: '/pages/jurisdiction/setion/index'
           })
         },2000)
+      }
+    })
+  },
+
+  // 添加成员提交
+  addGroupUserSubmit(){
+    let arr = this.data.addGroupUserList.filter(function(v){
+      if(v.checked){
+        return v
+      }
+    })
+    let newArr = arr.map((obj,index) => {
+      return obj.id;
+    })
+    if(newArr.length == 0){
+      app.msg('请选择要添加的成员')
+      return false;
+    }
+    let params = {
+      group_id: this.data.group_id,
+      uids: newArr.toString()
+    }
+    let rendata = app.requestfun(params, '/Api/group/addGroupUserSubmit',false); 
+    var that = this   
+    rendata.then((v) => {
+      if(v.data.status){
+        app.msg(v.data.message)
+        that.setData({
+          show: false,
+        })
+        that.getGroupDetail()
+        // 获取可添加为群聊成员的列表
+        that.getGroupUserList()
+      }else{
+        app.msg('暂无更多数据！')
       }
     })
   },
@@ -139,6 +183,13 @@ Page({
       page: this.data.page + 1,
     })
     this.getGroupUserList()
+  },
+
+  // 改变查看全部群成员
+  showGroups(){
+    this.setData({
+      showAllUserGroup: !this.data.showAllUserGroup
+    })
   },
 
   /**

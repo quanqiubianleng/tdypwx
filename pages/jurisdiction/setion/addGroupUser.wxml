@@ -1,14 +1,19 @@
 <!--pages/jurisdiction/setion/addGroupUser.wxml-->
-<view class="flex">
-  
-  <view class="flex-item" wx:for="{{groupUserList}}" wx:for-item="lists">
-    <image src="{{lists.headimgurl}}"></image>
-    <text class="block">{{lists.username}}</text>
-  </view>
+<view class="flex {{!showAllUserGroup ? 'show-all' : ''}}" >
   <view class="flex-item" bindtap="showPopup">
     <image src="../../../icons/add_user.png"></image>
     <text class="block">添加</text>
   </view>
+  <view class="flex-item" wx:for="{{groupUserList}}" wx:for-item="lists">
+    <image wx:if="{{lists.headimgurl != null}}" src="{{lists.headimgurl}}"></image>
+    <image wx:else src="../../../icons/index-2.png"></image>
+    <text class="block">{{lists.username}}</text>
+  </view>
+</view>
+<view class="text-center" wx:if="{{groupUserList.length > 17}}" style="color: #888;margin-top: 40rpx;">
+  <text wx:if="{{!showAllUserGroup}}" bindtap="showGroups">查看更多群成员</text>
+  <text wx:else bindtap="showGroups">收起群成员</text>
+  <van-icon bind:click="showGroups" name="{{showAllUserGroup ? 'arrow-up' : 'arrow-down'}}" size="20px" />
 </view>
 
 <view style="height: 60rpx;"></view>
@@ -39,11 +44,12 @@
     <van-row bindtap="onChangeBox" data-index="{{index}}" wx:for="{{addGroupUserList}}" wx:for-item="items" wx:for-index="index" custom-class="padding-lr-20">
       <label class="checkbox">
         <van-col span="3">
-          <image wx:if="{{items.headimgurl != null}}" style="width: 80rpx;height: 80rpx;" :src="{{items.headimgurl}}"></image>
+          <image wx:if="{{items.headimgurl != null}}" style="width: 80rpx;height: 80rpx;" src="{{items.headimgurl}}"></image>
           <image wx:else style="width: 80rpx;height: 80rpx;" src="../../../icons/index-2.png"></image>
         </van-col>
         <van-col span="18">
-          <view class="line-height-80">{{items.username}}</view>
+          <view wx:if="items.username != ''" class="line-height-80">{{items.username}}</view>
+          <view wx:else class="line-height-80">未实名</view>
         </van-col>
         <van-col span="3">
           <view class="line-height-80 text-right" >
@@ -54,7 +60,7 @@
     </van-row>
     <view class="padding-lr-20 bottom-btn">
       <!-- <van-button size="small" type="primary">取消</van-button> -->
-      <van-button custom-style="margin-top: 10rpx;" size="small" type="info">确认</van-button>
+      <van-button custom-style="margin-top: 10rpx;" size="small" type="info" bindtap="addGroupUserSubmit">确认</van-button>
     </view>
   </scroll-view>
 </van-popup>
