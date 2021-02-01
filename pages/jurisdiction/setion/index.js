@@ -10,6 +10,8 @@ Page({
   data: {
     list:[],
     msg_list: [],
+    p_id: 0,
+    title: '贵州天大高科信息技术有限公司',
   },
 
   /**
@@ -17,25 +19,33 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
-    that.getGroupList()
     that.setData({
       msg_list: app.globalData.section_msg,
+      p_id: Object.keys(options).length > 0 ? options.p_id : 0,
+      title: Object.keys(options).length > 0 ? options.title : '贵州天大高科信息技术有限公司',
     })
+    wx.setNavigationBarTitle({
+      title: that.data.title 
+    })
+    that.getGroupList()
   },
   // 获取群组列表
   getGroupList(){
-    let arr = {};
-    let rendata = app.requestfun(arr, '/Api/group/groupList',false); 
-    var that = this   
+    console.log(this.data.p_id)
+    let arr = {
+      p_id: this.data.p_id,
+    };
+    let rendata = app.requestfun(arr, '/Api/org/groupList',false); 
+    let that = this   
     rendata.then((v) => {
       if(v.data.status){
-        let arr = v.data.data.map(function(v){
-          v.create_time = chat.showTime(v.create_time*1000)
-          return v;
-        })
-        console.log(arr)
+        // let arr = v.data.data.map(function(v){
+        //   v.create_time = chat.showTime(v.create_time*1000)
+        //   return v;
+        // })
         that.setData({
-          list: v.data.data
+          list: v.data.data.org,
+          user: v.data.data.user
         })
       }
     })
@@ -62,7 +72,6 @@ Page({
   },
   // 组织单聊聊天详情
   /* advice:function(e){
-    console.log(e);
     let admin_info = e.currentTarget.dataset.item
     let arr = {
       type: 'setion',
@@ -76,7 +85,6 @@ Page({
   }, */
   // 组织群聊聊天详情
   advice:function(e){
-    console.log(e);
     let admin_info = e.currentTarget.dataset.item
     let arr = {
       type: 'group',
@@ -92,7 +100,29 @@ Page({
   // 添加群聊
   addGroup: function (){
     wx.navigateTo({
-      url: '/pages/jurisdiction/setion/add',
+      url: '/pages/jurisdiction/setion/add?p_id='+this.data.p_id+'&title='+this.data.title,
+    })
+  },
+
+  // 进入分组
+  enterGroup: function (item){
+    wx.navigateTo({
+      url: '/pages/jurisdiction/setion/index?p_id='+item.currentTarget.dataset.item.id+'&title='+item.currentTarget.dataset.item.name,
+    })
+  },
+
+  // 进入成员
+  userDetail(e){
+    console.log(e)
+    wx.navigateTo({
+      url: '/pages/jurisdiction/setion/means?uid='+e.currentTarget.dataset.item.id,
+    })
+  },
+
+  // 添加分组
+  addOrg: function (){
+    wx.navigateTo({
+      url: '/pages/jurisdiction/setion/addOrg?p_id='+this.data.p_id,
     })
   },
 

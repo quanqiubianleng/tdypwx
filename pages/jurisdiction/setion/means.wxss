@@ -1,0 +1,7 @@
+/* pages/jurisdiction/setion/means.wxss */
+.bg-avatar{
+  background-color: #e8e8e8;
+}
+.block{
+  display: block;
+}

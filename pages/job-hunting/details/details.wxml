@@ -9,8 +9,8 @@
 			<view class="banner">
 				<swiper class="swiper" indicator-dots="{{swiper.indicatorDots}}" indicator-color="{{swiper.indicatorColor}}"
 					indicator-active-color="{{swiper.indicatorActiveColor}}" autoplay="{{swiper.autoplay}}" circular="true">
-					<swiper-item data-item="item" wx:key="key">
-						<image src="{{list.headimg}}" />
+					<swiper-item wx:for="{{imgs}}" wx:for-item="item">
+						<image src="{{item}}" />
 					</swiper-item>
 				</swiper>
 				<view class="num-tip" bindtap="keep">

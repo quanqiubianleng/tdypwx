@@ -1,0 +1,10 @@
+/* pages/jurisdiction/setion/detail.wxss */
+page{
+  background-color: #e8e8e8;
+}
+.inline-block{
+  display: inline-block;
+}
+.margin-top-xlg{
+  margin-top: 10vh;
+}

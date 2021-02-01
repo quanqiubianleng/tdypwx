@@ -1,0 +1,27 @@
+<!--pages/jurisdiction/setion/means.wxml-->
+<view class="margin-top-lg">
+  <view class="flex padding-sm bg-avatar">
+    <view class="flex-sub">
+      <image style="width: 120rpx;height: 120rpx;" src="../../../icons/add.png"></image>
+    </view>
+    <view class="flex-four padding-top-sm">
+      <text class="block text-lg">徐想</text>
+      <text class="block text-df padding-top-xs text-gray">普通成员</text>
+    </view>
+  </view> 
+
+  <view class="flex padding-sm bg-avatar margin-top-lg">
+    <view class="flex-sub text-df">
+      部门
+    </view>
+    <view class="flex-four">
+      <text class="block text-df">辅导辅导</text>
+      <text class="block text-sm padding-top-xs text-gray">贵州天大高科信息技术有限公司</text>
+    </view>
+    <view class="flex-sub padding-top-sm text-right">
+      <van-icon name="arrow" class="text-lg" />
+    </view>
+  </view> 
+
+  <button class="flex-sub bg-blue margin-top-lg margin-lr-sm" bindtap="detail">详情</button>
+</view>

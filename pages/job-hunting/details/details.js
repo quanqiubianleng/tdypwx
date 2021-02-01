@@ -319,14 +319,29 @@ Page({
             WxParse.wxParse('waywork', 'html', v.data.data.waywork, that);
             WxParse.wxParse('aboutus', 'html', v.data.data.aboutus, that);
             WxParse.wxParse('rest', 'html', v.data.data.rest, that);
+            if(typeof(v.data.data.rotation)=="undefined" || v.data.data.rotation=='' || v.data.data.rotation==null){
+              console.log(v.data.data.headimg)
+              var img = []
+              img.push(v.data.data.headimg)
+            }else{
+              var img = JSON.parse(v.data.data.rotation)
+              console.log(img)
+              img = img.map(function(c){
+                c = app.globalData.imgUrl +c
+                return c
+              })
+              console.log(img)
+            }
             that.setData({
               list:v.data.data,
+              imgs: img,
               // nopenid:v.data.openid,
               keep:keep,
               apply_status: v.data.data.apply_status,
               all_status: v.data.data.all_status,
               shopid:v.data.data.shopid
             })
+            console.log(that.data.imgs)
           }
          
         })

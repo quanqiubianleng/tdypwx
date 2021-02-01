@@ -16,7 +16,7 @@ page{
   height: 116rpx;
   border-bottom: 1rpx solid #eee;
   box-sizing: border-box;
-  padding: 0 32rpx;
+  padding: 0 20rpx;
 }
 .msgGroup .msgItem:last-child{
   border: none
@@ -128,4 +128,7 @@ page{
   color: white;
   z-index: 99;
   border-radius: 24rpx;
+}
+.line-h-38{
+  line-height: 38rpx;
 }

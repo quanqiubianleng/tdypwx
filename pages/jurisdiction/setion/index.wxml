@@ -1,18 +1,47 @@
-<!--pages/jurisdiction/index/index.wxml-->
+<!--pages/jurisdiction/setion/index.wxml-->
 <view class="msgGroup">
   <view class="msgItem">
-
-    <view class="msgItems" wx:for="{{list}}" wx:for-item="lists" wx:key="indexx" data-item="{{lists}}" bindtap="advice">
-      <view class="inBoxs">
+    <view class="padding-sm" wx:for="{{user}}" wx:for-item="lists" wx:key="indexx" data-item="{{lists}}" bindtap="userDetail">
+      <!-- 成员信息 -->
+      <view class="flex">
+        <view class="flex-sub">
+          <image wx:if="{{lists.headimgurl}}" style="width: 68rpx;height: 68rpx;" src="{{lists.headimgurl}}" />
+          <image wx:else style="width: 68rpx;height: 68rpx;" src="../../../icons/ic_male_avatar.png" />
+        </view>
+        <view class="flex-seven text-title">
+          <view class="line-h-38 text-df">{{lists.username}}</view>
+          <view class="line-h-38 text-xs">{{lists.remark}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="padding-lr-sm" wx:for="{{list}}" wx:for-item="lists" wx:key="indexx" data-item="{{lists}}" bindtap="enterGroup">
+      <!-- <view class="inBoxs">
         <view wx:if="{{msg_list[key].array[indexx].msg_count >0}}" class="badge">{{msg_list[key].array[indexx].msg_count}}</view>
         <image class="mainIcons" src="http://tdyp1.tiandainfo.com/static/images/avatar/2.png" />
         <view class="iconOpens">{{lists.create_time}}</view>
         <view class="username">{{lists.title}}</view>
         <text class="lastmg">{{lists.create_time}}</text>
+      </view> -->
+      <!-- 组织 -->
+      <view class="flex">
+        <view class="flex-sub">
+          <image style="width: 68rpx;height: 68rpx;" src="../../../icons/folder.png" />
+        </view>
+        <view class="flex-seven text-lg text-bold text-title">
+          {{lists.name}}
+        </view>
       </view>
     </view>
-
   </view>
 </view>
 
-<van-button type="primary" block style="position: fixed;bottom: 0;width: 100%;" bind:click="addGroup">创建群聊</van-button>
+<view style="position: fixed;bottom: 20rpx;width: 100%;">
+  <view class="flex justify-between padding-lr-sm">
+    <!-- <van-button type="primary" bind:click="addGroup">创建群聊</van-button>
+    <van-button type="primary" bind:click="addGroup">创建群聊</van-button> -->
+
+    <!-- <button class="flex-sub bg-red margin-right-sm">添加群聊</button> -->
+    <button class="flex-sub bg-blue" bindtap="addOrg">添加分组</button>
+  </view>
+</view>
+

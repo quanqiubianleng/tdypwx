@@ -1,0 +1,100 @@
+<!--pages/jurisdiction/setion/detail.wxml-->
+<view class="bg-white margin-top-sm flex padding">
+  <view class="flex-twice">姓名</view>
+  <view class="flex-six">徐翔</view>
+  <view class="flex-sub text-right">
+    <van-icon  name="arrow" />
+  </view>
+</view>
+<view class="bg-white solid-top flex padding">
+  <view class="flex-twice">手机</view>
+  <view class="flex-six">17688898227</view>
+  <view class="flex-sub text-right"></view>
+</view>
+<view class="bg-white solid-top flex padding">
+  <view class="flex-twice">性别</view>
+  <view class="flex-six">男</view>
+  <view class="flex-sub text-right">
+  </view>
+</view>
+
+<view class="bg-white margin-top-sm flex padding">
+  <view class="flex-twice">职务</view>
+  <view class="flex-six">县级总经理</view>
+  <view class="flex-sub text-right"></view>
+</view>
+
+<view class="bg-white margin-top-sm flex padding">
+  <view class="flex-twice">部门</view>
+  <view class="flex-six">
+    <text class="block">龙里县渠道运营商</text>
+    <text class="block text-sm text-gray">贵州省渠道事业部/黔南州渠道运营商事业部/龙里县渠道运营商</text>
+    <text class="block text-blue text-df margin-top-lg" bindtap="showRolePopup">设置部门</text>
+  </view>
+  <view class="flex-twice text-right text-gray">主部门</view>
+</view>
+
+<view class="bg-white margin-top-sm flex padding" bindtap="showPopup">
+  <view class="flex-twice">身份</view>
+  <view class="flex-six">上级</view>
+  <view class="flex-sub text-right">
+    <van-icon  name="arrow" />
+  </view>
+</view>
+
+<view class="bg-white solid-top flex padding">
+  <view class="flex-twice">负责部门</view>
+  <view class="flex-six">
+    <text class="block">龙里县渠道运营商</text>
+    <text class="block text-sm text-gray">贵州省渠道事业部/黔南州渠道运营商事业部/龙里县渠道运营商</text>
+  </view>
+  <view class="flex-sub text-right"></view>
+</view>
+
+<van-popup show="{{ show }}" closeable position="bottom" bind:close="onClose" custom-style="height: 40%;">内容</van-popup>
+
+<van-popup show="{{ roleShow }}" closeable position="bottom" bind:close="onRoleClose" custom-style="height: 80%;">
+  <view class="text-center margin-top-lg">请选择</view>
+  <view class=" ">
+    <checkbox-group bindchange="checkboxChange">
+      <block wx:for="{{items}}" wx:key="{{item.value}}" wx:for-index="index">
+        <view class=" padding-sm solid-bottom flex justify-between" bindtap="clickName" data-index="{{index}}" data-level="{{1}}" data-pid="{{-1}}">
+          <view>
+            <view class="inline-block">
+              <checkbox value="{{item.id}}" checked="{{item.checked}}" />
+            </view>
+            <view class="inline-block">{{item.name}}</view>
+          </view>
+          <block wx:if="{{item.sub.length}}">
+              <van-icon name="arrow"/>
+          </block>
+        </view>
+        <!-- 子集 -->
+        <block wx:if="{{item.sub.length && item.show}}" wx:for="{{item.sub}}" wx:for-item="i" wx:for-index="d">
+          <view class=" padding-sm solid-bottom flex justify-between" bindtap="clickName" data-index="{{d}}" data-level="{{2}}" data-pid="{{index}}">
+            <view class="padding-left-xl" >
+              <view class="inline-block">
+                <checkbox value="{{i.id}}" checked="{{i.checked}}" />
+              </view>
+              <view class="inline-block">{{i.name}}</view>
+            </view>
+            <block wx:if="{{i.sub.length}}">
+              <van-icon name="{item.show ? arrow-down : arrow}"/>
+            </block>
+          </view>
+
+          <!-- 孙子集 -->
+          <view wx:if="{{i.sub.length && i.show}}" wx:for="{{i.sub}}" wx:for-item="isub" class="block padding-sm padding-left-xxl solid-bottom" >
+            <view class="inline-block">
+              <checkbox value="{{isub.id}}" checked="{{isub.checked}}" />
+            </view>
+            <view class="inline-block">{{isub.name}}</view>
+          </view>
+        </block>
+        
+        
+      </block>
+      
+    </checkbox-group>
+  </view>
+</van-popup>

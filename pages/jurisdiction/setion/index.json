@@ -6,9 +6,7 @@
     "van-col":"../../../dist/col/index",
     "van-tag": "../../../dist/tag/index",
     "van-button": "../../../dist/button/index"
-
   },
-  "navigationBarTitleText": "部门消息",
   "backgroundColor": "#f8f9fa",
   "backgroundTextStyle": "dark",
   "enablePullDownRefresh": true
