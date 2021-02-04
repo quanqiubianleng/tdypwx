@@ -18,8 +18,77 @@ Page({
       {value: 'FRA', name: '法国'}
     ],
     values: [],// 添加权限时所选择的ID
+    chooseName: '',// 已选择名称
+    chooseIds: '',// 已选择ID
+    parent: [
+      '普通成员',
+      '上级'
+    ],
+    parent_id: 0, 
   },
 
+  // 执行部门选择确认
+  btnRoleYes(){
+    console.log(this.data.chooseIds)
+    let arr = {
+      group_id: this.data.chooseIds,
+    };
+    let rendata = app.requestfun(arr, '/Api/org/setGroupUser',false); 
+    let that = this   
+    rendata.then((v) => {
+      console.log(v)
+      app.msg(v.data.message);
+      if(v.data.status){
+        setTimeout(function(){
+          that.onRoleClose()
+        },1500)
+      }
+    })
+  },
+
+  // 选择上级
+  parentClick(index){
+    console.log(index)
+    this.setData({
+      parent_id: index.currentTarget.dataset.index,
+      show: false,
+    })
+  },
+
+  // 获取已选择逻辑
+  getChoosedName() {
+    let arr = []
+    let ids = []
+    this.data.items.map(function(item){
+      if ('sub' in item) {
+        item.sub.map(function(i){
+          if ('sub' in i) {
+            i.sub.map(function(v){
+              if(v.checked){
+                arr.unshift(v.name)
+                ids.unshift(v.id)
+              }
+            })
+          }
+          if(i.checked){
+            arr.unshift(i.name)
+            ids.unshift(i.id)
+          }
+        })
+      }
+      if(item.checked){
+        arr.unshift(item.name)
+        ids.unshift(item.id)
+      }
+    })
+
+    this.setData({
+      chooseName: arr.toString(),
+      chooseIds: ids.toString()
+    })
+  },
+  
+  // 勾选触发方法
   checkboxChange(e) {
     console.log('checkbox发生change事件，携带value值为：', e.detail.value)
 
@@ -63,7 +132,7 @@ Page({
       items,
       values
     })
-    
+    this.getChoosedName()
   },
 
   // 点击分组名字
@@ -114,7 +183,9 @@ Page({
     rendata.then((v) => {
       if(v.data.status){
         that.setData({
-          items: v.data.data,
+          items: v.data.data.list,
+          values: v.data.data.group,
+          chooseIds: v.data.data.group.toString()
         })
       }
     })

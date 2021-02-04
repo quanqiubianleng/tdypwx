@@ -115,7 +115,7 @@ Page({
   userDetail(e){
     console.log(e)
     wx.navigateTo({
-      url: '/pages/jurisdiction/setion/means?uid='+e.currentTarget.dataset.item.id,
+      url: '/pages/jurisdiction/setion/means?uid='+e.currentTarget.dataset.item.uid,
     })
   },
 

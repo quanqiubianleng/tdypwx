@@ -5,8 +5,9 @@
       <image style="width: 120rpx;height: 120rpx;" src="../../../icons/add.png"></image>
     </view>
     <view class="flex-four padding-top-sm">
-      <text class="block text-lg">徐想</text>
-      <text class="block text-df padding-top-xs text-gray">普通成员</text>
+      <text class="block text-lg">{{user_data.name}}</text>
+      <text wx:if="{{user_data.parent == 0}}" class="block text-df padding-top-xs text-gray">普通成员</text>
+      <text wx:else class="block text-df padding-top-xs text-gray">上级</text>
     </view>
   </view> 
 
@@ -15,7 +16,7 @@
       部门
     </view>
     <view class="flex-four">
-      <text class="block text-df">辅导辅导</text>
+      <text class="block text-df">{{user_data.user_member.name}}</text>
       <text class="block text-sm padding-top-xs text-gray">贵州天大高科信息技术有限公司</text>
     </view>
     <view class="flex-sub padding-top-sm text-right">

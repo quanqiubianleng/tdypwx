@@ -244,6 +244,17 @@ Page({
     }
     app.sendSocketMessage(f_msg);
   },
+  // 新用户浏览后提醒客服
+  kefuTipsLook:function(data){
+    var f_msg = {
+      type: 'firstlook',
+      f_id: 'user_' + app.globalData.userInfo.id,
+      j_id: 0,
+      msg_type: 'admin_kefu',
+      content: app.globalData.userInfo.mobile,
+    }
+    app.sendSocketMessage(f_msg);
+  },
   bubao:function(e){
     this.setData({
       show1:false
@@ -301,14 +312,14 @@ Page({
         }
         let rendata = app.requestfun(data, '/Api/job/detail',false);    
         rendata.then((v) => {
-          if(v.data.status==1&&v.data.data){
-            let keep= 0;
-            if(v.data.data.collect_status==1){
-              keep=v.data.data.collect_status;
+          if(v.data.status == 1 && v.data.data){
+            let keep = 0;
+            if(v.data.data.collect_status == 1){
+              keep = v.data.data.collect_status;
             }else{
-              keep=0;
+              keep = 0;
             }
-           WxParse.wxParse('emolumentinfo', 'html', v.data.data.emolumentinfo, that);
+            WxParse.wxParse('emolumentinfo', 'html', v.data.data.emolumentinfo, that);
             WxParse.wxParse('meals', 'html', v.data.data.meals, that);
             WxParse.wxParse('putup', 'html', v.data.data.putup, that);
             WxParse.wxParse('nodescription', 'html', v.data.data.nodescription, that);
@@ -332,6 +343,11 @@ Page({
               })
               console.log(img)
             }
+            // 第一次浏览发送消息给后台
+            if(v.data.chu == 1){
+              that.kefuTipsLook()
+            }
+            
             that.setData({
               list:v.data.data,
               imgs: img,

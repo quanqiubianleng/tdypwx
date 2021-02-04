@@ -36,7 +36,7 @@
 
 <view class="bg-white margin-top-sm flex padding" bindtap="showPopup">
   <view class="flex-twice">身份</view>
-  <view class="flex-six">上级</view>
+  <view class="flex-six">{{parent[parent_id]}}</view>
   <view class="flex-sub text-right">
     <van-icon  name="arrow" />
   </view>
@@ -50,9 +50,19 @@
   </view>
   <view class="flex-sub text-right"></view>
 </view>
+<!-- 上级选择 -->
+<van-popup show="{{ show }}" closeable position="bottom" bind:close="onClose" custom-style="height: 40%;">
+  <view class="text-center margin-top-lg">
+    请选择
+  </view>
+  <view class="margin-top-lg">
+    <view class="padding-sm text-center {{fc == parent_id ? 'bg-grey' : ''}}" wx:for="{{parent}}" wx:for-index="fc" bindtap="parentClick" data-index="{{fc}}">
+      {{item}}
+    </view>
+  </view>
+</van-popup>
 
-<van-popup show="{{ show }}" closeable position="bottom" bind:close="onClose" custom-style="height: 40%;">内容</van-popup>
-
+<!-- 设置组织 -->
 <van-popup show="{{ roleShow }}" closeable position="bottom" bind:close="onRoleClose" custom-style="height: 80%;">
   <view class="text-center margin-top-lg">请选择</view>
   <view class=" ">
@@ -66,7 +76,7 @@
             <view class="inline-block">{{item.name}}</view>
           </view>
           <block wx:if="{{item.sub.length}}">
-              <van-icon name="arrow"/>
+              <van-icon name="{{item.show ? 'arrow-down' : 'arrow'}}"/>
           </block>
         </view>
         <!-- 子集 -->
@@ -79,7 +89,7 @@
               <view class="inline-block">{{i.name}}</view>
             </view>
             <block wx:if="{{i.sub.length}}">
-              <van-icon name="{item.show ? arrow-down : arrow}"/>
+              <van-icon name="{{i.show ? 'arrow-down' : 'arrow'}}"/>
             </block>
           </view>
 
@@ -91,10 +101,14 @@
             <view class="inline-block">{{isub.name}}</view>
           </view>
         </block>
-        
-        
       </block>
-      
     </checkbox-group>
+  </view>
+
+  <view class="flex justify-between padding-sm bg-grey yes-role" >
+    <view class="basis-xl text-df" style="overflow: hidden;white-space: normal;text-overflow: ellipsis;height: 60rpx;">
+      已选择：{{chooseName}}
+    </view>
+    <van-button class="basis-xs text-right" type="primary" size="small" bindtap="btnRoleYes">确认</van-button>
   </view>
 </van-popup>

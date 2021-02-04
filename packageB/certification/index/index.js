@@ -148,7 +148,7 @@ Page({
         })
       
       }else{
-        app.msg("网络连接失败，请稍后重试!")
+        app.msg(v.data.message)
         return;
       }
     })

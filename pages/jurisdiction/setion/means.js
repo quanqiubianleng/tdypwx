@@ -1,4 +1,5 @@
 // pages/jurisdiction/setion/means.js
+const app = getApp()
 Page({
 
   /**
@@ -15,13 +16,31 @@ Page({
     })
   },
 
+  // 获取会员详情
+  init(){
+    let that = this  
+    let arr = {
+      uid: that.data.uid,
+    };
+    let rendata = app.requestfun(arr, '/Api/org/userDetail',false); 
+    rendata.then((v) => {
+      if(v.data.status){
+        that.setData({
+          user_data: v.data.data
+        })
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options.uid)
     this.setData({
       uid: options.uid
     })
+    this.init()
   },
 
   /**
